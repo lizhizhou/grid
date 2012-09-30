@@ -18,7 +18,7 @@
 #
 # Quartus II 32-bit
 # Version 11.1 Build 259 01/25/2012 Service Pack 2 SJ Full Version
-# Date created = 18:59:38  July 22, 2012
+# Date created = 19:22:30  July 21, 2012
 #
 # -------------------------------------------------------------------------- #
 #
@@ -42,11 +42,7 @@
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "10.0 SP1"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "00:00:01  FEB 01, 2012"
 set_global_assignment -name LAST_QUARTUS_VERSION 12.0
-set_global_assignment -name PROJECT_OUTPUT_DIRECTORY .\\output
-set_global_assignment -name QIP_FILE frontier/synthesis/frontier.qip
-set_global_assignment -name BDF_FILE grid.bdf
-set_global_assignment -name SDC_FILE grid.sdc
-set_global_assignment -name CDF_FILE grid.cdf
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output
 
 # Pin & Location Assignments
 # ==========================
@@ -447,11 +443,6 @@ set_instance_assignment -name IO_STANDARD "1.8 V" -to LCD_DEN
 set_global_assignment -name GENERATE_RBF_FILE ON
 set_global_assignment -name STRATIX_JTAG_USER_CODE EA68B010
 
-# SignalTap II Assignments
-# ========================
-set_global_assignment -name ENABLE_SIGNALTAP OFF
-set_global_assignment -name USE_SIGNALTAP_FILE stp_root/test_bus.stp
-
 # Power Estimation Assignments
 # ============================
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
@@ -527,15 +518,6 @@ set_global_assignment -name OUTPUT_IO_TIMING_ENDPOINT "NEAR END"
 
 # end ENTITY(altera_merlin_traffic_limiter)
 # -----------------------------------------
-
-# -------------------------------------
-# start ENTITY(altera_reset_controller)
-
-	# Project-Wide Assignments
-	# ========================
-
-# end ENTITY(altera_reset_controller)
-# -----------------------------------
 
 # ----------------------
 # start ENTITY(frontier)
@@ -628,4 +610,17 @@ set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 
 # end ENTITY(grid)
 # ----------------
+set_global_assignment -name ENABLE_SIGNALTAP OFF
+set_global_assignment -name USE_SIGNALTAP_FILE stp_root/test_bus.stp
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name VERILOG_FILE qsys_root/step_motor_driver.v
+set_global_assignment -name VERILOG_FILE qsys_root/brush_motor_driver.v
+set_global_assignment -name VERILOG_FILE motorcontrl.v
+set_global_assignment -name QIP_FILE frontier/synthesis/frontier.qip
+set_global_assignment -name BDF_FILE grid.bdf
+set_global_assignment -name SDC_FILE grid.sdc
+set_global_assignment -name CDF_FILE grid.cdf
+set_global_assignment -name SEARCH_PATH frontier/synthesis/ -tag from_archive
+set_global_assignment -name SEARCH_PATH frontier/synthesis/submodules/ -tag from_archive
+set_global_assignment -name SEARCH_PATH qsys_root/ -tag from_archive
+set_global_assignment -name SEARCH_PATH stp_root/ -tag from_archive

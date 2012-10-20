@@ -12,6 +12,14 @@
    element $${FILENAME}
    {
    }
+   element AM2301_0
+   {
+      datum _sortIndex
+      {
+         value = "13";
+         type = "int";
+      }
+   }
    element Brush_motor_driver_0
    {
       datum _sortIndex
@@ -130,66 +138,6 @@
          type = "boolean";
       }
    }
-   element Step_motor_driver_0.ctrl
-   {
-      datum baseAddress
-      {
-         value = "268435776";
-         type = "long";
-      }
-   }
-   element Brush_motor_driver_0.ctrl
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "268435744";
-         type = "long";
-      }
-   }
-   element basic_FuncLED_3.ctrl
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "268435724";
-         type = "long";
-      }
-   }
-   element basic_FuncLED_2.ctrl
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "268435720";
-         type = "long";
-      }
-   }
-   element basic_FuncLED_1.ctrl
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "268435716";
-         type = "long";
-      }
-   }
    element basic_ShieldCtrl.ctrl
    {
       datum _lockedAddress
@@ -208,6 +156,19 @@
          type = "long";
       }
    }
+   element AM2301_0.ctrl
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "16777312";
+         type = "long";
+      }
+   }
    element basic_FuncLED_0.ctrl
    {
       datum _lockedAddress
@@ -218,6 +179,71 @@
       datum baseAddress
       {
          value = "268435712";
+         type = "long";
+      }
+   }
+   element Step_motor_driver_0.ctrl
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "268435776";
+         type = "long";
+      }
+   }
+   element basic_FuncLED_2.ctrl
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "268435720";
+         type = "long";
+      }
+   }
+   element basic_FuncLED_3.ctrl
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "268435724";
+         type = "long";
+      }
+   }
+   element basic_FuncLED_1.ctrl
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "268435716";
+         type = "long";
+      }
+   }
+   element Brush_motor_driver_0.ctrl
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "268435744";
          type = "long";
       }
    }
@@ -312,7 +338,7 @@
  <parameter name="projectName" value="grid.qpf" />
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1349019674479" />
+ <parameter name="timeStamp" value="1350729426015" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="m0" internal="HPS_tabby.EXPORT" type="conduit" dir="end" />
@@ -354,6 +380,7 @@
    internal="Step_motor_driver_0.step_motor_interface"
    type="conduit"
    dir="end" />
+ <interface name="am2301" internal="AM2301_0.AM2301" type="conduit" dir="end" />
  <module kind="hps_tabby" version="1.1" enabled="1" name="HPS_tabby" />
  <module kind="basic_SysID" version="1.0" enabled="1" name="basic_SysID">
   <parameter name="AUTO_MCLK_CLOCK_RATE" value="133333333" />
@@ -401,7 +428,86 @@
    kind="Step_motor_driver"
    version="1.0"
    enabled="1"
-   name="Step_motor_driver_0" />
+   name="Step_motor_driver_0">
+  <parameter name="AUTO_MCLK_CLOCK_RATE" value="133333333" />
+  <parameter name="AUTO_PWMCLK_CLOCK_RATE" value="200000000" />
+ </module>
+ <module kind="AM2301" version="1.0" enabled="1" name="AM2301_0">
+  <parameter name="high_width" value="20" />
+  <parameter name="start_width" value="1000" />
+  <parameter name="start" value="0" />
+  <parameter name="start_read" value="1" />
+  <parameter name="start_end" value="2" />
+  <parameter name="start_low" value="3" />
+  <parameter name="start_high" value="4" />
+  <parameter name="bit_1_low" value="5" />
+  <parameter name="bit_1_high" value="6" />
+  <parameter name="bit_2_low" value="7" />
+  <parameter name="bit_2_high" value="8" />
+  <parameter name="bit_3_low" value="9" />
+  <parameter name="bit_3_high" value="10" />
+  <parameter name="bit_4_low" value="11" />
+  <parameter name="bit_4_high" value="12" />
+  <parameter name="bit_5_low" value="13" />
+  <parameter name="bit_5_high" value="14" />
+  <parameter name="bit_6_low" value="15" />
+  <parameter name="bit_6_high" value="16" />
+  <parameter name="bit_7_low" value="17" />
+  <parameter name="bit_7_high" value="18" />
+  <parameter name="bit_8_low" value="19" />
+  <parameter name="bit_8_high" value="20" />
+  <parameter name="bit_9_low" value="21" />
+  <parameter name="bit_9_high" value="22" />
+  <parameter name="bit_10_low" value="23" />
+  <parameter name="bit_10_high" value="24" />
+  <parameter name="bit_11_low" value="25" />
+  <parameter name="bit_11_high" value="26" />
+  <parameter name="bit_12_low" value="27" />
+  <parameter name="bit_12_high" value="28" />
+  <parameter name="bit_13_low" value="29" />
+  <parameter name="bit_13_high" value="30" />
+  <parameter name="bit_14_low" value="31" />
+  <parameter name="bit_14_high" value="32" />
+  <parameter name="bit_15_low" value="33" />
+  <parameter name="bit_15_high" value="34" />
+  <parameter name="bit_16_low" value="35" />
+  <parameter name="bit_16_high" value="36" />
+  <parameter name="bit_17_low" value="37" />
+  <parameter name="bit_17_high" value="38" />
+  <parameter name="bit_18_low" value="39" />
+  <parameter name="bit_18_high" value="40" />
+  <parameter name="bit_19_low" value="41" />
+  <parameter name="bit_19_high" value="42" />
+  <parameter name="bit_20_low" value="43" />
+  <parameter name="bit_20_high" value="44" />
+  <parameter name="bit_21_low" value="45" />
+  <parameter name="bit_21_high" value="46" />
+  <parameter name="bit_22_low" value="47" />
+  <parameter name="bit_22_high" value="48" />
+  <parameter name="bit_23_low" value="49" />
+  <parameter name="bit_23_high" value="50" />
+  <parameter name="bit_24_low" value="51" />
+  <parameter name="bit_24_high" value="52" />
+  <parameter name="bit_25_low" value="53" />
+  <parameter name="bit_25_high" value="54" />
+  <parameter name="bit_26_low" value="55" />
+  <parameter name="bit_26_high" value="56" />
+  <parameter name="bit_27_low" value="57" />
+  <parameter name="bit_27_high" value="58" />
+  <parameter name="bit_28_low" value="59" />
+  <parameter name="bit_28_high" value="60" />
+  <parameter name="bit_29_low" value="61" />
+  <parameter name="bit_29_high" value="62" />
+  <parameter name="bit_30_low" value="63" />
+  <parameter name="bit_30_high" value="64" />
+  <parameter name="bit_31_low" value="65" />
+  <parameter name="bit_31_high" value="66" />
+  <parameter name="bit_32_low" value="67" />
+  <parameter name="bit_32_high" value="68" />
+  <parameter name="ready" value="90" />
+  <parameter name="time_2s" value="2000000" />
+  <parameter name="AUTO_MCLK_CLOCK_RATE" value="133333333" />
+ </module>
  <connection
    kind="reset"
    version="12.0"
@@ -671,4 +777,18 @@
    version="12.0"
    start="HPS_tabby.H2CLK"
    end="Step_motor_driver_0.PWMCLK" />
+ <connection
+   kind="reset"
+   version="12.0"
+   start="HPS_tabby.MRST"
+   end="AM2301_0.MRST" />
+ <connection
+   kind="clock"
+   version="12.0"
+   start="HPS_tabby.MCLK"
+   end="AM2301_0.MCLK" />
+ <connection kind="avalon" version="12.0" start="HPS_tabby.M1" end="AM2301_0.ctrl">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x01000060" />
+ </connection>
 </system>

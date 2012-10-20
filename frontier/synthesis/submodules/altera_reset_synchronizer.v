@@ -11,10 +11,10 @@
 // agreement for further details.
 
 
-// $Id: //acds/rel/12.0sp2/ip/merlin/altera_reset_controller/altera_reset_synchronizer.v#1 $
+// $Id: //acds/rel/11.1sp2/ip/merlin/altera_reset_controller/altera_reset_synchronizer.v#1 $
 // $Revision: #1 $
-// $Date: 2012/06/21 $
-// $Author: swbranch $
+// $Date: 2011/11/10 $
+// $Author: max $
 
 // -----------------------------------------------
 // Reset Synchronizer

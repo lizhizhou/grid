@@ -41,7 +41,7 @@
 # ========================
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "10.0 SP1"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "00:00:01  FEB 01, 2012"
-set_global_assignment -name LAST_QUARTUS_VERSION 12.0
+set_global_assignment -name LAST_QUARTUS_VERSION "11.1 SP2"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output
 
 # Pin & Location Assignments
@@ -623,4 +623,5 @@ set_global_assignment -name SEARCH_PATH frontier/synthesis/ -tag from_archive
 set_global_assignment -name SEARCH_PATH frontier/synthesis/submodules/ -tag from_archive
 set_global_assignment -name SEARCH_PATH qsys_root/ -tag from_archive
 set_global_assignment -name SEARCH_PATH stp_root/ -tag from_archive
+set_global_assignment -name VERILOG_FILE grid.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

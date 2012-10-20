@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="frontier" kind="frontier" version="1.0" fabric="QSYS">
- <!-- Format version 12.0sp2 263 (Future versions may contain additional information.) -->
- <!-- 2012.10.20.18:43:28 -->
+ <!-- Format version 11.1sp2 259 (Future versions may contain additional information.) -->
+ <!-- 2012.10.20.20:24:32 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1350729803</value>
+  <value>1350735867</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -21,7 +21,7 @@
  </parameter>
  <parameter name="AUTO_DEVICE_FAMILY">
   <type>java.lang.String</type>
-  <value>CYCLONEIVE</value>
+  <value>Cyclone IV E</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -62,7 +62,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="MRST" kind="reset_source" version="12.0">
+  <interface name="MRST" kind="reset_source" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -123,7 +123,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="MCLK" kind="clock_source" version="12.0">
+  <interface name="MCLK" kind="clock_source" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -253,24 +253,18 @@ parameters are a RESULT of the module parameters. -->
    </clockDomainMember>
    <clockDomainMember>
     <isBridge>false</isBridge>
-    <moduleName>Brush_motor_driver_0</moduleName>
-    <slaveName>MCLK</slaveName>
-    <name>Brush_motor_driver_0.MCLK</name>
-   </clockDomainMember>
-   <clockDomainMember>
-    <isBridge>false</isBridge>
-    <moduleName>Step_motor_driver_0</moduleName>
-    <slaveName>MCLK</slaveName>
-    <name>Step_motor_driver_0.MCLK</name>
-   </clockDomainMember>
-   <clockDomainMember>
-    <isBridge>false</isBridge>
     <moduleName>AM2301_0</moduleName>
     <slaveName>MCLK</slaveName>
     <name>AM2301_0.MCLK</name>
    </clockDomainMember>
+   <clockDomainMember>
+    <isBridge>false</isBridge>
+    <moduleName>step_motor_driver_0</moduleName>
+    <slaveName>MCLK</slaveName>
+    <name>step_motor_driver_0.MCLK</name>
+   </clockDomainMember>
   </interface>
-  <interface name="H1CLK" kind="clock_source" version="12.0">
+  <interface name="H1CLK" kind="clock_source" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -339,7 +333,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="H2CLK" kind="clock_source" version="12.0">
+  <interface name="H2CLK" kind="clock_source" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -415,12 +409,12 @@ parameters are a RESULT of the module parameters. -->
    </clockDomainMember>
    <clockDomainMember>
     <isBridge>false</isBridge>
-    <moduleName>Step_motor_driver_0</moduleName>
+    <moduleName>step_motor_driver_0</moduleName>
     <slaveName>PWMCLK</slaveName>
-    <name>Step_motor_driver_0.PWMCLK</name>
+    <name>step_motor_driver_0.PWMCLK</name>
    </clockDomainMember>
   </interface>
-  <interface name="M1" kind="avalon_master" version="12.0">
+  <interface name="M1" kind="avalon_master" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -802,30 +796,22 @@ parameters are a RESULT of the module parameters. -->
    </memoryBlock>
    <memoryBlock>
     <isBridge>false</isBridge>
-    <moduleName>Brush_motor_driver_0</moduleName>
-    <slaveName>ctrl</slaveName>
-    <name>Brush_motor_driver_0.ctrl</name>
-    <baseAddress>268435744</baseAddress>
-    <span>32</span>
-   </memoryBlock>
-   <memoryBlock>
-    <isBridge>false</isBridge>
-    <moduleName>Step_motor_driver_0</moduleName>
-    <slaveName>ctrl</slaveName>
-    <name>Step_motor_driver_0.ctrl</name>
-    <baseAddress>268435776</baseAddress>
-    <span>32</span>
-   </memoryBlock>
-   <memoryBlock>
-    <isBridge>false</isBridge>
     <moduleName>AM2301_0</moduleName>
     <slaveName>ctrl</slaveName>
     <name>AM2301_0.ctrl</name>
-    <baseAddress>16777312</baseAddress>
+    <baseAddress>16777472</baseAddress>
+    <span>32</span>
+   </memoryBlock>
+   <memoryBlock>
+    <isBridge>false</isBridge>
+    <moduleName>step_motor_driver_0</moduleName>
+    <slaveName>ctrl</slaveName>
+    <name>step_motor_driver_0.ctrl</name>
+    <baseAddress>16777344</baseAddress>
     <span>32</span>
    </memoryBlock>
   </interface>
-  <interface name="EVENTS" kind="interrupt_receiver" version="12.0">
+  <interface name="EVENTS" kind="interrupt_receiver" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -907,26 +893,10 @@ parameters are a RESULT of the module parameters. -->
     <interruptNumber>2</interruptNumber>
    </interrupt>
   </interface>
-  <interface name="EXPORT" kind="conduit_end" version="12.0">
+  <interface name="EXPORT" kind="conduit_end" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
-   <parameter name="associatedClock">
-    <type>java.lang.String</type>
-    <value></value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="associatedReset">
-    <type>java.lang.String</type>
-    <value></value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
    <parameter name="deviceFamily">
     <type>java.lang.String</type>
     <value>UNKNOWN</value>
@@ -1038,7 +1008,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="MRST" kind="reset_sink" version="12.0">
+  <interface name="MRST" kind="reset_sink" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -1083,7 +1053,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="MCLK" kind="clock_sink" version="12.0">
+  <interface name="MCLK" kind="clock_sink" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -1144,7 +1114,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="SysID" kind="avalon_slave" version="12.0">
+  <interface name="SysID" kind="avalon_slave" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -1519,7 +1489,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="MRST" kind="reset_sink" version="12.0">
+  <interface name="MRST" kind="reset_sink" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -1564,7 +1534,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="MCLK" kind="clock_sink" version="12.0">
+  <interface name="MCLK" kind="clock_sink" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -1625,7 +1595,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="ctrl" kind="avalon_slave" version="12.0">
+  <interface name="ctrl" kind="avalon_slave" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -1980,7 +1950,7 @@ parameters are a RESULT of the module parameters. -->
     <role>waitrequest</role>
    </port>
   </interface>
-  <interface name="ledf" kind="avalon_streaming_sink" version="12.0">
+  <interface name="ledf" kind="avalon_streaming_sink" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -2111,26 +2081,10 @@ parameters are a RESULT of the module parameters. -->
     <role>valid</role>
    </port>
   </interface>
-  <interface name="EXPORT" kind="conduit_end" version="12.0">
+  <interface name="EXPORT" kind="conduit_end" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
-   <parameter name="associatedClock">
-    <type>java.lang.String</type>
-    <value></value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="associatedReset">
-    <type>java.lang.String</type>
-    <value></value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
    <parameter name="deviceFamily">
     <type>java.lang.String</type>
     <value>UNKNOWN</value>
@@ -2200,7 +2154,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="MRST" kind="reset_sink" version="12.0">
+  <interface name="MRST" kind="reset_sink" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -2245,7 +2199,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="MCLK" kind="clock_sink" version="12.0">
+  <interface name="MCLK" kind="clock_sink" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -2306,7 +2260,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="ctrl" kind="avalon_slave" version="12.0">
+  <interface name="ctrl" kind="avalon_slave" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -2661,7 +2615,7 @@ parameters are a RESULT of the module parameters. -->
     <role>waitrequest</role>
    </port>
   </interface>
-  <interface name="ledf" kind="avalon_streaming_sink" version="12.0">
+  <interface name="ledf" kind="avalon_streaming_sink" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -2792,26 +2746,10 @@ parameters are a RESULT of the module parameters. -->
     <role>valid</role>
    </port>
   </interface>
-  <interface name="EXPORT" kind="conduit_end" version="12.0">
+  <interface name="EXPORT" kind="conduit_end" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
-   <parameter name="associatedClock">
-    <type>java.lang.String</type>
-    <value></value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="associatedReset">
-    <type>java.lang.String</type>
-    <value></value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
    <parameter name="deviceFamily">
     <type>java.lang.String</type>
     <value>UNKNOWN</value>
@@ -2881,7 +2819,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="MRST" kind="reset_sink" version="12.0">
+  <interface name="MRST" kind="reset_sink" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -2926,7 +2864,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="MCLK" kind="clock_sink" version="12.0">
+  <interface name="MCLK" kind="clock_sink" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -2987,7 +2925,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="ctrl" kind="avalon_slave" version="12.0">
+  <interface name="ctrl" kind="avalon_slave" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -3342,7 +3280,7 @@ parameters are a RESULT of the module parameters. -->
     <role>waitrequest</role>
    </port>
   </interface>
-  <interface name="ledf" kind="avalon_streaming_sink" version="12.0">
+  <interface name="ledf" kind="avalon_streaming_sink" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -3473,26 +3411,10 @@ parameters are a RESULT of the module parameters. -->
     <role>valid</role>
    </port>
   </interface>
-  <interface name="EXPORT" kind="conduit_end" version="12.0">
+  <interface name="EXPORT" kind="conduit_end" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
-   <parameter name="associatedClock">
-    <type>java.lang.String</type>
-    <value></value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="associatedReset">
-    <type>java.lang.String</type>
-    <value></value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
    <parameter name="deviceFamily">
     <type>java.lang.String</type>
     <value>UNKNOWN</value>
@@ -3562,7 +3484,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="MRST" kind="reset_sink" version="12.0">
+  <interface name="MRST" kind="reset_sink" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -3607,7 +3529,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="MCLK" kind="clock_sink" version="12.0">
+  <interface name="MCLK" kind="clock_sink" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -3668,7 +3590,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="ctrl" kind="avalon_slave" version="12.0">
+  <interface name="ctrl" kind="avalon_slave" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -4023,7 +3945,7 @@ parameters are a RESULT of the module parameters. -->
     <role>waitrequest</role>
    </port>
   </interface>
-  <interface name="ledf" kind="avalon_streaming_sink" version="12.0">
+  <interface name="ledf" kind="avalon_streaming_sink" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -4154,26 +4076,10 @@ parameters are a RESULT of the module parameters. -->
     <role>valid</role>
    </port>
   </interface>
-  <interface name="EXPORT" kind="conduit_end" version="12.0">
+  <interface name="EXPORT" kind="conduit_end" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
-   <parameter name="associatedClock">
-    <type>java.lang.String</type>
-    <value></value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="associatedReset">
-    <type>java.lang.String</type>
-    <value></value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
    <parameter name="deviceFamily">
     <type>java.lang.String</type>
     <value>UNKNOWN</value>
@@ -4243,7 +4149,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="MRST" kind="reset_sink" version="12.0">
+  <interface name="MRST" kind="reset_sink" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -4288,7 +4194,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="MCLK" kind="clock_sink" version="12.0">
+  <interface name="MCLK" kind="clock_sink" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -4349,7 +4255,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="ctrl" kind="avalon_slave" version="12.0">
+  <interface name="ctrl" kind="avalon_slave" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -4704,7 +4610,7 @@ parameters are a RESULT of the module parameters. -->
     <role>waitrequest</role>
    </port>
   </interface>
-  <interface name="OC" kind="interrupt_sender" version="12.0">
+  <interface name="OC" kind="interrupt_sender" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -4765,26 +4671,10 @@ parameters are a RESULT of the module parameters. -->
     <role>irq</role>
    </port>
   </interface>
-  <interface name="EXPORT" kind="conduit_end" version="12.0">
+  <interface name="EXPORT" kind="conduit_end" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
-   <parameter name="associatedClock">
-    <type>java.lang.String</type>
-    <value></value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="associatedReset">
-    <type>java.lang.String</type>
-    <value></value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
    <parameter name="deviceFamily">
     <type>java.lang.String</type>
     <value>UNKNOWN</value>
@@ -4884,7 +4774,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="MRST" kind="reset_sink" version="12.0">
+  <interface name="MRST" kind="reset_sink" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -4929,7 +4819,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="MCLK" kind="clock_sink" version="12.0">
+  <interface name="MCLK" kind="clock_sink" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -4990,7 +4880,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="fled0" kind="avalon_streaming_source" version="12.0">
+  <interface name="fled0" kind="avalon_streaming_source" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -5121,7 +5011,7 @@ parameters are a RESULT of the module parameters. -->
     <role>valid</role>
    </port>
   </interface>
-  <interface name="fled1" kind="avalon_streaming_source" version="12.0">
+  <interface name="fled1" kind="avalon_streaming_source" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -5252,7 +5142,7 @@ parameters are a RESULT of the module parameters. -->
     <role>valid</role>
    </port>
   </interface>
-  <interface name="fled2" kind="avalon_streaming_source" version="12.0">
+  <interface name="fled2" kind="avalon_streaming_source" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -5383,7 +5273,7 @@ parameters are a RESULT of the module parameters. -->
     <role>valid</role>
    </port>
   </interface>
-  <interface name="fled3" kind="avalon_streaming_source" version="12.0">
+  <interface name="fled3" kind="avalon_streaming_source" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -5546,7 +5436,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="MRST" kind="reset_sink" version="12.0">
+  <interface name="MRST" kind="reset_sink" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -5591,7 +5481,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="MCLK" kind="clock_sink" version="12.0">
+  <interface name="MCLK" kind="clock_sink" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -5652,7 +5542,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="gpio" kind="avalon_slave" version="12.0">
+  <interface name="gpio" kind="avalon_slave" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -6013,7 +5903,7 @@ parameters are a RESULT of the module parameters. -->
     <role>waitrequest</role>
    </port>
   </interface>
-  <interface name="gpint" kind="interrupt_sender" version="12.0">
+  <interface name="gpint" kind="interrupt_sender" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -6074,26 +5964,10 @@ parameters are a RESULT of the module parameters. -->
     <role>irq</role>
    </port>
   </interface>
-  <interface name="EXPORT" kind="conduit_end" version="12.0">
+  <interface name="EXPORT" kind="conduit_end" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
-   <parameter name="associatedClock">
-    <type>java.lang.String</type>
-    <value></value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="associatedReset">
-    <type>java.lang.String</type>
-    <value></value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
    <parameter name="deviceFamily">
     <type>java.lang.String</type>
     <value>UNKNOWN</value>
@@ -6301,7 +6175,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="MRST" kind="reset_sink" version="12.0">
+  <interface name="MRST" kind="reset_sink" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -6346,7 +6220,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="MCLK" kind="clock_sink" version="12.0">
+  <interface name="MCLK" kind="clock_sink" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -6407,7 +6281,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="gpio" kind="avalon_slave" version="12.0">
+  <interface name="gpio" kind="avalon_slave" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -6768,7 +6642,7 @@ parameters are a RESULT of the module parameters. -->
     <role>waitrequest</role>
    </port>
   </interface>
-  <interface name="gpint" kind="interrupt_sender" version="12.0">
+  <interface name="gpint" kind="interrupt_sender" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -6829,26 +6703,10 @@ parameters are a RESULT of the module parameters. -->
     <role>irq</role>
    </port>
   </interface>
-  <interface name="EXPORT" kind="conduit_end" version="12.0">
+  <interface name="EXPORT" kind="conduit_end" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
-   <parameter name="associatedClock">
-    <type>java.lang.String</type>
-    <value></value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="associatedReset">
-    <type>java.lang.String</type>
-    <value></value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
    <parameter name="deviceFamily">
     <type>java.lang.String</type>
     <value>UNKNOWN</value>
@@ -7060,7 +6918,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="MRST" kind="reset_sink" version="12.0">
+  <interface name="MRST" kind="reset_sink" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -7105,7 +6963,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="MCLK" kind="clock_sink" version="12.0">
+  <interface name="MCLK" kind="clock_sink" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -7166,7 +7024,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="pwm" kind="avalon_slave" version="12.0">
+  <interface name="pwm" kind="avalon_slave" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -7527,7 +7385,7 @@ parameters are a RESULT of the module parameters. -->
     <role>waitrequest</role>
    </port>
   </interface>
-  <interface name="PWMRST" kind="reset_sink" version="12.0">
+  <interface name="PWMRST" kind="reset_sink" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -7572,7 +7430,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="PWMCLK" kind="clock_sink" version="12.0">
+  <interface name="PWMCLK" kind="clock_sink" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -7633,7 +7491,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="fm" kind="avalon_streaming_sink" version="12.0">
+  <interface name="fm" kind="avalon_streaming_sink" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -7770,7 +7628,7 @@ parameters are a RESULT of the module parameters. -->
     <role>ready</role>
    </port>
   </interface>
-  <interface name="pm" kind="avalon_streaming_sink" version="12.0">
+  <interface name="pm" kind="avalon_streaming_sink" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -7907,26 +7765,10 @@ parameters are a RESULT of the module parameters. -->
     <role>ready</role>
    </port>
   </interface>
-  <interface name="EXPORT" kind="conduit_end" version="12.0">
+  <interface name="EXPORT" kind="conduit_end" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
-   <parameter name="associatedClock">
-    <type>java.lang.String</type>
-    <value></value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="associatedReset">
-    <type>java.lang.String</type>
-    <value></value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
    <parameter name="deviceFamily">
     <type>java.lang.String</type>
     <value>UNKNOWN</value>
@@ -7953,13 +7795,593 @@ parameters are a RESULT of the module parameters. -->
    </port>
   </interface>
  </module>
- <module
-   name="Brush_motor_driver_0"
-   kind="Brush_motor_driver"
-   version="1.0"
-   path="Brush_motor_driver_0">
+ <module name="AM2301_0" kind="AM2301" version="1.0" path="AM2301_0">
   <!-- Describes a single module. Module parameters are
 the requested settings for a module instance. -->
+  <parameter name="high_width">
+   <type>int</type>
+   <value>20</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="start_width">
+   <type>int</type>
+   <value>1000</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="start">
+   <type>int</type>
+   <value>0</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="start_read">
+   <type>int</type>
+   <value>1</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="start_end">
+   <type>int</type>
+   <value>2</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="start_low">
+   <type>int</type>
+   <value>3</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="start_high">
+   <type>int</type>
+   <value>4</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_1_low">
+   <type>int</type>
+   <value>5</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_1_high">
+   <type>int</type>
+   <value>6</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_2_low">
+   <type>int</type>
+   <value>7</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_2_high">
+   <type>int</type>
+   <value>8</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_3_low">
+   <type>int</type>
+   <value>9</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_3_high">
+   <type>int</type>
+   <value>10</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_4_low">
+   <type>int</type>
+   <value>11</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_4_high">
+   <type>int</type>
+   <value>12</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_5_low">
+   <type>int</type>
+   <value>13</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_5_high">
+   <type>int</type>
+   <value>14</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_6_low">
+   <type>int</type>
+   <value>15</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_6_high">
+   <type>int</type>
+   <value>16</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_7_low">
+   <type>int</type>
+   <value>17</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_7_high">
+   <type>int</type>
+   <value>18</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_8_low">
+   <type>int</type>
+   <value>19</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_8_high">
+   <type>int</type>
+   <value>20</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_9_low">
+   <type>int</type>
+   <value>21</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_9_high">
+   <type>int</type>
+   <value>22</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_10_low">
+   <type>int</type>
+   <value>23</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_10_high">
+   <type>int</type>
+   <value>24</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_11_low">
+   <type>int</type>
+   <value>25</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_11_high">
+   <type>int</type>
+   <value>26</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_12_low">
+   <type>int</type>
+   <value>27</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_12_high">
+   <type>int</type>
+   <value>28</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_13_low">
+   <type>int</type>
+   <value>29</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_13_high">
+   <type>int</type>
+   <value>30</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_14_low">
+   <type>int</type>
+   <value>31</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_14_high">
+   <type>int</type>
+   <value>32</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_15_low">
+   <type>int</type>
+   <value>33</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_15_high">
+   <type>int</type>
+   <value>34</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_16_low">
+   <type>int</type>
+   <value>35</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_16_high">
+   <type>int</type>
+   <value>36</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_17_low">
+   <type>int</type>
+   <value>37</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_17_high">
+   <type>int</type>
+   <value>38</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_18_low">
+   <type>int</type>
+   <value>39</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_18_high">
+   <type>int</type>
+   <value>40</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_19_low">
+   <type>int</type>
+   <value>41</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_19_high">
+   <type>int</type>
+   <value>42</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_20_low">
+   <type>int</type>
+   <value>43</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_20_high">
+   <type>int</type>
+   <value>44</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_21_low">
+   <type>int</type>
+   <value>45</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_21_high">
+   <type>int</type>
+   <value>46</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_22_low">
+   <type>int</type>
+   <value>47</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_22_high">
+   <type>int</type>
+   <value>48</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_23_low">
+   <type>int</type>
+   <value>49</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_23_high">
+   <type>int</type>
+   <value>50</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_24_low">
+   <type>int</type>
+   <value>51</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_24_high">
+   <type>int</type>
+   <value>52</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_25_low">
+   <type>int</type>
+   <value>53</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_25_high">
+   <type>int</type>
+   <value>54</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_26_low">
+   <type>int</type>
+   <value>55</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_26_high">
+   <type>int</type>
+   <value>56</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_27_low">
+   <type>int</type>
+   <value>57</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_27_high">
+   <type>int</type>
+   <value>58</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_28_low">
+   <type>int</type>
+   <value>59</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_28_high">
+   <type>int</type>
+   <value>60</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_29_low">
+   <type>int</type>
+   <value>61</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_29_high">
+   <type>int</type>
+   <value>62</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_30_low">
+   <type>int</type>
+   <value>63</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_30_high">
+   <type>int</type>
+   <value>64</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_31_low">
+   <type>int</type>
+   <value>65</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_31_high">
+   <type>int</type>
+   <value>66</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_32_low">
+   <type>int</type>
+   <value>67</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="bit_32_high">
+   <type>int</type>
+   <value>68</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="ready">
+   <type>int</type>
+   <value>90</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="time_2s">
+   <type>int</type>
+   <value>2000000</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
   <parameter name="AUTO_MCLK_CLOCK_RATE">
    <type>java.lang.Long</type>
    <value>133333333</value>
@@ -7984,7 +8406,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="MRST" kind="reset_sink" version="12.0">
+  <interface name="MRST" kind="reset_sink" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -8029,7 +8451,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="MCLK" kind="clock_sink" version="12.0">
+  <interface name="MCLK" kind="clock_sink" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -8090,7 +8512,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="ctrl" kind="avalon_slave" version="12.0">
+  <interface name="ctrl" kind="avalon_slave" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -8409,6 +8831,24 @@ parameters are a RESULT of the module parameters. -->
    <type>avalon</type>
    <isStart>false</isStart>
    <port>
+    <name>avs_ctrl_writedata</name>
+    <direction>Input</direction>
+    <width>32</width>
+    <role>writedata</role>
+   </port>
+   <port>
+    <name>avs_ctrl_readdata</name>
+    <direction>Output</direction>
+    <width>32</width>
+    <role>readdata</role>
+   </port>
+   <port>
+    <name>avs_ctrl_byteenable</name>
+    <direction>Input</direction>
+    <width>4</width>
+    <role>byteenable</role>
+   </port>
+   <port>
     <name>avs_ctrl_address</name>
     <direction>Input</direction>
     <width>3</width>
@@ -8432,45 +8872,11 @@ parameters are a RESULT of the module parameters. -->
     <width>1</width>
     <role>waitrequest</role>
    </port>
-   <port>
-    <name>avs_ctrl_writedata</name>
-    <direction>Input</direction>
-    <width>32</width>
-    <role>writedata</role>
-   </port>
-   <port>
-    <name>avs_ctrl_byteenable</name>
-    <direction>Input</direction>
-    <width>4</width>
-    <role>byteenable</role>
-   </port>
-   <port>
-    <name>avs_ctrl_readdata</name>
-    <direction>Output</direction>
-    <width>32</width>
-    <role>readdata</role>
-   </port>
   </interface>
-  <interface name="motor_interface" kind="conduit_end" version="12.0">
+  <interface name="AM2301" kind="conduit_end" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
-   <parameter name="associatedClock">
-    <type>java.lang.String</type>
-    <value></value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="associatedReset">
-    <type>java.lang.String</type>
-    <value></value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
    <parameter name="deviceFamily">
     <type>java.lang.String</type>
     <value>UNKNOWN</value>
@@ -8490,13 +8896,13 @@ parameters are a RESULT of the module parameters. -->
    <type>conduit</type>
    <isStart>false</isStart>
    <port>
-    <name>HX</name>
-    <direction>Output</direction>
+    <name>sda</name>
+    <direction>Bidir</direction>
     <width>1</width>
     <role>export</role>
    </port>
    <port>
-    <name>HY</name>
+    <name>clk_1us</name>
     <direction>Output</direction>
     <width>1</width>
     <role>export</role>
@@ -8504,10 +8910,10 @@ parameters are a RESULT of the module parameters. -->
   </interface>
  </module>
  <module
-   name="Step_motor_driver_0"
-   kind="Step_motor_driver"
+   name="step_motor_driver_0"
+   kind="step_motor_driver"
    version="1.0"
-   path="Step_motor_driver_0">
+   path="step_motor_driver_0">
   <!-- Describes a single module. Module parameters are
 the requested settings for a module instance. -->
   <parameter name="AUTO_MCLK_CLOCK_RATE">
@@ -8542,7 +8948,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="MRST" kind="reset_sink" version="12.0">
+  <interface name="MRST" kind="reset_sink" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -8587,7 +8993,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="MCLK" kind="clock_sink" version="12.0">
+  <interface name="MCLK" kind="clock_sink" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -8648,7 +9054,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="ctrl" kind="avalon_slave" version="12.0">
+  <interface name="ctrl" kind="avalon_slave" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -9009,7 +9415,7 @@ parameters are a RESULT of the module parameters. -->
     <role>waitrequest</role>
    </port>
   </interface>
-  <interface name="PWMRST" kind="reset_sink" version="12.0">
+  <interface name="PWMRST" kind="reset_sink" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -9054,7 +9460,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="PWMCLK" kind="clock_sink" version="12.0">
+  <interface name="PWMCLK" kind="clock_sink" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -9115,26 +9521,10 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="step_motor_interface" kind="conduit_end" version="12.0">
+  <interface name="step_motor" kind="conduit_end" version="11.1">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
-   <parameter name="associatedClock">
-    <type>java.lang.String</type>
-    <value>MCLK</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="associatedReset">
-    <type>java.lang.String</type>
-    <value></value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
    <parameter name="deviceFamily">
     <type>java.lang.String</type>
     <value>UNKNOWN</value>
@@ -9191,1140 +9581,10 @@ parameters are a RESULT of the module parameters. -->
    </port>
   </interface>
  </module>
- <module name="AM2301_0" kind="AM2301" version="1.0" path="AM2301_0">
-  <!-- Describes a single module. Module parameters are
-the requested settings for a module instance. -->
-  <parameter name="high_width">
-   <type>int</type>
-   <value>20</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="start_width">
-   <type>int</type>
-   <value>1000</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="start">
-   <type>int</type>
-   <value>0</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="start_read">
-   <type>int</type>
-   <value>1</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="start_end">
-   <type>int</type>
-   <value>2</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="start_low">
-   <type>int</type>
-   <value>3</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="start_high">
-   <type>int</type>
-   <value>4</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_1_low">
-   <type>int</type>
-   <value>5</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_1_high">
-   <type>int</type>
-   <value>6</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_2_low">
-   <type>int</type>
-   <value>7</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_2_high">
-   <type>int</type>
-   <value>8</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_3_low">
-   <type>int</type>
-   <value>9</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_3_high">
-   <type>int</type>
-   <value>10</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_4_low">
-   <type>int</type>
-   <value>11</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_4_high">
-   <type>int</type>
-   <value>12</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_5_low">
-   <type>int</type>
-   <value>13</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_5_high">
-   <type>int</type>
-   <value>14</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_6_low">
-   <type>int</type>
-   <value>15</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_6_high">
-   <type>int</type>
-   <value>16</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_7_low">
-   <type>int</type>
-   <value>17</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_7_high">
-   <type>int</type>
-   <value>18</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_8_low">
-   <type>int</type>
-   <value>19</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_8_high">
-   <type>int</type>
-   <value>20</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_9_low">
-   <type>int</type>
-   <value>21</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_9_high">
-   <type>int</type>
-   <value>22</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_10_low">
-   <type>int</type>
-   <value>23</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_10_high">
-   <type>int</type>
-   <value>24</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_11_low">
-   <type>int</type>
-   <value>25</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_11_high">
-   <type>int</type>
-   <value>26</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_12_low">
-   <type>int</type>
-   <value>27</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_12_high">
-   <type>int</type>
-   <value>28</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_13_low">
-   <type>int</type>
-   <value>29</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_13_high">
-   <type>int</type>
-   <value>30</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_14_low">
-   <type>int</type>
-   <value>31</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_14_high">
-   <type>int</type>
-   <value>32</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_15_low">
-   <type>int</type>
-   <value>33</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_15_high">
-   <type>int</type>
-   <value>34</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_16_low">
-   <type>int</type>
-   <value>35</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_16_high">
-   <type>int</type>
-   <value>36</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_17_low">
-   <type>int</type>
-   <value>37</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_17_high">
-   <type>int</type>
-   <value>38</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_18_low">
-   <type>int</type>
-   <value>39</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_18_high">
-   <type>int</type>
-   <value>40</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_19_low">
-   <type>int</type>
-   <value>41</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_19_high">
-   <type>int</type>
-   <value>42</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_20_low">
-   <type>int</type>
-   <value>43</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_20_high">
-   <type>int</type>
-   <value>44</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_21_low">
-   <type>int</type>
-   <value>45</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_21_high">
-   <type>int</type>
-   <value>46</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_22_low">
-   <type>int</type>
-   <value>47</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_22_high">
-   <type>int</type>
-   <value>48</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_23_low">
-   <type>int</type>
-   <value>49</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_23_high">
-   <type>int</type>
-   <value>50</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_24_low">
-   <type>int</type>
-   <value>51</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_24_high">
-   <type>int</type>
-   <value>52</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_25_low">
-   <type>int</type>
-   <value>53</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_25_high">
-   <type>int</type>
-   <value>54</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_26_low">
-   <type>int</type>
-   <value>55</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_26_high">
-   <type>int</type>
-   <value>56</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_27_low">
-   <type>int</type>
-   <value>57</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_27_high">
-   <type>int</type>
-   <value>58</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_28_low">
-   <type>int</type>
-   <value>59</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_28_high">
-   <type>int</type>
-   <value>60</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_29_low">
-   <type>int</type>
-   <value>61</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_29_high">
-   <type>int</type>
-   <value>62</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_30_low">
-   <type>int</type>
-   <value>63</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_30_high">
-   <type>int</type>
-   <value>64</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_31_low">
-   <type>int</type>
-   <value>65</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_31_high">
-   <type>int</type>
-   <value>66</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_32_low">
-   <type>int</type>
-   <value>67</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="bit_32_high">
-   <type>int</type>
-   <value>68</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="ready">
-   <type>int</type>
-   <value>90</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="time_2s">
-   <type>int</type>
-   <value>2000000</value>
-   <derived>false</derived>
-   <enabled>false</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="AUTO_MCLK_CLOCK_RATE">
-   <type>java.lang.Long</type>
-   <value>133333333</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>false</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="deviceFamily">
-   <type>java.lang.String</type>
-   <value>UNKNOWN</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="generateLegacySim">
-   <type>boolean</type>
-   <value>false</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <interface name="MRST" kind="reset_sink" version="12.0">
-   <!-- The connection points exposed by a module instance for the
-particular module parameters. Connection points and their
-parameters are a RESULT of the module parameters. -->
-   <parameter name="associatedClock">
-    <type>java.lang.String</type>
-    <value>MCLK</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="synchronousEdges">
-    <type>com.altera.sopcmodel.reset.Reset$Edges</type>
-    <value>DEASSERT</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="deviceFamily">
-    <type>java.lang.String</type>
-    <value>UNKNOWN</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="generateLegacySim">
-    <type>boolean</type>
-    <value>false</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <type>reset</type>
-   <isStart>false</isStart>
-   <port>
-    <name>rsi_MRST_reset</name>
-    <direction>Input</direction>
-    <width>1</width>
-    <role>reset</role>
-   </port>
-  </interface>
-  <interface name="MCLK" kind="clock_sink" version="12.0">
-   <!-- The connection points exposed by a module instance for the
-particular module parameters. Connection points and their
-parameters are a RESULT of the module parameters. -->
-   <parameter name="externallyDriven">
-    <type>boolean</type>
-    <value>false</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>false</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="ptfSchematicName">
-    <type>java.lang.String</type>
-    <value></value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>false</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="deviceFamily">
-    <type>java.lang.String</type>
-    <value>UNKNOWN</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="generateLegacySim">
-    <type>boolean</type>
-    <value>false</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="clockRateKnown">
-    <type>java.lang.Boolean</type>
-    <value>true</value>
-    <derived>true</derived>
-    <enabled>true</enabled>
-    <visible>false</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="clockRate">
-    <type>java.lang.Long</type>
-    <value>133333333</value>
-    <derived>true</derived>
-    <enabled>true</enabled>
-    <visible>false</visible>
-    <valid>true</valid>
-   </parameter>
-   <type>clock</type>
-   <isStart>false</isStart>
-   <port>
-    <name>csi_MCLK_clk</name>
-    <direction>Input</direction>
-    <width>1</width>
-    <role>clk</role>
-   </port>
-  </interface>
-  <interface name="ctrl" kind="avalon_slave" version="12.0">
-   <!-- The connection points exposed by a module instance for the
-particular module parameters. Connection points and their
-parameters are a RESULT of the module parameters. -->
-   <assignment>
-    <name>embeddedsw.configuration.isFlash</name>
-    <value>0</value>
-   </assignment>
-   <assignment>
-    <name>embeddedsw.configuration.isMemoryDevice</name>
-    <value>0</value>
-   </assignment>
-   <assignment>
-    <name>embeddedsw.configuration.isNonVolatileStorage</name>
-    <value>0</value>
-   </assignment>
-   <assignment>
-    <name>embeddedsw.configuration.isPrintableDevice</name>
-    <value>0</value>
-   </assignment>
-   <parameter name="addressAlignment">
-    <type>com.altera.sopcmodel.avalon.AvalonConnectionPoint$AddressAlignment</type>
-    <value>DYNAMIC</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>false</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="addressGroup">
-    <type>int</type>
-    <value>0</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>false</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="addressSpan">
-    <type>long</type>
-    <value>32</value>
-    <derived>true</derived>
-    <enabled>true</enabled>
-    <visible>false</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="addressUnits">
-    <type>com.altera.sopcmodel.avalon.EAddrBurstUnits</type>
-    <value>WORDS</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="alwaysBurstMaxBurst">
-    <type>boolean</type>
-    <value>false</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>false</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="associatedClock">
-    <type>java.lang.String</type>
-    <value>MCLK</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="associatedReset">
-    <type>java.lang.String</type>
-    <value>MRST</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="bitsPerSymbol">
-    <type>int</type>
-    <value>8</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="bridgesToMaster">
-    <type>com.altera.entityinterfaces.IConnectionPoint</type>
-    <value></value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>false</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="burstOnBurstBoundariesOnly">
-    <type>boolean</type>
-    <value>false</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="burstcountUnits">
-    <type>com.altera.sopcmodel.avalon.EAddrBurstUnits</type>
-    <value>WORDS</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="constantBurstBehavior">
-    <type>boolean</type>
-    <value>false</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>false</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="explicitAddressSpan">
-    <type>long</type>
-    <value>0</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="holdTime">
-    <type>int</type>
-    <value>0</value>
-    <derived>false</derived>
-    <enabled>false</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="interleaveBursts">
-    <type>boolean</type>
-    <value>false</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>false</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="isBigEndian">
-    <type>boolean</type>
-    <value>false</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>false</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="isFlash">
-    <type>boolean</type>
-    <value>false</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>false</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="isMemoryDevice">
-    <type>boolean</type>
-    <value>false</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>false</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="isNonVolatileStorage">
-    <type>boolean</type>
-    <value>false</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>false</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="linewrapBursts">
-    <type>boolean</type>
-    <value>false</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="maximumPendingReadTransactions">
-    <type>int</type>
-    <value>0</value>
-    <derived>false</derived>
-    <enabled>false</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="minimumUninterruptedRunLength">
-    <type>int</type>
-    <value>1</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>false</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="printableDevice">
-    <type>boolean</type>
-    <value>false</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>false</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="readLatency">
-    <type>int</type>
-    <value>0</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="readWaitStates">
-    <type>int</type>
-    <value>1</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>false</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="readWaitTime">
-    <type>int</type>
-    <value>1</value>
-    <derived>false</derived>
-    <enabled>false</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="registerIncomingSignals">
-    <type>boolean</type>
-    <value>false</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>false</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="registerOutgoingSignals">
-    <type>boolean</type>
-    <value>false</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>false</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="setupTime">
-    <type>int</type>
-    <value>0</value>
-    <derived>false</derived>
-    <enabled>false</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="timingUnits">
-    <type>com.altera.sopcmodel.avalon.TimingUnits</type>
-    <value>Cycles</value>
-    <derived>false</derived>
-    <enabled>false</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="transparentBridge">
-    <type>boolean</type>
-    <value>false</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>false</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="wellBehavedWaitrequest">
-    <type>boolean</type>
-    <value>false</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>false</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="writeLatency">
-    <type>int</type>
-    <value>0</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>false</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="writeWaitStates">
-    <type>int</type>
-    <value>0</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>false</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="writeWaitTime">
-    <type>int</type>
-    <value>0</value>
-    <derived>false</derived>
-    <enabled>false</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="deviceFamily">
-    <type>java.lang.String</type>
-    <value>UNKNOWN</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="generateLegacySim">
-    <type>boolean</type>
-    <value>false</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <type>avalon</type>
-   <isStart>false</isStart>
-   <port>
-    <name>avs_ctrl_writedata</name>
-    <direction>Input</direction>
-    <width>32</width>
-    <role>writedata</role>
-   </port>
-   <port>
-    <name>avs_ctrl_readdata</name>
-    <direction>Output</direction>
-    <width>32</width>
-    <role>readdata</role>
-   </port>
-   <port>
-    <name>avs_ctrl_byteenable</name>
-    <direction>Input</direction>
-    <width>4</width>
-    <role>byteenable</role>
-   </port>
-   <port>
-    <name>avs_ctrl_address</name>
-    <direction>Input</direction>
-    <width>3</width>
-    <role>address</role>
-   </port>
-   <port>
-    <name>avs_ctrl_write</name>
-    <direction>Input</direction>
-    <width>1</width>
-    <role>write</role>
-   </port>
-   <port>
-    <name>avs_ctrl_read</name>
-    <direction>Input</direction>
-    <width>1</width>
-    <role>read</role>
-   </port>
-   <port>
-    <name>avs_ctrl_waitrequest</name>
-    <direction>Output</direction>
-    <width>1</width>
-    <role>waitrequest</role>
-   </port>
-  </interface>
-  <interface name="AM2301" kind="conduit_end" version="12.0">
-   <!-- The connection points exposed by a module instance for the
-particular module parameters. Connection points and their
-parameters are a RESULT of the module parameters. -->
-   <parameter name="associatedClock">
-    <type>java.lang.String</type>
-    <value>MCLK</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="associatedReset">
-    <type>java.lang.String</type>
-    <value>MRST</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="deviceFamily">
-    <type>java.lang.String</type>
-    <value>UNKNOWN</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <parameter name="generateLegacySim">
-    <type>boolean</type>
-    <value>false</value>
-    <derived>false</derived>
-    <enabled>true</enabled>
-    <visible>true</visible>
-    <valid>true</valid>
-   </parameter>
-   <type>conduit</type>
-   <isStart>false</isStart>
-   <port>
-    <name>clk_1us</name>
-    <direction>Output</direction>
-    <width>1</width>
-    <role>export</role>
-   </port>
-   <port>
-    <name>sda</name>
-    <direction>Bidir</direction>
-    <width>1</width>
-    <role>export</role>
-   </port>
-  </interface>
- </module>
  <connection
    name="HPS_tabby.MRST/basic_SysID.MRST"
    kind="reset"
-   version="12.0"
+   version="11.1"
    start="HPS_tabby.MRST"
    end="basic_SysID.MRST">
   <parameter name="deviceFamily">
@@ -10351,7 +9611,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MCLK/basic_SysID.MCLK"
    kind="clock"
-   version="12.0"
+   version="11.1"
    start="HPS_tabby.MCLK"
    end="basic_SysID.MCLK">
   <parameter name="deviceFamily">
@@ -10378,7 +9638,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.M1/basic_SysID.SysID"
    kind="avalon"
-   version="12.0"
+   version="11.1"
    start="HPS_tabby.M1"
    end="basic_SysID.SysID">
   <parameter name="arbitrationPriority">
@@ -10421,7 +9681,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MRST/basic_FuncLED_0.MRST"
    kind="reset"
-   version="12.0"
+   version="11.1"
    start="HPS_tabby.MRST"
    end="basic_FuncLED_0.MRST">
   <parameter name="deviceFamily">
@@ -10448,7 +9708,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MCLK/basic_FuncLED_0.MCLK"
    kind="clock"
-   version="12.0"
+   version="11.1"
    start="HPS_tabby.MCLK"
    end="basic_FuncLED_0.MCLK">
   <parameter name="deviceFamily">
@@ -10475,7 +9735,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.M1/basic_FuncLED_0.ctrl"
    kind="avalon"
-   version="12.0"
+   version="11.1"
    start="HPS_tabby.M1"
    end="basic_FuncLED_0.ctrl">
   <parameter name="arbitrationPriority">
@@ -10518,7 +9778,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MRST/basic_FuncLED_1.MRST"
    kind="reset"
-   version="12.0"
+   version="11.1"
    start="HPS_tabby.MRST"
    end="basic_FuncLED_1.MRST">
   <parameter name="deviceFamily">
@@ -10545,7 +9805,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MCLK/basic_FuncLED_1.MCLK"
    kind="clock"
-   version="12.0"
+   version="11.1"
    start="HPS_tabby.MCLK"
    end="basic_FuncLED_1.MCLK">
   <parameter name="deviceFamily">
@@ -10572,7 +9832,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.M1/basic_FuncLED_1.ctrl"
    kind="avalon"
-   version="12.0"
+   version="11.1"
    start="HPS_tabby.M1"
    end="basic_FuncLED_1.ctrl">
   <parameter name="arbitrationPriority">
@@ -10615,7 +9875,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MRST/basic_FuncLED_2.MRST"
    kind="reset"
-   version="12.0"
+   version="11.1"
    start="HPS_tabby.MRST"
    end="basic_FuncLED_2.MRST">
   <parameter name="deviceFamily">
@@ -10642,7 +9902,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MCLK/basic_FuncLED_2.MCLK"
    kind="clock"
-   version="12.0"
+   version="11.1"
    start="HPS_tabby.MCLK"
    end="basic_FuncLED_2.MCLK">
   <parameter name="deviceFamily">
@@ -10669,7 +9929,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.M1/basic_FuncLED_2.ctrl"
    kind="avalon"
-   version="12.0"
+   version="11.1"
    start="HPS_tabby.M1"
    end="basic_FuncLED_2.ctrl">
   <parameter name="arbitrationPriority">
@@ -10712,7 +9972,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MRST/basic_FuncLED_3.MRST"
    kind="reset"
-   version="12.0"
+   version="11.1"
    start="HPS_tabby.MRST"
    end="basic_FuncLED_3.MRST">
   <parameter name="deviceFamily">
@@ -10739,7 +9999,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MCLK/basic_FuncLED_3.MCLK"
    kind="clock"
-   version="12.0"
+   version="11.1"
    start="HPS_tabby.MCLK"
    end="basic_FuncLED_3.MCLK">
   <parameter name="deviceFamily">
@@ -10766,7 +10026,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.M1/basic_FuncLED_3.ctrl"
    kind="avalon"
-   version="12.0"
+   version="11.1"
    start="HPS_tabby.M1"
    end="basic_FuncLED_3.ctrl">
   <parameter name="arbitrationPriority">
@@ -10809,7 +10069,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MRST/basic_ShieldCtrl.MRST"
    kind="reset"
-   version="12.0"
+   version="11.1"
    start="HPS_tabby.MRST"
    end="basic_ShieldCtrl.MRST">
   <parameter name="deviceFamily">
@@ -10836,7 +10096,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MCLK/basic_ShieldCtrl.MCLK"
    kind="clock"
-   version="12.0"
+   version="11.1"
    start="HPS_tabby.MCLK"
    end="basic_ShieldCtrl.MCLK">
   <parameter name="deviceFamily">
@@ -10863,7 +10123,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.M1/basic_ShieldCtrl.ctrl"
    kind="avalon"
-   version="12.0"
+   version="11.1"
    start="HPS_tabby.M1"
    end="basic_ShieldCtrl.ctrl">
   <parameter name="arbitrationPriority">
@@ -10906,7 +10166,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.EVENTS/basic_ShieldCtrl.OC"
    kind="interrupt"
-   version="12.0"
+   version="11.1"
    start="HPS_tabby.EVENTS"
    end="basic_ShieldCtrl.OC">
   <parameter name="irqNumber">
@@ -10941,7 +10201,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MRST/test_LEDState.MRST"
    kind="reset"
-   version="12.0"
+   version="11.1"
    start="HPS_tabby.MRST"
    end="test_LEDState.MRST">
   <parameter name="deviceFamily">
@@ -10968,7 +10228,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MCLK/test_LEDState.MCLK"
    kind="clock"
-   version="12.0"
+   version="11.1"
    start="HPS_tabby.MCLK"
    end="test_LEDState.MCLK">
   <parameter name="deviceFamily">
@@ -10995,7 +10255,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="test_LEDState.fled0/basic_FuncLED_0.ledf"
    kind="avalon_streaming"
-   version="12.0"
+   version="11.1"
    start="test_LEDState.fled0"
    end="basic_FuncLED_0.ledf">
   <parameter name="deviceFamily">
@@ -11022,7 +10282,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="test_LEDState.fled1/basic_FuncLED_1.ledf"
    kind="avalon_streaming"
-   version="12.0"
+   version="11.1"
    start="test_LEDState.fled1"
    end="basic_FuncLED_1.ledf">
   <parameter name="deviceFamily">
@@ -11049,7 +10309,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="test_LEDState.fled2/basic_FuncLED_2.ledf"
    kind="avalon_streaming"
-   version="12.0"
+   version="11.1"
    start="test_LEDState.fled2"
    end="basic_FuncLED_2.ledf">
   <parameter name="deviceFamily">
@@ -11076,7 +10336,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="test_LEDState.fled3/basic_FuncLED_3.ledf"
    kind="avalon_streaming"
-   version="12.0"
+   version="11.1"
    start="test_LEDState.fled3"
    end="basic_FuncLED_3.ledf">
   <parameter name="deviceFamily">
@@ -11103,7 +10363,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MRST/grid_PIO26_A.MRST"
    kind="reset"
-   version="12.0"
+   version="11.1"
    start="HPS_tabby.MRST"
    end="grid_PIO26_A.MRST">
   <parameter name="deviceFamily">
@@ -11130,7 +10390,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MCLK/grid_PIO26_A.MCLK"
    kind="clock"
-   version="12.0"
+   version="11.1"
    start="HPS_tabby.MCLK"
    end="grid_PIO26_A.MCLK">
   <parameter name="deviceFamily">
@@ -11157,7 +10417,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.M1/grid_PIO26_A.gpio"
    kind="avalon"
-   version="12.0"
+   version="11.1"
    start="HPS_tabby.M1"
    end="grid_PIO26_A.gpio">
   <parameter name="arbitrationPriority">
@@ -11200,7 +10460,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MRST/grid_PIO26_B.MRST"
    kind="reset"
-   version="12.0"
+   version="11.1"
    start="HPS_tabby.MRST"
    end="grid_PIO26_B.MRST">
   <parameter name="deviceFamily">
@@ -11227,7 +10487,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MCLK/grid_PIO26_B.MCLK"
    kind="clock"
-   version="12.0"
+   version="11.1"
    start="HPS_tabby.MCLK"
    end="grid_PIO26_B.MCLK">
   <parameter name="deviceFamily">
@@ -11254,7 +10514,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.M1/grid_PIO26_B.gpio"
    kind="avalon"
-   version="12.0"
+   version="11.1"
    start="HPS_tabby.M1"
    end="grid_PIO26_B.gpio">
   <parameter name="arbitrationPriority">
@@ -11297,7 +10557,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.EVENTS/grid_PIO26_A.gpint"
    kind="interrupt"
-   version="12.0"
+   version="11.1"
    start="HPS_tabby.EVENTS"
    end="grid_PIO26_A.gpint">
   <parameter name="irqNumber">
@@ -11332,7 +10592,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.EVENTS/grid_PIO26_B.gpint"
    kind="interrupt"
-   version="12.0"
+   version="11.1"
    start="HPS_tabby.EVENTS"
    end="grid_PIO26_B.gpint">
   <parameter name="irqNumber">
@@ -11367,7 +10627,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MRST/grid_PWM_0.MRST"
    kind="reset"
-   version="12.0"
+   version="11.1"
    start="HPS_tabby.MRST"
    end="grid_PWM_0.MRST">
   <parameter name="deviceFamily">
@@ -11394,7 +10654,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MCLK/grid_PWM_0.MCLK"
    kind="clock"
-   version="12.0"
+   version="11.1"
    start="HPS_tabby.MCLK"
    end="grid_PWM_0.MCLK">
   <parameter name="deviceFamily">
@@ -11421,7 +10681,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.H2CLK/grid_PWM_0.PWMCLK"
    kind="clock"
-   version="12.0"
+   version="11.1"
    start="HPS_tabby.H2CLK"
    end="grid_PWM_0.PWMCLK">
   <parameter name="deviceFamily">
@@ -11448,7 +10708,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MRST/grid_PWM_0.PWMRST"
    kind="reset"
-   version="12.0"
+   version="11.1"
    start="HPS_tabby.MRST"
    end="grid_PWM_0.PWMRST">
   <parameter name="deviceFamily">
@@ -11475,7 +10735,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.M1/grid_PWM_0.pwm"
    kind="avalon"
-   version="12.0"
+   version="11.1"
    start="HPS_tabby.M1"
    end="grid_PWM_0.pwm">
   <parameter name="arbitrationPriority">
@@ -11516,284 +10776,9 @@ parameters are a RESULT of the module parameters. -->
   <endConnectionPoint>pwm</endConnectionPoint>
  </connection>
  <connection
-   name="HPS_tabby.MRST/Brush_motor_driver_0.MRST"
-   kind="reset"
-   version="12.0"
-   start="HPS_tabby.MRST"
-   end="Brush_motor_driver_0.MRST">
-  <parameter name="deviceFamily">
-   <type>java.lang.String</type>
-   <value>UNKNOWN</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="generateLegacySim">
-   <type>boolean</type>
-   <value>false</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <startModule>HPS_tabby</startModule>
-  <startConnectionPoint>MRST</startConnectionPoint>
-  <endModule>Brush_motor_driver_0</endModule>
-  <endConnectionPoint>MRST</endConnectionPoint>
- </connection>
- <connection
-   name="HPS_tabby.M1/Brush_motor_driver_0.ctrl"
-   kind="avalon"
-   version="12.0"
-   start="HPS_tabby.M1"
-   end="Brush_motor_driver_0.ctrl">
-  <parameter name="arbitrationPriority">
-   <type>int</type>
-   <value>1</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="baseAddress">
-   <type>long</type>
-   <value>0x10000120</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="deviceFamily">
-   <type>java.lang.String</type>
-   <value>UNKNOWN</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="generateLegacySim">
-   <type>boolean</type>
-   <value>false</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <startModule>HPS_tabby</startModule>
-  <startConnectionPoint>M1</startConnectionPoint>
-  <endModule>Brush_motor_driver_0</endModule>
-  <endConnectionPoint>ctrl</endConnectionPoint>
- </connection>
- <connection
-   name="HPS_tabby.MCLK/Brush_motor_driver_0.MCLK"
-   kind="clock"
-   version="12.0"
-   start="HPS_tabby.MCLK"
-   end="Brush_motor_driver_0.MCLK">
-  <parameter name="deviceFamily">
-   <type>java.lang.String</type>
-   <value>UNKNOWN</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="generateLegacySim">
-   <type>boolean</type>
-   <value>false</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <startModule>HPS_tabby</startModule>
-  <startConnectionPoint>MCLK</startConnectionPoint>
-  <endModule>Brush_motor_driver_0</endModule>
-  <endConnectionPoint>MCLK</endConnectionPoint>
- </connection>
- <connection
-   name="HPS_tabby.MRST/Step_motor_driver_0.MRST"
-   kind="reset"
-   version="12.0"
-   start="HPS_tabby.MRST"
-   end="Step_motor_driver_0.MRST">
-  <parameter name="deviceFamily">
-   <type>java.lang.String</type>
-   <value>UNKNOWN</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="generateLegacySim">
-   <type>boolean</type>
-   <value>false</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <startModule>HPS_tabby</startModule>
-  <startConnectionPoint>MRST</startConnectionPoint>
-  <endModule>Step_motor_driver_0</endModule>
-  <endConnectionPoint>MRST</endConnectionPoint>
- </connection>
- <connection
-   name="HPS_tabby.MCLK/Step_motor_driver_0.MCLK"
-   kind="clock"
-   version="12.0"
-   start="HPS_tabby.MCLK"
-   end="Step_motor_driver_0.MCLK">
-  <parameter name="deviceFamily">
-   <type>java.lang.String</type>
-   <value>UNKNOWN</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="generateLegacySim">
-   <type>boolean</type>
-   <value>false</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <startModule>HPS_tabby</startModule>
-  <startConnectionPoint>MCLK</startConnectionPoint>
-  <endModule>Step_motor_driver_0</endModule>
-  <endConnectionPoint>MCLK</endConnectionPoint>
- </connection>
- <connection
-   name="HPS_tabby.M1/Step_motor_driver_0.ctrl"
-   kind="avalon"
-   version="12.0"
-   start="HPS_tabby.M1"
-   end="Step_motor_driver_0.ctrl">
-  <parameter name="arbitrationPriority">
-   <type>int</type>
-   <value>1</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="baseAddress">
-   <type>long</type>
-   <value>0x10000140</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="deviceFamily">
-   <type>java.lang.String</type>
-   <value>UNKNOWN</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="generateLegacySim">
-   <type>boolean</type>
-   <value>false</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <startModule>HPS_tabby</startModule>
-  <startConnectionPoint>M1</startConnectionPoint>
-  <endModule>Step_motor_driver_0</endModule>
-  <endConnectionPoint>ctrl</endConnectionPoint>
- </connection>
- <connection
-   name="HPS_tabby.MRST/Step_motor_driver_0.PWMRST"
-   kind="reset"
-   version="12.0"
-   start="HPS_tabby.MRST"
-   end="Step_motor_driver_0.PWMRST">
-  <parameter name="deviceFamily">
-   <type>java.lang.String</type>
-   <value>UNKNOWN</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="generateLegacySim">
-   <type>boolean</type>
-   <value>false</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <startModule>HPS_tabby</startModule>
-  <startConnectionPoint>MRST</startConnectionPoint>
-  <endModule>Step_motor_driver_0</endModule>
-  <endConnectionPoint>PWMRST</endConnectionPoint>
- </connection>
- <connection
-   name="HPS_tabby.H2CLK/Step_motor_driver_0.PWMCLK"
-   kind="clock"
-   version="12.0"
-   start="HPS_tabby.H2CLK"
-   end="Step_motor_driver_0.PWMCLK">
-  <parameter name="deviceFamily">
-   <type>java.lang.String</type>
-   <value>UNKNOWN</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="generateLegacySim">
-   <type>boolean</type>
-   <value>false</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <startModule>HPS_tabby</startModule>
-  <startConnectionPoint>H2CLK</startConnectionPoint>
-  <endModule>Step_motor_driver_0</endModule>
-  <endConnectionPoint>PWMCLK</endConnectionPoint>
- </connection>
- <connection
-   name="HPS_tabby.MRST/AM2301_0.MRST"
-   kind="reset"
-   version="12.0"
-   start="HPS_tabby.MRST"
-   end="AM2301_0.MRST">
-  <parameter name="deviceFamily">
-   <type>java.lang.String</type>
-   <value>UNKNOWN</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="generateLegacySim">
-   <type>boolean</type>
-   <value>false</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <startModule>HPS_tabby</startModule>
-  <startConnectionPoint>MRST</startConnectionPoint>
-  <endModule>AM2301_0</endModule>
-  <endConnectionPoint>MRST</endConnectionPoint>
- </connection>
- <connection
    name="HPS_tabby.MCLK/AM2301_0.MCLK"
    kind="clock"
-   version="12.0"
+   version="11.1"
    start="HPS_tabby.MCLK"
    end="AM2301_0.MCLK">
   <parameter name="deviceFamily">
@@ -11820,7 +10805,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.M1/AM2301_0.ctrl"
    kind="avalon"
-   version="12.0"
+   version="11.1"
    start="HPS_tabby.M1"
    end="AM2301_0.ctrl">
   <parameter name="arbitrationPriority">
@@ -11833,7 +10818,7 @@ parameters are a RESULT of the module parameters. -->
   </parameter>
   <parameter name="baseAddress">
    <type>long</type>
-   <value>0x01000060</value>
+   <value>0x01000100</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -11860,173 +10845,191 @@ parameters are a RESULT of the module parameters. -->
   <endModule>AM2301_0</endModule>
   <endConnectionPoint>ctrl</endConnectionPoint>
  </connection>
+ <connection
+   name="HPS_tabby.MRST/AM2301_0.MRST"
+   kind="reset"
+   version="11.1"
+   start="HPS_tabby.MRST"
+   end="AM2301_0.MRST">
+  <parameter name="deviceFamily">
+   <type>java.lang.String</type>
+   <value>UNKNOWN</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="generateLegacySim">
+   <type>boolean</type>
+   <value>false</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <startModule>HPS_tabby</startModule>
+  <startConnectionPoint>MRST</startConnectionPoint>
+  <endModule>AM2301_0</endModule>
+  <endConnectionPoint>MRST</endConnectionPoint>
+ </connection>
+ <connection
+   name="HPS_tabby.MRST/step_motor_driver_0.MRST"
+   kind="reset"
+   version="11.1"
+   start="HPS_tabby.MRST"
+   end="step_motor_driver_0.MRST">
+  <parameter name="deviceFamily">
+   <type>java.lang.String</type>
+   <value>UNKNOWN</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="generateLegacySim">
+   <type>boolean</type>
+   <value>false</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <startModule>HPS_tabby</startModule>
+  <startConnectionPoint>MRST</startConnectionPoint>
+  <endModule>step_motor_driver_0</endModule>
+  <endConnectionPoint>MRST</endConnectionPoint>
+ </connection>
+ <connection
+   name="HPS_tabby.MCLK/step_motor_driver_0.MCLK"
+   kind="clock"
+   version="11.1"
+   start="HPS_tabby.MCLK"
+   end="step_motor_driver_0.MCLK">
+  <parameter name="deviceFamily">
+   <type>java.lang.String</type>
+   <value>UNKNOWN</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="generateLegacySim">
+   <type>boolean</type>
+   <value>false</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <startModule>HPS_tabby</startModule>
+  <startConnectionPoint>MCLK</startConnectionPoint>
+  <endModule>step_motor_driver_0</endModule>
+  <endConnectionPoint>MCLK</endConnectionPoint>
+ </connection>
+ <connection
+   name="HPS_tabby.H2CLK/step_motor_driver_0.PWMCLK"
+   kind="clock"
+   version="11.1"
+   start="HPS_tabby.H2CLK"
+   end="step_motor_driver_0.PWMCLK">
+  <parameter name="deviceFamily">
+   <type>java.lang.String</type>
+   <value>UNKNOWN</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="generateLegacySim">
+   <type>boolean</type>
+   <value>false</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <startModule>HPS_tabby</startModule>
+  <startConnectionPoint>H2CLK</startConnectionPoint>
+  <endModule>step_motor_driver_0</endModule>
+  <endConnectionPoint>PWMCLK</endConnectionPoint>
+ </connection>
+ <connection
+   name="HPS_tabby.MRST/step_motor_driver_0.PWMRST"
+   kind="reset"
+   version="11.1"
+   start="HPS_tabby.MRST"
+   end="step_motor_driver_0.PWMRST">
+  <parameter name="deviceFamily">
+   <type>java.lang.String</type>
+   <value>UNKNOWN</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="generateLegacySim">
+   <type>boolean</type>
+   <value>false</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <startModule>HPS_tabby</startModule>
+  <startConnectionPoint>MRST</startConnectionPoint>
+  <endModule>step_motor_driver_0</endModule>
+  <endConnectionPoint>PWMRST</endConnectionPoint>
+ </connection>
+ <connection
+   name="HPS_tabby.M1/step_motor_driver_0.ctrl"
+   kind="avalon"
+   version="11.1"
+   start="HPS_tabby.M1"
+   end="step_motor_driver_0.ctrl">
+  <parameter name="arbitrationPriority">
+   <type>int</type>
+   <value>1</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="baseAddress">
+   <type>long</type>
+   <value>0x01000080</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="deviceFamily">
+   <type>java.lang.String</type>
+   <value>UNKNOWN</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="generateLegacySim">
+   <type>boolean</type>
+   <value>false</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <startModule>HPS_tabby</startModule>
+  <startConnectionPoint>M1</startConnectionPoint>
+  <endModule>step_motor_driver_0</endModule>
+  <endConnectionPoint>ctrl</endConnectionPoint>
+ </connection>
  <plugin>
   <instanceCount>1</instanceCount>
-  <name>reset_source</name>
+  <name>avalon_master</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Reset Output</displayName>
-  <version>12.0</version>
- </plugin>
- <plugin>
-  <instanceCount>12</instanceCount>
-  <name>avalon</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IConnection</subtype>
-  <displayName>Avalon Memory Mapped Connection</displayName>
-  <version>12.0</version>
- </plugin>
- <plugin>
-  <instanceCount>4</instanceCount>
-  <name>basic_FuncLED</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>RGB Function LED Controller</displayName>
-  <version>1.0</version>
- </plugin>
- <plugin>
-  <instanceCount>4</instanceCount>
-  <name>avalon_streaming</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IConnection</subtype>
-  <displayName>Avalon Streaming Connection</displayName>
-  <version>12.0</version>
- </plugin>
- <plugin>
-  <instanceCount>3</instanceCount>
-  <name>interrupt</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IConnection</subtype>
-  <displayName>Interrupt Connection</displayName>
-  <version>12.0</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>basic_SysID</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>Globe System ID</displayName>
-  <version>1.0</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>hps_tabby</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>Tabby Host Processor Interface</displayName>
-  <version>1.1</version>
- </plugin>
- <plugin>
-  <instanceCount>15</instanceCount>
-  <name>clock</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IConnection</subtype>
-  <displayName>Clock Connection</displayName>
-  <version>12.0</version>
- </plugin>
- <plugin>
-  <instanceCount>4</instanceCount>
-  <name>avalon_streaming_source</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Avalon Streaming Source</displayName>
-  <version>12.0</version>
- </plugin>
- <plugin>
-  <instanceCount>3</instanceCount>
-  <name>clock_source</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Clock Output</displayName>
-  <version>12.0</version>
- </plugin>
- <plugin>
-  <instanceCount>2</instanceCount>
-  <name>grid_PIO26</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>Interrupt GPIO 26-bits</displayName>
-  <version>1.0</version>
- </plugin>
- <plugin>
-  <instanceCount>12</instanceCount>
-  <name>conduit_end</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Conduit</displayName>
-  <version>12.0</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>Brush_motor_driver</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>Brush_motor_driver</displayName>
-  <version>1.0</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>basic_ShieldCtrl</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>Shield Slot Administrative Controller</displayName>
-  <version>1.0</version>
- </plugin>
- <plugin>
-  <instanceCount>12</instanceCount>
-  <name>avalon_slave</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Avalon Memory Mapped Slave</displayName>
-  <version>12.0</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>interrupt_receiver</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Interrupt Receiver</displayName>
-  <version>12.0</version>
- </plugin>
- <plugin>
-  <instanceCount>3</instanceCount>
-  <name>interrupt_sender</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Interrupt Sender</displayName>
-  <version>12.0</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>test_LEDState</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>LED Test State Generator</displayName>
-  <version>1.0</version>
- </plugin>
- <plugin>
-  <instanceCount>6</instanceCount>
-  <name>avalon_streaming_sink</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Avalon Streaming Sink</displayName>
-  <version>12.0</version>
- </plugin>
- <plugin>
-  <instanceCount>15</instanceCount>
-  <name>reset</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IConnection</subtype>
-  <displayName>Reset Connection</displayName>
-  <version>12.0</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>Step_motor_driver</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>Step motor driver</displayName>
-  <version>1.0</version>
+  <displayName>Avalon Memory Mapped Master</displayName>
+  <version>11.1</version>
  </plugin>
  <plugin>
   <instanceCount>1</instanceCount>
@@ -12037,28 +11040,84 @@ parameters are a RESULT of the module parameters. -->
   <version>1.0</version>
  </plugin>
  <plugin>
-  <instanceCount>15</instanceCount>
-  <name>reset_sink</name>
+  <instanceCount>14</instanceCount>
+  <name>reset</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IConnection</subtype>
+  <displayName>Reset Connection</displayName>
+  <version>11.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>6</instanceCount>
+  <name>avalon_streaming_sink</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Reset Input</displayName>
-  <version>12.0</version>
+  <displayName>Avalon Streaming Sink</displayName>
+  <version>11.1</version>
  </plugin>
  <plugin>
   <instanceCount>1</instanceCount>
-  <name>avalon_master</name>
+  <name>hps_tabby</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Avalon Memory Mapped Master</displayName>
-  <version>12.0</version>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>Tabby Host Processor Interface</displayName>
+  <version>1.1</version>
  </plugin>
  <plugin>
-  <instanceCount>15</instanceCount>
+  <instanceCount>1</instanceCount>
+  <name>basic_ShieldCtrl</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>Shield Slot Administrative Controller</displayName>
+  <version>1.0</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>test_LEDState</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>LED Test State Generator</displayName>
+  <version>1.0</version>
+ </plugin>
+ <plugin>
+  <instanceCount>4</instanceCount>
+  <name>avalon_streaming</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IConnection</subtype>
+  <displayName>Avalon Streaming Connection</displayName>
+  <version>11.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>step_motor_driver</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>step_motor_driver</displayName>
+  <version>1.0</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>interrupt_receiver</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Interrupt Receiver</displayName>
+  <version>11.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>3</instanceCount>
+  <name>interrupt</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IConnection</subtype>
+  <displayName>Interrupt Connection</displayName>
+  <version>11.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>14</instanceCount>
   <name>clock_sink</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
   <displayName>Clock Input</displayName>
-  <version>12.0</version>
+  <version>11.1</version>
  </plugin>
  <plugin>
   <instanceCount>1</instanceCount>
@@ -12068,6 +11127,102 @@ parameters are a RESULT of the module parameters. -->
   <displayName>AM2301</displayName>
   <version>1.0</version>
  </plugin>
- <reportVersion>12.0sp2 263</reportVersion>
+ <plugin>
+  <instanceCount>2</instanceCount>
+  <name>grid_PIO26</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>Interrupt GPIO 26-bits</displayName>
+  <version>1.0</version>
+ </plugin>
+ <plugin>
+  <instanceCount>11</instanceCount>
+  <name>avalon</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IConnection</subtype>
+  <displayName>Avalon Memory Mapped Connection</displayName>
+  <version>11.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>3</instanceCount>
+  <name>interrupt_sender</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Interrupt Sender</displayName>
+  <version>11.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>14</instanceCount>
+  <name>reset_sink</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Reset Input</displayName>
+  <version>11.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>reset_source</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Reset Output</displayName>
+  <version>11.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>11</instanceCount>
+  <name>conduit_end</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Conduit</displayName>
+  <version>11.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>4</instanceCount>
+  <name>basic_FuncLED</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>RGB Function LED Controller</displayName>
+  <version>1.0</version>
+ </plugin>
+ <plugin>
+  <instanceCount>11</instanceCount>
+  <name>avalon_slave</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Avalon Memory Mapped Slave</displayName>
+  <version>11.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>4</instanceCount>
+  <name>avalon_streaming_source</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Avalon Streaming Source</displayName>
+  <version>11.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>basic_SysID</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>Globe System ID</displayName>
+  <version>1.0</version>
+ </plugin>
+ <plugin>
+  <instanceCount>3</instanceCount>
+  <name>clock_source</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Clock Output</displayName>
+  <version>11.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>14</instanceCount>
+  <name>clock</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IConnection</subtype>
+  <displayName>Clock Connection</displayName>
+  <version>11.1</version>
+ </plugin>
+ <reportVersion>11.1sp2 259</reportVersion>
  <uniqueIdentifier></uniqueIdentifier>
 </EnsembleReport>

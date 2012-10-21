@@ -17,7 +17,7 @@ module AM2301(
 	reg      [31:0] read_data;
 	reg      [31:0] write_data;
 	wire     data_ready;
-	assign	avs_ctrl_readdata = read_data;
+	assign	avs_ctrl_readdata = data[31:0];//read_data;
 	assign   data_ready = (state==ready);
 	always@(posedge csi_MCLK_clk or posedge rsi_MRST_reset)
 	begin
@@ -190,16 +190,11 @@ module AM2301(
 		bit_1_low: begin 
 			if (sda_in==1) begin	
 				next_state = bit_1_high;
-				temp_time = time_out;
 			end else
 				next_state = state;
 		end 		
 		bit_1_high: begin 
 			if (sda_in==0) begin	
-				if(time_out > temp_time + high_width)
-					data[0]=1;
-				else
-					data[0]=0;
 				next_state = bit_2_low;
 			end else
 				next_state = state;
@@ -207,16 +202,11 @@ module AM2301(
 		bit_2_low: begin 
 			if (sda_in==1) begin	
 				next_state = bit_2_high;
-				temp_time = time_out;
 			end else
 				next_state = state;
 		end 		
 		bit_2_high: begin 
 			if (sda_in==0) begin	
-				if(time_out > temp_time + high_width)
-					data[1]=1;
-				else
-					data[1]=0;
 				next_state = bit_3_low;
 			end else
 				next_state = state;
@@ -224,16 +214,11 @@ module AM2301(
 		bit_3_low: begin 
 			if (sda_in==1) begin	
 				next_state = bit_3_high;
-				temp_time = time_out;
 			end else
 				next_state = state;
 		end 		
 		bit_3_high: begin 
 			if (sda_in==0) begin	
-				if(time_out > temp_time + high_width)
-					data[2]=1;
-				else
-					data[2]=0;
 				next_state = bit_4_low;
 			end else
 				next_state = state;
@@ -241,16 +226,11 @@ module AM2301(
 		bit_4_low: begin 
 			if (sda_in==1) begin	
 				next_state = bit_4_high;
-				temp_time = time_out;
 			end else
 				next_state = state;
 		end 		
 		bit_4_high: begin 
 			if (sda_in==0) begin	
-				if(time_out > temp_time + high_width)
-					data[3]=1;
-				else
-					data[3]=0;
 				next_state = bit_5_low;
 			end else
 				next_state = state;
@@ -258,16 +238,11 @@ module AM2301(
 		bit_5_low: begin 
 			if (sda_in==1) begin	
 				next_state = bit_5_high;
-				temp_time = time_out;
 			end else
 				next_state = state;
 		end 		
 		bit_5_high: begin 
 			if (sda_in==0) begin	
-				if(time_out > temp_time + high_width)
-					data[4]=1;
-				else
-					data[4]=0;
 				next_state = bit_6_low;
 			end else
 				next_state = state;
@@ -275,16 +250,11 @@ module AM2301(
 		bit_6_low: begin 
 			if (sda_in==1) begin	
 				next_state = bit_6_high;
-				temp_time = time_out;
 			end else
 				next_state = state;
 		end 		
 		bit_6_high: begin 
 			if (sda_in==0) begin	
-				if(time_out > temp_time + high_width)
-					data[5]=1;
-				else
-					data[5]=0;
 				next_state = bit_7_low;
 			end else
 				next_state = state;
@@ -292,16 +262,11 @@ module AM2301(
 		bit_7_low: begin 
 			if (sda_in==1) begin	
 				next_state = bit_7_high;
-				temp_time = time_out;
 			end else
 				next_state = state;
 		end 		
 		bit_7_high: begin 
 			if (sda_in==0) begin	
-				if(time_out > temp_time + high_width)
-					data[6]=1;
-				else
-					data[6]=0;
 				next_state = bit_8_low;
 			end else
 				next_state = state;
@@ -309,16 +274,11 @@ module AM2301(
 		bit_8_low: begin 
 			if (sda_in==1) begin	
 				next_state = bit_8_high;
-				temp_time = time_out;
 			end else
 				next_state = state;
 		end 		
 		bit_8_high: begin 
 			if (sda_in==0) begin	
-				if(time_out > temp_time + high_width)
-					data[7]=1;
-				else
-					data[7]=0;
 				next_state = bit_9_low;
 			end else
 				next_state = state;
@@ -326,16 +286,11 @@ module AM2301(
 		bit_9_low: begin 
 			if (sda_in==1) begin	
 				next_state = bit_9_high;
-				temp_time = time_out;
 			end else
 				next_state = state;
 		end 		
 		bit_9_high: begin 
 			if (sda_in==0) begin	
-				if(time_out > temp_time + high_width)
-					data[8]=1;
-				else
-					data[8]=0;
 				next_state = bit_10_low;
 			end else
 				next_state = state;
@@ -343,16 +298,11 @@ module AM2301(
 		bit_10_low: begin 
 			if (sda_in==1) begin	
 				next_state = bit_10_high;
-				temp_time = time_out;
 			end else
 				next_state = state;
 		end 		
 		bit_10_high: begin 
 			if (sda_in==0) begin	
-				if(time_out > temp_time + high_width)
-					data[9]=1;
-				else
-					data[9]=0;
 				next_state = bit_11_low;
 			end else
 				next_state = state;
@@ -360,16 +310,11 @@ module AM2301(
 		bit_11_low: begin 
 			if (sda_in==1) begin	
 				next_state = bit_11_high;
-				temp_time = time_out;
 			end else
 				next_state = state;
 		end 		
 		bit_11_high: begin 
 			if (sda_in==0) begin	
-				if(time_out > temp_time + high_width)
-					data[10]=1;
-				else
-					data[10]=0;
 				next_state = bit_12_low;
 			end else
 				next_state = state;
@@ -377,16 +322,11 @@ module AM2301(
 		bit_12_low: begin 
 			if (sda_in==1) begin	
 				next_state = bit_12_high;
-				temp_time = time_out;
 			end else
 				next_state = state;
 		end 		
 		bit_12_high: begin 
 			if (sda_in==0) begin	
-				if(time_out > temp_time + high_width)
-					data[11]=1;
-				else
-					data[11]=0;
 				next_state = bit_13_low;
 			end else
 				next_state = state;
@@ -394,16 +334,11 @@ module AM2301(
 		bit_13_low: begin 
 			if (sda_in==1) begin	
 				next_state = bit_13_high;
-				temp_time = time_out;
 			end else
 				next_state = state;
 		end 		
 		bit_13_high: begin 
 			if (sda_in==0) begin	
-				if(time_out > temp_time + high_width)
-					data[12]=1;
-				else
-					data[12]=0;
 				next_state = bit_14_low;
 			end else
 				next_state = state;
@@ -411,16 +346,11 @@ module AM2301(
 		bit_14_low: begin 
 			if (sda_in==1) begin	
 				next_state = bit_14_high;
-				temp_time = time_out;
 			end else
 				next_state = state;
 		end 		
 		bit_14_high: begin 
 			if (sda_in==0) begin	
-				if(time_out > temp_time + high_width)
-					data[13]=1;
-				else
-					data[13]=0;
 				next_state = bit_15_low;
 			end else
 				next_state = state;
@@ -428,16 +358,11 @@ module AM2301(
 		bit_15_low: begin 
 			if (sda_in==1) begin	
 				next_state = bit_15_high;
-				temp_time = time_out;
 			end else
 				next_state = state;
 		end 		
 		bit_15_high: begin 
 			if (sda_in==0) begin	
-				if(time_out > temp_time + high_width)
-					data[14]=1;
-				else
-					data[14]=0;
 				next_state = bit_16_low;
 			end else
 				next_state = state;
@@ -445,16 +370,11 @@ module AM2301(
 		bit_16_low: begin 
 			if (sda_in==1) begin	
 				next_state = bit_16_high;
-				temp_time = time_out;
 			end else
 				next_state = state;
 		end 		
 		bit_16_high: begin 
 			if (sda_in==0) begin	
-				if(time_out > temp_time + high_width)
-					data[15]=1;
-				else
-					data[15]=0;
 				next_state = bit_17_low;
 			end else
 				next_state = state;
@@ -462,16 +382,11 @@ module AM2301(
 		bit_17_low: begin 
 			if (sda_in==1) begin	
 				next_state = bit_17_high;
-				temp_time = time_out;
 			end else
 				next_state = state;
 		end 		
 		bit_17_high: begin 
 			if (sda_in==0) begin	
-				if(time_out > temp_time + high_width)
-					data[16]=1;
-				else
-					data[16]=0;
 				next_state = bit_18_low;
 			end else
 				next_state = state;
@@ -479,16 +394,11 @@ module AM2301(
 		bit_18_low: begin 
 			if (sda_in==1) begin	
 				next_state = bit_18_high;
-				temp_time = time_out;
 			end else
 				next_state = state;
 		end 		
 		bit_18_high: begin 
 			if (sda_in==0) begin	
-				if(time_out > temp_time + high_width)
-					data[17]=1;
-				else
-					data[17]=0;
 				next_state = bit_19_low;
 			end else
 				next_state = state;
@@ -496,16 +406,11 @@ module AM2301(
 		bit_19_low: begin 
 			if (sda_in==1) begin	
 				next_state = bit_19_high;
-				temp_time = time_out;
 			end else
 				next_state = state;
 		end 		
 		bit_19_high: begin 
 			if (sda_in==0) begin	
-				if(time_out > temp_time + high_width)
-					data[18]=1;
-				else
-					data[18]=0;
 				next_state = bit_20_low;
 			end else
 				next_state = state;
@@ -513,16 +418,11 @@ module AM2301(
 		bit_20_low: begin 
 			if (sda_in==1) begin	
 				next_state = bit_20_high;
-				temp_time = time_out;
 			end else
 				next_state = state;
 		end 		
 		bit_20_high: begin 
 			if (sda_in==0) begin	
-				if(time_out > temp_time + high_width)
-					data[19]=1;
-				else
-					data[19]=0;
 				next_state = bit_21_low;
 			end else
 				next_state = state;
@@ -530,16 +430,11 @@ module AM2301(
 	   bit_21_low: begin 
 			if (sda_in==1) begin	
 				next_state = bit_21_high;
-				temp_time = time_out;
 			end else
 				next_state = state;
 		end 		
 		bit_21_high: begin 
 			if (sda_in==0) begin	
-				if(time_out > temp_time + high_width)
-					data[20]=1;
-				else
-					data[20]=0;
 				next_state = bit_22_low;
 			end else
 				next_state = state;
@@ -547,16 +442,11 @@ module AM2301(
 		bit_22_low: begin 
 			if (sda_in==1) begin	
 				next_state = bit_22_high;
-				temp_time = time_out;
 			end else
 				next_state = state;
 		end 		
 		bit_22_high: begin 
 			if (sda_in==0) begin	
-				if(time_out > temp_time + high_width)
-					data[21]=1;
-				else
-					data[21]=0;
 				next_state = bit_23_low;
 			end else
 				next_state = state;
@@ -564,16 +454,11 @@ module AM2301(
 	   bit_23_low: begin 
 			if (sda_in==1) begin	
 				next_state = bit_23_high;
-				temp_time = time_out;
 			end else
 				next_state = state;
 		end 		
 		bit_23_high: begin 
 			if (sda_in==0) begin	
-				if(time_out > temp_time + high_width)
-					data[22]=1;
-				else
-					data[22]=0;
 				next_state = bit_24_low;
 			end else
 				next_state = state;
@@ -581,16 +466,11 @@ module AM2301(
 	   bit_24_low: begin 
 			if (sda_in==1) begin	
 				next_state = bit_24_high;
-				temp_time = time_out;
 			end else
 				next_state = state;
 		end 		
 		bit_24_high: begin 
 			if (sda_in==0) begin	
-				if(time_out > temp_time + high_width)
-					data[23]=1;
-				else
-					data[23]=0;
 				next_state = bit_25_low;
 			end else
 				next_state = state;
@@ -598,16 +478,11 @@ module AM2301(
 	   bit_25_low: begin 
 			if (sda_in==1) begin	
 				next_state = bit_25_high;
-				temp_time = time_out;
 			end else
 				next_state = state;
 		end 		
 		bit_25_high: begin 
 			if (sda_in==0) begin	
-				if(time_out > temp_time + high_width)
-					data[24]=1;
-				else
-					data[24]=0;
 				next_state = bit_26_low;
 			end else
 				next_state = state;
@@ -615,16 +490,11 @@ module AM2301(
 		bit_26_low: begin 
 			if (sda_in==1) begin	
 				next_state = bit_26_high;
-				temp_time = time_out;
 			end else
 				next_state = state;
 		end 		
 		bit_26_high: begin 
 			if (sda_in==0) begin	
-				if(time_out > temp_time + high_width)
-					data[25]=1;
-				else
-					data[25]=0;
 				next_state = bit_27_low;
 			end else
 				next_state = state;
@@ -632,16 +502,11 @@ module AM2301(
 		bit_27_low: begin 
 			if (sda_in==1) begin	
 				next_state = bit_27_high;
-				temp_time = time_out;
 			end else
 				next_state = state;
 		end 		
 		bit_27_high: begin 
 			if (sda_in==0) begin	
-				if(time_out > temp_time + high_width)
-					data[26]=1;
-				else
-					data[26]=0;
 				next_state = bit_28_low;
 			end else
 				next_state = state;
@@ -649,16 +514,11 @@ module AM2301(
 		bit_28_low: begin 
 			if (sda_in==1) begin	
 				next_state = bit_28_high;
-				temp_time = time_out;
 			end else
 				next_state = state;
 		end 		
 		bit_28_high: begin 
 			if (sda_in==0) begin	
-				if(time_out > temp_time + high_width)
-					data[27]=1;
-				else
-					data[27]=0;
 				next_state = bit_29_low;
 			end else
 				next_state = state;
@@ -666,16 +526,11 @@ module AM2301(
 		bit_29_low: begin 
 			if (sda_in==1) begin	
 				next_state = bit_29_high;
-				temp_time = time_out;
 			end else
 				next_state = state;
 		end 		
 		bit_29_high: begin 
 			if (sda_in==0) begin	
-				if(time_out > temp_time + high_width)
-					data[28]=1;
-				else
-					data[28]=0;
 				next_state = bit_30_low;
 			end else
 				next_state = state;
@@ -683,16 +538,11 @@ module AM2301(
 		bit_30_low: begin 
 			if (sda_in==1) begin	
 				next_state = bit_30_high;
-				temp_time = time_out;
 			end else
 				next_state = state;
 		end 		
 		bit_30_high: begin 
 			if (sda_in==0) begin	
-				if(time_out > temp_time + high_width)
-					data[29]=1;
-				else
-					data[29]=0;
 				next_state = bit_31_low;
 			end else
 				next_state = state;
@@ -700,16 +550,11 @@ module AM2301(
 		bit_31_low: begin 
 			if (sda_in==1) begin	
 				next_state = bit_31_high;
-				temp_time = time_out;
 			end else
 				next_state = state;
 		end 		
 		bit_31_high: begin 
 			if (sda_in==0) begin	
-				if(time_out > temp_time + high_width)
-					data[30]=1;
-				else
-					data[30]=0;
 				next_state = bit_32_low;
 			end else
 				next_state = state;
@@ -717,16 +562,11 @@ module AM2301(
 		bit_32_low: begin 
 			if (sda_in==1) begin	
 				next_state = bit_32_high;
-				temp_time = time_out;
 			end else
 				next_state = state;
 		end 		
 		bit_32_high: begin 
 			if (sda_in==0) begin	
-				if(time_out > temp_time + high_width)
-					data[31]=1;
-				else
-					data[31]=0;
 				next_state = ready;
 			end else
 				next_state = state;
@@ -740,6 +580,306 @@ module AM2301(
 			next_state = start;
 		endcase
 	end
+
+	always@(posedge clk_1us) begin
+		case(state)
+		bit_1_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_1_high: begin 
+			if(time_out > temp_time + high_width)
+				data[0]<=1;
+			else
+				data[0]<=0;
+		end 
+		bit_2_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_2_high: begin 
+			if(time_out > temp_time + high_width)
+				data[1]<=1;
+			else
+				data[1]<=0;
+		end 
+		bit_3_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_3_high: begin 
+			if(time_out > temp_time + high_width)
+				data[2]<=1;
+			else
+				data[2]<=0;
+		end 
+		bit_4_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_4_high: begin 
+			if(time_out > temp_time + high_width)
+				data[3]<=1;
+			else
+				data[3]<=0;
+		end 
+		bit_5_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_5_high: begin 
+			if(time_out > temp_time + high_width)
+				data[4]<=1;
+			else
+				data[4]<=0;
+		end 
+		bit_6_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_6_high: begin 
+			if(time_out > temp_time + high_width)
+				data[5]<=1;
+			else
+				data[5]<=0;
+		end 	
+		bit_7_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_7_high: begin 
+			if(time_out > temp_time + high_width)
+				data[6]<=1;
+			else
+				data[6]<=0;
+		end 	
+		bit_8_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_8_high: begin 
+			if(time_out > temp_time + high_width)
+				data[7]<=1;
+			else
+				data[7]<=0;
+		end 		
+		bit_9_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_9_high: begin 
+			if(time_out > temp_time + high_width)
+				data[8]<=1;
+			else
+				data[8]<=0;
+		end 
+		bit_10_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_10_high: begin 
+			if(time_out > temp_time + high_width)
+				data[9]<=1;
+			else
+				data[9]<=0;
+		end 
+		bit_11_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_11_high: begin 
+			if(time_out > temp_time + high_width)
+				data[10]<=1;
+			else
+				data[10]<=0;
+		end 
+		bit_12_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_12_high: begin 
+			if(time_out > temp_time + high_width)
+				data[11]<=1;
+			else
+				data[11]<=0;
+		end 
+		bit_13_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_13_high: begin 
+			if(time_out > temp_time + high_width)
+				data[12]<=1;
+			else
+				data[12]<=0;
+		end 
+		bit_14_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_14_high: begin 
+			if(time_out > temp_time + high_width)
+				data[13]<=1;
+			else
+				data[13]<=0;
+		end 
+		bit_15_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_15_high: begin 
+			if(time_out > temp_time + high_width)
+				data[14]<=1;
+			else
+				data[14]<=0;
+		end 
+		bit_16_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_16_high: begin 
+			if(time_out > temp_time + high_width)
+				data[15]<=1;
+			else
+				data[15]<=0;
+		end 
+		bit_17_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_17_high: begin 
+			if(time_out > temp_time + high_width)
+				data[16]<=1;
+			else
+				data[16]<=0;
+		end 
+		bit_18_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_18_high: begin 
+			if(time_out > temp_time + high_width)
+				data[17]<=1;
+			else
+				data[17]<=0;
+		end 		
+		bit_19_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_19_high: begin 
+			if(time_out > temp_time + high_width)
+				data[18]<=1;
+			else
+				data[18]<=0;
+		end 		
+		bit_20_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_20_high: begin 
+			if(time_out > temp_time + high_width)
+				data[19]<=1;
+			else
+				data[19]<=0;
+		end 		
+		bit_21_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_21_high: begin 
+			if(time_out > temp_time + high_width)
+				data[20]<=1;
+			else
+				data[20]<=0;
+		end 		
+		bit_22_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_22_high: begin 
+			if(time_out > temp_time + high_width)
+				data[21]<=1;
+			else
+				data[21]<=0;
+		end 		
+		bit_23_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_23_high: begin 
+			if(time_out > temp_time + high_width)
+				data[22]<=1;
+			else
+				data[22]<=0;
+		end 		
+		bit_24_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_24_high: begin 
+			if(time_out > temp_time + high_width)
+				data[23]<=1;
+			else
+				data[23]<=0;
+		end 		
+		bit_25_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_25_high: begin 
+			if(time_out > temp_time + high_width)
+				data[24]<=1;
+			else
+				data[24]<=0;
+		end 		
+		bit_26_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_26_high: begin 
+			if(time_out > temp_time + high_width)
+				data[25]<=1;
+			else
+				data[25]<=0;
+		end 		
+		bit_27_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_27_high: begin 
+			if(time_out > temp_time + high_width)
+				data[26]<=1;
+			else
+				data[26]<=0;
+		end 		
+		bit_28_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_28_high: begin 
+			if(time_out > temp_time + high_width)
+				data[27]<=1;
+			else
+				data[27]<=0;
+		end 		
+		bit_29_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_29_high: begin 
+			if(time_out > temp_time + high_width)
+				data[28]<=1;
+			else
+				data[28]<=0;
+		end 		
+		bit_30_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_30_high: begin 
+			if(time_out > temp_time + high_width)
+				data[29]<=1;
+			else
+				data[29]<=0;
+		end 
+		bit_31_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_31_high: begin 
+			if(time_out > temp_time + high_width)
+				data[30]<=1;
+			else
+				data[30]<=0;
+		end 
+		bit_32_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_32_high: begin 
+			if(time_out > temp_time + high_width)
+				data[31]<=1;
+			else
+				data[31]<=0;
+		end 	
+		ready:begin
+			data <= data;
+		end
+		default:begin
+			data <= 31'd0;
+		end
+		endcase
+	end
+
 	
 	always@(posedge clk_1us or posedge rsi_MRST_reset) begin
 		if(rsi_MRST_reset) begin

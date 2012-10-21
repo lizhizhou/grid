@@ -34,8 +34,8 @@ module AM2301(
 		else begin
 			case(avs_ctrl_address)
 				0: read_data <= 32;
-				1: read_data <= 32'hEA680002;
-				2: read_data <= 32'hEA680002;
+				1: read_data <= 32'hEA680003;
+				2: read_data <= 32'hEA680003;
 				3: read_data <= data[31:0];
 				4: read_data <= {31'd0,data_ready};
 				default: read_data <= 0;
@@ -62,11 +62,11 @@ module AM2301(
 	reg [24:0] time_out;
 	reg sda_dir;
 	reg sda_data;
-	wire sda_in;
+	//wire sda_in;
 	assign sda    = sda_dir?sda_data:1'bz;
 	assign sda_in = sda_dir?1:sda;
 
-	parameter high_width  = 20;	
+	parameter high_width  = 40;	
 	parameter start_width = 1000;
 	
 	// machine state
@@ -412,7 +412,8 @@ module AM2301(
 			if (sda_in==1) begin	
 				next_state = bit_14_high;
 				temp_time = time_out;
-			end
+			end else
+				next_state = state;
 		end 		
 		bit_14_high: begin 
 			if (sda_in==0) begin	

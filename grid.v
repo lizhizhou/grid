@@ -421,8 +421,8 @@ frontier	b2v_inst(
 	.step_motor_BE(IO_B11),
 	
 	
-	.am2301_sda    (IOB15),         
-   .am2301_clk_1us(IOB14),       
+	.am2301_sda    (IO_B15),         
+   .am2301_clk_1us(IO_B14),       
 	
 	
 	

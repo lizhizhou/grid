@@ -114,37 +114,16 @@
          type = "boolean";
       }
    }
-   element basic_FuncLED_1.ctrl
+   element AM2301_0.ctrl
    {
       datum _lockedAddress
       {
-         value = "1";
+         value = "0";
          type = "boolean";
       }
       datum baseAddress
       {
-         value = "268435716";
-         type = "long";
-      }
-   }
-   element step_motor_driver_0.ctrl
-   {
-      datum baseAddress
-      {
-         value = "16777344";
-         type = "long";
-      }
-   }
-   element basic_FuncLED_2.ctrl
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "268435720";
+         value = "268436000";
          type = "long";
       }
    }
@@ -179,16 +158,16 @@
          type = "long";
       }
    }
-   element AM2301_0.ctrl
+   element basic_FuncLED_1.ctrl
    {
       datum _lockedAddress
       {
-         value = "0";
+         value = "1";
          type = "boolean";
       }
       datum baseAddress
       {
-         value = "16777472";
+         value = "268435716";
          type = "long";
       }
    }
@@ -202,6 +181,27 @@
       datum baseAddress
       {
          value = "268435712";
+         type = "long";
+      }
+   }
+   element basic_FuncLED_2.ctrl
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "268435720";
+         type = "long";
+      }
+   }
+   element step_motor_driver_0.ctrl
+   {
+      datum baseAddress
+      {
+         value = "268436032";
          type = "long";
       }
    }
@@ -304,7 +304,7 @@
  <parameter name="projectName" value="grid.qpf" />
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1350735523530" />
+ <parameter name="timeStamp" value="1350740948905" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="m0" internal="HPS_tabby.EXPORT" type="conduit" dir="end" />
@@ -452,7 +452,6 @@
   <parameter name="bit_32_high" value="68" />
   <parameter name="ready" value="90" />
   <parameter name="time_2s" value="2000000" />
-  <parameter name="AUTO_MCLK_CLOCK_RATE" value="133333333" />
  </module>
  <module
    kind="step_motor_driver"
@@ -692,7 +691,7 @@
    end="AM2301_0.MCLK" />
  <connection kind="avalon" version="11.1" start="HPS_tabby.M1" end="AM2301_0.ctrl">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x01000100" />
+  <parameter name="baseAddress" value="0x10000220" />
  </connection>
  <connection
    kind="reset"
@@ -725,6 +724,6 @@
    start="HPS_tabby.M1"
    end="step_motor_driver_0.ctrl">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x01000080" />
+  <parameter name="baseAddress" value="0x10000240" />
  </connection>
 </system>

@@ -17,7 +17,7 @@ module AM2301(
 	reg      [31:0] read_data;
 	reg      [31:0] write_data;
 	wire     data_ready;
-	assign	avs_ctrl_readdata = read_data;
+	assign	avs_ctrl_readdata = read_data; //data[31:0];
 	assign   data_ready = (state==ready);
 	always@(posedge csi_MCLK_clk or posedge rsi_MRST_reset)
 	begin
@@ -50,7 +50,7 @@ module AM2301(
 		if(rsi_MRST_reset) begin
 			counter <= 0;
 		end else
-			counter<=counter+32'd64585974;//for 133.333Mhz clk
+			counter<=counter+32'd64585974/2;//for 133.33Mhz clk
 	end
 	//assign clk_1us = csi_MCLK_clk;
 	assign clk_1us = counter[31];
@@ -66,7 +66,7 @@ module AM2301(
 	assign sda    = sda_dir?sda_data:1'bz;
 	assign sda_in = sda_dir?1:sda;
 
-	parameter high_width  = 80;	
+	parameter high_width  = 40;	
 	parameter start_width = 1000;
 	
 	// machine state
@@ -581,205 +581,299 @@ module AM2301(
 		endcase
 	end
 
-	always@(posedge clk_1us or posedge rsi_MRST_reset) begin
+	always@(posedge clk_1us) begin
 		case(state)
-//		bit_1_low: begin 
-//			temp_time <= time_out;
-//		end 		
-//		bit_1_high: begin 
-//			if(time_out > temp_time + high_width)
-//				data[0]<=1;
-//			else
-//				data[0]<=0;
-//		end 
-//		bit_2_low: begin 
-//
-//		end 		
-//		bit_2_high: begin 
-//
-//		end 
-//		bit_3_low: begin 
-//
-//		end 		
-//		bit_3_high: begin 
-//
-//		end 
-//		bit_4_low: begin 
-//
-//		end 		
-//		bit_4_high: begin 
-//
-//		end 
-//		bit_5_low: begin 
-//
-//		end 		
-//		bit_5_high: begin 
-//
-//		end 
-//		bit_6_low: begin 
-//
-//		end 		
-//		bit_6_high: begin 
-//
-//		end 
-//		bit_7_low: begin 
-//
-//		end 		
-//		bit_7_high: begin 
-//
-//		end 
-//		bit_8_low: begin 
-//
-//		end 		
-//		bit_8_high: begin 
-//
-//		end 
-//		bit_9_low: begin 
-//
-//		end 		
-//		bit_9_high: begin 
-//
-//		end 
-//		bit_10_low: begin 
-//
-//		end 		
-//		bit_10_high: begin 
-//
-//		end 
-//		bit_11_low: begin 
-//
-//		end 		
-//		bit_11_high: begin 
-//
-//		end 	
-//		bit_12_low: begin 
-//
-//		end 		
-//		bit_12_high: begin 
-//
-//		end 
-//		bit_13_low: begin 
-//
-//		end 		
-//		bit_13_high: begin 
-//
-//		end 
-//		bit_14_low: begin 
-//
-//		end 		
-//		bit_14_high: begin 
-//
-//		end 
-//		bit_15_low: begin 
-//
-//		end 		
-//		bit_15_high: begin 
-//
-//		end 
-//		bit_16_low: begin 
-//
-//		end 		
-//		bit_16_high: begin 
-//
-//		end 
-//		bit_17_low: begin 
-//
-//		end 		
-//		bit_17_high: begin 
-//
-//		end 
-//		bit_18_low: begin 
-//
-//		end 		
-//		bit_18_high: begin 
-//
-//		end 
-//		bit_19_low: begin 
-//
-//		end 		
-//		bit_19_high: begin 
-//
-//		end 
-//		bit_20_low: begin 
-//
-//		end 		
-//		bit_20_high: begin 
-//
-//		end
-//	   bit_21_low: begin 
-//
-//		end 		
-//		bit_21_high: begin 
-//
-//		end 
-//		bit_22_low: begin 
-//
-//		end 		
-//		bit_22_high: begin 
-//
-//		end 
-//	   bit_23_low: begin 
-//
-//		end 		
-//		bit_23_high: begin 
-//
-//		end 
-//	   bit_24_low: begin 
-//
-//		end 		
-//		bit_24_high: begin 
-//
-//		end 
-//	   bit_25_low: begin 
-//
-//		end 		
-//		bit_25_high: begin 
-//
-//		end
-//		bit_26_low: begin 
-//
-//		end 		
-//		bit_26_high: begin 
-//
-//		end
-//		bit_27_low: begin 
-//
-//		end 		
-//		bit_27_high: begin 
-//
-//		end
-//		bit_28_low: begin 
-//
-//		end 		
-//		bit_28_high: begin 
-//
-//		end	
-//		bit_29_low: begin 
-//
-//		end 		
-//		bit_29_high: begin 
-//
-//		end	
-//		bit_30_low: begin 
-//
-//		end 		
-//		bit_30_high: begin 
-//
-//		end
-//		bit_31_low: begin 
-//
-//		end 		
-//		bit_31_high: begin 
-//
-//		end
-//		bit_32_low: begin 
-//
-//		end 		
-//		bit_32_high: begin 
-//
-//		end			
-//		ready:begin
-//		end
+		bit_1_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_1_high: begin 
+			if(time_out > temp_time + high_width)
+				data[31]<=1;
+			else
+				data[31]<=0;
+		end 
+		bit_2_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_2_high: begin 
+			if(time_out > temp_time + high_width)
+				data[30]<=1;
+			else
+				data[30]<=0;
+		end 
+		bit_3_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_3_high: begin 
+			if(time_out > temp_time + high_width)
+				data[29]<=1;
+			else
+				data[29]<=0;
+		end 
+		bit_4_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_4_high: begin 
+			if(time_out > temp_time + high_width)
+				data[28]<=1;
+			else
+				data[28]<=0;
+		end 
+		bit_5_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_5_high: begin 
+			if(time_out > temp_time + high_width)
+				data[27]<=1;
+			else
+				data[27]<=0;
+		end 
+		bit_6_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_6_high: begin 
+			if(time_out > temp_time + high_width)
+				data[26]<=1;
+			else
+				data[26]<=0;
+		end 	
+		bit_7_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_7_high: begin 
+			if(time_out > temp_time + high_width)
+				data[25]<=1;
+			else
+				data[25]<=0;
+		end 	
+		bit_8_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_8_high: begin 
+			if(time_out > temp_time + high_width)
+				data[24]<=1;
+			else
+				data[24]<=0;
+		end 		
+		bit_9_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_9_high: begin 
+			if(time_out > temp_time + high_width)
+				data[23]<=1;
+			else
+				data[23]<=0;
+		end 
+		bit_10_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_10_high: begin 
+			if(time_out > temp_time + high_width)
+				data[22]<=1;
+			else
+				data[22]<=0;
+		end 
+		bit_11_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_11_high: begin 
+			if(time_out > temp_time + high_width)
+				data[21]<=1;
+			else
+				data[21]<=0;
+		end 
+		bit_12_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_12_high: begin 
+			if(time_out > temp_time + high_width)
+				data[20]<=1;
+			else
+				data[20]<=0;
+		end 
+		bit_13_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_13_high: begin 
+			if(time_out > temp_time + high_width)
+				data[19]<=1;
+			else
+				data[19]<=0;
+		end 
+		bit_14_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_14_high: begin 
+			if(time_out > temp_time + high_width)
+				data[18]<=1;
+			else
+				data[18]<=0;
+		end 
+		bit_15_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_15_high: begin 
+			if(time_out > temp_time + high_width)
+				data[17]<=1;
+			else
+				data[17]<=0;
+		end 
+		bit_16_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_16_high: begin 
+			if(time_out > temp_time + high_width)
+				data[16]<=1;
+			else
+				data[16]<=0;
+		end 
+		bit_17_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_17_high: begin 
+			if(time_out > temp_time + high_width)
+				data[15]<=1;
+			else
+				data[15]<=0;
+		end 
+		bit_18_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_18_high: begin 
+			if(time_out > temp_time + high_width)
+				data[14]<=1;
+			else
+				data[14]<=0;
+		end 		
+		bit_19_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_19_high: begin 
+			if(time_out > temp_time + high_width)
+				data[13]<=1;
+			else
+				data[13]<=0;
+		end 		
+		bit_20_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_20_high: begin 
+			if(time_out > temp_time + high_width)
+				data[12]<=1;
+			else
+				data[12]<=0;
+		end 		
+		bit_21_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_21_high: begin 
+			if(time_out > temp_time + high_width)
+				data[11]<=1;
+			else
+				data[11]<=0;
+		end 		
+		bit_22_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_22_high: begin 
+			if(time_out > temp_time + high_width)
+				data[10]<=1;
+			else
+				data[10]<=0;
+		end 		
+		bit_23_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_23_high: begin 
+			if(time_out > temp_time + high_width)
+				data[9]<=1;
+			else
+				data[9]<=0;
+		end 		
+		bit_24_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_24_high: begin 
+			if(time_out > temp_time + high_width)
+				data[8]<=1;
+			else
+				data[8]<=0;
+		end 		
+		bit_25_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_25_high: begin 
+			if(time_out > temp_time + high_width)
+				data[7]<=1;
+			else
+				data[7]<=0;
+		end 		
+		bit_26_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_26_high: begin 
+			if(time_out > temp_time + high_width)
+				data[6]<=1;
+			else
+				data[6]<=0;
+		end 		
+		bit_27_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_27_high: begin 
+			if(time_out > temp_time + high_width)
+				data[5]<=1;
+			else
+				data[5]<=0;
+		end 		
+		bit_28_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_28_high: begin 
+			if(time_out > temp_time + high_width)
+				data[4]<=1;
+			else
+				data[4]<=0;
+		end 		
+		bit_29_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_29_high: begin 
+			if(time_out > temp_time + high_width)
+				data[3]<=1;
+			else
+				data[3]<=0;
+		end 		
+		bit_30_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_30_high: begin 
+			if(time_out > temp_time + high_width)
+				data[2]<=1;
+			else
+				data[2]<=0;
+		end 
+		bit_31_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_31_high: begin 
+			if(time_out > temp_time + high_width)
+				data[1]<=1;
+			else
+				data[1]<=0;
+		end 
+		bit_32_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_32_high: begin 
+			if(time_out > temp_time + high_width)
+				data[0]<=1;
+			else
+				data[0]<=0;
+		end 	
+		ready:begin
+			data <= data;
+		end
 		default:begin
 			data <= 31'd0;
 		end

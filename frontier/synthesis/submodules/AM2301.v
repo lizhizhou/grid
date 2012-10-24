@@ -50,12 +50,13 @@ module AM2301(
 		if(rsi_MRST_reset) begin
 			counter <= 0;
 		end else
-			counter<=counter+32'd64585974/2;//for 133.33Mhz clk
+			counter<=counter+32'd64585974/4;//for 133.33Mhz clk
 	end
 	//assign clk_1us = csi_MCLK_clk;
 	assign clk_1us = counter[31];
 	
-	reg [40:0] data;
+	reg [31:0] data;
+	reg [7:0]  sum;
 	reg [7:0] state;
 	reg [7:0] next_state;
 	reg [24:0] temp_time;
@@ -68,6 +69,7 @@ module AM2301(
 
 	parameter high_width  = 40;	
 	parameter start_width = 1000;
+	parameter time_2s=2000000;
 	
 	// machine state
 	parameter start=0;
@@ -139,17 +141,30 @@ module AM2301(
 	parameter bit_31_high=66;
 	parameter bit_32_low =67;
 	parameter bit_32_high=68;
-
+	parameter bit_33_low =69;
+	parameter bit_33_high=70;
+	parameter bit_34_low =71;
+	parameter bit_34_high=72;
+	parameter bit_35_low =73;
+	parameter bit_35_high=74;
+	parameter bit_36_low =75;
+	parameter bit_36_high=76;
+	parameter bit_37_low =77;
+	parameter bit_37_high=78;
+	parameter bit_38_low =79;
+	parameter bit_38_high=80;
+	parameter bit_39_low =81;
+	parameter bit_39_high=82;
+	parameter check_sum=83;
 	parameter ready = 90;
 	
-	parameter time_2s=2000000;
 	always@(posedge clk_1us or posedge rsi_MRST_reset) begin
 		if(rsi_MRST_reset) begin
 			state <= start;
 			time_out <= 0;
 		end
 		else begin 
-			if (time_out > 2000000) begin
+			if (time_out > time_2s) begin
 				state <= start;         // Time out, reset the state machine
 				time_out <= 0;
 			end else begin	
@@ -164,7 +179,7 @@ module AM2301(
 			next_state = start_read;
 		end
 		start_read: begin 
-			if(time_out > 1000) begin
+			if(time_out > start_width) begin
 				next_state = start_end;
 			end else
 				next_state = state;

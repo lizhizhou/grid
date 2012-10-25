@@ -155,7 +155,9 @@ module AM2301(
 	parameter bit_38_high=80;
 	parameter bit_39_low =81;
 	parameter bit_39_high=82;
-	parameter check_sum=83;
+	parameter bit_40_low =83;
+	parameter bit_40_high=84;
+	parameter check_sum=85;
 	parameter ready = 90;
 	
 	always@(posedge clk_1us or posedge rsi_MRST_reset) begin
@@ -164,7 +166,7 @@ module AM2301(
 			time_out <= 0;
 		end
 		else begin 
-			if (time_out > time_2s) begin
+			if (time_out > time_2s || next_state == start) begin
 				state <= start;         // Time out, reset the state machine
 				time_out <= 0;
 			end else begin	
@@ -582,15 +584,118 @@ module AM2301(
 		end 		
 		bit_32_high: begin 
 			if (sda_in==0) begin	
-				next_state = ready;
+				next_state = bit_33_low;
 			end else
 				next_state = state;
-		end			
-		ready:
+		end
+		bit_33_low: begin 
+			if (sda_in==1) begin	
+				next_state = bit_33_high;
+			end else
+				next_state = state;
+		end 		
+		bit_33_high: begin 
+			if (sda_in==0) begin	
+				next_state = bit_34_low;
+			end else
+				next_state = state;
+		end	
+		bit_34_low: begin 
+			if (sda_in==1) begin	
+				next_state = bit_34_high;
+			end else
+				next_state = state;
+		end 		
+		bit_34_high: begin 
+			if (sda_in==0) begin	
+				next_state = bit_35_low;
+			end else
+				next_state = state;
+		end
+		bit_35_low: begin 
+			if (sda_in==1) begin	
+				next_state = bit_35_high;
+			end else
+				next_state = state;
+		end 		
+		bit_35_high: begin 
+			if (sda_in==0) begin	
+				next_state = bit_36_low;
+			end else
+				next_state = state;
+		end
+		bit_36_low: begin 
+			if (sda_in==1) begin	
+				next_state = bit_36_high;
+			end else
+				next_state = state;
+		end 		
+		bit_36_high: begin 
+			if (sda_in==0) begin	
+				next_state = bit_37_low;
+			end else
+				next_state = state;
+		end
+		bit_37_low: begin 
+			if (sda_in==1) begin	
+				next_state = bit_37_high;
+			end else
+				next_state = state;
+		end 		
+		bit_37_high: begin 
+			if (sda_in==0) begin	
+				next_state = bit_38_low;
+			end else
+				next_state = state;
+		end
+		bit_38_low: begin 
+			if (sda_in==1) begin	
+				next_state = bit_38_high;
+			end else
+				next_state = state;
+		end 		
+		bit_38_high: begin 
+			if (sda_in==0) begin	
+				next_state = bit_39_low;
+			end else
+				next_state = state;
+		end
+		bit_39_low: begin 
+			if (sda_in==1) begin	
+				next_state = bit_39_high;
+			end else
+				next_state = state;
+		end 		
+		bit_39_high: begin 
+			if (sda_in==0) begin	
+				next_state = bit_40_low;
+			end else
+				next_state = state;
+		end
+		bit_40_low: begin 
+			if (sda_in==1) begin	
+				next_state = bit_40_high;
+			end else
+				next_state = state;
+		end 		
+		bit_40_high: begin 
+			if (sda_in==0) begin	
+				next_state = check_sum;
+			end else
+				next_state = state;
+		end	
+		check_sum: begin
+			if ((data[7:0]+data[15:8]+data[23:16]+data[31:24]) == sum[7:0])
+				next_state = ready;
+			else
+				next_state = start;
+		end
+		ready: begin
 			if (time_out > 2000000)
 				next_state = start;
 			else
 				next_state = state;
+		end
 		default:
 			next_state = start;
 		endcase
@@ -886,8 +991,85 @@ module AM2301(
 			else
 				data[0]<=0;
 		end 	
+		bit_33_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_33_high: begin 
+			if(time_out > temp_time + high_width)
+				sum[7]<=1;
+			else
+				sum[7]<=0;
+		end 	
+		bit_34_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_34_high: begin 
+			if(time_out > temp_time + high_width)
+				sum[6]<=1;
+			else
+				sum[6]<=0;
+		end
+		bit_35_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_35_high: begin 
+			if(time_out > temp_time + high_width)
+				sum[5]<=1;
+			else
+				sum[5]<=0;
+		end 	
+		bit_36_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_36_high: begin 
+			if(time_out > temp_time + high_width)
+				sum[4]<=1;
+			else
+				sum[4]<=0;
+		end 	
+		bit_37_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_37_high: begin 
+			if(time_out > temp_time + high_width)
+				sum[3]<=1;
+			else
+				sum[3]<=0;
+		end 	
+		bit_38_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_38_high: begin 
+			if(time_out > temp_time + high_width)
+				sum[2]<=1;
+			else
+				sum[2]<=0;
+		end 	
+		bit_39_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_39_high: begin 
+			if(time_out > temp_time + high_width)
+				sum[1]<=1;
+			else
+				sum[1]<=0;
+		end 	
+		bit_40_low: begin 
+			temp_time <= time_out;
+		end 		
+		bit_40_high: begin 
+			if(time_out > temp_time + high_width)
+				sum[0]<=1;
+			else
+				sum[0]<=0;
+		end 
+		check_sum:begin
+			data <= data;
+			sum  <= sum;
+		end		
 		ready:begin
 			data <= data;
+			sum  <= sum;
 		end
 		default:begin
 			data <= 31'd0;

@@ -43,12 +43,11 @@ module brush_motor_driver(
 		end
 		
 		wire forword_back;
-	   //wire on_off;
-		assign on_off =1;
+	   wire on_off;
 		wire X, Y;
 		
 	   assign forword_back = write_data[1];
-		//assign on_off = write_data[0];
+		assign on_off = write_data[0];
 	   assign X  = forword_back?1:0;
 	   assign Y  = forword_back?0:1;
 		assign HX = on_off?X:0; 

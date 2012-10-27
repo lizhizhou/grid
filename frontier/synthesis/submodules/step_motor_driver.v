@@ -21,9 +21,11 @@ module step_motor_driver(
 		output BE
 	
 	);
+	// Qsys bus controller
 	reg        step;
 	reg        forward_back;
-	reg [31:0] PWM_width;
+	reg [31:0] PWM_width_A;
+	reg [31:0] PWM_width_B;
 	reg [31:0] PWM_frequent;
 	reg [31:0] read_data;
 	assign	avs_ctrl_readdata = read_data;
@@ -42,43 +44,63 @@ module step_motor_driver(
 					if(avs_ctrl_byteenable[0]) PWM_frequent[7:0] <= avs_ctrl_writedata[7:0];
 				end
 				1: begin
-					if(avs_ctrl_byteenable[3]) PWM_width[31:24] <= avs_ctrl_writedata[31:24];
-					if(avs_ctrl_byteenable[2]) PWM_width[23:16] <= avs_ctrl_writedata[23:16];
-					if(avs_ctrl_byteenable[1]) PWM_width[15:8] <= avs_ctrl_writedata[15:8];
-					if(avs_ctrl_byteenable[0]) PWM_width[7:0] <= avs_ctrl_writedata[7:0];
+					if(avs_ctrl_byteenable[3]) PWM_width_A[31:24] <= avs_ctrl_writedata[31:24];
+					if(avs_ctrl_byteenable[2]) PWM_width_A[23:16] <= avs_ctrl_writedata[23:16];
+					if(avs_ctrl_byteenable[1]) PWM_width_A[15:8] <= avs_ctrl_writedata[15:8];
+					if(avs_ctrl_byteenable[0]) PWM_width_A[7:0] <= avs_ctrl_writedata[7:0];
 				end
-				2: forward_back <= avs_ctrl_writedata[0];
+				2: begin
+					if(avs_ctrl_byteenable[3]) PWM_width_B[31:24] <= avs_ctrl_writedata[31:24];
+					if(avs_ctrl_byteenable[2]) PWM_width_B[23:16] <= avs_ctrl_writedata[23:16];
+					if(avs_ctrl_byteenable[1]) PWM_width_B[15:8] <= avs_ctrl_writedata[15:8];
+					if(avs_ctrl_byteenable[0]) PWM_width_B[7:0] <= avs_ctrl_writedata[7:0];
+				end
 				3: step <= avs_ctrl_writedata[0];
+				4: forward_back <= avs_ctrl_writedata[0];
 				default:;
 			endcase
 	   end
 		else begin
 			case(avs_ctrl_address)
 				0: read_data <= PWM_frequent;
-				1: read_data <= PWM_width;
-				2: read_data <= {31'b0,forward_back};
+				1: read_data <= PWM_width_A;
+				2: read_data <= PWM_width_B;
 				3: read_data <= {31'b0,step};
+				4: read_data <= {31'b0,forward_back};
 				default: read_data <= 32'b0;
 			endcase
 		end
 	end
-		
-	reg [31:0] PWM;
-	reg PWM_out;
+	
+	//PWM controller
+	reg [31:0] PWM_A;
+	reg [31:0] PWM_B;
+	reg PWM_out_A;
+	reg PWM_out_B;
 	always @ (posedge csi_PWMCLK_clk or posedge rsi_PWMRST_reset)
 	begin
 		if(rsi_PWMRST_reset)
-			PWM <= 32'b0;
+			PWM_A <= 32'b0;
 		else
 		begin
-			PWM <= PWM + PWM_frequent;
-			PWM_out <=(PWM > PWM_width) ? 0:1;   
+			PWM_A <= PWM_A + PWM_frequent;
+			PWM_out_A <=(PWM_A > PWM_width_A) ? 0:1;   
 			//PWM <= PWM +  2 * 10737;//32'd500 *  33'h100000000 / 32'd200000000;
 			//PWM_out <= (PWM > 32'h80000000) ? 0:1;
 		end
-		
+	end
+	always @ (posedge csi_PWMCLK_clk or posedge rsi_PWMRST_reset)
+	begin
+		if(rsi_PWMRST_reset)
+			PWM_B <= 32'b0;
+		else
+		begin
+			PWM_B <= PWM_B + PWM_frequent;
+			PWM_out_B <=(PWM_B > PWM_width_B) ? 0:1;   
+		end
 	end
 
+	// step motor state
 	reg [0:3] motor_state;
 	always @ (posedge step or posedge rsi_MRST_reset)
 	begin
@@ -111,8 +133,9 @@ module step_motor_driver(
 		end
 	end
 	
-	assign AE = !PWM_out;
-	assign BE = !PWM_out;
+	//output signal
+	assign AE = !PWM_out_A;
+	assign BE = !PWM_out_B;
 	assign AX = !motor_state[3];
 	assign AY = !motor_state[2];
 	assign BX = !motor_state[1];

@@ -630,17 +630,6 @@ set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_LEVEL_PIP
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_ENABLE_ADVANCED_TRIGGER=0" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_SEGMENT_SIZE=4096" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_SAMPLE_DEPTH=4096" -section_id auto_signaltap_0
-set_global_assignment -name VERILOG_FILE qsys_root/step_motor_driver.v
-set_global_assignment -name VERILOG_FILE qsys_root/brush_motor_driver.v
-set_global_assignment -name VERILOG_FILE motorcontrl.v
-set_global_assignment -name QIP_FILE frontier/synthesis/frontier.qip
-set_global_assignment -name BDF_FILE grid.bdf
-set_global_assignment -name SDC_FILE grid.sdc
-set_global_assignment -name CDF_FILE grid.cdf
-set_global_assignment -name VERILOG_FILE grid.v
-set_global_assignment -name CDF_FILE output/grid.cdf
-set_global_assignment -name SIGNALTAP_FILE grid.stp
-set_global_assignment -name VERILOG_FILE qsys_root/AM2301.v
 set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
 set_global_assignment -name EDA_TIME_SCALE "1 us" -section_id eda_simulation
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
@@ -853,4 +842,16 @@ set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK=00
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK_LENGTH=314" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_LOWORD=12452" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_HIWORD=31532" -section_id auto_signaltap_0
+set_global_assignment -name VERILOG_FILE qsys_root/brushless_motor_driver.v
+set_global_assignment -name VERILOG_FILE qsys_root/step_motor_driver.v
+set_global_assignment -name VERILOG_FILE qsys_root/brush_motor_driver.v
+set_global_assignment -name VERILOG_FILE motorcontrl.v
+set_global_assignment -name QIP_FILE frontier/synthesis/frontier.qip
+set_global_assignment -name BDF_FILE grid.bdf
+set_global_assignment -name SDC_FILE grid.sdc
+set_global_assignment -name CDF_FILE grid.cdf
+set_global_assignment -name VERILOG_FILE grid.v
+set_global_assignment -name CDF_FILE output/grid.cdf
+set_global_assignment -name SIGNALTAP_FILE grid.stp
+set_global_assignment -name VERILOG_FILE qsys_root/AM2301.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

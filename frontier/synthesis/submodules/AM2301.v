@@ -57,16 +57,17 @@ module AM2301(
 	
 	reg [31:0] data;
 	reg [7:0]  sum;
-	reg [7:0] state;
-	reg [7:0] next_state;
+	reg [7:0]  state;
+	reg [7:0]  next_state;
 	reg [24:0] temp_time;
 	reg [24:0] time_out;
 	reg sda_dir;
 	reg sda_data;
-	//wire sda_in;
+	wire sda_in;
 	assign sda    = sda_dir?sda_data:1'bz;
 	assign sda_in = sda_dir?1:sda;
 
+	// parameter of time
 	parameter high_width  = 40;	
 	parameter start_width = 1000;
 	parameter time_2s=2000000;

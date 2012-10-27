@@ -63,7 +63,7 @@ module AM2301(
 	reg [24:0] time_out;
 	reg sda_dir;
 	reg sda_data;
-	//wire sda_in;
+	wire sda_in;
 	assign sda    = sda_dir?sda_data:1'bz;
 	assign sda_in = sda_dir?1:sda;
 

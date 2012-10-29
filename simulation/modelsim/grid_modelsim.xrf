@@ -40,6 +40,7 @@ source_file = 1, H:/My Documents/GitHub/grid/grid.v
 source_file = 1, H:/My Documents/GitHub/grid/output/grid.cdf
 source_file = 1, H:/My Documents/GitHub/grid/grid.stp
 source_file = 1, H:/My Documents/GitHub/grid/qsys_root/AM2301.v
+source_file = 1, H:/My Documents/GitHub/grid/qsys_root/position_encoder.v
 source_file = 1, H:/My Documents/GitHub/grid/db/grid.cbx.xml
 source_file = 1, e:/altera/11.1sp2/quartus/libraries/megafunctions/altpll.tdf
 source_file = 1, e:/altera/11.1sp2/quartus/libraries/megafunctions/aglobal111.inc

@@ -1,4 +1,4 @@
-// (C) 2001-2012 Altera Corporation. All rights reserved.
+// (C) 2001-2011 Altera Corporation. All rights reserved.
 // Your use of Altera Corporation's design tools, logic functions and other 
 // software and tools, and its AMPP partner logic functions, and any output 
 // files any of the foregoing (including device programming or simulation 
@@ -11,12 +11,12 @@
 // agreement for further details.
 
 
-// $Id: //acds/rel/11.1sp2/ip/merlin/altera_merlin_slave_agent/altera_merlin_slave_agent.sv#1 $
+// $Id: //acds/rel/11.0/ip/merlin/altera_merlin_slave_agent/altera_merlin_slave_agent.sv#1 $
 // $Revision: #1 $
-// $Date: 2011/11/10 $
+// $Date: 2011/02/14 $
 // $Author: max $
 
-`timescale 1 ns / 1 ns
+`timescale 1ns / 1ns
 
 module altera_merlin_slave_agent
   #(
@@ -44,11 +44,8 @@ module altera_merlin_slave_agent
     parameter PKT_BYTE_CNT_L   = 78,
     parameter PKT_PROTECTION_H = 86,
     parameter PKT_PROTECTION_L = 86,
-    parameter ST_DATA_W        = 90,
+    parameter ST_DATA_W        = 88,
     parameter ST_CHANNEL_W     = 32,
-//    parameter PKT_AXI_RESP_L   = 88,
-//    parameter PKT_AXI_RESP_H   = 89,
-
 
     // Slave parameters
     parameter ADDR_W  = PKT_ADDR_H - PKT_ADDR_L + 1,
@@ -149,7 +146,6 @@ module altera_merlin_slave_agent
   localparam SID_W       = PKT_DEST_ID_H - PKT_DEST_ID_L + 1;
   localparam BYTE_CNT_W  = PKT_BYTE_CNT_H - PKT_BYTE_CNT_L + 1;
   localparam BURSTWRAP_W = PKT_BURSTWRAP_H - PKT_BURSTWRAP_L + 1;
-//  localparam RESP_W 	 = PKT_AXI_RESP_H - PKT_AXI_RESP_L + 1;
 
   // ------------------------------------------------
   // Signals
@@ -166,26 +162,24 @@ module altera_merlin_slave_agent
   wire [BYTE_CNT_W-1:0]  cmd_byte_cnt;
   wire [BURSTWRAP_W-1:0] cmd_burstwrap;
   wire                   cmd_debugaccess;
-//  wire [RESP_W-1:0]		 cmd_response;
 
   wire               byteen_asserted;
   wire               read_suppressed;
   wire               generate_response;
-  wire				 nonposted_write_endofpacket; //llim: to get a condition where it is the end of packet and a write command packet. This is to push command packet into fifo 
 
-  // Assign command fields										//for axi writes
-  assign cmd_data     = cp_data[PKT_DATA_H  :PKT_DATA_L  ]; 	//wdata 		//0 default
-  assign cmd_byteen   = cp_data[PKT_BYTEEN_H:PKT_BYTEEN_L]; 	//wstrb			//MISSING
-  assign cmd_addr     = cp_data[PKT_ADDR_H  :PKT_ADDR_L  ]; 	//awaddr		//araddr
-  assign cmd_compressed = cp_data[PKT_TRANS_COMPRESSED_READ]; 	//always 0		//0
-  assign cmd_posted   = cp_data[PKT_TRANS_POSTED]; 				//alwyas 0		//0
-  assign cmd_write    = cp_data[PKT_TRANS_WRITE];				// 1			//0
-  assign cmd_read     = cp_data[PKT_TRANS_READ];				// 0			//1
-  assign cmd_mid      = cp_data[PKT_SRC_ID_H :PKT_SRC_ID_L];	//take in the mid from transform
-  assign cmd_sid      = cp_data[PKT_DEST_ID_H:PKT_DEST_ID_L];	//dump out the sid from the slave
-  assign cmd_byte_cnt = cp_data[PKT_BYTE_CNT_H:PKT_BYTE_CNT_L]; //0 for now		//0
-  assign cmd_burstwrap= cp_data[PKT_BURSTWRAP_H:PKT_BURSTWRAP_L]; //MISSING		//missing
-  assign cmd_debugaccess = cp_data[PKT_PROTECTION_L];			// awprot bit0  //arprotbit0
+  // Assign command fields
+  assign cmd_data     = cp_data[PKT_DATA_H  :PKT_DATA_L  ];
+  assign cmd_byteen   = cp_data[PKT_BYTEEN_H:PKT_BYTEEN_L];
+  assign cmd_addr     = cp_data[PKT_ADDR_H  :PKT_ADDR_L  ];
+  assign cmd_compressed = cp_data[PKT_TRANS_COMPRESSED_READ];
+  assign cmd_posted   = cp_data[PKT_TRANS_POSTED];
+  assign cmd_write    = cp_data[PKT_TRANS_WRITE];
+  assign cmd_read     = cp_data[PKT_TRANS_READ];
+  assign cmd_mid      = cp_data[PKT_SRC_ID_H :PKT_SRC_ID_L];
+  assign cmd_sid      = cp_data[PKT_DEST_ID_H:PKT_DEST_ID_L];
+  assign cmd_byte_cnt = cp_data[PKT_BYTE_CNT_H:PKT_BYTE_CNT_L];
+  assign cmd_burstwrap= cp_data[PKT_BURSTWRAP_H:PKT_BURSTWRAP_L];
+  assign cmd_debugaccess = cp_data[PKT_PROTECTION_L];
 
   // Local "ready_for_command" signal: deasserted when the agent is unable to accept
   // another command, e.g. rdv FIFO is full, (local readdata storage is full &&
@@ -199,9 +193,6 @@ module altera_merlin_slave_agent
   wire local_write = cp_valid & cp_data[PKT_TRANS_WRITE];
   wire local_read  = cp_valid & cp_data[PKT_TRANS_READ];
   wire local_compressed_read = cp_valid & cp_data[PKT_TRANS_COMPRESSED_READ]; 
-  assign nonposted_write_endofpacket = local_write & cp_endofpacket & ~cp_data[PKT_TRANS_POSTED];
-  //wire rf_sink_write = rf_sink_valid & rf_sink_data[PKT_TRANS_WRITE];  //llim: need a set of signals from the rf_sink to connect to sink_valid of burst uncompressor
-  //assign rf_nonposted_write_endofpacket = rf_sink_write & rf_sink_endofpacket & ~rf_sink_data[PKT_TRANS_POSTED];
 
   // num_symbols is PKT_SYMBOLS, appropriately sized.
   wire [31:0] int_num_symbols = PKT_SYMBOLS;
@@ -306,17 +297,15 @@ module altera_merlin_slave_agent
   // Generate a token when read commands are suppressed. The token
   // is stored in the response FIFO, and will be used to synthesize 
   // a read response.
-
-  // llim: token also used for generating write responses at the end of each packet for nonposted_write
   //
   // Note: this token is not generated for suppressed uncompressed read cycles;
   // the burst uncompression logic at the read side of the response FIFO
   // generates the correct number of responses.
   // ------------------------------------------------------------------
-  assign read_suppressed = ((local_read | local_compressed_read) & !byteen_asserted) | nonposted_write_endofpacket;
+  assign read_suppressed = (local_read | local_compressed_read) & !byteen_asserted;
 
   // Avalon-ST interfaces to external response fifo:
-  assign rf_source_valid = (local_read | local_compressed_read | nonposted_write_endofpacket) & ready_for_command & cp_ready; //llim: modifying this to allow non-posted write commands to also be stored in the response fifo.
+  assign rf_source_valid = (local_read | local_compressed_read) & ready_for_command & cp_ready;
   assign rf_source_startofpacket = cp_startofpacket;
   assign rf_source_endofpacket   = cp_endofpacket;
   always @* begin
@@ -342,8 +331,7 @@ module altera_merlin_slave_agent
 
   wire uncompressor_source_valid;
   assign generate_response = rf_sink_data[FIFO_DATA_W-1];
-  //assign rp_valid = rdata_fifo_sink_valid | (uncompressor_source_valid | generate_response);
-  assign rp_valid = rdata_fifo_sink_valid | uncompressor_source_valid;
+  assign rp_valid = rdata_fifo_sink_valid | (uncompressor_source_valid | generate_response);
 
   wire [BYTE_CNT_W-1:0] rf_sink_byte_cnt = rf_sink_data[PKT_BYTE_CNT_H:PKT_BYTE_CNT_L];
   wire rf_sink_compressed                = rf_sink_data[PKT_TRANS_COMPRESSED_READ];
@@ -357,7 +345,6 @@ module altera_merlin_slave_agent
 
   // ------------------------------------------------------------------
   // Backpressure the readdata fifo if we're supposed to synthesize a response
-  // llim: also backpressure the rdata fifo when there is a write response
   // ------------------------------------------------------------------
   assign rdata_fifo_sink_ready = rdata_fifo_sink_valid & rp_ready & ~(rf_sink_valid & generate_response);
 
@@ -381,7 +368,6 @@ module altera_merlin_slave_agent
     rp_data[PKT_BYTE_CNT_H:PKT_BYTE_CNT_L]   = burst_byte_cnt;
     rp_data[PKT_TRANS_READ]                  = rf_sink_data[PKT_TRANS_READ] | rf_sink_data[PKT_TRANS_COMPRESSED_READ];
     rp_data[PKT_TRANS_COMPRESSED_READ]       = rp_is_compressed;
-//	rp_data[PKT_AXI_RESP_H:PKT_AXI_RESP_L]	 = 2'b0; //llim: always return OKAY for avalon non bursting transaction
   end
 
   altera_merlin_burst_uncompressor #(
@@ -395,7 +381,7 @@ module altera_merlin_slave_agent
     .reset (reset),
     .sink_startofpacket (rf_sink_startofpacket),
     .sink_endofpacket (rf_sink_endofpacket),
-    .sink_valid (rf_sink_valid & (rdata_fifo_sink_valid | generate_response )), //llim
+    .sink_valid (rf_sink_valid & (rdata_fifo_sink_valid | generate_response)),
     .sink_ready (rf_sink_ready),
     .sink_addr (rf_sink_addr),
     .sink_burstwrap (rf_sink_burstwrap),

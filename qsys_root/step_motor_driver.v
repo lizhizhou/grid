@@ -72,7 +72,7 @@ module step_motor_driver(
 		end
 	end
 	
-	//PWM controller
+//PWM controller
 	reg [31:0] PWM_A;
 	reg [31:0] PWM_B;
 	reg PWM_out_A;

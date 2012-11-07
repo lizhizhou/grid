@@ -1,4 +1,4 @@
-// (C) 2001-2012 Altera Corporation. All rights reserved.
+// (C) 2001-2011 Altera Corporation. All rights reserved.
 // Your use of Altera Corporation's design tools, logic functions and other 
 // software and tools, and its AMPP partner logic functions, and any output 
 // files any of the foregoing (including device programming or simulation 
@@ -11,9 +11,9 @@
 // agreement for further details.
 
 
-// $Id: //acds/rel/11.1sp2/ip/merlin/altera_merlin_demultiplexer/altera_merlin_demultiplexer.sv.terp#1 $
+// $Id: //acds/rel/11.0/ip/merlin/altera_merlin_demultiplexer/altera_merlin_demultiplexer.sv.terp#1 $
 // $Revision: #1 $
-// $Date: 2011/11/10 $
+// $Date: 2011/02/14 $
 // $Author: max $
 
 // -------------------------------------
@@ -29,7 +29,7 @@
 // Generation parameters:
 //   output_name:         frontier_rsp_xbar_demux
 //   ST_DATA_W:           89
-//   ST_CHANNEL_W:        11
+//   ST_CHANNEL_W:        13
 //   NUM_OUTPUTS:         1
 //   VALID_WIDTH:         1
 // ------------------------------------------
@@ -47,7 +47,7 @@ module frontier_rsp_xbar_demux
     // -------------------
     input  [1-1      : 0]   sink_valid,
     input  [89-1    : 0]   sink_data, // ST_DATA_W=89
-    input  [11-1 : 0]   sink_channel, // ST_CHANNEL_W=11
+    input  [13-1 : 0]   sink_channel, // ST_CHANNEL_W=13
     input                         sink_startofpacket,
     input                         sink_endofpacket,
     output                        sink_ready,
@@ -57,7 +57,7 @@ module frontier_rsp_xbar_demux
     // -------------------
     output reg                      src0_valid,
     output reg [89-1    : 0] src0_data, // ST_DATA_W=89
-    output reg [11-1 : 0] src0_channel, // ST_CHANNEL_W=11
+    output reg [13-1 : 0] src0_channel, // ST_CHANNEL_W=13
     output reg                      src0_startofpacket,
     output reg                      src0_endofpacket,
     input                           src0_ready,

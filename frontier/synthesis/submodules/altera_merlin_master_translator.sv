@@ -1,4 +1,4 @@
-// (C) 2001-2012 Altera Corporation. All rights reserved.
+// (C) 2001-2011 Altera Corporation. All rights reserved.
 // Your use of Altera Corporation's design tools, logic functions and other 
 // software and tools, and its AMPP partner logic functions, and any output 
 // files any of the foregoing (including device programming or simulation 
@@ -11,10 +11,10 @@
 // agreement for further details.
 
 
-// $Id: //acds/rel/11.1sp2/ip/merlin/altera_merlin_master_translator/altera_merlin_master_translator.sv#1 $
-// $Revision: #1 $
-// $Date: 2011/11/10 $
-// $Author: max $
+// $Id: //acds/rel/11.0/ip/merlin/altera_merlin_master_translator/altera_merlin_master_translator.sv#2 $
+// $Revision: #2 $
+// $Date: 2011/03/22 $
+// $Author: kbrunham $
 
 // --------------------------------------
 // Merlin Master Translator
@@ -23,7 +23,7 @@
 // Avalon-MM Universal Master Interfaces
 // --------------------------------------
 
-`timescale 1 ns / 1 ns
+`timescale 1ns / 1ns
 
 
 
@@ -193,26 +193,19 @@ module altera_merlin_master_translator #(
    reg first_burst_stalled;
    reg burst_stalled;
 
-     
    wire[UAV_ADDRESS_W-1:0] combi_burst_addr_reg;
    wire [UAV_ADDRESS_W-1:0] combi_addr_reg;
+     
    generate
-      if(AV_LINEWRAPBURSTS && AV_MAX_SYMBOL_BURST!=0) begin
-         if(AV_MAX_SYMBOL_BURST > UAV_ADDRESS_W - 1) begin
-            assign combi_burst_addr_reg = { uav_address_pre[UAV_ADDRESS_W-1:0] + AV_SYMBOLS_PER_WORD[UAV_ADDRESS_W-1:0] };
-            assign combi_addr_reg = { address_register[UAV_ADDRESS_W-1:0] + AV_SYMBOLS_PER_WORD[UAV_ADDRESS_W-1:0] };
-         end
-         else begin
-            assign combi_burst_addr_reg = { uav_address_pre[UAV_ADDRESS_W - 1 : AV_MAX_SYMBOL_BURST], uav_address_pre[AV_MAX_SYMBOL_BURST_MINUS_ONE:0] + AV_SYMBOLS_PER_WORD[AV_MAX_SYMBOL_BURST_MINUS_ONE:0] };
-            assign combi_addr_reg = { address_register[UAV_ADDRESS_W - 1 : AV_MAX_SYMBOL_BURST], address_register[AV_MAX_SYMBOL_BURST_MINUS_ONE:0] + AV_SYMBOLS_PER_WORD[AV_MAX_SYMBOL_BURST_MINUS_ONE:0] };
-         end
+      if(AV_MAX_SYMBOL_BURST > UAV_ADDRESS_W - 1) begin
+	 assign combi_burst_addr_reg = { uav_address_pre[UAV_ADDRESS_W-1:0] + AV_SYMBOLS_PER_WORD[UAV_ADDRESS_W-1:0] };
+	 assign combi_addr_reg = { address_register[UAV_ADDRESS_W-1:0] + AV_SYMBOLS_PER_WORD[UAV_ADDRESS_W-1:0] };
       end
       else begin
-         assign combi_burst_addr_reg =
-           uav_address_pre + AV_SYMBOLS_PER_WORD[UAV_ADDRESS_W_OR_32:0];
-         assign combi_addr_reg =
-           address_register + AV_SYMBOLS_PER_WORD[UAV_ADDRESS_W_OR_32:0];
+	 assign combi_burst_addr_reg = { uav_address_pre[UAV_ADDRESS_W - 1 : AV_MAX_SYMBOL_BURST], uav_address_pre[AV_MAX_SYMBOL_BURST_MINUS_ONE:0] + AV_SYMBOLS_PER_WORD[AV_MAX_SYMBOL_BURST_MINUS_ONE:0] };
+	 assign combi_addr_reg = { address_register[UAV_ADDRESS_W - 1 : AV_MAX_SYMBOL_BURST], address_register[AV_MAX_SYMBOL_BURST_MINUS_ONE:0] + AV_SYMBOLS_PER_WORD[AV_MAX_SYMBOL_BURST_MINUS_ONE:0] };
       end
+
    endgenerate
    
    always@(posedge clk, posedge reset) begin
@@ -235,16 +228,24 @@ module altera_merlin_master_translator #(
 	       burstcount_register <= uav_burstcount_pre;
 	    end else begin
 	       first_burst_stalled <= 1'b0;
-	       address_register    <= combi_burst_addr_reg;
+	       address_register    <= uav_address_pre    + AV_SYMBOLS_PER_WORD[UAV_ADDRESS_W_OR_32 : 0 ];
 	       burstcount_register <= uav_burstcount_pre - symbols_per_word;
+	       
+	       if(AV_LINEWRAPBURSTS && AV_MAX_SYMBOL_BURST!=0) begin
+		address_register <= combi_burst_addr_reg;
+	       end
 	    end
 	 end
 	 
 	 else if(internal_begintransfer || burst_stalled) begin
 	    if(~av_waitrequest) begin
 	       burst_stalled       <= 1'b0;
-	       address_register    <= combi_addr_reg;
+	       address_register    <= address_register    + AV_SYMBOLS_PER_WORD[UAV_ADDRESS_W_OR_32   : 0 ];
 	       burstcount_register <= burstcount_register - symbols_per_word;
+	       
+	       if(AV_LINEWRAPBURSTS && AV_MAX_SYMBOL_BURST!=0) begin
+		  address_register <= combi_addr_reg;
+	       end
 	    end else
 	      burst_stalled<=1'b1;   
 	 end
@@ -412,16 +413,10 @@ module altera_merlin_master_translator #(
    // Beginbursttransfer Assigment
    // -------------------
    
+   reg [UAV_BURSTCOUNT_W - 1 : 0 ]                         burstcounter;
    reg 							   end_beginbursttransfer;
-   wire                                                    last_burst_transfer_pre;
-   wire                                                    last_burst_transfer_reg;
-   wire                                                    last_burst_transfer;
-
-   // compare values before the mux to shorten critical path; benchmark before changing
-   assign last_burst_transfer_pre = (uav_burstcount_pre == symbols_per_word);
-   assign last_burst_transfer_reg = (burstcount_register == symbols_per_word);
-   assign last_burst_transfer     = (internal_beginbursttransfer) ? last_burst_transfer_pre : last_burst_transfer_reg;     
-      
+   
+   
    always@* begin
       if(USE_BEGINBURSTTRANSFER) begin
 	 internal_beginbursttransfer = av_beginbursttransfer;
@@ -433,14 +428,18 @@ module altera_merlin_master_translator #(
    always@ ( posedge clk or posedge reset ) begin
       
       if(reset) begin
+	 burstcounter <= symbols_per_word;
 	 end_beginbursttransfer <= 1'b0;
       end
       else begin
+	 burstcounter <= burstcounter;
 	 end_beginbursttransfer <= end_beginbursttransfer;
-	 if( last_burst_transfer && internal_begintransfer || uav_read ) begin
+	 if( burstcounter == uav_burstcount_pre && internal_begintransfer || uav_read ) begin
+	    burstcounter <= symbols_per_word;
 	    end_beginbursttransfer <= 1'b0;
 	 end
 	 else if(uav_write && internal_begintransfer) begin
+	    burstcounter<=burstcounter + symbols_per_word;
 	    end_beginbursttransfer <= 1'b1;
 	 end
       end

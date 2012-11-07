@@ -16,8 +16,6 @@
 
 `timescale 1 ns / 1 ns
 
-
-//altera message_off 10036
 module altera_avalon_sc_fifo
 #(
     // --------------------------------------------------

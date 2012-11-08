@@ -385,9 +385,9 @@ frontier	b2v_inst(
 	.slot_b_P19(IO_B19),
 	.slot_b_P20(IO_B20),
 	.slot_b_P21(IO_B21),
-	.slot_b_P22(IO_B22),
-	.slot_b_P23(IO_B23),
-	.slot_b_P24(IO_B24),
+//	.slot_b_P22(IO_B22),
+//	.slot_b_P23(IO_B23),
+//	.slot_b_P24(IO_B24),
 	.slot_b_P25(IO_B25),
 	.m0_ADDR(M1_ADDR),
 	.m0_BEN(M1_BEN),
@@ -408,20 +408,27 @@ frontier	b2v_inst(
 	.led_f3_B(LED_F3B),
 	
 	
-	.step_motor_AX(IO_B13),
-	.step_motor_AY(IO_B9),
-	.step_motor_BX(IO_B12),
-	.step_motor_BY(IO_B8),
-	.step_motor_AE(IO_B10),
-	.step_motor_BE(IO_B11),
+//	.step_motor_AX(IO_B13),
+//	.step_motor_AY(IO_B9),
+//	.step_motor_BX(IO_B12),
+//	.step_motor_BY(IO_B8),
+//	.step_motor_AE(IO_B10),
+//	.step_motor_BE(IO_B11),
 	
+	.brush_motor_HX(IO_B13),      
+   .brush_motor_HY(IO_B9),      
 	
 	.am2301_sda    (IO_B15),         
    .am2301_clk_1us(IO_B14),       
 	
+	.position_encoder_A  (IO_B24),  
+   .position_encoder_B  (IO_B23), 
+   .position_encoder_Z  (IO_B22),  
+	
 	.m0_EINT(M1_EINT));
 
-
+  assign IO_B10=0;
+  assign IO_B11=0;
 //debug 
 
 //AM2301 am2301_0(

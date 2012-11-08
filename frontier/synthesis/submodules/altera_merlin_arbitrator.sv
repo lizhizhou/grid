@@ -1,4 +1,4 @@
-// (C) 2001-2011 Altera Corporation. All rights reserved.
+// (C) 2001-2012 Altera Corporation. All rights reserved.
 // Your use of Altera Corporation's design tools, logic functions and other 
 // software and tools, and its AMPP partner logic functions, and any output 
 // files any of the foregoing (including device programming or simulation 
@@ -139,7 +139,6 @@ module altera_merlin_arbitrator
     wire [NUM_REQUESTERS-1:0]   top_priority;
     reg  [NUM_REQUESTERS-1:0]   top_priority_reg;
     reg  [NUM_REQUESTERS-1:0]   last_grant;
-    wire [2*NUM_REQUESTERS-1:0] grant_double_vector;
     wire [2*NUM_REQUESTERS-1:0] result;
 
     // --------------------------------------
@@ -169,8 +168,6 @@ module altera_merlin_arbitrator
         .sum (result)
     );
 
-    // Do the math in double-vector domain
-    assign grant_double_vector = {request, request} & result;
   
     generate if (SCHEME == "no-arb") begin
 
@@ -180,6 +177,9 @@ module altera_merlin_arbitrator
         assign grant = request;
 
     end else begin
+        // Do the math in double-vector domain
+        wire [2*NUM_REQUESTERS-1:0] grant_double_vector;
+        assign grant_double_vector = {request, request} & result;
 
         // --------------------------------------
         // Extract grant from the top and bottom halves

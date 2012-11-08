@@ -1,4 +1,4 @@
-// (C) 2001-2011 Altera Corporation. All rights reserved.
+// (C) 2001-2012 Altera Corporation. All rights reserved.
 // Your use of Altera Corporation's design tools, logic functions and other 
 // software and tools, and its AMPP partner logic functions, and any output 
 // files any of the foregoing (including device programming or simulation 
@@ -11,10 +11,10 @@
 // agreement for further details.
 
 
-// $Id: //acds/rel/11.0/ip/merlin/altera_merlin_multiplexer/altera_merlin_multiplexer.sv.terp#2 $
-// $Revision: #2 $
-// $Date: 2011/02/20 $
-// $Author: jyeap $
+// $Id: //acds/rel/11.1sp2/ip/merlin/altera_merlin_multiplexer/altera_merlin_multiplexer.sv.terp#1 $
+// $Revision: #1 $
+// $Date: 2011/11/10 $
+// $Author: max $
 
 // ------------------------------------------
 // Merlin Multiplexer
@@ -161,15 +161,12 @@ module frontier_rsp_xbar_mux
     // ------------------------------------------
     wire [NUM_INPUTS - 1 : 0] request;
     wire [NUM_INPUTS - 1 : 0] valid;
-    wire [NUM_INPUTS - 1 : 0] eop;
-    reg  [NUM_INPUTS - 1 : 0] prev_request;
     wire [NUM_INPUTS - 1 : 0] grant;
     wire [NUM_INPUTS - 1 : 0] next_grant;
     reg  [NUM_INPUTS - 1 : 0] saved_grant;
     reg  [PAYLOAD_W - 1 : 0]  src_payload;
     wire                      last_cycle;
     reg                       packet_in_progress;
-    wire                      grant_changed;
     reg                       update_grant;
 
     wire [PAYLOAD_W - 1 : 0]  sink0_payload;
@@ -187,31 +184,19 @@ module frontier_rsp_xbar_mux
     wire [PAYLOAD_W - 1 : 0]  sink12_payload;
 
     assign valid[0] = sink0_valid;
-    assign eop[0]   = sink0_endofpacket;
     assign valid[1] = sink1_valid;
-    assign eop[1]   = sink1_endofpacket;
     assign valid[2] = sink2_valid;
-    assign eop[2]   = sink2_endofpacket;
     assign valid[3] = sink3_valid;
-    assign eop[3]   = sink3_endofpacket;
     assign valid[4] = sink4_valid;
-    assign eop[4]   = sink4_endofpacket;
     assign valid[5] = sink5_valid;
-    assign eop[5]   = sink5_endofpacket;
     assign valid[6] = sink6_valid;
-    assign eop[6]   = sink6_endofpacket;
     assign valid[7] = sink7_valid;
-    assign eop[7]   = sink7_endofpacket;
     assign valid[8] = sink8_valid;
-    assign eop[8]   = sink8_endofpacket;
     assign valid[9] = sink9_valid;
-    assign eop[9]   = sink9_endofpacket;
     assign valid[10] = sink10_valid;
-    assign eop[10]   = sink10_endofpacket;
     assign valid[11] = sink11_valid;
-    assign eop[11]   = sink11_endofpacket;
     assign valid[12] = sink12_valid;
-    assign eop[12]   = sink12_endofpacket;
+
 
     // ------------------------------------------
     // ------------------------------------------
@@ -234,15 +219,6 @@ module frontier_rsp_xbar_mux
       lock[11] = sink11_data[72];
       lock[12] = sink12_data[72];
     end
-    reg [NUM_INPUTS - 1 : 0] locked = '0;
-    always @(posedge clk or posedge reset) begin
-      if (reset) begin
-        locked <= '0;
-      end
-      else begin
-        locked <= grant & lock;
-      end
-    end
 
     assign last_cycle = src_valid & src_ready & src_endofpacket & ~(|(lock & grant));
 
@@ -262,7 +238,6 @@ module frontier_rsp_xbar_mux
         end
     end
 
-    assign grant_changed = ~packet_in_progress && !(saved_grant & valid);
 
     // ------------------------------------------
     // Shares
@@ -324,6 +299,7 @@ module frontier_rsp_xbar_mux
     // ------------------------------------------
     // Flag to indicate first packet of an arb sequence.
     // ------------------------------------------
+    wire grant_changed = ~packet_in_progress && !(saved_grant & valid);
     reg first_packet_r;
     wire first_packet = grant_changed | first_packet_r;
     always @(posedge clk or posedge reset) begin
@@ -426,19 +402,8 @@ module frontier_rsp_xbar_mux
     };
 
     // ------------------------------------------
-    // Compute a "done" bit which goes active on the cycle _after_ the arb
-    // winner executes the final packet of a full grant sequence.
     // ------------------------------------------
     wire p1_done = |(final_packet & grant);
-    reg done;
-    always @(posedge clk or posedge reset) begin
-        if (reset) begin
-            done <= 1'b0;
-        end
-        else if (last_cycle) begin
-            done <= p1_done;
-        end
-    end
 
     // ------------------------------------------
     // Flag for the first cycle of packets within an 
@@ -488,12 +453,6 @@ module frontier_rsp_xbar_mux
     // ------------------------------------------
     assign request = valid;
 
-    always @(posedge clk, posedge reset) begin
-        if (reset)
-            prev_request <= '0;
-        else
-            prev_request <= request & ~(valid & eop);
-    end
 
     altera_merlin_arbitrator
     #(

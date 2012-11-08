@@ -1,4 +1,4 @@
-// (C) 2001-2011 Altera Corporation. All rights reserved.
+// (C) 2001-2012 Altera Corporation. All rights reserved.
 // Your use of Altera Corporation's design tools, logic functions and other 
 // software and tools, and its AMPP partner logic functions, and any output 
 // files any of the foregoing (including device programming or simulation 
@@ -11,12 +11,10 @@
 // agreement for further details.
 
 
-// $Id: //acds/rel/11.0/ip/merlin/altera_merlin_slave_agent/altera_merlin_burst_uncompressor.sv#1 $
+// $Id: //acds/rel/11.1sp2/ip/merlin/altera_merlin_slave_agent/altera_merlin_burst_uncompressor.sv#1 $
 // $Revision: #1 $
-// $Date: 2011/02/14 $
+// $Date: 2011/11/10 $
 // $Author: max $
-
-`timescale 1ns / 1ns
 
 // ------------------------------------------
 // Merlin Burst Uncompressor
@@ -24,7 +22,7 @@
 // Compressed read bursts -> uncompressed
 // ------------------------------------------
 
-`timescale 1ns / 1ns
+`timescale 1 ns / 1 ns
 
 module altera_merlin_burst_uncompressor
 #(

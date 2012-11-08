@@ -1,4 +1,4 @@
-// (C) 2001-2011 Altera Corporation. All rights reserved.
+// (C) 2001-2012 Altera Corporation. All rights reserved.
 // Your use of Altera Corporation's design tools, logic functions and other 
 // software and tools, and its AMPP partner logic functions, and any output 
 // files any of the foregoing (including device programming or simulation 
@@ -11,10 +11,10 @@
 // agreement for further details.
 
 
-// $Id: //acds/rel/11.0/ip/merlin/altera_merlin_traffic_limiter/altera_merlin_traffic_limiter.sv#2 $
-// $Revision: #2 $
-// $Date: 2011/03/14 $
-// $Author: aferrucc $
+// $Id: //acds/rel/11.1sp2/ip/merlin/altera_merlin_traffic_limiter/altera_merlin_traffic_limiter.sv#1 $
+// $Revision: #1 $
+// $Date: 2011/11/10 $
+// $Author: max $
 
 // -----------------------------------------------------
 // Merlin Traffic Limiter
@@ -208,8 +208,6 @@ module altera_merlin_traffic_limiter
     wire                    count_is_0;
     reg                     internal_valid;
 
-    wire null_transaction = (dest_id == '0);
-
     assign { stage2_data, 
         stage2_channel,
         stage2_startofpacket,
@@ -217,7 +215,7 @@ module altera_merlin_traffic_limiter
         stage2_dest_changed } = stage2_payload;
 
     assign nonposted_cmd          = (stage2_data[PKT_TRANS_POSTED] == 0);
-    assign nonposted_cmd_accepted = nonposted_cmd && internal_valid && (null_transaction || cmd_src_ready && cmd_src_endofpacket);
+    assign nonposted_cmd_accepted = nonposted_cmd && internal_valid && (cmd_src_ready && cmd_src_endofpacket);
     assign response_accepted = rsp_src_valid && rsp_src_ready && rsp_src_endofpacket;
 
     always @* begin
@@ -242,30 +240,13 @@ module altera_merlin_traffic_limiter
         else begin
             pending_response_count <= next_pending_response_count;
             // synthesis translate_off
-            if ((pending_response_count == '0) && next_pending_response_count[COUNTER_W - 1])
+            if (count_is_0 && response_accepted)
                 $display("%t: %m: Error: unexpected response: pending_response_count underflow", $time());
             // synthesis translate_on
             has_pending_responses  <= has_pending_responses 
                 && ~(count_is_1 && response_accepted && ~nonposted_cmd_accepted)
                 || (count_is_0 && nonposted_cmd_accepted && ~response_accepted);
         end
-    end
-
-
-    reg generate_response;
-    wire p1_generate_response =
-      nonposted_cmd && cmd_sink_valid & cmd_sink_ready & cmd_sink_endofpacket & null_transaction;
-    always @(posedge clk or posedge reset) begin
-      if (reset) begin
-        generate_response <= '0;
-      end
-      else begin
-        generate_response <= p1_generate_response;
-        // synthesis translate_off
-        if (p1_generate_response && cmd_sink_data[PKT_BYTE_CNT_H:PKT_BYTE_CNT_L] != NUMSYMBOLS)
-            $display("%t: %m: Warning: burst read to unallocated address detected; only one generated response will be returned", $time());
-        // synthesis translate_on
-      end
     end
 
     // -------------------------------------
@@ -277,18 +258,18 @@ module altera_merlin_traffic_limiter
         cmd_src_startofpacket = stage2_startofpacket;
         cmd_src_endofpacket   = stage2_endofpacket;
 
-        rsp_src_valid         = rsp_sink_valid | generate_response;
-        rsp_src_data          = rsp_sink_data | {ST_DATA_W {generate_response}};
-        rsp_src_channel       = rsp_sink_channel | {ST_CHANNEL_W {generate_response}};
-        rsp_src_startofpacket = rsp_sink_startofpacket | generate_response;
-        rsp_src_endofpacket   = rsp_sink_endofpacket | generate_response;
+        rsp_src_valid         = rsp_sink_valid;
+        rsp_src_data          = rsp_sink_data;
+        rsp_src_channel       = rsp_sink_channel;
+        rsp_src_startofpacket = rsp_sink_startofpacket;
+        rsp_src_endofpacket   = rsp_sink_endofpacket;
         rsp_sink_ready        = rsp_src_ready;
     end
 
     // -------------------------------------
     // Backpressure & Suppression
     // -------------------------------------
-    generate begin : enforce_order
+    generate begin : enforce_order_block
         if (ENFORCE_ORDER)
             assign suppress = nonposted_cmd & has_pending_responses & stage2_dest_changed;
         else
@@ -296,7 +277,7 @@ module altera_merlin_traffic_limiter
     end endgenerate
 
     always @* begin
-        stage2_ready = cmd_src_ready | null_transaction;
+        stage2_ready = cmd_src_ready;
         internal_valid = stage2_valid;
 
         if (suppress) begin

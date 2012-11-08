@@ -1,4 +1,4 @@
-// (C) 2001-2011 Altera Corporation. All rights reserved.
+// (C) 2001-2012 Altera Corporation. All rights reserved.
 // Your use of Altera Corporation's design tools, logic functions and other 
 // software and tools, and its AMPP partner logic functions, and any output 
 // files any of the foregoing (including device programming or simulation 
@@ -11,10 +11,10 @@
 // agreement for further details.
 
 
-// $Id: //acds/rel/11.0/ip/merlin/altera_merlin_router/altera_merlin_router.sv.terp#2 $
-// $Revision: #2 $
-// $Date: 2011/03/23 $
-// $Author: aferrucc $
+// $Id: //acds/rel/11.1sp2/ip/merlin/altera_merlin_router/altera_merlin_router.sv.terp#1 $
+// $Revision: #1 $
+// $Date: 2011/11/10 $
+// $Author: max $
 
 // -------------------------------------------------------
 // Merlin Router
@@ -32,18 +32,19 @@
 module frontier_id_router_default_decode
   #(
      parameter DEFAULT_CHANNEL = 0,
-               DEFAULT_DESTID = 1 
+               DEFAULT_DESTID = 0 
    )
-  (output [87 - 84 : 0] default_destid,
+  (output [87 - 84 : 0] default_destination_id,
    output [13-1 : 0] default_src_channel
   );
 
-  assign default_destid = DEFAULT_DESTID;
+  assign default_destination_id = 
+    DEFAULT_DESTID[87 - 84 : 0];
   generate begin : default_decode
     if (DEFAULT_CHANNEL == -1)
-      assign default_src_channel = 0;
+      assign default_src_channel = '0;
     else
-      assign default_src_channel = 1 << DEFAULT_CHANNEL;
+      assign default_src_channel = 13'b1 << DEFAULT_CHANNEL;
   end endgenerate
 
 endmodule
@@ -88,8 +89,14 @@ module frontier_id_router
     localparam ST_CHANNEL_W = 13;
     localparam DECODER_TYPE = 1;
 
+    localparam PKT_TRANS_WRITE = 70;
+    localparam PKT_TRANS_READ  = 71;
+
     localparam PKT_ADDR_W = PKT_ADDR_H-PKT_ADDR_L + 1;
     localparam PKT_DEST_ID_W = PKT_DEST_ID_H-PKT_DEST_ID_L + 1;
+
+
+
 
     // -------------------------------------------------------
     // Figure out the number of bits to mask off for each slave span
@@ -122,8 +129,11 @@ module frontier_id_router
     wire [PKT_DEST_ID_W-1:0] default_destid;
     wire [13-1 : 0] default_src_channel;
 
+
+
+
     frontier_id_router_default_decode the_default_decode(
-      .default_destid (default_destid),
+      .default_destination_id (default_destid),
       .default_src_channel (default_src_channel)
     );
 
@@ -137,8 +147,9 @@ module frontier_id_router
         // --------------------------------------------------
         destid      = sink_data[PKT_DEST_ID_H : PKT_DEST_ID_L];
 
-        if (destid == 1) begin
-            src_channel = 'b1;
+
+        if (destid == 0 ) begin
+            src_channel = 13'b1;
         end
 
     end

@@ -382,7 +382,7 @@ frontier	b2v_inst(
 	.slot_b_P16(IO_B16),
 	.slot_b_P17(IO_B17),
 	.slot_b_P18(IO_B18),
-	.slot_b_P19(IO_B19),
+//	.slot_b_P19(IO_B19),
 	.slot_b_P20(IO_B20),
 	.slot_b_P21(IO_B21),
 //	.slot_b_P22(IO_B22),
@@ -424,6 +424,8 @@ frontier	b2v_inst(
 	.position_encoder_A  (IO_B24),  
    .position_encoder_B  (IO_B23), 
    .position_encoder_Z  (IO_B22),  
+	
+	.fan_motor_export    (IO_B19), 
 	
 	.m0_EINT(M1_EINT));
 

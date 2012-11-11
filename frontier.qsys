@@ -135,6 +135,63 @@
          type = "long";
       }
    }
+   element fan_motor_driver_0.ctrl
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "268436128";
+         type = "long";
+      }
+   }
+   element brush_motor_driver_0.ctrl
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "268436064";
+         type = "long";
+      }
+   }
+   element position_encoder_0.ctrl
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "268436096";
+         type = "long";
+      }
+   }
+   element basic_ShieldCtrl.ctrl
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum _tags
+      {
+         value = "";
+         type = "String";
+      }
+      datum baseAddress
+      {
+         value = "268435968";
+         type = "long";
+      }
+   }
    element AM2301_0.ctrl
    {
       datum _lockedAddress
@@ -174,19 +231,6 @@
          type = "long";
       }
    }
-   element brush_motor_driver_0.ctrl
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "268436064";
-         type = "long";
-      }
-   }
    element basic_FuncLED_3.ctrl
    {
       datum _lockedAddress
@@ -213,35 +257,12 @@
          type = "long";
       }
    }
-   element basic_ShieldCtrl.ctrl
+   element fan_motor_driver_0
    {
-      datum _lockedAddress
+      datum _sortIndex
       {
-         value = "1";
-         type = "boolean";
-      }
-      datum _tags
-      {
-         value = "";
-         type = "String";
-      }
-      datum baseAddress
-      {
-         value = "268435968";
-         type = "long";
-      }
-   }
-   element position_encoder_0.ctrl
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "268436096";
-         type = "long";
+         value = "15";
+         type = "int";
       }
    }
    element grid_PIO26_A.gpio
@@ -339,7 +360,9 @@
 }
 ]]></parameter>
  <parameter name="clockCrossingAdapter" value="HANDSHAKE" />
+ <parameter name="device" value="" />
  <parameter name="deviceFamily" value="CYCLONEIVE" />
+ <parameter name="deviceSpeedGrade" value="" />
  <parameter name="fabricMode" value="QSYS" />
  <parameter name="generateLegacySim" value="false" />
  <parameter name="generationId" value="0" />
@@ -349,7 +372,9 @@
  <parameter name="projectName" value="grid.qpf" />
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1352260891490" />
+ <parameter name="timeStamp" value="1352623087319" />
+ <parameter name="useTestBenchNamingPattern" value="false" />
+ <instanceScript></instanceScript>
  <interface name="m0" internal="HPS_tabby.EXPORT" type="conduit" dir="end" />
  <interface
    name="led_f0"
@@ -395,6 +420,11 @@
    internal="position_encoder_0.position_encoder"
    type="conduit"
    dir="end" />
+ <interface
+   name="fan_motor"
+   internal="fan_motor_driver_0.fan_motor"
+   type="conduit"
+   dir="end" />
  <module kind="hps_tabby" version="1.1" enabled="1" name="HPS_tabby" />
  <module kind="basic_SysID" version="1.0" enabled="1" name="basic_SysID">
   <parameter name="AUTO_MCLK_CLOCK_RATE" value="133333333" />
@@ -427,10 +457,7 @@
  <module kind="grid_PIO26" version="1.0" enabled="1" name="grid_PIO26_B">
   <parameter name="AUTO_MCLK_CLOCK_RATE" value="133333333" />
  </module>
- <module kind="grid_PWM" version="1.0" enabled="1" name="grid_PWM_0">
-  <parameter name="AUTO_MCLK_CLOCK_RATE" value="133333333" />
-  <parameter name="AUTO_PWMCLK_CLOCK_RATE" value="200000000" />
- </module>
+ <module kind="grid_PWM" version="1.0" enabled="1" name="grid_PWM_0" />
  <module kind="AM2301" version="1.0" enabled="1" name="AM2301_0">
   <parameter name="high_width" value="20" />
   <parameter name="start_width" value="1000" />
@@ -519,7 +546,10 @@
    kind="brush_motor_driver"
    version="1.0"
    enabled="1"
-   name="brush_motor_driver_0" />
+   name="brush_motor_driver_0">
+  <parameter name="AUTO_MCLK_CLOCK_RATE" value="133333333" />
+  <parameter name="AUTO_PWMCLK_CLOCK_RATE" value="200000000" />
+ </module>
  <module
    kind="position_encoder"
    version="1.0"
@@ -527,19 +557,24 @@
    name="position_encoder_0">
   <parameter name="AUTO_MCLK_CLOCK_RATE" value="133333333" />
  </module>
+ <module
+   kind="fan_motor_driver"
+   version="1.0"
+   enabled="1"
+   name="fan_motor_driver_0" />
  <connection
    kind="reset"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.MRST"
    end="basic_SysID.MRST" />
  <connection
    kind="clock"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.MCLK"
    end="basic_SysID.MCLK" />
  <connection
    kind="avalon"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.M1"
    end="basic_SysID.SysID">
   <parameter name="arbitrationPriority" value="1" />
@@ -547,17 +582,17 @@
  </connection>
  <connection
    kind="reset"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.MRST"
    end="basic_FuncLED_0.MRST" />
  <connection
    kind="clock"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.MCLK"
    end="basic_FuncLED_0.MCLK" />
  <connection
    kind="avalon"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.M1"
    end="basic_FuncLED_0.ctrl">
   <parameter name="arbitrationPriority" value="1" />
@@ -565,17 +600,17 @@
  </connection>
  <connection
    kind="reset"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.MRST"
    end="basic_FuncLED_1.MRST" />
  <connection
    kind="clock"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.MCLK"
    end="basic_FuncLED_1.MCLK" />
  <connection
    kind="avalon"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.M1"
    end="basic_FuncLED_1.ctrl">
   <parameter name="arbitrationPriority" value="1" />
@@ -583,17 +618,17 @@
  </connection>
  <connection
    kind="reset"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.MRST"
    end="basic_FuncLED_2.MRST" />
  <connection
    kind="clock"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.MCLK"
    end="basic_FuncLED_2.MCLK" />
  <connection
    kind="avalon"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.M1"
    end="basic_FuncLED_2.ctrl">
   <parameter name="arbitrationPriority" value="1" />
@@ -601,17 +636,17 @@
  </connection>
  <connection
    kind="reset"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.MRST"
    end="basic_FuncLED_3.MRST" />
  <connection
    kind="clock"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.MCLK"
    end="basic_FuncLED_3.MCLK" />
  <connection
    kind="avalon"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.M1"
    end="basic_FuncLED_3.ctrl">
   <parameter name="arbitrationPriority" value="1" />
@@ -619,17 +654,17 @@
  </connection>
  <connection
    kind="reset"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.MRST"
    end="basic_ShieldCtrl.MRST" />
  <connection
    kind="clock"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.MCLK"
    end="basic_ShieldCtrl.MCLK" />
  <connection
    kind="avalon"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.M1"
    end="basic_ShieldCtrl.ctrl">
   <parameter name="arbitrationPriority" value="1" />
@@ -637,54 +672,54 @@
  </connection>
  <connection
    kind="interrupt"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.EVENTS"
    end="basic_ShieldCtrl.OC">
   <parameter name="irqNumber" value="0" />
  </connection>
  <connection
    kind="reset"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.MRST"
    end="test_LEDState.MRST" />
  <connection
    kind="clock"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.MCLK"
    end="test_LEDState.MCLK" />
  <connection
    kind="avalon_streaming"
-   version="11.0"
+   version="11.1"
    start="test_LEDState.fled0"
    end="basic_FuncLED_0.ledf" />
  <connection
    kind="avalon_streaming"
-   version="11.0"
+   version="11.1"
    start="test_LEDState.fled1"
    end="basic_FuncLED_1.ledf" />
  <connection
    kind="avalon_streaming"
-   version="11.0"
+   version="11.1"
    start="test_LEDState.fled2"
    end="basic_FuncLED_2.ledf" />
  <connection
    kind="avalon_streaming"
-   version="11.0"
+   version="11.1"
    start="test_LEDState.fled3"
    end="basic_FuncLED_3.ledf" />
  <connection
    kind="reset"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.MRST"
    end="grid_PIO26_A.MRST" />
  <connection
    kind="clock"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.MCLK"
    end="grid_PIO26_A.MCLK" />
  <connection
    kind="avalon"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.M1"
    end="grid_PIO26_A.gpio">
   <parameter name="arbitrationPriority" value="1" />
@@ -692,17 +727,17 @@
  </connection>
  <connection
    kind="reset"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.MRST"
    end="grid_PIO26_B.MRST" />
  <connection
    kind="clock"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.MCLK"
    end="grid_PIO26_B.MCLK" />
  <connection
    kind="avalon"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.M1"
    end="grid_PIO26_B.gpio">
   <parameter name="arbitrationPriority" value="1" />
@@ -710,78 +745,78 @@
  </connection>
  <connection
    kind="interrupt"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.EVENTS"
    end="grid_PIO26_A.gpint">
   <parameter name="irqNumber" value="1" />
  </connection>
  <connection
    kind="interrupt"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.EVENTS"
    end="grid_PIO26_B.gpint">
   <parameter name="irqNumber" value="2" />
  </connection>
  <connection
    kind="reset"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.MRST"
    end="grid_PWM_0.MRST" />
  <connection
    kind="clock"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.MCLK"
    end="grid_PWM_0.MCLK" />
  <connection
    kind="clock"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.H2CLK"
    end="grid_PWM_0.PWMCLK" />
  <connection
    kind="reset"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.MRST"
    end="grid_PWM_0.PWMRST" />
  <connection
    kind="avalon"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.M1"
    end="grid_PWM_0.pwm">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x20000100" />
  </connection>
- <connection kind="avalon" version="11.0" start="HPS_tabby.M1" end="AM2301_0.ctrl">
+ <connection kind="avalon" version="11.1" start="HPS_tabby.M1" end="AM2301_0.ctrl">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x10000220" />
  </connection>
  <connection
    kind="reset"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.MRST"
    end="AM2301_0.MRST" />
  <connection
    kind="reset"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.MRST"
    end="step_motor_driver_0.MRST" />
  <connection
    kind="clock"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.MCLK"
    end="step_motor_driver_0.MCLK" />
  <connection
    kind="clock"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.H2CLK"
    end="step_motor_driver_0.PWMCLK" />
  <connection
    kind="reset"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.MRST"
    end="step_motor_driver_0.PWMRST" />
  <connection
    kind="avalon"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.M1"
    end="step_motor_driver_0.ctrl">
   <parameter name="arbitrationPriority" value="1" />
@@ -789,22 +824,22 @@
  </connection>
  <connection
    kind="clock"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.MCLK"
    end="AM2301_0.MCLK" />
  <connection
    kind="reset"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.MRST"
    end="brush_motor_driver_0.MRST" />
  <connection
    kind="reset"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.MRST"
    end="position_encoder_0.MRST" />
  <connection
    kind="avalon"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.M1"
    end="position_encoder_0.ctrl">
   <parameter name="arbitrationPriority" value="1" />
@@ -812,7 +847,7 @@
  </connection>
  <connection
    kind="avalon"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.M1"
    end="brush_motor_driver_0.ctrl">
   <parameter name="arbitrationPriority" value="1" />
@@ -820,22 +855,50 @@
  </connection>
  <connection
    kind="clock"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.MCLK"
    end="brush_motor_driver_0.MCLK" />
  <connection
    kind="clock"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.MCLK"
    end="position_encoder_0.MCLK" />
  <connection
    kind="clock"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.H2CLK"
    end="brush_motor_driver_0.PWMCLK" />
  <connection
    kind="reset"
-   version="11.0"
+   version="11.1"
    start="HPS_tabby.MRST"
    end="brush_motor_driver_0.PWMRST" />
+ <connection
+   kind="reset"
+   version="11.1"
+   start="HPS_tabby.MRST"
+   end="fan_motor_driver_0.MRST" />
+ <connection
+   kind="clock"
+   version="11.1"
+   start="HPS_tabby.MCLK"
+   end="fan_motor_driver_0.MCLK" />
+ <connection
+   kind="reset"
+   version="11.1"
+   start="HPS_tabby.MRST"
+   end="fan_motor_driver_0.PWMRST" />
+ <connection
+   kind="clock"
+   version="11.1"
+   start="HPS_tabby.H2CLK"
+   end="fan_motor_driver_0.PWMCLK" />
+ <connection
+   kind="avalon"
+   version="11.1"
+   start="HPS_tabby.M1"
+   end="fan_motor_driver_0.ctrl">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x100002a0" />
+ </connection>
 </system>

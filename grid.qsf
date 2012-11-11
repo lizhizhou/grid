@@ -640,7 +640,7 @@ set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME AM2301 -section_id AM2301
 set_global_assignment -name EDA_TEST_BENCH_FILE qsys_root/AM2301_sim.v -section_id AM2301
 set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
 set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
-set_global_assignment -name PARTITION_NETLIST_TYPE POST_FIT -section_id Top
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name VERILOG_FILE qsys_root/brushless_motor_driver.v
@@ -685,4 +685,5 @@ set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK=00
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK_LENGTH=59" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_LOWORD=59808" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_HIWORD=55072" -section_id auto_signaltap_0
+set_global_assignment -name VERILOG_FILE qsys_root/fan_motor_driver.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

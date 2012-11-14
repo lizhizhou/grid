@@ -369,7 +369,7 @@ frontier	b2v_inst(
 	.slot_a_P24(IO_A24),
 	.slot_a_P25(IO_A25),
 	.slot_b_P0(IO_B0),
-	.slot_b_P1(IO_B1),
+//	.slot_b_P1(IO_B1),
 	.slot_b_P2(IO_B2),
 	.slot_b_P3(IO_B3),
 	.slot_b_P4(IO_B4),
@@ -382,7 +382,7 @@ frontier	b2v_inst(
 	.slot_b_P16(IO_B16),
 	.slot_b_P17(IO_B17),
 	.slot_b_P18(IO_B18),
-//	.slot_b_P19(IO_B19),
+	.slot_b_P19(IO_B19),
 	.slot_b_P20(IO_B20),
 	.slot_b_P21(IO_B21),
 //	.slot_b_P22(IO_B22),
@@ -425,7 +425,7 @@ frontier	b2v_inst(
    .position_encoder_B  (IO_B23), 
    .position_encoder_Z  (IO_B22),  
 	
-	.fan_motor_export    (IO_B19), 
+	.fan_motor_export    (IO_B1), 
 	
 	.m0_EINT(M1_EINT));
 

@@ -70,5 +70,5 @@ module fan_motor_driver(
 		end
 	end
 //Output 
-	assign fan = on_off?PWM_out:0; 
+	assign fan = !(on_off?PWM_out:0); 
 endmodule

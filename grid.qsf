@@ -643,19 +643,6 @@ set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name VERILOG_FILE qsys_root/brushless_motor_driver.v
-set_global_assignment -name VERILOG_FILE qsys_root/step_motor_driver.v
-set_global_assignment -name VERILOG_FILE qsys_root/brush_motor_driver.v
-set_global_assignment -name VERILOG_FILE motorcontrl.v
-set_global_assignment -name QIP_FILE frontier/synthesis/frontier.qip
-set_global_assignment -name BDF_FILE grid.bdf
-set_global_assignment -name SDC_FILE grid.sdc
-set_global_assignment -name CDF_FILE grid.cdf
-set_global_assignment -name VERILOG_FILE grid.v
-set_global_assignment -name CDF_FILE output/grid.cdf
-set_global_assignment -name SIGNALTAP_FILE grid.stp
-set_global_assignment -name VERILOG_FILE qsys_root/AM2301.v
-set_global_assignment -name VERILOG_FILE qsys_root/position_encoder.v
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_clk -to IO_B24 -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[0] -to "frontier:b2v_inst|position_encoder:position_encoder_0|direction" -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[1] -to "frontier:b2v_inst|position_encoder:position_encoder_0|postion_A[0]" -section_id auto_signaltap_0
@@ -685,5 +672,19 @@ set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK=00
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK_LENGTH=59" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_LOWORD=59808" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_HIWORD=55072" -section_id auto_signaltap_0
+set_global_assignment -name VERILOG_FILE qsys_root/motor_speed_measurement.v
+set_global_assignment -name VERILOG_FILE qsys_root/brushless_motor_driver.v
+set_global_assignment -name VERILOG_FILE qsys_root/step_motor_driver.v
+set_global_assignment -name VERILOG_FILE qsys_root/brush_motor_driver.v
+set_global_assignment -name VERILOG_FILE motorcontrl.v
+set_global_assignment -name QIP_FILE frontier/synthesis/frontier.qip
+set_global_assignment -name BDF_FILE grid.bdf
+set_global_assignment -name SDC_FILE grid.sdc
+set_global_assignment -name CDF_FILE grid.cdf
+set_global_assignment -name VERILOG_FILE grid.v
+set_global_assignment -name CDF_FILE output/grid.cdf
+set_global_assignment -name SIGNALTAP_FILE grid.stp
+set_global_assignment -name VERILOG_FILE qsys_root/AM2301.v
+set_global_assignment -name VERILOG_FILE qsys_root/position_encoder.v
 set_global_assignment -name VERILOG_FILE qsys_root/fan_motor_driver.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

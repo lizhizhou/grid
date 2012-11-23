@@ -307,7 +307,7 @@ wire	[0:11] SYNTHESIZED_WIRE_6;
 
 assign	AC97_RX = AUDIO_SDI;
 assign	AC97_CLK = AUDIO_SCLK;
-assign	SPDIF_OUT = 0;
+//assign	SPDIF_OUT = 0;
 assign	AUDIO_SDO = AC97_TX;
 assign	AUDIO_SFS = AC97_FS;
 assign	PNL_SDI = 0;
@@ -444,7 +444,10 @@ frontier	b2v_inst(
 //		.sda(IO_B15)
 //);
 
-
+clock clockgen(
+			.outclk(SPDIF_OUT),
+			.clk(M1_CLK)	   	
+);
 
 
 

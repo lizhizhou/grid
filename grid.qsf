@@ -672,6 +672,7 @@ set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK=00
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK_LENGTH=59" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_LOWORD=59808" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_HIWORD=55072" -section_id auto_signaltap_0
+set_global_assignment -name VERILOG_FILE clock.v
 set_global_assignment -name VERILOG_FILE qsys_root/motor_speed_measurement.v
 set_global_assignment -name VERILOG_FILE qsys_root/brushless_motor_driver.v
 set_global_assignment -name VERILOG_FILE qsys_root/step_motor_driver.v

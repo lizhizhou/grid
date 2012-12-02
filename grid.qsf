@@ -688,4 +688,5 @@ set_global_assignment -name SIGNALTAP_FILE grid.stp
 set_global_assignment -name VERILOG_FILE qsys_root/AM2301.v
 set_global_assignment -name VERILOG_FILE qsys_root/position_encoder.v
 set_global_assignment -name VERILOG_FILE qsys_root/fan_motor_driver.v
+set_global_assignment -name VERILOG_FILE qsys_root/sdif.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

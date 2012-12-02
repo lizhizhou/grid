@@ -427,6 +427,9 @@ frontier	b2v_inst(
 	
 	.fan_motor_export    (IO_B1), 
 	
+	.sdif_IN             (SPDIF_IN),
+   .sdif_OUT            (SPDIF_OUT),
+	
 	.m0_EINT(M1_EINT));
 
   assign IO_B10=0;
@@ -443,13 +446,6 @@ frontier	b2v_inst(
 //		//input sda_in,
 //		.sda(IO_B15)
 //);
-
-clock clockgen(
-			.outclk(SPDIF_OUT),
-			.clk(M1_CLK)	   	
-);
-
-
 
 assign	ISI_HSYNC = SYNTHESIZED_WIRE_8[0] ? SYNTHESIZED_WIRE_0 : 1'bz;
 

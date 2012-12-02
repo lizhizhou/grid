@@ -70,7 +70,7 @@ module brush_motor_driver(
 		else
 		begin
 			PWM <= PWM + PWM_frequent;
-			PWM_out <=(PWM > PWM_width) ? 0:1;   
+			PWM_out <=(PWM > PWM_width) ? 1'b0:1'b1;   
 		end
 	end
 //Output 

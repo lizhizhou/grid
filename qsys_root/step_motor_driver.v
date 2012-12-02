@@ -60,7 +60,8 @@ module step_motor_driver(
 				default:;
 			endcase
 	   end
-		else begin
+		else if(avs_ctrl_read)
+		begin
 			case(avs_ctrl_address)
 				0: read_data <= PWM_frequent;
 				1: read_data <= PWM_width_A;

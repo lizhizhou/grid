@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="frontier" kind="frontier" version="1.0" fabric="QSYS">
- <!-- Format version 11.1sp2 259 (Future versions may contain additional information.) -->
- <!-- 2012.12.02.11:08:04 -->
+ <!-- Format version 12.0sp2 263 (Future versions may contain additional information.) -->
+ <!-- 2013.01.20.13:53:17 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1354417672</value>
+  <value>1358661175</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -21,7 +21,7 @@
  </parameter>
  <parameter name="AUTO_DEVICE_FAMILY">
   <type>java.lang.String</type>
-  <value>Cyclone IV E</value>
+  <value>CYCLONEIVE</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -62,7 +62,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="MRST" kind="reset_source" version="11.1">
+  <interface name="MRST" kind="reset_source" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -123,7 +123,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="MCLK" kind="clock_source" version="11.1">
+  <interface name="MCLK" kind="clock_source" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -288,7 +288,7 @@ parameters are a RESULT of the module parameters. -->
     <name>sdif_0.MCLK</name>
    </clockDomainMember>
   </interface>
-  <interface name="H1CLK" kind="clock_source" version="11.1">
+  <interface name="H1CLK" kind="clock_source" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -357,7 +357,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="H2CLK" kind="clock_source" version="11.1">
+  <interface name="H2CLK" kind="clock_source" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -456,7 +456,7 @@ parameters are a RESULT of the module parameters. -->
     <name>sdif_0.PWMCLK</name>
    </clockDomainMember>
   </interface>
-  <interface name="M1" kind="avalon_master" version="11.1">
+  <interface name="M1" kind="avalon_master" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -885,7 +885,7 @@ parameters are a RESULT of the module parameters. -->
     <span>32</span>
    </memoryBlock>
   </interface>
-  <interface name="EVENTS" kind="interrupt_receiver" version="11.1">
+  <interface name="EVENTS" kind="interrupt_receiver" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -967,10 +967,26 @@ parameters are a RESULT of the module parameters. -->
     <interruptNumber>2</interruptNumber>
    </interrupt>
   </interface>
-  <interface name="EXPORT" kind="conduit_end" version="11.1">
+  <interface name="EXPORT" kind="conduit_end" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
+   <parameter name="associatedClock">
+    <type>java.lang.String</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="associatedReset">
+    <type>java.lang.String</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
    <parameter name="deviceFamily">
     <type>java.lang.String</type>
     <value>UNKNOWN</value>
@@ -1082,7 +1098,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="MRST" kind="reset_sink" version="11.1">
+  <interface name="MRST" kind="reset_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -1127,7 +1143,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="MCLK" kind="clock_sink" version="11.1">
+  <interface name="MCLK" kind="clock_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -1188,7 +1204,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="SysID" kind="avalon_slave" version="11.1">
+  <interface name="SysID" kind="avalon_slave" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -1563,7 +1579,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="MRST" kind="reset_sink" version="11.1">
+  <interface name="MRST" kind="reset_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -1608,7 +1624,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="MCLK" kind="clock_sink" version="11.1">
+  <interface name="MCLK" kind="clock_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -1669,7 +1685,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="ctrl" kind="avalon_slave" version="11.1">
+  <interface name="ctrl" kind="avalon_slave" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -2024,7 +2040,7 @@ parameters are a RESULT of the module parameters. -->
     <role>waitrequest</role>
    </port>
   </interface>
-  <interface name="ledf" kind="avalon_streaming_sink" version="11.1">
+  <interface name="ledf" kind="avalon_streaming_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -2155,10 +2171,26 @@ parameters are a RESULT of the module parameters. -->
     <role>valid</role>
    </port>
   </interface>
-  <interface name="EXPORT" kind="conduit_end" version="11.1">
+  <interface name="EXPORT" kind="conduit_end" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
+   <parameter name="associatedClock">
+    <type>java.lang.String</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="associatedReset">
+    <type>java.lang.String</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
    <parameter name="deviceFamily">
     <type>java.lang.String</type>
     <value>UNKNOWN</value>
@@ -2228,7 +2260,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="MRST" kind="reset_sink" version="11.1">
+  <interface name="MRST" kind="reset_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -2273,7 +2305,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="MCLK" kind="clock_sink" version="11.1">
+  <interface name="MCLK" kind="clock_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -2334,7 +2366,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="ctrl" kind="avalon_slave" version="11.1">
+  <interface name="ctrl" kind="avalon_slave" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -2689,7 +2721,7 @@ parameters are a RESULT of the module parameters. -->
     <role>waitrequest</role>
    </port>
   </interface>
-  <interface name="ledf" kind="avalon_streaming_sink" version="11.1">
+  <interface name="ledf" kind="avalon_streaming_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -2820,10 +2852,26 @@ parameters are a RESULT of the module parameters. -->
     <role>valid</role>
    </port>
   </interface>
-  <interface name="EXPORT" kind="conduit_end" version="11.1">
+  <interface name="EXPORT" kind="conduit_end" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
+   <parameter name="associatedClock">
+    <type>java.lang.String</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="associatedReset">
+    <type>java.lang.String</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
    <parameter name="deviceFamily">
     <type>java.lang.String</type>
     <value>UNKNOWN</value>
@@ -2893,7 +2941,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="MRST" kind="reset_sink" version="11.1">
+  <interface name="MRST" kind="reset_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -2938,7 +2986,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="MCLK" kind="clock_sink" version="11.1">
+  <interface name="MCLK" kind="clock_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -2999,7 +3047,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="ctrl" kind="avalon_slave" version="11.1">
+  <interface name="ctrl" kind="avalon_slave" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -3354,7 +3402,7 @@ parameters are a RESULT of the module parameters. -->
     <role>waitrequest</role>
    </port>
   </interface>
-  <interface name="ledf" kind="avalon_streaming_sink" version="11.1">
+  <interface name="ledf" kind="avalon_streaming_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -3485,10 +3533,26 @@ parameters are a RESULT of the module parameters. -->
     <role>valid</role>
    </port>
   </interface>
-  <interface name="EXPORT" kind="conduit_end" version="11.1">
+  <interface name="EXPORT" kind="conduit_end" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
+   <parameter name="associatedClock">
+    <type>java.lang.String</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="associatedReset">
+    <type>java.lang.String</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
    <parameter name="deviceFamily">
     <type>java.lang.String</type>
     <value>UNKNOWN</value>
@@ -3558,7 +3622,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="MRST" kind="reset_sink" version="11.1">
+  <interface name="MRST" kind="reset_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -3603,7 +3667,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="MCLK" kind="clock_sink" version="11.1">
+  <interface name="MCLK" kind="clock_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -3664,7 +3728,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="ctrl" kind="avalon_slave" version="11.1">
+  <interface name="ctrl" kind="avalon_slave" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -4019,7 +4083,7 @@ parameters are a RESULT of the module parameters. -->
     <role>waitrequest</role>
    </port>
   </interface>
-  <interface name="ledf" kind="avalon_streaming_sink" version="11.1">
+  <interface name="ledf" kind="avalon_streaming_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -4150,10 +4214,26 @@ parameters are a RESULT of the module parameters. -->
     <role>valid</role>
    </port>
   </interface>
-  <interface name="EXPORT" kind="conduit_end" version="11.1">
+  <interface name="EXPORT" kind="conduit_end" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
+   <parameter name="associatedClock">
+    <type>java.lang.String</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="associatedReset">
+    <type>java.lang.String</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
    <parameter name="deviceFamily">
     <type>java.lang.String</type>
     <value>UNKNOWN</value>
@@ -4223,7 +4303,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="MRST" kind="reset_sink" version="11.1">
+  <interface name="MRST" kind="reset_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -4268,7 +4348,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="MCLK" kind="clock_sink" version="11.1">
+  <interface name="MCLK" kind="clock_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -4329,7 +4409,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="ctrl" kind="avalon_slave" version="11.1">
+  <interface name="ctrl" kind="avalon_slave" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -4684,7 +4764,7 @@ parameters are a RESULT of the module parameters. -->
     <role>waitrequest</role>
    </port>
   </interface>
-  <interface name="OC" kind="interrupt_sender" version="11.1">
+  <interface name="OC" kind="interrupt_sender" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -4745,10 +4825,26 @@ parameters are a RESULT of the module parameters. -->
     <role>irq</role>
    </port>
   </interface>
-  <interface name="EXPORT" kind="conduit_end" version="11.1">
+  <interface name="EXPORT" kind="conduit_end" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
+   <parameter name="associatedClock">
+    <type>java.lang.String</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="associatedReset">
+    <type>java.lang.String</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
    <parameter name="deviceFamily">
     <type>java.lang.String</type>
     <value>UNKNOWN</value>
@@ -4848,7 +4944,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="MRST" kind="reset_sink" version="11.1">
+  <interface name="MRST" kind="reset_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -4893,7 +4989,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="MCLK" kind="clock_sink" version="11.1">
+  <interface name="MCLK" kind="clock_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -4954,7 +5050,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="fled0" kind="avalon_streaming_source" version="11.1">
+  <interface name="fled0" kind="avalon_streaming_source" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -5085,7 +5181,7 @@ parameters are a RESULT of the module parameters. -->
     <role>valid</role>
    </port>
   </interface>
-  <interface name="fled1" kind="avalon_streaming_source" version="11.1">
+  <interface name="fled1" kind="avalon_streaming_source" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -5216,7 +5312,7 @@ parameters are a RESULT of the module parameters. -->
     <role>valid</role>
    </port>
   </interface>
-  <interface name="fled2" kind="avalon_streaming_source" version="11.1">
+  <interface name="fled2" kind="avalon_streaming_source" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -5347,7 +5443,7 @@ parameters are a RESULT of the module parameters. -->
     <role>valid</role>
    </port>
   </interface>
-  <interface name="fled3" kind="avalon_streaming_source" version="11.1">
+  <interface name="fled3" kind="avalon_streaming_source" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -5510,7 +5606,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="MRST" kind="reset_sink" version="11.1">
+  <interface name="MRST" kind="reset_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -5555,7 +5651,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="MCLK" kind="clock_sink" version="11.1">
+  <interface name="MCLK" kind="clock_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -5616,7 +5712,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="gpio" kind="avalon_slave" version="11.1">
+  <interface name="gpio" kind="avalon_slave" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -5977,7 +6073,7 @@ parameters are a RESULT of the module parameters. -->
     <role>waitrequest</role>
    </port>
   </interface>
-  <interface name="gpint" kind="interrupt_sender" version="11.1">
+  <interface name="gpint" kind="interrupt_sender" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -6038,10 +6134,26 @@ parameters are a RESULT of the module parameters. -->
     <role>irq</role>
    </port>
   </interface>
-  <interface name="EXPORT" kind="conduit_end" version="11.1">
+  <interface name="EXPORT" kind="conduit_end" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
+   <parameter name="associatedClock">
+    <type>java.lang.String</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="associatedReset">
+    <type>java.lang.String</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
    <parameter name="deviceFamily">
     <type>java.lang.String</type>
     <value>UNKNOWN</value>
@@ -6249,7 +6361,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="MRST" kind="reset_sink" version="11.1">
+  <interface name="MRST" kind="reset_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -6294,7 +6406,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="MCLK" kind="clock_sink" version="11.1">
+  <interface name="MCLK" kind="clock_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -6355,7 +6467,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="gpio" kind="avalon_slave" version="11.1">
+  <interface name="gpio" kind="avalon_slave" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -6716,7 +6828,7 @@ parameters are a RESULT of the module parameters. -->
     <role>waitrequest</role>
    </port>
   </interface>
-  <interface name="gpint" kind="interrupt_sender" version="11.1">
+  <interface name="gpint" kind="interrupt_sender" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -6777,10 +6889,26 @@ parameters are a RESULT of the module parameters. -->
     <role>irq</role>
    </port>
   </interface>
-  <interface name="EXPORT" kind="conduit_end" version="11.1">
+  <interface name="EXPORT" kind="conduit_end" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
+   <parameter name="associatedClock">
+    <type>java.lang.String</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="associatedReset">
+    <type>java.lang.String</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
    <parameter name="deviceFamily">
     <type>java.lang.String</type>
     <value>UNKNOWN</value>
@@ -6992,7 +7120,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="MRST" kind="reset_sink" version="11.1">
+  <interface name="MRST" kind="reset_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -7037,7 +7165,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="MCLK" kind="clock_sink" version="11.1">
+  <interface name="MCLK" kind="clock_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -7098,7 +7226,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="pwm" kind="avalon_slave" version="11.1">
+  <interface name="pwm" kind="avalon_slave" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -7459,7 +7587,7 @@ parameters are a RESULT of the module parameters. -->
     <role>waitrequest</role>
    </port>
   </interface>
-  <interface name="PWMRST" kind="reset_sink" version="11.1">
+  <interface name="PWMRST" kind="reset_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -7504,7 +7632,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="PWMCLK" kind="clock_sink" version="11.1">
+  <interface name="PWMCLK" kind="clock_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -7565,7 +7693,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="fm" kind="avalon_streaming_sink" version="11.1">
+  <interface name="fm" kind="avalon_streaming_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -7702,7 +7830,7 @@ parameters are a RESULT of the module parameters. -->
     <role>ready</role>
    </port>
   </interface>
-  <interface name="pm" kind="avalon_streaming_sink" version="11.1">
+  <interface name="pm" kind="avalon_streaming_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -7839,10 +7967,26 @@ parameters are a RESULT of the module parameters. -->
     <role>ready</role>
    </port>
   </interface>
-  <interface name="EXPORT" kind="conduit_end" version="11.1">
+  <interface name="EXPORT" kind="conduit_end" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
+   <parameter name="associatedClock">
+    <type>java.lang.String</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="associatedReset">
+    <type>java.lang.String</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
    <parameter name="deviceFamily">
     <type>java.lang.String</type>
     <value>UNKNOWN</value>
@@ -8480,7 +8624,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="MRST" kind="reset_sink" version="11.1">
+  <interface name="MRST" kind="reset_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -8525,7 +8669,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="MCLK" kind="clock_sink" version="11.1">
+  <interface name="MCLK" kind="clock_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -8586,7 +8730,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="ctrl" kind="avalon_slave" version="11.1">
+  <interface name="ctrl" kind="avalon_slave" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -8947,10 +9091,26 @@ parameters are a RESULT of the module parameters. -->
     <role>waitrequest</role>
    </port>
   </interface>
-  <interface name="AM2301" kind="conduit_end" version="11.1">
+  <interface name="AM2301" kind="conduit_end" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
+   <parameter name="associatedClock">
+    <type>java.lang.String</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="associatedReset">
+    <type>java.lang.String</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
    <parameter name="deviceFamily">
     <type>java.lang.String</type>
     <value>UNKNOWN</value>
@@ -9022,7 +9182,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="MRST" kind="reset_sink" version="11.1">
+  <interface name="MRST" kind="reset_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -9067,7 +9227,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="MCLK" kind="clock_sink" version="11.1">
+  <interface name="MCLK" kind="clock_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -9128,7 +9288,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="ctrl" kind="avalon_slave" version="11.1">
+  <interface name="ctrl" kind="avalon_slave" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -9489,7 +9649,7 @@ parameters are a RESULT of the module parameters. -->
     <role>waitrequest</role>
    </port>
   </interface>
-  <interface name="PWMRST" kind="reset_sink" version="11.1">
+  <interface name="PWMRST" kind="reset_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -9534,7 +9694,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="PWMCLK" kind="clock_sink" version="11.1">
+  <interface name="PWMCLK" kind="clock_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -9595,10 +9755,26 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="step_motor" kind="conduit_end" version="11.1">
+  <interface name="step_motor" kind="conduit_end" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
+   <parameter name="associatedClock">
+    <type>java.lang.String</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="associatedReset">
+    <type>java.lang.String</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
    <parameter name="deviceFamily">
     <type>java.lang.String</type>
     <value>UNKNOWN</value>
@@ -9694,7 +9870,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="MRST" kind="reset_sink" version="11.1">
+  <interface name="MRST" kind="reset_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -9739,7 +9915,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="MCLK" kind="clock_sink" version="11.1">
+  <interface name="MCLK" kind="clock_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -9800,7 +9976,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="ctrl" kind="avalon_slave" version="11.1">
+  <interface name="ctrl" kind="avalon_slave" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -10161,10 +10337,26 @@ parameters are a RESULT of the module parameters. -->
     <role>waitrequest</role>
    </port>
   </interface>
-  <interface name="brush_motor" kind="conduit_end" version="11.1">
+  <interface name="brush_motor" kind="conduit_end" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
+   <parameter name="associatedClock">
+    <type>java.lang.String</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="associatedReset">
+    <type>java.lang.String</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
    <parameter name="deviceFamily">
     <type>java.lang.String</type>
     <value>UNKNOWN</value>
@@ -10196,7 +10388,7 @@ parameters are a RESULT of the module parameters. -->
     <role>export</role>
    </port>
   </interface>
-  <interface name="PWMRST" kind="reset_sink" version="11.1">
+  <interface name="PWMRST" kind="reset_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -10241,7 +10433,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="PWMCLK" kind="clock_sink" version="11.1">
+  <interface name="PWMCLK" kind="clock_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -10334,7 +10526,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="MRST" kind="reset_sink" version="11.1">
+  <interface name="MRST" kind="reset_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -10379,7 +10571,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="MCLK" kind="clock_sink" version="11.1">
+  <interface name="MCLK" kind="clock_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -10440,7 +10632,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="ctrl" kind="avalon_slave" version="11.1">
+  <interface name="ctrl" kind="avalon_slave" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -10801,10 +10993,26 @@ parameters are a RESULT of the module parameters. -->
     <role>waitrequest</role>
    </port>
   </interface>
-  <interface name="position_encoder" kind="conduit_end" version="11.1">
+  <interface name="position_encoder" kind="conduit_end" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
+   <parameter name="associatedClock">
+    <type>java.lang.String</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="associatedReset">
+    <type>java.lang.String</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
    <parameter name="deviceFamily">
     <type>java.lang.String</type>
     <value>UNKNOWN</value>
@@ -10882,7 +11090,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="MRST" kind="reset_sink" version="11.1">
+  <interface name="MRST" kind="reset_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -10927,7 +11135,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="MCLK" kind="clock_sink" version="11.1">
+  <interface name="MCLK" kind="clock_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -10988,7 +11196,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="ctrl" kind="avalon_slave" version="11.1">
+  <interface name="ctrl" kind="avalon_slave" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -11349,7 +11557,7 @@ parameters are a RESULT of the module parameters. -->
     <role>waitrequest</role>
    </port>
   </interface>
-  <interface name="PWMRST" kind="reset_sink" version="11.1">
+  <interface name="PWMRST" kind="reset_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -11394,7 +11602,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="PWMCLK" kind="clock_sink" version="11.1">
+  <interface name="PWMCLK" kind="clock_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -11455,10 +11663,26 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="fan_motor" kind="conduit_end" version="11.1">
+  <interface name="fan_motor" kind="conduit_end" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
+   <parameter name="associatedClock">
+    <type>java.lang.String</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="associatedReset">
+    <type>java.lang.String</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
    <parameter name="deviceFamily">
     <type>java.lang.String</type>
     <value>UNKNOWN</value>
@@ -11488,6 +11712,22 @@ parameters are a RESULT of the module parameters. -->
  <module name="sdif_0" kind="sdif" version="1.0" path="sdif_0">
   <!-- Describes a single module. Module parameters are
 the requested settings for a module instance. -->
+  <parameter name="AUTO_MCLK_CLOCK_RATE">
+   <type>java.lang.Long</type>
+   <value>133333333</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>false</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="AUTO_PWMCLK_CLOCK_RATE">
+   <type>java.lang.Long</type>
+   <value>200000000</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>false</visible>
+   <valid>true</valid>
+  </parameter>
   <parameter name="deviceFamily">
    <type>java.lang.String</type>
    <value>UNKNOWN</value>
@@ -11504,7 +11744,7 @@ the requested settings for a module instance. -->
    <visible>true</visible>
    <valid>true</valid>
   </parameter>
-  <interface name="MRST" kind="reset_sink" version="11.1">
+  <interface name="MRST" kind="reset_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -11549,7 +11789,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="MCLK" kind="clock_sink" version="11.1">
+  <interface name="MCLK" kind="clock_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -11585,6 +11825,22 @@ parameters are a RESULT of the module parameters. -->
     <visible>true</visible>
     <valid>true</valid>
    </parameter>
+   <parameter name="clockRateKnown">
+    <type>java.lang.Boolean</type>
+    <value>true</value>
+    <derived>true</derived>
+    <enabled>true</enabled>
+    <visible>false</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="clockRate">
+    <type>java.lang.Long</type>
+    <value>133333333</value>
+    <derived>true</derived>
+    <enabled>true</enabled>
+    <visible>false</visible>
+    <valid>true</valid>
+   </parameter>
    <type>clock</type>
    <isStart>false</isStart>
    <port>
@@ -11594,7 +11850,7 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="ctrl" kind="avalon_slave" version="11.1">
+  <interface name="ctrl" kind="avalon_slave" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -11955,7 +12211,7 @@ parameters are a RESULT of the module parameters. -->
     <role>waitrequest</role>
    </port>
   </interface>
-  <interface name="PWMRST" kind="reset_sink" version="11.1">
+  <interface name="PWMRST" kind="reset_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -12000,7 +12256,7 @@ parameters are a RESULT of the module parameters. -->
     <role>reset</role>
    </port>
   </interface>
-  <interface name="PWMCLK" kind="clock_sink" version="11.1">
+  <interface name="PWMCLK" kind="clock_sink" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
@@ -12036,6 +12292,22 @@ parameters are a RESULT of the module parameters. -->
     <visible>true</visible>
     <valid>true</valid>
    </parameter>
+   <parameter name="clockRateKnown">
+    <type>java.lang.Boolean</type>
+    <value>true</value>
+    <derived>true</derived>
+    <enabled>true</enabled>
+    <visible>false</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="clockRate">
+    <type>java.lang.Long</type>
+    <value>200000000</value>
+    <derived>true</derived>
+    <enabled>true</enabled>
+    <visible>false</visible>
+    <valid>true</valid>
+   </parameter>
    <type>clock</type>
    <isStart>false</isStart>
    <port>
@@ -12045,10 +12317,26 @@ parameters are a RESULT of the module parameters. -->
     <role>clk</role>
    </port>
   </interface>
-  <interface name="SDIF" kind="conduit_end" version="11.1">
+  <interface name="SDIF" kind="conduit_end" version="12.0">
    <!-- The connection points exposed by a module instance for the
 particular module parameters. Connection points and their
 parameters are a RESULT of the module parameters. -->
+   <parameter name="associatedClock">
+    <type>java.lang.String</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
+   <parameter name="associatedReset">
+    <type>java.lang.String</type>
+    <value></value>
+    <derived>false</derived>
+    <enabled>true</enabled>
+    <visible>true</visible>
+    <valid>true</valid>
+   </parameter>
    <parameter name="deviceFamily">
     <type>java.lang.String</type>
     <value>UNKNOWN</value>
@@ -12084,7 +12372,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MRST/basic_SysID.MRST"
    kind="reset"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MRST"
    end="basic_SysID.MRST">
   <parameter name="deviceFamily">
@@ -12111,7 +12399,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MCLK/basic_SysID.MCLK"
    kind="clock"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MCLK"
    end="basic_SysID.MCLK">
   <parameter name="deviceFamily">
@@ -12138,7 +12426,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.M1/basic_SysID.SysID"
    kind="avalon"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.M1"
    end="basic_SysID.SysID">
   <parameter name="arbitrationPriority">
@@ -12181,7 +12469,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MRST/basic_FuncLED_0.MRST"
    kind="reset"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MRST"
    end="basic_FuncLED_0.MRST">
   <parameter name="deviceFamily">
@@ -12208,7 +12496,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MCLK/basic_FuncLED_0.MCLK"
    kind="clock"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MCLK"
    end="basic_FuncLED_0.MCLK">
   <parameter name="deviceFamily">
@@ -12235,7 +12523,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.M1/basic_FuncLED_0.ctrl"
    kind="avalon"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.M1"
    end="basic_FuncLED_0.ctrl">
   <parameter name="arbitrationPriority">
@@ -12278,7 +12566,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MRST/basic_FuncLED_1.MRST"
    kind="reset"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MRST"
    end="basic_FuncLED_1.MRST">
   <parameter name="deviceFamily">
@@ -12305,7 +12593,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MCLK/basic_FuncLED_1.MCLK"
    kind="clock"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MCLK"
    end="basic_FuncLED_1.MCLK">
   <parameter name="deviceFamily">
@@ -12332,7 +12620,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.M1/basic_FuncLED_1.ctrl"
    kind="avalon"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.M1"
    end="basic_FuncLED_1.ctrl">
   <parameter name="arbitrationPriority">
@@ -12375,7 +12663,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MRST/basic_FuncLED_2.MRST"
    kind="reset"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MRST"
    end="basic_FuncLED_2.MRST">
   <parameter name="deviceFamily">
@@ -12402,7 +12690,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MCLK/basic_FuncLED_2.MCLK"
    kind="clock"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MCLK"
    end="basic_FuncLED_2.MCLK">
   <parameter name="deviceFamily">
@@ -12429,7 +12717,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.M1/basic_FuncLED_2.ctrl"
    kind="avalon"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.M1"
    end="basic_FuncLED_2.ctrl">
   <parameter name="arbitrationPriority">
@@ -12472,7 +12760,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MRST/basic_FuncLED_3.MRST"
    kind="reset"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MRST"
    end="basic_FuncLED_3.MRST">
   <parameter name="deviceFamily">
@@ -12499,7 +12787,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MCLK/basic_FuncLED_3.MCLK"
    kind="clock"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MCLK"
    end="basic_FuncLED_3.MCLK">
   <parameter name="deviceFamily">
@@ -12526,7 +12814,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.M1/basic_FuncLED_3.ctrl"
    kind="avalon"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.M1"
    end="basic_FuncLED_3.ctrl">
   <parameter name="arbitrationPriority">
@@ -12569,7 +12857,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MRST/basic_ShieldCtrl.MRST"
    kind="reset"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MRST"
    end="basic_ShieldCtrl.MRST">
   <parameter name="deviceFamily">
@@ -12596,7 +12884,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MCLK/basic_ShieldCtrl.MCLK"
    kind="clock"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MCLK"
    end="basic_ShieldCtrl.MCLK">
   <parameter name="deviceFamily">
@@ -12623,7 +12911,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.M1/basic_ShieldCtrl.ctrl"
    kind="avalon"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.M1"
    end="basic_ShieldCtrl.ctrl">
   <parameter name="arbitrationPriority">
@@ -12666,7 +12954,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.EVENTS/basic_ShieldCtrl.OC"
    kind="interrupt"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.EVENTS"
    end="basic_ShieldCtrl.OC">
   <parameter name="irqNumber">
@@ -12701,7 +12989,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MRST/test_LEDState.MRST"
    kind="reset"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MRST"
    end="test_LEDState.MRST">
   <parameter name="deviceFamily">
@@ -12728,7 +13016,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MCLK/test_LEDState.MCLK"
    kind="clock"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MCLK"
    end="test_LEDState.MCLK">
   <parameter name="deviceFamily">
@@ -12755,7 +13043,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="test_LEDState.fled0/basic_FuncLED_0.ledf"
    kind="avalon_streaming"
-   version="11.1"
+   version="12.0"
    start="test_LEDState.fled0"
    end="basic_FuncLED_0.ledf">
   <parameter name="deviceFamily">
@@ -12782,7 +13070,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="test_LEDState.fled1/basic_FuncLED_1.ledf"
    kind="avalon_streaming"
-   version="11.1"
+   version="12.0"
    start="test_LEDState.fled1"
    end="basic_FuncLED_1.ledf">
   <parameter name="deviceFamily">
@@ -12809,7 +13097,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="test_LEDState.fled2/basic_FuncLED_2.ledf"
    kind="avalon_streaming"
-   version="11.1"
+   version="12.0"
    start="test_LEDState.fled2"
    end="basic_FuncLED_2.ledf">
   <parameter name="deviceFamily">
@@ -12836,7 +13124,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="test_LEDState.fled3/basic_FuncLED_3.ledf"
    kind="avalon_streaming"
-   version="11.1"
+   version="12.0"
    start="test_LEDState.fled3"
    end="basic_FuncLED_3.ledf">
   <parameter name="deviceFamily">
@@ -12863,7 +13151,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MRST/grid_PIO26_A.MRST"
    kind="reset"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MRST"
    end="grid_PIO26_A.MRST">
   <parameter name="deviceFamily">
@@ -12890,7 +13178,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MCLK/grid_PIO26_A.MCLK"
    kind="clock"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MCLK"
    end="grid_PIO26_A.MCLK">
   <parameter name="deviceFamily">
@@ -12917,7 +13205,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.M1/grid_PIO26_A.gpio"
    kind="avalon"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.M1"
    end="grid_PIO26_A.gpio">
   <parameter name="arbitrationPriority">
@@ -12960,7 +13248,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MRST/grid_PIO26_B.MRST"
    kind="reset"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MRST"
    end="grid_PIO26_B.MRST">
   <parameter name="deviceFamily">
@@ -12987,7 +13275,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MCLK/grid_PIO26_B.MCLK"
    kind="clock"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MCLK"
    end="grid_PIO26_B.MCLK">
   <parameter name="deviceFamily">
@@ -13014,7 +13302,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.M1/grid_PIO26_B.gpio"
    kind="avalon"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.M1"
    end="grid_PIO26_B.gpio">
   <parameter name="arbitrationPriority">
@@ -13057,7 +13345,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.EVENTS/grid_PIO26_A.gpint"
    kind="interrupt"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.EVENTS"
    end="grid_PIO26_A.gpint">
   <parameter name="irqNumber">
@@ -13092,7 +13380,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.EVENTS/grid_PIO26_B.gpint"
    kind="interrupt"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.EVENTS"
    end="grid_PIO26_B.gpint">
   <parameter name="irqNumber">
@@ -13127,7 +13415,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MRST/grid_PWM_0.MRST"
    kind="reset"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MRST"
    end="grid_PWM_0.MRST">
   <parameter name="deviceFamily">
@@ -13154,7 +13442,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MCLK/grid_PWM_0.MCLK"
    kind="clock"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MCLK"
    end="grid_PWM_0.MCLK">
   <parameter name="deviceFamily">
@@ -13181,7 +13469,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.H2CLK/grid_PWM_0.PWMCLK"
    kind="clock"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.H2CLK"
    end="grid_PWM_0.PWMCLK">
   <parameter name="deviceFamily">
@@ -13208,7 +13496,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MRST/grid_PWM_0.PWMRST"
    kind="reset"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MRST"
    end="grid_PWM_0.PWMRST">
   <parameter name="deviceFamily">
@@ -13235,7 +13523,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.M1/grid_PWM_0.pwm"
    kind="avalon"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.M1"
    end="grid_PWM_0.pwm">
   <parameter name="arbitrationPriority">
@@ -13278,7 +13566,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.M1/AM2301_0.ctrl"
    kind="avalon"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.M1"
    end="AM2301_0.ctrl">
   <parameter name="arbitrationPriority">
@@ -13321,7 +13609,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MRST/AM2301_0.MRST"
    kind="reset"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MRST"
    end="AM2301_0.MRST">
   <parameter name="deviceFamily">
@@ -13348,7 +13636,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MRST/step_motor_driver_0.MRST"
    kind="reset"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MRST"
    end="step_motor_driver_0.MRST">
   <parameter name="deviceFamily">
@@ -13375,7 +13663,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MCLK/step_motor_driver_0.MCLK"
    kind="clock"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MCLK"
    end="step_motor_driver_0.MCLK">
   <parameter name="deviceFamily">
@@ -13402,7 +13690,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.H2CLK/step_motor_driver_0.PWMCLK"
    kind="clock"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.H2CLK"
    end="step_motor_driver_0.PWMCLK">
   <parameter name="deviceFamily">
@@ -13429,7 +13717,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MRST/step_motor_driver_0.PWMRST"
    kind="reset"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MRST"
    end="step_motor_driver_0.PWMRST">
   <parameter name="deviceFamily">
@@ -13456,7 +13744,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.M1/step_motor_driver_0.ctrl"
    kind="avalon"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.M1"
    end="step_motor_driver_0.ctrl">
   <parameter name="arbitrationPriority">
@@ -13499,7 +13787,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MCLK/AM2301_0.MCLK"
    kind="clock"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MCLK"
    end="AM2301_0.MCLK">
   <parameter name="deviceFamily">
@@ -13526,7 +13814,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MRST/brush_motor_driver_0.MRST"
    kind="reset"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MRST"
    end="brush_motor_driver_0.MRST">
   <parameter name="deviceFamily">
@@ -13553,7 +13841,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MRST/position_encoder_0.MRST"
    kind="reset"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MRST"
    end="position_encoder_0.MRST">
   <parameter name="deviceFamily">
@@ -13580,7 +13868,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.M1/position_encoder_0.ctrl"
    kind="avalon"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.M1"
    end="position_encoder_0.ctrl">
   <parameter name="arbitrationPriority">
@@ -13623,7 +13911,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.M1/brush_motor_driver_0.ctrl"
    kind="avalon"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.M1"
    end="brush_motor_driver_0.ctrl">
   <parameter name="arbitrationPriority">
@@ -13666,7 +13954,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MCLK/brush_motor_driver_0.MCLK"
    kind="clock"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MCLK"
    end="brush_motor_driver_0.MCLK">
   <parameter name="deviceFamily">
@@ -13693,7 +13981,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MCLK/position_encoder_0.MCLK"
    kind="clock"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MCLK"
    end="position_encoder_0.MCLK">
   <parameter name="deviceFamily">
@@ -13720,7 +14008,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.H2CLK/brush_motor_driver_0.PWMCLK"
    kind="clock"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.H2CLK"
    end="brush_motor_driver_0.PWMCLK">
   <parameter name="deviceFamily">
@@ -13747,7 +14035,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MRST/brush_motor_driver_0.PWMRST"
    kind="reset"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MRST"
    end="brush_motor_driver_0.PWMRST">
   <parameter name="deviceFamily">
@@ -13774,7 +14062,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MRST/fan_motor_driver_0.MRST"
    kind="reset"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MRST"
    end="fan_motor_driver_0.MRST">
   <parameter name="deviceFamily">
@@ -13801,7 +14089,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MCLK/fan_motor_driver_0.MCLK"
    kind="clock"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MCLK"
    end="fan_motor_driver_0.MCLK">
   <parameter name="deviceFamily">
@@ -13828,7 +14116,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MRST/fan_motor_driver_0.PWMRST"
    kind="reset"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MRST"
    end="fan_motor_driver_0.PWMRST">
   <parameter name="deviceFamily">
@@ -13855,7 +14143,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.H2CLK/fan_motor_driver_0.PWMCLK"
    kind="clock"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.H2CLK"
    end="fan_motor_driver_0.PWMCLK">
   <parameter name="deviceFamily">
@@ -13882,7 +14170,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.M1/fan_motor_driver_0.ctrl"
    kind="avalon"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.M1"
    end="fan_motor_driver_0.ctrl">
   <parameter name="arbitrationPriority">
@@ -13925,7 +14213,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MRST/sdif_0.MRST"
    kind="reset"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MRST"
    end="sdif_0.MRST">
   <parameter name="deviceFamily">
@@ -13952,7 +14240,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MCLK/sdif_0.MCLK"
    kind="clock"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MCLK"
    end="sdif_0.MCLK">
   <parameter name="deviceFamily">
@@ -13979,7 +14267,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.H2CLK/sdif_0.PWMCLK"
    kind="clock"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.H2CLK"
    end="sdif_0.PWMCLK">
   <parameter name="deviceFamily">
@@ -14006,7 +14294,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.M1/sdif_0.ctrl"
    kind="avalon"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.M1"
    end="sdif_0.ctrl">
   <parameter name="arbitrationPriority">
@@ -14049,7 +14337,7 @@ parameters are a RESULT of the module parameters. -->
  <connection
    name="HPS_tabby.MRST/sdif_0.PWMRST"
    kind="reset"
-   version="11.1"
+   version="12.0"
    start="HPS_tabby.MRST"
    end="sdif_0.PWMRST">
   <parameter name="deviceFamily">
@@ -14075,11 +14363,51 @@ parameters are a RESULT of the module parameters. -->
  </connection>
  <plugin>
   <instanceCount>1</instanceCount>
-  <name>interrupt_receiver</name>
+  <name>step_motor_driver</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>step_motor_driver</displayName>
+  <version>1.0</version>
+ </plugin>
+ <plugin>
+  <instanceCount>21</instanceCount>
+  <name>reset</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IConnection</subtype>
+  <displayName>Reset Connection</displayName>
+  <version>12.0</version>
+ </plugin>
+ <plugin>
+  <instanceCount>3</instanceCount>
+  <name>interrupt_sender</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Interrupt Receiver</displayName>
-  <version>11.1</version>
+  <displayName>Interrupt Sender</displayName>
+  <version>12.0</version>
+ </plugin>
+ <plugin>
+  <instanceCount>3</instanceCount>
+  <name>interrupt</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IConnection</subtype>
+  <displayName>Interrupt Connection</displayName>
+  <version>12.0</version>
+ </plugin>
+ <plugin>
+  <instanceCount>21</instanceCount>
+  <name>reset_sink</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Reset Input</displayName>
+  <version>12.0</version>
+ </plugin>
+ <plugin>
+  <instanceCount>4</instanceCount>
+  <name>avalon_streaming_source</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Avalon Streaming Source</displayName>
+  <version>12.0</version>
  </plugin>
  <plugin>
   <instanceCount>2</instanceCount>
@@ -14090,52 +14418,36 @@ parameters are a RESULT of the module parameters. -->
   <version>1.0</version>
  </plugin>
  <plugin>
+  <instanceCount>15</instanceCount>
+  <name>avalon</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IConnection</subtype>
+  <displayName>Avalon Memory Mapped Connection</displayName>
+  <version>12.0</version>
+ </plugin>
+ <plugin>
   <instanceCount>1</instanceCount>
-  <name>step_motor_driver</name>
+  <name>test_LEDState</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>step_motor_driver</displayName>
+  <displayName>LED Test State Generator</displayName>
   <version>1.0</version>
  </plugin>
  <plugin>
-  <instanceCount>15</instanceCount>
-  <name>conduit_end</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Conduit</displayName>
-  <version>11.1</version>
- </plugin>
- <plugin>
-  <instanceCount>4</instanceCount>
-  <name>avalon_streaming</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IConnection</subtype>
-  <displayName>Avalon Streaming Connection</displayName>
-  <version>11.1</version>
- </plugin>
- <plugin>
-  <instanceCount>15</instanceCount>
-  <name>avalon_slave</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Avalon Memory Mapped Slave</displayName>
-  <version>11.1</version>
- </plugin>
- <plugin>
   <instanceCount>1</instanceCount>
-  <name>avalon_master</name>
+  <name>interrupt_receiver</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Avalon Memory Mapped Master</displayName>
-  <version>11.1</version>
+  <displayName>Interrupt Receiver</displayName>
+  <version>12.0</version>
  </plugin>
  <plugin>
-  <instanceCount>21</instanceCount>
-  <name>clock</name>
+  <instanceCount>6</instanceCount>
+  <name>avalon_streaming_sink</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IConnection</subtype>
-  <displayName>Clock Connection</displayName>
-  <version>11.1</version>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Avalon Streaming Sink</displayName>
+  <version>12.0</version>
  </plugin>
  <plugin>
   <instanceCount>1</instanceCount>
@@ -14146,12 +14458,20 @@ parameters are a RESULT of the module parameters. -->
   <version>1.0</version>
  </plugin>
  <plugin>
-  <instanceCount>1</instanceCount>
-  <name>brush_motor_driver</name>
+  <instanceCount>15</instanceCount>
+  <name>avalon_slave</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>brush_motor_driver</displayName>
-  <version>1.0</version>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Avalon Memory Mapped Slave</displayName>
+  <version>12.0</version>
+ </plugin>
+ <plugin>
+  <instanceCount>4</instanceCount>
+  <name>avalon_streaming</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IConnection</subtype>
+  <displayName>Avalon Streaming Connection</displayName>
+  <version>12.0</version>
  </plugin>
  <plugin>
   <instanceCount>1</instanceCount>
@@ -14160,102 +14480,6 @@ parameters are a RESULT of the module parameters. -->
   <subtype>com.altera.entityinterfaces.IModule</subtype>
   <displayName>position_encoder</displayName>
   <version>1.0</version>
- </plugin>
- <plugin>
-  <instanceCount>21</instanceCount>
-  <name>clock_sink</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Clock Input</displayName>
-  <version>11.1</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>grid_PWM</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>PWM Output Controller</displayName>
-  <version>1.0</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>basic_SysID</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>Globe System ID</displayName>
-  <version>1.0</version>
- </plugin>
- <plugin>
-  <instanceCount>4</instanceCount>
-  <name>basic_FuncLED</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>RGB Function LED Controller</displayName>
-  <version>1.0</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>sdif</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>SDIF</displayName>
-  <version>1.0</version>
- </plugin>
- <plugin>
-  <instanceCount>3</instanceCount>
-  <name>interrupt</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IConnection</subtype>
-  <displayName>Interrupt Connection</displayName>
-  <version>11.1</version>
- </plugin>
- <plugin>
-  <instanceCount>3</instanceCount>
-  <name>interrupt_sender</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Interrupt Sender</displayName>
-  <version>11.1</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>AM2301</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>AM2301</displayName>
-  <version>1.0</version>
- </plugin>
- <plugin>
-  <instanceCount>6</instanceCount>
-  <name>avalon_streaming_sink</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Avalon Streaming Sink</displayName>
-  <version>11.1</version>
- </plugin>
- <plugin>
-  <instanceCount>3</instanceCount>
-  <name>clock_source</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Clock Output</displayName>
-  <version>11.1</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>reset_source</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Reset Output</displayName>
-  <version>11.1</version>
- </plugin>
- <plugin>
-  <instanceCount>15</instanceCount>
-  <name>avalon</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IConnection</subtype>
-  <displayName>Avalon Memory Mapped Connection</displayName>
-  <version>11.1</version>
  </plugin>
  <plugin>
   <instanceCount>1</instanceCount>
@@ -14267,27 +14491,91 @@ parameters are a RESULT of the module parameters. -->
  </plugin>
  <plugin>
   <instanceCount>21</instanceCount>
-  <name>reset_sink</name>
+  <name>clock_sink</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Reset Input</displayName>
-  <version>11.1</version>
+  <displayName>Clock Input</displayName>
+  <version>12.0</version>
  </plugin>
  <plugin>
-  <instanceCount>4</instanceCount>
-  <name>avalon_streaming_source</name>
+  <instanceCount>1</instanceCount>
+  <name>sdif</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>SDIF</displayName>
+  <version>1.0</version>
+ </plugin>
+ <plugin>
+  <instanceCount>3</instanceCount>
+  <name>clock_source</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Avalon Streaming Source</displayName>
-  <version>11.1</version>
+  <displayName>Clock Output</displayName>
+  <version>12.0</version>
+ </plugin>
+ <plugin>
+  <instanceCount>15</instanceCount>
+  <name>conduit_end</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Conduit</displayName>
+  <version>12.0</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>reset_source</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Reset Output</displayName>
+  <version>12.0</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>basic_SysID</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>Globe System ID</displayName>
+  <version>1.0</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>AM2301</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>AM2301</displayName>
+  <version>1.0</version>
  </plugin>
  <plugin>
   <instanceCount>21</instanceCount>
-  <name>reset</name>
+  <name>clock</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IConnection</subtype>
-  <displayName>Reset Connection</displayName>
-  <version>11.1</version>
+  <displayName>Clock Connection</displayName>
+  <version>12.0</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>avalon_master</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Avalon Memory Mapped Master</displayName>
+  <version>12.0</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>brush_motor_driver</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>brush_motor_driver</displayName>
+  <version>1.0</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>grid_PWM</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>PWM Output Controller</displayName>
+  <version>1.0</version>
  </plugin>
  <plugin>
   <instanceCount>1</instanceCount>
@@ -14298,13 +14586,13 @@ parameters are a RESULT of the module parameters. -->
   <version>1.1</version>
  </plugin>
  <plugin>
-  <instanceCount>1</instanceCount>
-  <name>test_LEDState</name>
+  <instanceCount>4</instanceCount>
+  <name>basic_FuncLED</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>LED Test State Generator</displayName>
+  <displayName>RGB Function LED Controller</displayName>
   <version>1.0</version>
  </plugin>
- <reportVersion>11.1sp2 259</reportVersion>
+ <reportVersion>12.0sp2 263</reportVersion>
  <uniqueIdentifier></uniqueIdentifier>
 </EnsembleReport>

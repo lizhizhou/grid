@@ -408,15 +408,15 @@ frontier	b2v_inst(
 	.led_f3_B(LED_F3B),
 	
 	
-//	.step_motor_AX(IO_B13),
-//	.step_motor_AY(IO_B9),
-//	.step_motor_BX(IO_B12),
-//	.step_motor_BY(IO_B8),
-//	.step_motor_AE(IO_B10),
-//	.step_motor_BE(IO_B11),
+	.step_motor_AX(IO_B13),
+	.step_motor_AY(IO_B9),
+	.step_motor_BX(IO_B12),
+	.step_motor_BY(IO_B8),
+	.step_motor_AE(IO_B10),
+	.step_motor_BE(IO_B11),
 	
-	.brush_motor_HX(IO_B13),      
-   .brush_motor_HY(IO_B9),      
+//	.brush_motor_HX(IO_B13),      
+//   .brush_motor_HY(IO_B9),      
 	
 	.am2301_sda    (IO_B15),         
    .am2301_clk_1us(IO_B14),       
@@ -432,8 +432,8 @@ frontier	b2v_inst(
 	
 	.m0_EINT(M1_EINT));
 
-  assign IO_B10=0;
-  assign IO_B11=0;
+//  assign IO_B10=0;
+//  assign IO_B11=0;
 //debug 
 
 //AM2301 am2301_0(

@@ -17,7 +17,7 @@ module position_encoder(
 		);
 		// Qsys bus controller	
 		reg [31:0] read_data;		
-		reg [10:0]  postion;
+		reg [15:0]  postion;
 		reg  direction;
 		assign	avs_ctrl_readdata = read_data;
 		always@(posedge csi_MCLK_clk or posedge rsi_MRST_reset)
@@ -28,7 +28,7 @@ module position_encoder(
 			else begin
 				case(avs_ctrl_address)
 					0: read_data <= 32'hEA680003;
-					1: read_data <= {21'b0,postion};
+					1: read_data <= {16'b0,postion};
 					2: read_data <= {31'b0,direction};
 					default: read_data <= 32'b0;
 				endcase
@@ -39,9 +39,9 @@ module position_encoder(
 		always @(posedge A or posedge rsi_MRST_reset)
 		begin
 			if (rsi_MRST_reset)
-				postion <= 10'b0;
+				postion <= 16'b0;
 			else if (Z)
-				postion <= 10'b0;
+				postion <= 16'b0;
 			else begin
 				if (B)
 					postion <= postion+1;

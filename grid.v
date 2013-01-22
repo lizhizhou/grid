@@ -380,7 +380,7 @@ frontier	b2v_inst(
 //	.slot_b_P14(IO_B14),
 //	.slot_b_P15(IO_B15),
 	.slot_b_P16(IO_B16),
-	.slot_b_P17(IO_B17),
+//	.slot_b_P17(IO_B17),
 	.slot_b_P18(IO_B18),
 	.slot_b_P19(IO_B19),
 	.slot_b_P20(IO_B20),
@@ -432,10 +432,13 @@ frontier	b2v_inst(
 	
 	.m0_EINT(M1_EINT));
 
+	wire position_zero;
+	assign position_zero = IO_B17 & IO_B22;
+	
 //  assign IO_B10=0;
 //  assign IO_B11=0;
 //debug 
-
+    
 //AM2301 am2301_0(
 //		// Qsys bus interface	
 //		.rsi_MRST_reset(~M1_RSTN),

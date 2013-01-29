@@ -28,7 +28,7 @@ module position_encoder(
 			else begin
 				case(avs_ctrl_address)
 					0: read_data <= 32'hEA680003;
-					1: read_data <= {16'b0,postion};
+					1: read_data <= {{16{postion[15]}},postion};
 					2: read_data <= {31'b0,direction};
 					default: read_data <= 32'b0;
 				endcase

@@ -1,4 +1,4 @@
-// (C) 2001-2012 Altera Corporation. All rights reserved.
+// (C) 2001-2011 Altera Corporation. All rights reserved.
 // Your use of Altera Corporation's design tools, logic functions and other 
 // software and tools, and its AMPP partner logic functions, and any output 
 // files any of the foregoing (including device programming or simulation 
@@ -11,9 +11,9 @@
 // agreement for further details.
 
 
-// $Id: //acds/rel/11.1sp2/ip/merlin/altera_merlin_master_agent/altera_merlin_master_agent.sv#1 $
+// $Id: //acds/rel/11.0/ip/merlin/altera_merlin_master_agent/altera_merlin_master_agent.sv#1 $
 // $Revision: #1 $
-// $Date: 2011/11/10 $
+// $Date: 2011/02/14 $
 // $Author: max $
 
 // --------------------------------------
@@ -23,7 +23,7 @@
 // Merlin network packets.
 // --------------------------------------
 
-`timescale 1 ns / 1 ns
+`timescale 1ns / 1ns
 
 module altera_merlin_master_agent
 #(
@@ -159,8 +159,6 @@ module altera_merlin_master_agent
     endgenerate
 
     always @* begin
-        cp_data = '0; // Default assignment; override below as needed.
-
         cp_data[PKT_PROTECTION_H:PKT_PROTECTION_L] = av_debugaccess;
         cp_data[PKT_BURSTWRAP_H:PKT_BURSTWRAP_L] = burstwrap_value_int[PKT_BURSTWRAP_W-1:0];
         cp_data[PKT_BYTE_CNT_H :PKT_BYTE_CNT_L ] = av_burstcount;
@@ -173,6 +171,7 @@ module altera_merlin_master_agent
         cp_data[PKT_DATA_H     :PKT_DATA_L     ] = av_writedata;
         cp_data[PKT_BYTEEN_H   :PKT_BYTEEN_L   ] = av_byteenable;
         cp_data[PKT_SRC_ID_H   :PKT_SRC_ID_L   ] = id_int[PKT_SRC_ID_W-1:0];
+        cp_data[PKT_DEST_ID_H  :PKT_DEST_ID_L  ] = 0;
        
         av_readdata = rp_data[PKT_DATA_H : PKT_DATA_L];
     end

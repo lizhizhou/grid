@@ -332,7 +332,10 @@ assign	SYNTHESIZED_WIRE_2 = 1;
 assign	SYNTHESIZED_WIRE_4 = 1;
 assign	SYNTHESIZED_WIRE_6 = 1;
 
-
+wire     VCC;
+wire     GND;
+assign   VCC = 1;
+assign   GND = 0; 
 
 
 frontier	b2v_inst(
@@ -340,55 +343,7 @@ frontier	b2v_inst(
 	.m0_CLK(M1_CLK),
 	.m0_RDN(M1_RDN),
 	.m0_WRN(M1_WRN),
-	
-	
-	.slot_a_P0(IO_A0),
-	.slot_a_P1(IO_A1),
-	.slot_a_P2(IO_A2),
-	.slot_a_P3(IO_A3),
-	.slot_a_P4(IO_A4),
-	.slot_a_P5(IO_A5),
-	.slot_a_P6(IO_A6),
-	.slot_a_P7(IO_A7),
-	.slot_a_P8(IO_A8),
-	.slot_a_P9(IO_A9),
-	.slot_a_P10(IO_A10),
-	.slot_a_P11(IO_A11),
-	.slot_a_P12(IO_A12),
-	.slot_a_P13(IO_A13),
-	.slot_a_P14(IO_A14),
-	.slot_a_P15(IO_A15),
-	.slot_a_P16(IO_A16),
-	.slot_a_P17(IO_A17),
-	.slot_a_P18(IO_A18),
-	.slot_a_P19(IO_A19),
-	.slot_a_P20(IO_A20),
-	.slot_a_P21(IO_A21),
-	.slot_a_P22(IO_A22),
-	.slot_a_P23(IO_A23),
-	.slot_a_P24(IO_A24),
-	.slot_a_P25(IO_A25),
-	.slot_b_P0(IO_B0),
-//	.slot_b_P1(IO_B1),
-	.slot_b_P2(IO_B2),
-	.slot_b_P3(IO_B3),
-	.slot_b_P4(IO_B4),
-	.slot_b_P5(IO_B5),
-	.slot_b_P6(IO_B6),
-	.slot_b_P7(IO_B7),
-	
-//	.slot_b_P14(IO_B14),
-//	.slot_b_P15(IO_B15),
-	.slot_b_P16(IO_B16),
-//	.slot_b_P17(IO_B17),
-	.slot_b_P18(IO_B18),
-	.slot_b_P19(IO_B19),
-	.slot_b_P20(IO_B20),
-	.slot_b_P21(IO_B21),
-//	.slot_b_P22(IO_B22),
-//	.slot_b_P23(IO_B23),
-//	.slot_b_P24(IO_B24),
-	.slot_b_P25(IO_B25),
+
 	.m0_ADDR(M1_ADDR),
 	.m0_BEN(M1_BEN),
 	.m0_CSN(M1_CSN),
@@ -406,37 +361,113 @@ frontier	b2v_inst(
 	.led_f3_R(LED_F3R),
 	.led_f3_G(LED_F3G),
 	.led_f3_B(LED_F3B),
+
+//	.slot_a_P0(IO_A0),
+//	.slot_a_P1(IO_A1),
+//	.slot_a_P2(IO_A2),
+//	.slot_a_P3(IO_A3),
+//	.slot_a_P4(IO_A4),
+//	.slot_a_P5(IO_A5),
+//	.slot_a_P6(IO_A6),
+//	.slot_a_P7(IO_A7),
+//	.slot_a_P8(IO_A8),
+//	.slot_a_P9(IO_A9),
+//	.slot_a_P10(IO_A10),
+//	.slot_a_P11(IO_A11),
+//	.slot_a_P12(IO_A12),
+//	.slot_a_P13(IO_A13),
+//	.slot_a_P14(IO_A14),
+//	.slot_a_P15(IO_A15),
+//	.slot_a_P16(IO_A16),
+//	.slot_a_P17(IO_A17),
+//	.slot_a_P18(IO_A18),
+//	.slot_a_P19(IO_A19),
+//	.slot_a_P20(IO_A20),
+//	.slot_a_P21(IO_A21),
+//	.slot_a_P22(IO_A22),
+//	.slot_a_P23(IO_A23),
+//	.slot_a_P24(IO_A24),
+//	.slot_a_P25(IO_A25),
+//	.slot_b_P0(IO_B0),
+//	.slot_b_P1(IO_B1),
+//	.slot_b_P2(IO_B2),
+//	.slot_b_P3(IO_B3),
+//	.slot_b_P4(IO_B4),
+//	.slot_b_P5(IO_B5),
+//	.slot_b_P6(IO_B6),
+//	.slot_b_P7(IO_B7),
+//	.slot_b_P8(IO_B8),
+//	.slot_b_P9(IO_B9),
+//	.slot_b_P10(IO_B10),
+//	.slot_b_P11(IO_B11),
+//	.slot_b_P12(IO_B12),
+//	.slot_b_P13(IO_B13),	
+//	.slot_b_P14(IO_B14),
+//	.slot_b_P15(IO_B15),
+//	.slot_b_P16(IO_B16),
+//	.slot_b_P17(IO_B17),
+//	.slot_b_P18(IO_B18),
+//	.slot_b_P19(IO_B19),
+//	.slot_b_P20(IO_B20),
+//	.slot_b_P21(IO_B21),
+//	.slot_b_P22(IO_B22),
+//	.slot_b_P23(IO_B23),
+//	.slot_b_P24(IO_B24),
+//	.slot_b_P25(IO_B25),
 	
 	
-	.step_motor_AX(IO_B13),
-	.step_motor_AY(IO_B9),
-	.step_motor_BX(IO_B12),
-	.step_motor_BY(IO_B8),
-	.step_motor_AE(IO_B10),
-	.step_motor_BE(IO_B11),
+	.am2301_0_sda    (IO_B15),         
+   .am2301_0_clk_1us(IO_B14),       
 	
-//	.brush_motor_HX(IO_B13),      
-//   .brush_motor_HY(IO_B9),      
+	.am2301_1_sda    (IO_A15),         
+   .am2301_1_clk_1us(IO_A14),  
 	
-	.am2301_sda    (IO_B15),         
-   .am2301_clk_1us(IO_B14),       
+//	.step_motor_driver_0_AX(IO_B13),
+//	.step_motor_driver_0_AY(IO_B9),
+//	.step_motor_driver_0_BX(IO_B12),
+//	.step_motor_driver_0_BY(IO_B8),
+//	.step_motor_driver_0_AE(IO_B10),
+//	.step_motor_driver_0_BE(IO_B11),
+//	
+//	.step_motor_driver_1_AX(IO_A13),
+//	.step_motor_driver_1_AY(IO_A9),
+//	.step_motor_driver_1_BX(IO_A12),
+//	.step_motor_driver_1_BY(IO_A8),
+//	.step_motor_driver_1_AE(IO_A10),
+//	.step_motor_driver_1_BE(IO_A11),
 	
-	.position_encoder_A  (IO_B24),  
-   .position_encoder_B  (IO_B23), 
-   .position_encoder_Z  (IO_B22),  
+	.brush_motor_driver_3_HX   (IO_A12),
+	.brush_motor_driver_3_HY   (IO_A8), 
+	.brush_motor_driver_2_HX   (IO_A13),
+	.brush_motor_driver_2_HY   (IO_A9),
+	.brush_motor_driver_1_HX   (IO_B12),
+	.brush_motor_driver_1_HY   (IO_B8),
+	.brush_motor_driver_0_HX   (IO_B13),
+	.brush_motor_driver_0_HY   (IO_B9),
+
+
+//	.position_encoder_A  (IO_B24),  
+// .position_encoder_B  (IO_B23), 
+// .position_encoder_Z  (IO_B22),  
+//	.position_encoder_A(IO_B16),
+//	.position_encoder_B(IO_B16),
+//	.position_encoder_Z(GND),
 	
-	.fan_motor_export    (IO_B1), 
+	.fan_motor_driver_0_export(IO_B1), 
 	
-	.sdif_IN             (SPDIF_IN),
-   .sdif_OUT            (SPDIF_OUT),
+//	.sdif_IN             (SPDIF_IN),
+// .sdif_OUT            (SPDIF_OUT),
 	
 	.m0_EINT(M1_EINT));
 
 	wire position_zero;
 	assign position_zero = IO_B17 & IO_B22;
 	
-//  assign IO_B10=0;
-//  assign IO_B11=0;
+  assign IO_B10=0;
+  assign IO_B11=0;
+  assign IO_A10=0;
+  assign IO_A11=0;
+
 //debug 
     
 //AM2301 am2301_0(

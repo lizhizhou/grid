@@ -422,36 +422,36 @@ frontier	b2v_inst(
 	.am2301_1_sda    (IO_A15),         
    .am2301_1_clk_1us(IO_A14),  
 	
-//	.step_motor_driver_0_AX(IO_B13),
-//	.step_motor_driver_0_AY(IO_B9),
-//	.step_motor_driver_0_BX(IO_B12),
-//	.step_motor_driver_0_BY(IO_B8),
-//	.step_motor_driver_0_AE(IO_B10),
-//	.step_motor_driver_0_BE(IO_B11),
-//	
-//	.step_motor_driver_1_AX(IO_A13),
-//	.step_motor_driver_1_AY(IO_A9),
-//	.step_motor_driver_1_BX(IO_A12),
-//	.step_motor_driver_1_BY(IO_A8),
-//	.step_motor_driver_1_AE(IO_A10),
-//	.step_motor_driver_1_BE(IO_A11),
+	.step_motor_driver_0_AX(IO_B13),
+	.step_motor_driver_0_AY(IO_B9),
+	.step_motor_driver_0_BX(IO_B12),
+	.step_motor_driver_0_BY(IO_B8),
+	.step_motor_driver_0_AE(IO_B10),
+	.step_motor_driver_0_BE(IO_B11),
 	
-	.brush_motor_driver_3_HX   (IO_A12),
-	.brush_motor_driver_3_HY   (IO_A8), 
-	.brush_motor_driver_2_HX   (IO_A13),
-	.brush_motor_driver_2_HY   (IO_A9),
-	.brush_motor_driver_1_HX   (IO_B12),
-	.brush_motor_driver_1_HY   (IO_B8),
-	.brush_motor_driver_0_HX   (IO_B13),
-	.brush_motor_driver_0_HY   (IO_B9),
+	.step_motor_driver_1_AX(IO_A13),
+	.step_motor_driver_1_AY(IO_A9),
+	.step_motor_driver_1_BX(IO_A12),
+	.step_motor_driver_1_BY(IO_A8),
+	.step_motor_driver_1_AE(IO_A10),
+	.step_motor_driver_1_BE(IO_A11),
+	
+//	.brush_motor_driver_3_HX   (IO_A12),
+//	.brush_motor_driver_3_HY   (IO_A8), 
+//	.brush_motor_driver_2_HX   (IO_A13),
+//	.brush_motor_driver_2_HY   (IO_A9),
+//	.brush_motor_driver_1_HX   (IO_B12),
+//	.brush_motor_driver_1_HY   (IO_B8),
+//	.brush_motor_driver_0_HX   (IO_B13),
+//	.brush_motor_driver_0_HY   (IO_B9),
 
 
 //	.position_encoder_A  (IO_B24),  
 // .position_encoder_B  (IO_B23), 
 // .position_encoder_Z  (IO_B22),  
-//	.position_encoder_A(IO_B16),
-//	.position_encoder_B(IO_B16),
-//	.position_encoder_Z(GND),
+	.position_encoder_3_A(IO_B16),
+	.position_encoder_3_B(IO_B16),
+	.position_encoder_3_Z(GND),
 	
 	.fan_motor_driver_0_export(IO_B1), 
 	
@@ -463,10 +463,10 @@ frontier	b2v_inst(
 	wire position_zero;
 	assign position_zero = IO_B17 & IO_B22;
 	
-  assign IO_B10=0;
-  assign IO_B11=0;
-  assign IO_A10=0;
-  assign IO_A11=0;
+//  assign IO_B10=0;
+//  assign IO_B11=0;
+//  assign IO_A10=0;
+//  assign IO_A11=0;
 
 //debug 
     

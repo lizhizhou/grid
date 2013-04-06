@@ -41,7 +41,7 @@
 # ========================
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "10.0 SP1"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "00:00:01  FEB 01, 2012"
-set_global_assignment -name LAST_QUARTUS_VERSION 11.0
+set_global_assignment -name LAST_QUARTUS_VERSION "12.1 SP1"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output
 
 # Pin & Location Assignments
@@ -650,7 +650,6 @@ set_global_assignment -name VERILOG_FILE qsys_root/brushless_motor_driver.v
 set_global_assignment -name VERILOG_FILE qsys_root/step_motor_driver.v
 set_global_assignment -name VERILOG_FILE qsys_root/brush_motor_driver.v
 set_global_assignment -name VERILOG_FILE motorcontrl.v
-set_global_assignment -name QIP_FILE frontier/synthesis/frontier.qip
 set_global_assignment -name BDF_FILE grid.bdf
 set_global_assignment -name SDC_FILE grid.sdc
 set_global_assignment -name CDF_FILE grid.cdf
@@ -671,4 +670,5 @@ set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK=00
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK_LENGTH=32" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_LOWORD=541" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_HIWORD=16970" -section_id auto_signaltap_0
+set_global_assignment -name QIP_FILE frontier/synthesis/frontier.qip
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

@@ -446,9 +446,9 @@ frontier	b2v_inst(
 //	.brush_motor_driver_0_HY   (IO_B9),
 
 
-//	.position_encoder_A  (IO_B24),  
-// .position_encoder_B  (IO_B23), 
-// .position_encoder_Z  (IO_B22),  
+	.position_encoder_0_A  (IO_B24),  
+	.position_encoder_0_B  (IO_B23), 
+	.position_encoder_0_Z  (IO_B22),  
 	.position_encoder_3_A(IO_B16),
 	.position_encoder_3_B(IO_B16),
 	.position_encoder_3_Z(GND),

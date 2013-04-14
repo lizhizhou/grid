@@ -362,8 +362,8 @@ frontier	b2v_inst(
 	.led_f3_G(LED_F3G),
 	.led_f3_B(LED_F3B),
 
-//	.slot_a_P0(IO_A0),
-//	.slot_a_P1(IO_A1),
+	.slot_a_P0(IO_A0),
+	.slot_a_P1(IO_A1),
 //	.slot_a_P2(IO_A2),
 //	.slot_a_P3(IO_A3),
 //	.slot_a_P4(IO_A4),

@@ -1,4 +1,4 @@
-// (C) 2001-2011 Altera Corporation. All rights reserved.
+// (C) 2001-2013 Altera Corporation. All rights reserved.
 // Your use of Altera Corporation's design tools, logic functions and other 
 // software and tools, and its AMPP partner logic functions, and any output 
 // files any of the foregoing (including device programming or simulation 
@@ -12,10 +12,10 @@
 
 
 
-// $Id: //acds/rel/11.0/ip/merlin/altera_merlin_slave_translator/altera_merlin_slave_translator.sv#2 $
-// $Revision: #2 $
-// $Date: 2011/03/22 $
-// $Author: kbrunham $
+// $Id: //acds/rel/12.1sp1/ip/merlin/altera_merlin_slave_translator/altera_merlin_slave_translator.sv#1 $
+// $Revision: #1 $
+// $Date: 2012/10/10 $
+// $Author: swbranch $
 
 // -------------------------------------
 // Merlin Slave Translator
@@ -181,12 +181,12 @@ module altera_merlin_slave_translator
 
    always@* begin
       av_byteenable = '0;
-      av_byteenable = uav_byteenable;
+      av_byteenable = uav_byteenable[AV_BYTEENABLE_W - 1 : 0];
    end
 
    always@* begin
       av_writedata = '0;
-      av_writedata = uav_writedata;
+      av_writedata = uav_writedata[AV_DATA_W - 1 : 0];
    end
 
    // +-------------------
@@ -264,7 +264,7 @@ module altera_merlin_slave_translator
    // -------------------
    
 always@* begin
-      av_writebyteenable = { (AV_BYTEENABLE_W){uav_write} } & uav_byteenable;
+      av_writebyteenable = { (AV_BYTEENABLE_W){uav_write} } & uav_byteenable[AV_BYTEENABLE_W - 1 : 0];
 end
    
    // -------------------

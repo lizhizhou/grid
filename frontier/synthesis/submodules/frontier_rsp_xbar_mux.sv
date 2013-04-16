@@ -1,4 +1,4 @@
-// (C) 2001-2011 Altera Corporation. All rights reserved.
+// (C) 2001-2013 Altera Corporation. All rights reserved.
 // Your use of Altera Corporation's design tools, logic functions and other 
 // software and tools, and its AMPP partner logic functions, and any output 
 // files any of the foregoing (including device programming or simulation 
@@ -11,10 +11,10 @@
 // agreement for further details.
 
 
-// $Id: //acds/rel/11.0/ip/merlin/altera_merlin_multiplexer/altera_merlin_multiplexer.sv.terp#2 $
-// $Revision: #2 $
-// $Date: 2011/02/20 $
-// $Author: jyeap $
+// $Id: //acds/rel/12.1sp1/ip/merlin/altera_merlin_multiplexer/altera_merlin_multiplexer.sv.terp#1 $
+// $Revision: #1 $
+// $Date: 2012/10/10 $
+// $Author: swbranch $
 
 // ------------------------------------------
 // Merlin Multiplexer
@@ -26,13 +26,13 @@
 // ------------------------------------------
 // Generation parameters:
 //   output_name:         frontier_rsp_xbar_mux
-//   NUM_INPUTS:          25
-//   ARBITRATION_SHARES:  1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+//   NUM_INPUTS:          26
+//   ARBITRATION_SHARES:  1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
 //   ARBITRATION_SCHEME   "no-arb"
 //   PIPELINE_ARB:        0
 //   PKT_TRANS_LOCK:      72 (arbitration locking enabled)
-//   ST_DATA_W:           91
-//   ST_CHANNEL_W:        25
+//   ST_DATA_W:           109
+//   ST_CHANNEL_W:        26
 // ------------------------------------------
 
 module frontier_rsp_xbar_mux
@@ -41,187 +41,194 @@ module frontier_rsp_xbar_mux
     // Sinks
     // ----------------------
     input                       sink0_valid,
-    input [91-1   : 0]  sink0_data,
-    input [25-1: 0]  sink0_channel,
+    input [109-1   : 0]  sink0_data,
+    input [26-1: 0]  sink0_channel,
     input                       sink0_startofpacket,
     input                       sink0_endofpacket,
     output                      sink0_ready,
 
     input                       sink1_valid,
-    input [91-1   : 0]  sink1_data,
-    input [25-1: 0]  sink1_channel,
+    input [109-1   : 0]  sink1_data,
+    input [26-1: 0]  sink1_channel,
     input                       sink1_startofpacket,
     input                       sink1_endofpacket,
     output                      sink1_ready,
 
     input                       sink2_valid,
-    input [91-1   : 0]  sink2_data,
-    input [25-1: 0]  sink2_channel,
+    input [109-1   : 0]  sink2_data,
+    input [26-1: 0]  sink2_channel,
     input                       sink2_startofpacket,
     input                       sink2_endofpacket,
     output                      sink2_ready,
 
     input                       sink3_valid,
-    input [91-1   : 0]  sink3_data,
-    input [25-1: 0]  sink3_channel,
+    input [109-1   : 0]  sink3_data,
+    input [26-1: 0]  sink3_channel,
     input                       sink3_startofpacket,
     input                       sink3_endofpacket,
     output                      sink3_ready,
 
     input                       sink4_valid,
-    input [91-1   : 0]  sink4_data,
-    input [25-1: 0]  sink4_channel,
+    input [109-1   : 0]  sink4_data,
+    input [26-1: 0]  sink4_channel,
     input                       sink4_startofpacket,
     input                       sink4_endofpacket,
     output                      sink4_ready,
 
     input                       sink5_valid,
-    input [91-1   : 0]  sink5_data,
-    input [25-1: 0]  sink5_channel,
+    input [109-1   : 0]  sink5_data,
+    input [26-1: 0]  sink5_channel,
     input                       sink5_startofpacket,
     input                       sink5_endofpacket,
     output                      sink5_ready,
 
     input                       sink6_valid,
-    input [91-1   : 0]  sink6_data,
-    input [25-1: 0]  sink6_channel,
+    input [109-1   : 0]  sink6_data,
+    input [26-1: 0]  sink6_channel,
     input                       sink6_startofpacket,
     input                       sink6_endofpacket,
     output                      sink6_ready,
 
     input                       sink7_valid,
-    input [91-1   : 0]  sink7_data,
-    input [25-1: 0]  sink7_channel,
+    input [109-1   : 0]  sink7_data,
+    input [26-1: 0]  sink7_channel,
     input                       sink7_startofpacket,
     input                       sink7_endofpacket,
     output                      sink7_ready,
 
     input                       sink8_valid,
-    input [91-1   : 0]  sink8_data,
-    input [25-1: 0]  sink8_channel,
+    input [109-1   : 0]  sink8_data,
+    input [26-1: 0]  sink8_channel,
     input                       sink8_startofpacket,
     input                       sink8_endofpacket,
     output                      sink8_ready,
 
     input                       sink9_valid,
-    input [91-1   : 0]  sink9_data,
-    input [25-1: 0]  sink9_channel,
+    input [109-1   : 0]  sink9_data,
+    input [26-1: 0]  sink9_channel,
     input                       sink9_startofpacket,
     input                       sink9_endofpacket,
     output                      sink9_ready,
 
     input                       sink10_valid,
-    input [91-1   : 0]  sink10_data,
-    input [25-1: 0]  sink10_channel,
+    input [109-1   : 0]  sink10_data,
+    input [26-1: 0]  sink10_channel,
     input                       sink10_startofpacket,
     input                       sink10_endofpacket,
     output                      sink10_ready,
 
     input                       sink11_valid,
-    input [91-1   : 0]  sink11_data,
-    input [25-1: 0]  sink11_channel,
+    input [109-1   : 0]  sink11_data,
+    input [26-1: 0]  sink11_channel,
     input                       sink11_startofpacket,
     input                       sink11_endofpacket,
     output                      sink11_ready,
 
     input                       sink12_valid,
-    input [91-1   : 0]  sink12_data,
-    input [25-1: 0]  sink12_channel,
+    input [109-1   : 0]  sink12_data,
+    input [26-1: 0]  sink12_channel,
     input                       sink12_startofpacket,
     input                       sink12_endofpacket,
     output                      sink12_ready,
 
     input                       sink13_valid,
-    input [91-1   : 0]  sink13_data,
-    input [25-1: 0]  sink13_channel,
+    input [109-1   : 0]  sink13_data,
+    input [26-1: 0]  sink13_channel,
     input                       sink13_startofpacket,
     input                       sink13_endofpacket,
     output                      sink13_ready,
 
     input                       sink14_valid,
-    input [91-1   : 0]  sink14_data,
-    input [25-1: 0]  sink14_channel,
+    input [109-1   : 0]  sink14_data,
+    input [26-1: 0]  sink14_channel,
     input                       sink14_startofpacket,
     input                       sink14_endofpacket,
     output                      sink14_ready,
 
     input                       sink15_valid,
-    input [91-1   : 0]  sink15_data,
-    input [25-1: 0]  sink15_channel,
+    input [109-1   : 0]  sink15_data,
+    input [26-1: 0]  sink15_channel,
     input                       sink15_startofpacket,
     input                       sink15_endofpacket,
     output                      sink15_ready,
 
     input                       sink16_valid,
-    input [91-1   : 0]  sink16_data,
-    input [25-1: 0]  sink16_channel,
+    input [109-1   : 0]  sink16_data,
+    input [26-1: 0]  sink16_channel,
     input                       sink16_startofpacket,
     input                       sink16_endofpacket,
     output                      sink16_ready,
 
     input                       sink17_valid,
-    input [91-1   : 0]  sink17_data,
-    input [25-1: 0]  sink17_channel,
+    input [109-1   : 0]  sink17_data,
+    input [26-1: 0]  sink17_channel,
     input                       sink17_startofpacket,
     input                       sink17_endofpacket,
     output                      sink17_ready,
 
     input                       sink18_valid,
-    input [91-1   : 0]  sink18_data,
-    input [25-1: 0]  sink18_channel,
+    input [109-1   : 0]  sink18_data,
+    input [26-1: 0]  sink18_channel,
     input                       sink18_startofpacket,
     input                       sink18_endofpacket,
     output                      sink18_ready,
 
     input                       sink19_valid,
-    input [91-1   : 0]  sink19_data,
-    input [25-1: 0]  sink19_channel,
+    input [109-1   : 0]  sink19_data,
+    input [26-1: 0]  sink19_channel,
     input                       sink19_startofpacket,
     input                       sink19_endofpacket,
     output                      sink19_ready,
 
     input                       sink20_valid,
-    input [91-1   : 0]  sink20_data,
-    input [25-1: 0]  sink20_channel,
+    input [109-1   : 0]  sink20_data,
+    input [26-1: 0]  sink20_channel,
     input                       sink20_startofpacket,
     input                       sink20_endofpacket,
     output                      sink20_ready,
 
     input                       sink21_valid,
-    input [91-1   : 0]  sink21_data,
-    input [25-1: 0]  sink21_channel,
+    input [109-1   : 0]  sink21_data,
+    input [26-1: 0]  sink21_channel,
     input                       sink21_startofpacket,
     input                       sink21_endofpacket,
     output                      sink21_ready,
 
     input                       sink22_valid,
-    input [91-1   : 0]  sink22_data,
-    input [25-1: 0]  sink22_channel,
+    input [109-1   : 0]  sink22_data,
+    input [26-1: 0]  sink22_channel,
     input                       sink22_startofpacket,
     input                       sink22_endofpacket,
     output                      sink22_ready,
 
     input                       sink23_valid,
-    input [91-1   : 0]  sink23_data,
-    input [25-1: 0]  sink23_channel,
+    input [109-1   : 0]  sink23_data,
+    input [26-1: 0]  sink23_channel,
     input                       sink23_startofpacket,
     input                       sink23_endofpacket,
     output                      sink23_ready,
 
     input                       sink24_valid,
-    input [91-1   : 0]  sink24_data,
-    input [25-1: 0]  sink24_channel,
+    input [109-1   : 0]  sink24_data,
+    input [26-1: 0]  sink24_channel,
     input                       sink24_startofpacket,
     input                       sink24_endofpacket,
     output                      sink24_ready,
+
+    input                       sink25_valid,
+    input [109-1   : 0]  sink25_data,
+    input [26-1: 0]  sink25_channel,
+    input                       sink25_startofpacket,
+    input                       sink25_endofpacket,
+    output                      sink25_ready,
 
 
     // ----------------------
     // Source
     // ----------------------
     output                      src_valid,
-    output [91-1    : 0] src_data,
-    output [25-1 : 0] src_channel,
+    output [109-1    : 0] src_data,
+    output [26-1 : 0] src_channel,
     output                      src_startofpacket,
     output                      src_endofpacket,
     input                       src_ready,
@@ -232,12 +239,12 @@ module frontier_rsp_xbar_mux
     input clk,
     input reset
 );
-    localparam PAYLOAD_W        = 91 + 25 + 2;
-    localparam NUM_INPUTS       = 25;
+    localparam PAYLOAD_W        = 109 + 26 + 2;
+    localparam NUM_INPUTS       = 26;
     localparam SHARE_COUNTER_W  = 1;
     localparam PIPELINE_ARB     = 0;
-    localparam ST_DATA_W        = 91;
-    localparam ST_CHANNEL_W     = 25;
+    localparam ST_DATA_W        = 109;
+    localparam ST_CHANNEL_W     = 26;
     localparam PKT_TRANS_LOCK   = 72;
 
     // ------------------------------------------
@@ -245,15 +252,12 @@ module frontier_rsp_xbar_mux
     // ------------------------------------------
     wire [NUM_INPUTS - 1 : 0] request;
     wire [NUM_INPUTS - 1 : 0] valid;
-    wire [NUM_INPUTS - 1 : 0] eop;
-    reg  [NUM_INPUTS - 1 : 0] prev_request;
     wire [NUM_INPUTS - 1 : 0] grant;
     wire [NUM_INPUTS - 1 : 0] next_grant;
     reg  [NUM_INPUTS - 1 : 0] saved_grant;
     reg  [PAYLOAD_W - 1 : 0]  src_payload;
     wire                      last_cycle;
     reg                       packet_in_progress;
-    wire                      grant_changed;
     reg                       update_grant;
 
     wire [PAYLOAD_W - 1 : 0]  sink0_payload;
@@ -281,57 +285,35 @@ module frontier_rsp_xbar_mux
     wire [PAYLOAD_W - 1 : 0]  sink22_payload;
     wire [PAYLOAD_W - 1 : 0]  sink23_payload;
     wire [PAYLOAD_W - 1 : 0]  sink24_payload;
+    wire [PAYLOAD_W - 1 : 0]  sink25_payload;
 
     assign valid[0] = sink0_valid;
-    assign eop[0]   = sink0_endofpacket;
     assign valid[1] = sink1_valid;
-    assign eop[1]   = sink1_endofpacket;
     assign valid[2] = sink2_valid;
-    assign eop[2]   = sink2_endofpacket;
     assign valid[3] = sink3_valid;
-    assign eop[3]   = sink3_endofpacket;
     assign valid[4] = sink4_valid;
-    assign eop[4]   = sink4_endofpacket;
     assign valid[5] = sink5_valid;
-    assign eop[5]   = sink5_endofpacket;
     assign valid[6] = sink6_valid;
-    assign eop[6]   = sink6_endofpacket;
     assign valid[7] = sink7_valid;
-    assign eop[7]   = sink7_endofpacket;
     assign valid[8] = sink8_valid;
-    assign eop[8]   = sink8_endofpacket;
     assign valid[9] = sink9_valid;
-    assign eop[9]   = sink9_endofpacket;
     assign valid[10] = sink10_valid;
-    assign eop[10]   = sink10_endofpacket;
     assign valid[11] = sink11_valid;
-    assign eop[11]   = sink11_endofpacket;
     assign valid[12] = sink12_valid;
-    assign eop[12]   = sink12_endofpacket;
     assign valid[13] = sink13_valid;
-    assign eop[13]   = sink13_endofpacket;
     assign valid[14] = sink14_valid;
-    assign eop[14]   = sink14_endofpacket;
     assign valid[15] = sink15_valid;
-    assign eop[15]   = sink15_endofpacket;
     assign valid[16] = sink16_valid;
-    assign eop[16]   = sink16_endofpacket;
     assign valid[17] = sink17_valid;
-    assign eop[17]   = sink17_endofpacket;
     assign valid[18] = sink18_valid;
-    assign eop[18]   = sink18_endofpacket;
     assign valid[19] = sink19_valid;
-    assign eop[19]   = sink19_endofpacket;
     assign valid[20] = sink20_valid;
-    assign eop[20]   = sink20_endofpacket;
     assign valid[21] = sink21_valid;
-    assign eop[21]   = sink21_endofpacket;
     assign valid[22] = sink22_valid;
-    assign eop[22]   = sink22_endofpacket;
     assign valid[23] = sink23_valid;
-    assign eop[23]   = sink23_endofpacket;
     assign valid[24] = sink24_valid;
-    assign eop[24]   = sink24_endofpacket;
+    assign valid[25] = sink25_valid;
+
 
     // ------------------------------------------
     // ------------------------------------------
@@ -365,15 +347,7 @@ module frontier_rsp_xbar_mux
       lock[22] = sink22_data[72];
       lock[23] = sink23_data[72];
       lock[24] = sink24_data[72];
-    end
-    reg [NUM_INPUTS - 1 : 0] locked = '0;
-    always @(posedge clk or posedge reset) begin
-      if (reset) begin
-        locked <= '0;
-      end
-      else begin
-        locked <= grant & lock;
-      end
+      lock[25] = sink25_data[72];
     end
 
     assign last_cycle = src_valid & src_ready & src_endofpacket & ~(|(lock & grant));
@@ -394,7 +368,6 @@ module frontier_rsp_xbar_mux
         end
     end
 
-    assign grant_changed = ~packet_in_progress && !(saved_grant & valid);
 
     // ------------------------------------------
     // Shares
@@ -430,6 +403,7 @@ module frontier_rsp_xbar_mux
     // 22      |      1       |  0
     // 23      |      1       |  0
     // 24      |      1       |  0
+    // 25      |      1       |  0
     wire [SHARE_COUNTER_W - 1 : 0] share_0 = 1'd0;
     wire [SHARE_COUNTER_W - 1 : 0] share_1 = 1'd0;
     wire [SHARE_COUNTER_W - 1 : 0] share_2 = 1'd0;
@@ -455,6 +429,7 @@ module frontier_rsp_xbar_mux
     wire [SHARE_COUNTER_W - 1 : 0] share_22 = 1'd0;
     wire [SHARE_COUNTER_W - 1 : 0] share_23 = 1'd0;
     wire [SHARE_COUNTER_W - 1 : 0] share_24 = 1'd0;
+    wire [SHARE_COUNTER_W - 1 : 0] share_25 = 1'd0;
 
     // ------------------------------------------
     // Choose the share value corresponding to the grant.
@@ -486,12 +461,14 @@ module frontier_rsp_xbar_mux
             share_21 & { SHARE_COUNTER_W {next_grant[21]} } |
             share_22 & { SHARE_COUNTER_W {next_grant[22]} } |
             share_23 & { SHARE_COUNTER_W {next_grant[23]} } |
-            share_24 & { SHARE_COUNTER_W {next_grant[24]} };
+            share_24 & { SHARE_COUNTER_W {next_grant[24]} } |
+            share_25 & { SHARE_COUNTER_W {next_grant[25]} };
     end
 
     // ------------------------------------------
     // Flag to indicate first packet of an arb sequence.
     // ------------------------------------------
+    wire grant_changed = ~packet_in_progress && !(saved_grant & valid);
     reg first_packet_r;
     wire first_packet = grant_changed | first_packet_r;
     always @(posedge clk or posedge reset) begin
@@ -597,11 +574,14 @@ module frontier_rsp_xbar_mux
 
     wire final_packet_24 = 1'b1;
 
+    wire final_packet_25 = 1'b1;
+
 
     // ------------------------------------------
     // Concatenate all final_packet signals (wire or reg) into a handy vector.
     // ------------------------------------------
     wire [NUM_INPUTS - 1 : 0] final_packet = {
+        final_packet_25,
         final_packet_24,
         final_packet_23,
         final_packet_22,
@@ -630,19 +610,8 @@ module frontier_rsp_xbar_mux
     };
 
     // ------------------------------------------
-    // Compute a "done" bit which goes active on the cycle _after_ the arb
-    // winner executes the final packet of a full grant sequence.
     // ------------------------------------------
     wire p1_done = |(final_packet & grant);
-    reg done;
-    always @(posedge clk or posedge reset) begin
-        if (reset) begin
-            done <= 1'b0;
-        end
-        else if (last_cycle) begin
-            done <= p1_done;
-        end
-    end
 
     // ------------------------------------------
     // Flag for the first cycle of packets within an 
@@ -688,16 +657,13 @@ module frontier_rsp_xbar_mux
 
     // ------------------------------------------
     // Create a request vector that stays high during
-    // the packet
+    // the packet for unpipelined arbitration.
+    //
+    // The pipelined arbitration scheme does not require
+    // request to be held high during the packet.
     // ------------------------------------------
     assign request = valid;
 
-    always @(posedge clk, posedge reset) begin
-        if (reset)
-            prev_request <= '0;
-        else
-            prev_request <= request & ~(valid & eop);
-    end
 
     altera_merlin_arbitrator
     #(
@@ -746,6 +712,7 @@ module frontier_rsp_xbar_mux
     assign sink22_ready = src_ready && grant[22];
     assign sink23_ready = src_ready && grant[23];
     assign sink24_ready = src_ready && grant[24];
+    assign sink25_ready = src_ready && grant[25];
 
     assign src_valid = |(grant & valid);
 
@@ -775,7 +742,8 @@ module frontier_rsp_xbar_mux
             sink21_payload & {PAYLOAD_W {grant[21]} } |
             sink22_payload & {PAYLOAD_W {grant[22]} } |
             sink23_payload & {PAYLOAD_W {grant[23]} } |
-            sink24_payload & {PAYLOAD_W {grant[24]} };
+            sink24_payload & {PAYLOAD_W {grant[24]} } |
+            sink25_payload & {PAYLOAD_W {grant[25]} };
     end
 
     // ------------------------------------------
@@ -832,6 +800,8 @@ module frontier_rsp_xbar_mux
         sink23_startofpacket,sink23_endofpacket};
     assign sink24_payload = {sink24_channel,sink24_data,
         sink24_startofpacket,sink24_endofpacket};
+    assign sink25_payload = {sink25_channel,sink25_data,
+        sink25_startofpacket,sink25_endofpacket};
 
     assign {src_channel,src_data,src_startofpacket,src_endofpacket} = src_payload;
 

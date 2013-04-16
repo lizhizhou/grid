@@ -362,8 +362,8 @@ frontier	b2v_inst(
 	.led_f3_G(LED_F3G),
 	.led_f3_B(LED_F3B),
 
-	.slot_a_P0(IO_A0),
-	.slot_a_P1(IO_A1),
+//	.slot_a_P0(IO_A0),
+//	.slot_a_P1(IO_A1),
 //	.slot_a_P2(IO_A2),
 //	.slot_a_P3(IO_A3),
 //	.slot_a_P4(IO_A4),
@@ -449,17 +449,20 @@ frontier	b2v_inst(
 	.position_encoder_0_A  (IO_B24),  
 	.position_encoder_0_B  (IO_B23), 
 	.position_encoder_0_Z  (IO_B22),  
-	.position_encoder_3_A(IO_B16),
-	.position_encoder_3_B(IO_B16),
-	.position_encoder_3_Z(GND),
+	.position_encoder_3_A  (IO_B16),
+	.position_encoder_3_B  (IO_B16),
+	.position_encoder_3_Z  (GND),
 	
 	.fan_motor_driver_0_export(IO_B1), 
+	.fan_motor_driver_1_export(humidifier), 
 	
 //	.sdif_IN             (SPDIF_IN),
 // .sdif_OUT            (SPDIF_OUT),
 	
 	.m0_EINT(M1_EINT));
-
+	
+	wire humidifier;
+	assign IO_A1 = !humidifier;
 	wire position_zero;
 	assign position_zero = IO_B17 & IO_B22;
 	

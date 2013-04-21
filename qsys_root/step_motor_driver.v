@@ -135,11 +135,11 @@ module step_motor_driver(
 	end
 	
 	//output signal
-	assign AE = !PWM_out_A;
-	assign BE = !PWM_out_B;
-	assign AX = !motor_state[3];
-	assign AY = !motor_state[2];
-	assign BX = !motor_state[1];
-	assign BY =	!motor_state[0];
+	assign AE = !1;//PWM_out_A;
+	assign BE = !1;//PWM_out_B;
+	assign AX = !(motor_state[3] & PWM_out_A);
+	assign AY = !(motor_state[2] & PWM_out_A);
+	assign BX = !(motor_state[1] & PWM_out_B);
+	assign BY =	!(motor_state[0] & PWM_out_B);
 	
 endmodule

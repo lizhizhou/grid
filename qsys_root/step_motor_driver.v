@@ -24,6 +24,7 @@ module step_motor_driver(
 	// Qsys bus controller
 	reg        step;
 	reg        forward_back;
+	reg        on_off;
 	reg [31:0] PWM_width_A;
 	reg [31:0] PWM_width_B;
 	reg [31:0] PWM_frequent;
@@ -57,6 +58,7 @@ module step_motor_driver(
 				end
 				3: step <= avs_ctrl_writedata[0];
 				4: forward_back <= avs_ctrl_writedata[0];
+				5: on_off <= avs_ctrl_writedata[0];
 				default:;
 			endcase
 	   end
@@ -86,8 +88,6 @@ module step_motor_driver(
 		begin
 			PWM_A <= PWM_A + PWM_frequent;
 			PWM_out_A <=(PWM_A > PWM_width_A) ? 0:1;   
-			//PWM <= PWM +  2 * 10737;//32'd500 *  33'h100000000 / 32'd200000000;
-			//PWM_out <= (PWM > 32'h80000000) ? 0:1;
 		end
 	end
 	always @ (posedge csi_PWMCLK_clk or posedge rsi_PWMRST_reset)
@@ -135,8 +135,8 @@ module step_motor_driver(
 	end
 	
 	//output signal
-	assign AE = !1;//PWM_out_A;
-	assign BE = !1;//PWM_out_B;
+	assign AE = !on_off;
+	assign BE = !on_off;
 	assign AX = !(motor_state[3] & PWM_out_A);
 	assign AY = !(motor_state[2] & PWM_out_A);
 	assign BX = !(motor_state[1] & PWM_out_B);

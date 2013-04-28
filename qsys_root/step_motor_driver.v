@@ -34,6 +34,7 @@ module step_motor_driver(
 	begin
 		if(rsi_MRST_reset) begin
 			read_data <= 0;
+			on_off <= 0;
 		end
 		else if(avs_ctrl_write) 
 		begin

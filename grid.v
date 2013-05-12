@@ -436,6 +436,13 @@ frontier	b2v_inst(
 	.step_motor_driver_1_AE(IO_A10),
 	.step_motor_driver_1_BE(IO_A11),
 	
+	.step_motor_driver_2_AX(IO_A16),
+	.step_motor_driver_2_AY(IO_A20),
+	.step_motor_driver_2_BX(IO_A17),
+	.step_motor_driver_2_BY(IO_A21),
+	.step_motor_driver_2_AE(IO_A19),
+	.step_motor_driver_2_BE(IO_A18),
+	
 //	.brush_motor_driver_3_HX   (IO_A12),
 //	.brush_motor_driver_3_HY   (IO_A8), 
 //	.brush_motor_driver_2_HX   (IO_A13),
@@ -444,7 +451,6 @@ frontier	b2v_inst(
 //	.brush_motor_driver_1_HY   (IO_B8),
 //	.brush_motor_driver_0_HX   (IO_B13),
 //	.brush_motor_driver_0_HY   (IO_B9),
-
 
 	.position_encoder_0_A  (IO_B24),  
 	.position_encoder_0_B  (IO_B23), 

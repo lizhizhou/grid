@@ -19,7 +19,6 @@ module step_motor_driver(
 		output BY,
 		output AE,
 		output BE
-	
 	);
 	// Qsys bus controller
 	reg        step;
@@ -140,7 +139,7 @@ module step_motor_driver(
 	assign BE = !on_off;
 	assign AX = !(motor_state[3] & PWM_out_A);
 	assign AY = !(motor_state[2] & PWM_out_A);
-	assign BX = !(motor_state[1] & PWM_out_B);
-	assign BY =	!(motor_state[0] & PWM_out_B);
+	assign BX = !(motor_state[1] & PWM_out_A);
+	assign BY =	!(motor_state[0] & PWM_out_A);
 	
 endmodule

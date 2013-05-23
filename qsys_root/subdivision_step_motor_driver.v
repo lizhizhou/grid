@@ -20,7 +20,7 @@ module subdivision_step_motor_driver (
 		output AE,
 		output BE
 	);
-		// Qsys bus controller
+	// Qsys bus controller
 	reg        step;
 	reg        forward_back;
 	reg        on_off;
@@ -133,7 +133,7 @@ module subdivision_step_motor_driver (
 			4'b1001: begin ax <= PWM_out_A; ay <= 0; bx <= 0; by <= PWM_out_B; end
 			4'b1010: begin ax <= PWM_out_A; ay <= 0; bx <= PWM_out_B; by <= 0; end
 			4'b0110: begin ax <= 0; ay <= PWM_out_A; bx <= PWM_out_B; by <= 0; end
-			4'b0101: begin ax <= 0; ay <= PWM_out_B; bx <= 0; by <= PWM_out_B; end
+			4'b0101: begin ax <= 0; ay <= PWM_out_A; bx <= 0; by <= PWM_out_B; end
 		endcase
 	end
 

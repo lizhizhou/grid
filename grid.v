@@ -443,6 +443,14 @@ frontier	b2v_inst(
 	.step_motor_driver_2_AE(IO_A19),
 	.step_motor_driver_2_BE(IO_A18),
 	
+//	.subdivision_step_motor_driver_0_AX (IO_B13),
+//   .subdivision_step_motor_driver_0_AY (IO_B9), 
+//   .subdivision_step_motor_driver_0_BX (IO_B12),
+//   .subdivision_step_motor_driver_0_BY (IO_B8),
+//   .subdivision_step_motor_driver_0_AE (IO_B10),
+//   .subdivision_step_motor_driver_0_BE (IO_B11),
+	
+	
 //	.brush_motor_driver_3_HX   (IO_A12),
 //	.brush_motor_driver_3_HY   (IO_A8), 
 //	.brush_motor_driver_2_HX   (IO_A13),

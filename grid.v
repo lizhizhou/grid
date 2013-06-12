@@ -337,7 +337,7 @@ wire     GND;
 assign   VCC = 1;
 assign   GND = 0; 
 
-
+/*
 frontier	b2v_inst(
 	.m0_RSTN(M1_RSTN),
 	.m0_CLK(M1_CLK),
@@ -416,8 +416,8 @@ frontier	b2v_inst(
 //	.slot_b_P25(IO_B25),
 	
 	
-	.am2301_0_sda    (IO_B15),         
-   .am2301_0_clk_1us(IO_B14),       
+//	.am2301_0_sda    (IO_B15),         
+//   .am2301_0_clk_1us(IO_B14),       
 	
 	.am2301_1_sda    (IO_A15),         
    .am2301_1_clk_1us(IO_A14),  
@@ -497,7 +497,7 @@ frontier	b2v_inst(
 //		//input sda_in,
 //		.sda(IO_B15)
 //);
-
+*/
 assign	ISI_HSYNC = SYNTHESIZED_WIRE_8[0] ? SYNTHESIZED_WIRE_0 : 1'bz;
 
 assign	ISI_VSYNC = SYNTHESIZED_WIRE_8[0] ? SYNTHESIZED_WIRE_2 : 1'bz;
@@ -505,7 +505,16 @@ assign	ISI_VSYNC = SYNTHESIZED_WIRE_8[0] ? SYNTHESIZED_WIRE_2 : 1'bz;
 assign	ISI_PCLK = SYNTHESIZED_WIRE_8[0] ? SYNTHESIZED_WIRE_4 : 1'bz;
 
 
+sht1x sht1x_test(
+		.rsi_MRST_reset(!M1_RSTN),
+		.csi_MCLK_clk(M1_CLK),
 
+		// sht1x interface
+	   .sck(IO_B14), // 100khz 
+		.sda(IO_B15),
+		.sck3(IO_B16)
+
+);
 
 assign	ISI_DATA[11] = SYNTHESIZED_WIRE_8[0] ? SYNTHESIZED_WIRE_6[0] : 1'bz;
 assign	ISI_DATA[10] = SYNTHESIZED_WIRE_8[1] ? SYNTHESIZED_WIRE_6[1] : 1'bz;

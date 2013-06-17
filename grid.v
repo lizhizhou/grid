@@ -418,8 +418,8 @@ frontier	b2v_inst(
 //	.am2301_0_sda    (IO_B15),         
 //   .am2301_0_clk_1us(IO_B14),       
 	
-	.am2301_1_sda    (IO_A15),         
-   .am2301_1_clk_1us(IO_A14),  
+//	.am2301_1_sda    (IO_A15),         
+// .am2301_1_clk_1us(IO_A14),  
 	
 	.step_motor_driver_0_AX(IO_B13),
 	.step_motor_driver_0_AY(IO_B9),
@@ -472,6 +472,9 @@ frontier	b2v_inst(
 //	.sdif_IN             (SPDIF_IN),
 // .sdif_OUT            (SPDIF_OUT),
 
+   .sht1x_sensor_1_sck(IO_A14),
+   .sht1x_sensor_1_sda(IO_A15), 
+	
    .sht1x_sensor_0_sck(IO_B14),
    .sht1x_sensor_0_sda(IO_B15), 
 	

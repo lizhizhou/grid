@@ -146,7 +146,9 @@
 			subdivision_step_motor_driver_0_AE : out   std_logic;                                        -- AE
 			subdivision_step_motor_driver_0_BE : out   std_logic;                                        -- BE
 			sht1x_sensor_0_sck                 : out   std_logic;                                        -- sck
-			sht1x_sensor_0_sda                 : inout std_logic                     := 'X'              -- sda
+			sht1x_sensor_0_sda                 : inout std_logic                     := 'X';             -- sda
+			sht1x_sensor_1_sck                 : out   std_logic;                                        -- sck
+			sht1x_sensor_1_sda                 : inout std_logic                     := 'X'              -- sda
 		);
 	end component frontier;
 

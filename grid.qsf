@@ -635,11 +635,6 @@ set_global_assignment -name EDA_TEST_BENCH_NAME AM2301 -section_id eda_simulatio
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id AM2301
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME AM2301 -section_id AM2301
 set_global_assignment -name EDA_TEST_BENCH_FILE qsys_root/AM2301_sim.v -section_id AM2301
-set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
-set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[0] -to IO_B14 -section_id auto_signaltap_0
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[1] -to IO_B15 -section_id auto_signaltap_0
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[0] -to IO_B14 -section_id auto_signaltap_0
@@ -662,7 +657,6 @@ set_global_assignment -name VERILOG_FILE qsys_root/AM2301.v
 set_global_assignment -name VERILOG_FILE qsys_root/position_encoder.v
 set_global_assignment -name VERILOG_FILE qsys_root/fan_motor_driver.v
 set_global_assignment -name VERILOG_FILE qsys_root/sdif.v
-set_global_assignment -name QIP_FILE frontier/synthesis/frontier.qip
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_SEGMENT_SIZE=8192" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_SAMPLE_DEPTH=8192" -section_id auto_signaltap_0
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_clk -to "frontier:b2v_inst|sht1x_sensor:sht1x_sensor_0|temp[30]" -section_id auto_signaltap_0
@@ -705,4 +699,10 @@ set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK_LE
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_LOWORD=45008" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_HIWORD=37478" -section_id auto_signaltap_0
 set_global_assignment -name VERILOG_FILE qsys_root/qsys_device.v
+set_global_assignment -name QIP_FILE frontier/synthesis/frontier.qip
+set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
+set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

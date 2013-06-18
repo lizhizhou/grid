@@ -478,6 +478,18 @@ frontier	b2v_inst(
    .sht1x_sensor_0_sck(IO_B14),
    .sht1x_sensor_0_sda(IO_B15), 
 	
+	
+//	.qsys_device_0_reset                (),                //                   qsys_device_0.reset
+//   .qsys_device_0_clk                  (),                  //                                .clk
+//   .qsys_device_0_writedata            (),            //                                .writedata
+//   .qsys_device_0_byteenable           (),           //                                .byteenable
+//   .qsys_device_0_write                (),                //                                .write
+//   .qsys_device_0_read                 (),                 //                                .read
+//   .qsys_device_0_waitrequest          (),          //                                .waitrequest
+//   .qsys_device_0_readdata             (),             //                                .readdata
+//   .qsys_device_0_address              ()     
+	
+	
 	.m0_EINT(M1_EINT));
 	
 	wire humidifier;

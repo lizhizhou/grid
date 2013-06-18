@@ -24,9 +24,12 @@ module qsys_device#(
 		assign device_reset   = rsi_MRST_reset;
 		assign device_clk     = csi_MCLK_clk;
 		assign device_address = avs_ctrl_address;
+		assign avs_ctrl_waitrequest = avs_ctrl_waitrequest;
 		assign device_write   = avs_ctrl_write;
 		assign device_read    = avs_ctrl_read;
-		
-		
+		assign device_byteenable = avs_ctrl_byteenable[1:0];
+		assign device_writedata = ((avs_ctrl_byteenable[3] == 1'b1) || (avs_ctrl_byteenable[2] == 1'b1))
+				? avs_ctrl_writedata[31:16]:avs_ctrl_writedata[15:0];
+		assign avs_ctrl_readdata = {device_readdata[15:0],device_readdata[15:0]};
 		
 endmodule

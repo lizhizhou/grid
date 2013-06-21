@@ -479,15 +479,14 @@ frontier	b2v_inst(
    .sht1x_sensor_0_sda(IO_B15), 
 	
 	
-//	.qsys_device_0_reset                (),                //                   qsys_device_0.reset
+//	  .qsys_device_0_reset                (),                //                   qsys_device_0.reset
 //   .qsys_device_0_clk                  (),                  //                                .clk
 //   .qsys_device_0_writedata            (),            //                                .writedata
-//   .qsys_device_0_byteenable           (),           //                                .byteenable
 //   .qsys_device_0_write                (),                //                                .write
-//   .qsys_device_0_read                 (),                 //                                .read
+   .qsys_device_0_read                 (rd),                 //                                .read
 //   .qsys_device_0_waitrequest          (),          //                                .waitrequest
-//   .qsys_device_0_readdata             (),             //                                .readdata
-//   .qsys_device_0_address              ()     
+   .qsys_device_0_readdata             (read),             //                                .readdata
+   .qsys_device_0_address              (address),     
 	
 	
 	.m0_EINT(M1_EINT));
@@ -496,6 +495,12 @@ frontier	b2v_inst(
 	assign IO_A1 = !humidifier;
 	wire position_zero;
 	assign position_zero = IO_B17 & IO_B22;
+	
+	test_rom rom (
+		.address(address),
+	   .read(read),
+	   .rd(rd)
+	);
 	
 //  assign IO_B10=0;
 //  assign IO_B11=0;

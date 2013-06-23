@@ -3,9 +3,9 @@ module qsys_device#(
 	   // Qsys bus interface	
 		input					rsi_MRST_reset,
 		input					csi_MCLK_clk,
-		input		[7:0]	   avs_ctrl_writedata,
-		output	[7:0] 	avs_ctrl_readdata,
-
+		input		[31:0]   avs_ctrl_writedata,
+		output	[31:0] 	avs_ctrl_readdata,
+		input		[3:0]		avs_gpio_byteenable,
 		input		[address_size-1:0]		avs_ctrl_address,
 		input					avs_ctrl_write,
 		input					avs_ctrl_read,
@@ -23,7 +23,7 @@ module qsys_device#(
 		assign device_reset   = rsi_MRST_reset;
 		assign device_clk     = csi_MCLK_clk;
 		assign device_address = avs_ctrl_address;
-		assign avs_ctrl_waitrequest = avs_ctrl_waitrequest;
+		assign avs_ctrl_waitrequest = 1'b0;
 		assign device_write   = avs_ctrl_write;
 		assign device_read    = avs_ctrl_read;
 		assign avs_ctrl_readdata = device_readdata;

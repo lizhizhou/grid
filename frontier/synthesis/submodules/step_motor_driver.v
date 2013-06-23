@@ -18,7 +18,9 @@ module step_motor_driver(
 		output BX,
 		output BY,
 		output AE,
-		output BE
+		output BE,
+		input  fault,
+		input  otw
 	);
 	// Qsys bus controller
 	reg        step;
@@ -70,6 +72,7 @@ module step_motor_driver(
 				2: read_data <= PWM_width_B;
 				3: read_data <= {31'b0,step};
 				4: read_data <= {31'b0,forward_back};
+				5: read_data <= {29'b0,otw,fault,on_off};
 				default: read_data <= 32'b0;
 			endcase
 		end

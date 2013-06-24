@@ -17,287 +17,158 @@
 // CREATED		"Sat Oct 20 20:15:52 2012"
 
 module grid(
-	M1_CLK,
-	M1_RDN,
-	M1_WRN,
-	M2_CLK0,
-	M2_CLK1,
-	LCD_HSYNC,
-	LCD_VSYNC,
-	LCD_PCLK,
-	LCD_DEN,
-	ISI_MCLK,
-	AC97_TX,
-	AC97_FS,
-	IO_A_OCN,
-	IO_B_OCN,
-	SPDIF_IN,
-	AUDIO_SCLK,
-	AUDIO_SDI,
-	AUDIO_MCK,
-	PNL_SDO,
-	PNL_RDY,
-	PNL_INT,
-	DET_AIN,
-	DET_AOUT,
-	DET_DIN,
-	DET_DOUT,
-	M1_RSTN,
-	LCD_DATA,
-	M1_ADDR,
-	M1_BEN,
-	M1_CSN,
-	M2_CSN,
-	M2_WEN,
-	M2_RASN,
-	M2_CASN,
-	M2_CKE,
-	M2_CLKP,
-	M2_CLKN,
-	M2_ODT,
-	ISI_HSYNC,
-	ISI_VSYNC,
-	ISI_PCLK,
-	AC97_RX,
-	AC97_CLK,
-	LED_F0R,
-	LED_F0G,
-	LED_F0B,
-	LED_F1R,
-	LED_F1G,
-	LED_F1B,
-	LED_F2R,
-	LED_F2G,
-	LED_F2B,
-	LED_F3R,
-	LED_F3G,
-	LED_F3B,
-	M1_WAITN,
-	IO_A_SCL,
-	IO_B_SCL,
-	SPDIF_OUT,
-	AUDIO_SDO,
-	AUDIO_SFS,
-	PNL_SDI,
-	PNL_SCLK,
-	PNL_SLE,
-	PLCD_HSYNC,
-	PLCD_VSYNC,
-	PLCD_VDEN,
-	PLCD_PCLK,
-	IO_A_PWREN,
-	IO_B_PWREN,
-	IO_A_HOE,
-	IO_A_LOE,
-	IO_B_HOE,
-	IO_B_LOE,
-	IO_A_SDA,
-	IO_B_SDA,
-	IO_B0,
-	IO_B1,
-	IO_B2,
-	IO_B3,
-	IO_B4,
-	IO_B5,
-	IO_B6,
-	IO_B7,
-	IO_B14,
-	IO_B15,
-	IO_B16,
-	IO_B17,
-	IO_B18,
-	IO_B19,
-	IO_B20,
-	IO_B21,
-	IO_B22,
-	IO_B23,
-	IO_B24,
-	IO_A0,
-	IO_A1,
-	IO_A2,
-	IO_A3,
-	IO_A4,
-	IO_A5,
-	IO_A6,
-	IO_A7,
-	IO_A8,
-	IO_A9,
-	IO_A10,
-	IO_A11,
-	IO_A12,
-	IO_A13,
-	IO_A14,
-	IO_A15,
-	IO_A16,
-	IO_A17,
-	IO_A18,
-	IO_A19,
-	IO_A20,
-	IO_A21,
-	IO_A22,
-	IO_A23,
-	IO_A24,
-	IO_A25,
-	IO_B25,
-	IO_B13,
-	IO_B9,
-	IO_B12,
-	IO_B8,
-	IO_B10,
-	IO_B11,
-	ISI_DATA,
-	M1_DATA,
-	M1_EINT,
-	M2_ADDR,
-	M2_BA,
-	M2_DATA,
-	M2_DM,
-	M2_DQS,
-	PLCD_B,
-	PLCD_G,
-	PLCD_R
+	input 	M1_CLK,
+	input 	M1_RDN,
+	input 	M1_WRN,
+	input 	M2_CLK0,
+	input 	M2_CLK1,
+	input 	LCD_HSYNC,
+	input 	LCD_VSYNC,
+	input 	LCD_PCLK,
+	input 	LCD_DEN,
+	input 	ISI_MCLK,
+	input 	AC97_TX,
+	input 	AC97_FS,
+	input 	IO_A_OCN,
+	input 	IO_B_OCN,
+	input 	SPDIF_IN,
+	input 	AUDIO_SCLK,
+	input 	AUDIO_SDI,
+	input 	AUDIO_MCK,
+	input 	PNL_SDO,
+	input 	PNL_RDY,
+	input 	PNL_INT,
+	input 	DET_AIN,
+	input 	DET_AOUT,
+	input 	DET_DIN,
+	input 	DET_DOUT,
+	input 	M1_RSTN,
+	input 	[23:0] LCD_DATA,
+	input 	[23:2] M1_ADDR,
+	input 	[3:0] M1_BEN,
+	input 	[3:0] M1_CSN,
+	output 	M2_CSN,
+	output 	M2_WEN,
+	output 	M2_RASN,
+	output 	M2_CASN,
+	output 	M2_CKE,
+	output 	M2_CLKP,
+	output 	M2_CLKN,
+	output 	M2_ODT,
+	output 	ISI_HSYNC,
+	output 	ISI_VSYNC,
+	output 	ISI_PCLK,
+	output 	AC97_RX,
+	output 	AC97_CLK,
+	output 	LED_F0R,
+	output 	LED_F0G,
+	output 	LED_F0B,
+	output 	LED_F1R,
+	output 	LED_F1G,
+	output 	LED_F1B,
+	output 	LED_F2R,
+	output 	LED_F2G,
+	output 	LED_F2B,
+	output 	LED_F3R,
+	output 	LED_F3G,
+	output 	LED_F3B,
+	output 	M1_WAITN,
+	output 	IO_A_SCL,
+	output 	IO_B_SCL,
+	output 	SPDIF_OUT,
+	output 	AUDIO_SDO,
+	output 	AUDIO_SFS,
+	output 	PNL_SDI,
+	output 	PNL_SCLK,
+	output 	PNL_SLE,
+	output 	PLCD_HSYNC,
+	output 	PLCD_VSYNC,
+	output 	PLCD_VDEN,
+	output 	PLCD_PCLK,
+	output 	IO_A_PWREN,
+	output 	IO_B_PWREN,
+	output 	IO_A_HOE,
+	output 	IO_A_LOE,
+	output 	IO_B_HOE,
+	output 	IO_B_LOE,
+	inout 	IO_A_SDA,
+	inout 	IO_B_SDA,
+	inout 	IO_B0,
+	inout 	IO_B1,
+	inout 	IO_B2,
+	inout 	IO_B3,
+	inout 	IO_B4,
+	inout 	IO_B5,
+	inout 	IO_B6,
+	inout 	IO_B7,
+	inout 	IO_B14,
+	inout 	IO_B15,
+	inout 	IO_B16,
+	inout 	IO_B17,
+	inout 	IO_B18,
+	inout 	IO_B19,
+	inout 	IO_B20,
+	inout 	IO_B21,
+	inout 	IO_B22,
+	inout 	IO_B23,
+	inout 	IO_B24,
+	inout 	IO_A0,
+	inout 	IO_A1,
+	inout 	IO_A2,
+	inout 	IO_A3,
+	inout 	IO_A4,
+	inout 	IO_A5,
+	inout 	IO_A6,
+	inout 	IO_A7,
+	inout 	IO_A8,
+	inout 	IO_A9,
+	inout 	IO_A10,
+	inout 	IO_A11,
+	inout 	IO_A12,
+	inout 	IO_A13,
+	inout 	IO_A14,
+	inout 	IO_A15,
+	inout 	IO_A16,
+	inout 	IO_A17,
+	inout 	IO_A18,
+	inout 	IO_A19,
+	inout 	IO_A20,
+	inout 	IO_A21,
+	inout 	IO_A22,
+	inout 	IO_A23,
+	inout 	IO_A24,
+	inout 	IO_A25,
+	inout 	IO_B25,
+	inout 	IO_B13,
+	inout 	IO_B9,
+	inout 	IO_B12,
+	inout 	IO_B8,
+	inout 	IO_B10,
+	inout 	IO_B11,
+	output 	[11:0] ISI_DATA,
+	inout 	[31:0] M1_DATA,
+	output 	[9:0] M1_EINT,
+	output 	[12:0] M2_ADDR,
+	output 	[2:0] M2_BA,
+	inout 	[15:0] M2_DATA,
+	output 	[1:0] M2_DM,
+	inout 	[1:0] M2_DQS,
+	output 	[7:2] PLCD_B,
+	output 	[7:2] PLCD_G,
+	output 	[7:2] PLCD_R
+
+//	output  MSE_RESETN,	
+//	input MSE_RSTOUT,	
+//	output  MSE_SCLK,	
+//	inout [6:0] MSE_SDI,	
+//	inout [6:0] MSE_SDO,		
+//	inout [6:0] MSE_SLE,		
+//	inout [6:0] MSE_SRDY,	
+
 );
 
 
-input wire	M1_CLK;
-input wire	M1_RDN;
-input wire	M1_WRN;
-input wire	M2_CLK0;
-input wire	M2_CLK1;
-input wire	LCD_HSYNC;
-input wire	LCD_VSYNC;
-input wire	LCD_PCLK;
-input wire	LCD_DEN;
-input wire	ISI_MCLK;
-input wire	AC97_TX;
-input wire	AC97_FS;
-input wire	IO_A_OCN;
-input wire	IO_B_OCN;
-input wire	SPDIF_IN;
-input wire	AUDIO_SCLK;
-input wire	AUDIO_SDI;
-input wire	AUDIO_MCK;
-input wire	PNL_SDO;
-input wire	PNL_RDY;
-input wire	PNL_INT;
-input wire	DET_AIN;
-input wire	DET_AOUT;
-input wire	DET_DIN;
-input wire	DET_DOUT;
-input wire	M1_RSTN;
-input wire	[23:0] LCD_DATA;
-input wire	[23:2] M1_ADDR;
-input wire	[3:0] M1_BEN;
-input wire	[3:0] M1_CSN;
-output wire	M2_CSN;
-output wire	M2_WEN;
-output wire	M2_RASN;
-output wire	M2_CASN;
-output wire	M2_CKE;
-output wire	M2_CLKP;
-output wire	M2_CLKN;
-output wire	M2_ODT;
-output wire	ISI_HSYNC;
-output wire	ISI_VSYNC;
-output wire	ISI_PCLK;
-output wire	AC97_RX;
-output wire	AC97_CLK;
-output wire	LED_F0R;
-output wire	LED_F0G;
-output wire	LED_F0B;
-output wire	LED_F1R;
-output wire	LED_F1G;
-output wire	LED_F1B;
-output wire	LED_F2R;
-output wire	LED_F2G;
-output wire	LED_F2B;
-output wire	LED_F3R;
-output wire	LED_F3G;
-output wire	LED_F3B;
-output wire	M1_WAITN;
-output wire	IO_A_SCL;
-output wire	IO_B_SCL;
-output wire	SPDIF_OUT;
-output wire	AUDIO_SDO;
-output wire	AUDIO_SFS;
-output wire	PNL_SDI;
-output wire	PNL_SCLK;
-output wire	PNL_SLE;
-output wire	PLCD_HSYNC;
-output wire	PLCD_VSYNC;
-output wire	PLCD_VDEN;
-output wire	PLCD_PCLK;
-output wire	IO_A_PWREN;
-output wire	IO_B_PWREN;
-output wire	IO_A_HOE;
-output wire	IO_A_LOE;
-output wire	IO_B_HOE;
-output wire	IO_B_LOE;
-inout wire	IO_A_SDA;
-inout wire	IO_B_SDA;
-inout wire	IO_B0;
-inout wire	IO_B1;
-inout wire	IO_B2;
-inout wire	IO_B3;
-inout wire	IO_B4;
-inout wire	IO_B5;
-inout wire	IO_B6;
-inout wire	IO_B7;
-inout wire	IO_B14;
-inout wire	IO_B15;
-inout wire	IO_B16;
-inout wire	IO_B17;
-inout wire	IO_B18;
-inout wire	IO_B19;
-inout wire	IO_B20;
-inout wire	IO_B21;
-inout wire	IO_B22;
-inout wire	IO_B23;
-inout wire	IO_B24;
-inout wire	IO_A0;
-inout wire	IO_A1;
-inout wire	IO_A2;
-inout wire	IO_A3;
-inout wire	IO_A4;
-inout wire	IO_A5;
-inout wire	IO_A6;
-inout wire	IO_A7;
-inout wire	IO_A8;
-inout wire	IO_A9;
-inout wire	IO_A10;
-inout wire	IO_A11;
-inout wire	IO_A12;
-inout wire	IO_A13;
-inout wire	IO_A14;
-inout wire	IO_A15;
-inout wire	IO_A16;
-inout wire	IO_A17;
-inout wire	IO_A18;
-inout wire	IO_A19;
-inout wire	IO_A20;
-inout wire	IO_A21;
-inout wire	IO_A22;
-inout wire	IO_A23;
-inout wire	IO_A24;
-inout wire	IO_A25;
-inout wire	IO_B25;
-inout wire	IO_B13;
-inout wire	IO_B9;
-inout wire	IO_B12;
-inout wire	IO_B8;
-inout wire	IO_B10;
-inout wire	IO_B11;
-output wire	[11:0] ISI_DATA;
-inout wire	[31:0] M1_DATA;
-output wire	[9:0] M1_EINT;
-output wire	[12:0] M2_ADDR;
-output wire	[2:0] M2_BA;
-inout wire	[15:0] M2_DATA;
-output wire	[1:0] M2_DM;
-inout wire	[1:0] M2_DQS;
-output wire	[7:2] PLCD_B;
-output wire	[7:2] PLCD_G;
-output wire	[7:2] PLCD_R;
+
 
 wire	SYNTHESIZED_WIRE_0;
 wire	[0:11] SYNTHESIZED_WIRE_8;
@@ -529,6 +400,30 @@ frontier	b2v_inst(
 //		.sda(IO_B15),
 //
 //);
+
+port_io_interface io (
+.clk(M1_CLK),
+.rst(M1_RSTN),
+.port0_d(8'b11111111),
+//.port1_dir(),
+//.port2_dir(),
+.port0({B8,B9,B10,B11,B12,B13,B14,B15}),
+//port1,
+//port2,
+.port_clk(port_clk),
+.port_rst(port_rst),
+.data(data)
+);
+
+interface_port_io oi(
+.port_clk(port_clk),
+.port_rst(port_rst),
+.data(data),
+	
+.port0({B0,B1,B2,B3,B4,B5,B6,B7}),
+);
+
+
 
 assign	ISI_HSYNC = SYNTHESIZED_WIRE_8[0] ? SYNTHESIZED_WIRE_0 : 1'bz;
 

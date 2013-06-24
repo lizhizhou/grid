@@ -2,39 +2,43 @@ module port_io_interface(
 	input clk,	
 	input rst,
 	// port io interface	
-	input  [7:0] port0_w,
-	output reg [7:0] port0_r,
-	input  [7:0] port0_d,
-	input  [7:0] port1_w,
-	output reg [7:0] port1_r,
-	input  [7:0] port1_d,
-	input  [7:0] port2_w,
-	output reg [7:0] port2_r,
-	input  [7:0] port2_d,
-	input  [7:0] port3_w,
-	output reg [7:0] port3_r,
-	input  [7:0] port3_d,
-	input  [7:0] port4_w,
-	output reg [7:0] port4_r,
-	input  [7:0] port4_d,
-	input  [7:0] port5_w,
-	output reg [7:0] port5_r,
-	input  [7:0] port5_d,
-	input  [7:0] port6_w,
-	output reg [7:0] port6_r,
-	input  [7:0] port6_d,
-	input  [7:0] port7_w,
-	output reg [7:0] port7_r,
-	input  [7:0] port7_d,
-	input  [7:0] port8_w,
-	output reg [7:0] port8_r,
-	input  [7:0] port8_d,
+	input [7:0] port0_d,
+	input [7:0] port1_d,
+	input [7:0] port2_d,
+	input [7:0] port3_d,
+	input [7:0] port4_d,
+	input [7:0] port5_d,
+	input [7:0] port6_d,
+	input [7:0] port7_d,
+	input [7:0] port8_d,
+	input [7:0] port9_d,
+	
+	inout  [7:0] port0,
+	inout  [7:0] port1,
+	inout  [7:0] port2,
+	inout  [7:0] port3,
+	inout  [7:0] port4,
+	inout  [7:0] port5,
+	inout  [7:0] port6,
+	inout  [7:0] port7,
+	inout  [7:0] port8,
+	inout  [7:0] port9,
 	// serial bus
 	output port_clk,
 	output reg port_rst,
 	inout  [7:0] data
 	);
-
+	reg [7:0] port0_r;
+	reg [7:0] port1_r;
+	reg [7:0] port2_r;
+	reg [7:0] port3_r;
+	reg [7:0] port4_r;
+	reg [7:0] port5_r;
+	reg [7:0] port6_r;
+	reg [7:0] port7_r;
+	reg [7:0] port8_r;
+	reg [7:0] port9_r;
+	
 	reg read_write;
 	reg [7:0] data_r;
 	
@@ -80,18 +84,20 @@ module port_io_interface(
 	always @(posedge clk)
 	begin
 		case(state)
-		port0_dir:   data_r <=port0_d; 
+		port0_dir:   data_r <=port0_dir; 
 		port0_read:  begin port0_r <= data; read_write<=1'b0; end
-		port0_write: begin data_r  <= port0_w; read_write<=1'b1;  end
-		port1_dir:   data_r <=port1_d; 
+		port0_write: begin data_r  <= port0; read_write<=1'b1;  end
+		port1_dir:   data_r <=port1_dir; 
 		port1_read:  begin port1_r <= data; read_write<=1'b0; end
-		port1_write: begin data_r  <= port1_w; read_write<=1'b1;  end
-		port2_dir:   data_r <=port2_d; 
+		port1_write: begin data_r  <= port1; read_write<=1'b1;  end
+		port2_dir:   data_r <=port2_dir; 
 		port2_read:  begin port2_r <= data; read_write<=1'b0; end
-		port2_write: begin data_r  <= port2_w; read_write<=1'b1;  end
+		port2_write: begin data_r  <= port2; read_write<=1'b1;  end
 		endcase
 	end
 	assign data  = !read_write ? data_r : 8'hzz;
-
+	
+	assign port0 = port0_d ? port0_r : 8'hzz;
+	assign port1 = port1_d ? port1_r : 8'hzz;
 
 endmodule

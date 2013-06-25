@@ -44,17 +44,17 @@ module port_io_interface(
 	
 	assign port_clk = clk;
 	
-	parameter state_reset= 8'd0;
-	parameter port0_dir        = state_reset+1;
-	parameter port0_read       = port0_dir+1;
-	parameter port0_write      = port0_read+1;
-	parameter port1_dir        = port0_write+1;
-	parameter port1_read       = port1_dir+1;
-	parameter port1_write      = port1_read+1;
-	parameter port2_dir        = port1_write+1;
-	parameter port2_read       = port2_dir+1;
-	parameter port2_write      = port2_read+1;	
-	parameter last             = port2_write+1;
+32	parameter state_reset= 8'd0;
+	parameter port0_dir        = state_reset+1'b1;
+	parameter port0_read       = port0_dir+1'b1;
+	parameter port0_write      = port0_read+1'b1;
+	parameter port1_dir        = port0_write+1'b1;
+	parameter port1_read       = port1_dir+1'b1;
+	parameter port1_write      = port1_read+1'b1;
+	parameter port2_dir        = port1_write+1'b1;
+	parameter port2_read       = port2_dir+1'b1;
+	parameter port2_write      = port2_read+1'b1;	
+	parameter last             = port2_write+1'b1;
 	reg [7:0] state;
 	reg [7:0] nextstate;
 	always @(posedge clk)
@@ -84,7 +84,7 @@ module port_io_interface(
 	always @(posedge clk)
 	begin
 		case(state)
-		port0_dir:   data_r <=port0_dir; 
+		port0_dir:   begin data_r <=port0_dir; read_write<=1'b0; end
 		port0_read:  begin port0_r <= data; read_write<=1'b0; end
 		port0_write: begin data_r  <= port0; read_write<=1'b1;  end
 		port1_dir:   data_r <=port1_dir; 
@@ -95,7 +95,7 @@ module port_io_interface(
 		port2_write: begin data_r  <= port2; read_write<=1'b1;  end
 		endcase
 	end
-	assign data  = !read_write ? data_r : 8'hzz;
+	assign data  = read_write ? data_r : 8'hzz;
 	
 	assign port0 = port0_d ? port0_r : 8'hzz;
 	assign port1 = port1_d ? port1_r : 8'hzz;

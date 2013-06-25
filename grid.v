@@ -207,7 +207,7 @@ wire     VCC;
 wire     GND;
 assign   VCC = 1;
 assign   GND = 0; 
-
+/*
 frontier	b2v_inst(
 	.m0_RSTN(M1_RSTN),
 	.m0_CLK(M1_CLK),
@@ -337,8 +337,8 @@ frontier	b2v_inst(
 //	.position_encoder_3_B  (IO_B16),
 //	.position_encoder_3_Z  (GND),
 	
-	.fan_motor_driver_0_export(IO_B1), 
-	.fan_motor_driver_1_export(humidifier), 
+//	.fan_motor_driver_0_export(IO_B1), 
+//	.fan_motor_driver_1_export(humidifier), 
 	
 //	.sdif_IN             (SPDIF_IN),
 // .sdif_OUT            (SPDIF_OUT),
@@ -360,7 +360,7 @@ frontier	b2v_inst(
 //   .qsys_device_0_address              (address),     
 	
 	
-	.m0_EINT(M1_EINT));
+	.m0_EINT(M1_EINT));*/
 	
 	wire humidifier;
 	assign IO_A1 = !humidifier;
@@ -400,14 +400,18 @@ frontier	b2v_inst(
 //		.sda(IO_B15),
 //
 //);
-
+wire [7:0] aa;
+assign aa = 8'b11010110;
+wire [7:0] data;
+wire port_clk;
+wire port_rst;
 port_io_interface io (
 .clk(M1_CLK),
-.rst(M1_RSTN),
-.port0_d(8'b11111111),
+.rst(!M1_RSTN),
+.port0_d(8'b00000000),
 //.port1_dir(),
 //.port2_dir(),
-.port0({B8,B9,B10,B11,B12,B13,B14,B15}),
+.port0(aa),//{B8,B9,B10,B11,B12,B13,B14,B15}),
 //port1,
 //port2,
 .port_clk(port_clk),
@@ -420,7 +424,7 @@ interface_port_io oi(
 .port_rst(port_rst),
 .data(data),
 	
-.port0({B0,B1,B2,B3,B4,B5,B6,B7}),
+.port0({IO_B0,IO_B1,IO_B2,IO_B3,IO_B4,IO_B5,IO_B6,IO_B7}),
 );
 
 

@@ -1,0 +1,62 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\li\Documents\GitHub\grid
+vinterface_port_io
+!i10b 1
+Z1 !s100 zk`6U5ihPSaZZ?B3Y;3Nl3
+Z2 IY^J6N2lFT1iHUzSmDA=Xf1
+Z3 VUCInRAdAU[6n>ik;?[QgT3
+Z4 dC:\Users\li\Documents\GitHub\grid
+Z5 w1372082569
+Z6 8C:/Users/li/Documents/GitHub/grid/interface_port_io.v
+Z7 FC:/Users/li/Documents/GitHub/grid/interface_port_io.v
+L0 1
+Z8 OV;L;10.1b;51
+r1
+!s85 0
+31
+!s108 1372170582.803000
+!s107 C:/Users/li/Documents/GitHub/grid/interface_port_io.v|
+Z9 !s90 -reportprogress|300|-work|work|C:/Users/li/Documents/GitHub/grid/interface_port_io.v|
+!s101 -O0
+Z10 o-work work -O0
+vport_io_interface
+Z11 IHO;hnU6RkVGOe:EYP6Kcg1
+Z12 VR`j9jaCWfe3d7jcdPGNCE1
+R4
+Z13 w1372170218
+Z14 8C:/Users/li/Documents/GitHub/grid/port_io_interface.v
+Z15 FC:/Users/li/Documents/GitHub/grid/port_io_interface.v
+L0 1
+R8
+r1
+31
+Z16 !s90 -reportprogress|300|-work|work|C:/Users/li/Documents/GitHub/grid/port_io_interface.v|
+R10
+Z17 !s100 ]nGmbih0emg12igcXZhIW2
+Z18 !s108 1372170226.918000
+Z19 !s107 C:/Users/li/Documents/GitHub/grid/port_io_interface.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vport_io_interface_sim
+Z20 I6^n[9N^NNGGf=R00JG@Qd1
+Z21 V20dT=`j`dFZnBJ?g>Gm<f3
+R4
+Z22 w1372169282
+Z23 8C:/Users/li/Documents/GitHub/grid/port_io_interface_sim.v
+Z24 FC:/Users/li/Documents/GitHub/grid/port_io_interface_sim.v
+L0 2
+R8
+r1
+31
+Z25 !s90 -reportprogress|300|-work|work|C:/Users/li/Documents/GitHub/grid/port_io_interface_sim.v|
+R10
+!i10b 1
+Z26 !s100 76Dl1_ba2a6IR>1cM0<C_2
+!s85 0
+Z27 !s108 1372170227.036000
+Z28 !s107 C:/Users/li/Documents/GitHub/grid/port_io_interface_sim.v|
+!s101 -O0

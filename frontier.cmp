@@ -148,7 +148,15 @@
 			sht1x_sensor_0_sck                 : out   std_logic;                                        -- sck
 			sht1x_sensor_0_sda                 : inout std_logic                     := 'X';             -- sda
 			sht1x_sensor_1_sck                 : out   std_logic;                                        -- sck
-			sht1x_sensor_1_sda                 : inout std_logic                     := 'X'              -- sda
+			sht1x_sensor_1_sda                 : inout std_logic                     := 'X';             -- sda
+			qsys_device_0_reset                : out   std_logic;                                        -- reset
+			qsys_device_0_clk                  : out   std_logic;                                        -- clk
+			qsys_device_0_writedata            : out   std_logic_vector(7 downto 0);                     -- writedata
+			qsys_device_0_readdata             : in    std_logic_vector(7 downto 0)  := (others => 'X'); -- readdata
+			qsys_device_0_address              : out   std_logic_vector(7 downto 0);                     -- address
+			qsys_device_0_read                 : out   std_logic;                                        -- read
+			qsys_device_0_write                : out   std_logic;                                        -- write
+			qsys_device_0_waitrequest          : in    std_logic                     := 'X'              -- waitrequest
 		);
 	end component frontier;
 

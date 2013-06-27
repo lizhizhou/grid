@@ -479,17 +479,31 @@ frontier	b2v_inst(
    .sht1x_sensor_0_sda(IO_B15), 
 	
 	
-//	  .qsys_device_0_reset                (),                //                   qsys_device_0.reset
-//   .qsys_device_0_clk                  (),                  //                                .clk
-//   .qsys_device_0_writedata            (),            //                                .writedata
-//   .qsys_device_0_write                (),                //                                .write
-//   .qsys_device_0_read                 (rd),                 //                                .read
-//   .qsys_device_0_waitrequest          (0),          //                                .waitrequest
-//   .qsys_device_0_readdata             (read),             //                                .readdata
-//   .qsys_device_0_address              (address),     
+	.qsys_device_0_reset                (reset),                //                   qsys_device_0.reset
+   .qsys_device_0_clk                  (out_clk),                  //                                .clk
+   .qsys_device_0_writedata            (),            //                                .writedata
+   .qsys_device_0_write                (wr),                //                                .write
+   .qsys_device_0_read                 (rd),                 //                                .read
+   .qsys_device_0_waitrequest          (wait_r),          //                                .waitrequest
+   .qsys_device_0_readdata             (read_data),             //                                .readdata
+   .qsys_device_0_address              (address),     
 	
 	
 	.m0_EINT(M1_EINT));
+	
+	
+	mse u0 (
+        .mse_host_0_CLK  (out_clk), // mse_host_0.CLK
+        .mse_host_0_ADDR (address), //           .ADDR
+        .mse_host_0_DATA (read_data), //           .DATA
+        .mse_host_0_RD   (rd), //           .RD
+        .mse_host_0_WR   (wr), //           .WR
+        .mse_host_0_WAIT (wait_r), //           .WAIT
+        .mse_host_0_RSTN (reset)  //           .RSTN
+   );
+
+
+	
 	
 	wire humidifier;
 	assign IO_A1 = !humidifier;

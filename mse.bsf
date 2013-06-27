@@ -1,0 +1,96 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 1991-2012 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 0 0 304 200)
+	(text "mse" (rect 140 -1 157 11)(font "Arial" (font_size 10)))
+	(text "inst" (rect 8 184 20 196)(font "Arial" ))
+	(port
+		(pt 0 72)
+		(input)
+		(text "mse_host_0_CLK" (rect 0 0 76 12)(font "Arial" (font_size 8)))
+		(text "mse_host_0_CLK" (rect 4 61 88 72)(font "Arial" (font_size 8)))
+		(line (pt 0 72)(pt 128 72)(line_width 1))
+	)
+	(port
+		(pt 0 88)
+		(input)
+		(text "mse_host_0_ADDR[7..0]" (rect 0 0 107 12)(font "Arial" (font_size 8)))
+		(text "mse_host_0_ADDR[7..0]" (rect 4 77 130 88)(font "Arial" (font_size 8)))
+		(line (pt 0 88)(pt 128 88)(line_width 3))
+	)
+	(port
+		(pt 0 120)
+		(input)
+		(text "mse_host_0_RD" (rect 0 0 71 12)(font "Arial" (font_size 8)))
+		(text "mse_host_0_RD" (rect 4 109 82 120)(font "Arial" (font_size 8)))
+		(line (pt 0 120)(pt 128 120)(line_width 1))
+	)
+	(port
+		(pt 0 136)
+		(input)
+		(text "mse_host_0_WR" (rect 0 0 75 12)(font "Arial" (font_size 8)))
+		(text "mse_host_0_WR" (rect 4 125 82 136)(font "Arial" (font_size 8)))
+		(line (pt 0 136)(pt 128 136)(line_width 1))
+	)
+	(port
+		(pt 0 168)
+		(input)
+		(text "mse_host_0_RSTN" (rect 0 0 83 12)(font "Arial" (font_size 8)))
+		(text "mse_host_0_RSTN" (rect 4 157 94 168)(font "Arial" (font_size 8)))
+		(line (pt 0 168)(pt 128 168)(line_width 1))
+	)
+	(port
+		(pt 0 152)
+		(output)
+		(text "mse_host_0_WAIT" (rect 0 0 83 12)(font "Arial" (font_size 8)))
+		(text "mse_host_0_WAIT" (rect 4 141 94 152)(font "Arial" (font_size 8)))
+		(line (pt 0 152)(pt 128 152)(line_width 1))
+	)
+	(port
+		(pt 0 104)
+		(bidir)
+		(text "mse_host_0_DATA[7..0]" (rect 0 0 106 12)(font "Arial" (font_size 8)))
+		(text "mse_host_0_DATA[7..0]" (rect 4 93 130 104)(font "Arial" (font_size 8)))
+		(line (pt 0 104)(pt 128 104)(line_width 3))
+	)
+	(drawing
+		(text "mse_host_0" (rect 56 43 172 99)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "CLK" (rect 133 67 284 144)(font "Arial" (color 0 0 0)))
+		(text "ADDR" (rect 133 83 290 176)(font "Arial" (color 0 0 0)))
+		(text "DATA" (rect 133 99 290 208)(font "Arial" (color 0 0 0)))
+		(text "RD" (rect 133 115 278 240)(font "Arial" (color 0 0 0)))
+		(text "WR" (rect 133 131 278 272)(font "Arial" (color 0 0 0)))
+		(text "WAIT" (rect 133 147 290 304)(font "Arial" (color 0 0 0)))
+		(text "RSTN" (rect 133 163 290 336)(font "Arial" (color 0 0 0)))
+		(text " mse " (rect 283 184 596 378)(font "Arial" ))
+		(line (pt 129 52)(pt 129 172)(line_width 1))
+		(line (pt 130 52)(pt 130 172)(line_width 1))
+		(line (pt 128 32)(pt 176 32)(line_width 1))
+		(line (pt 176 32)(pt 176 184)(line_width 1))
+		(line (pt 128 184)(pt 176 184)(line_width 1))
+		(line (pt 128 32)(pt 128 184)(line_width 1))
+		(line (pt 0 0)(pt 304 0)(line_width 1))
+		(line (pt 304 0)(pt 304 200)(line_width 1))
+		(line (pt 0 200)(pt 304 200)(line_width 1))
+		(line (pt 0 0)(pt 0 200)(line_width 1))
+	)
+)

@@ -153,17 +153,17 @@ module grid(
 	inout 	[15:0] M2_DATA,
 	output 	[1:0] M2_DM,
 	inout 	[1:0] M2_DQS,
-	output 	[7:2] PLCD_B,
-	output 	[7:2] PLCD_G,
-	output 	[7:2] PLCD_R
+//	output 	[7:2] PLCD_B,
+//	output 	[7:2] PLCD_G,
+//	output 	[7:2] PLCD_R
 
-//	output  MSE_RESETN,	
-//	input MSE_RSTOUT,	
-//	output  MSE_SCLK,	
-//	inout [6:0] MSE_SDI,	
-//	inout [6:0] MSE_SDO,		
-//	inout [6:0] MSE_SLE,		
-//	inout [6:0] MSE_SRDY,	
+	output  MSE_RESETN,	
+	input MSE_RSTOUT,	
+	output  MSE_SCLK,	
+	output [6:0] MSE_SDI,	
+	output [6:0] MSE_SDO,		
+	output [6:0] MSE_SLE,		
+	output [6:0] MSE_SRDY	
 
 );
 
@@ -207,7 +207,7 @@ wire     VCC;
 wire     GND;
 assign   VCC = 1;
 assign   GND = 0; 
-/*
+
 frontier	b2v_inst(
 	.m0_RSTN(M1_RSTN),
 	.m0_CLK(M1_CLK),
@@ -274,8 +274,8 @@ frontier	b2v_inst(
 //	.slot_b_P13(IO_B13),	
 //	.slot_b_P14(IO_B14),
 //	.slot_b_P15(IO_B15),
-	.slot_b_P16(IO_B16),
-	.slot_b_P17(IO_B17),
+//	.slot_b_P16(IO_B16),
+//	.slot_b_P17(IO_B17),
 //	.slot_b_P18(IO_B18),
 //	.slot_b_P19(IO_B19),
 //	.slot_b_P20(IO_B20),
@@ -292,26 +292,34 @@ frontier	b2v_inst(
 //	.am2301_1_sda    (IO_A15),         
 // .am2301_1_clk_1us(IO_A14),  
 	
-	.step_motor_driver_0_AX(IO_B13),
-	.step_motor_driver_0_AY(IO_B9),
-	.step_motor_driver_0_BX(IO_B12),
-	.step_motor_driver_0_BY(IO_B8),
-	.step_motor_driver_0_AE(IO_B10),
-	.step_motor_driver_0_BE(IO_B11),
+	.step_motor_driver_0_AX(step_motor_driver_0_AX),
+	.step_motor_driver_0_AY(step_motor_driver_0_AY),
+	.step_motor_driver_0_BX(step_motor_driver_0_BX),
+	.step_motor_driver_0_BY(step_motor_driver_0_BY),
+	.step_motor_driver_0_AE(),
+	.step_motor_driver_0_BE(),
 	
-	.step_motor_driver_1_AX(IO_A13),
-	.step_motor_driver_1_AY(IO_A9),
-	.step_motor_driver_1_BX(IO_A12),
-	.step_motor_driver_1_BY(IO_A8),
-	.step_motor_driver_1_AE(IO_A10),
-	.step_motor_driver_1_BE(IO_A11),
+	.step_motor_driver_1_AX(step_motor_driver_1_AX),
+	.step_motor_driver_1_AY(step_motor_driver_1_AY),
+	.step_motor_driver_1_BX(step_motor_driver_1_BX),
+	.step_motor_driver_1_BY(step_motor_driver_1_BY),
+	.step_motor_driver_1_AE(),
+	.step_motor_driver_1_BE(),
 	
-	.step_motor_driver_2_AX(IO_A16),
-	.step_motor_driver_2_AY(IO_A20),
-	.step_motor_driver_2_BX(IO_A17),
-	.step_motor_driver_2_BY(IO_A21),
-	.step_motor_driver_2_AE(IO_A19),
-	.step_motor_driver_2_BE(IO_A18),
+	.step_motor_driver_2_AX(step_motor_driver_2_AX),
+	.step_motor_driver_2_AY(step_motor_driver_2_AY),
+	.step_motor_driver_2_BX(step_motor_driver_2_BX),
+	.step_motor_driver_2_BY(step_motor_driver_2_BY),
+	.step_motor_driver_2_AE(),
+	.step_motor_driver_2_BE(),
+	
+	.step_motor_driver_3_AX(step_motor_driver_3_AX),            
+   .step_motor_driver_3_AY(step_motor_driver_3_AY),           
+   .step_motor_driver_3_BX(step_motor_driver_3_BX),            
+   .step_motor_driver_3_BY(step_motor_driver_3_BY),   
+   .step_motor_driver_3_AE(),       
+   .step_motor_driver_3_BE(),             
+	
 	
 //	.subdivision_step_motor_driver_0_AX (IO_B13),
 //   .subdivision_step_motor_driver_0_AY (IO_B9), 
@@ -360,12 +368,45 @@ frontier	b2v_inst(
 //   .qsys_device_0_address              (address),     
 	
 	
-	.m0_EINT(M1_EINT));*/
+	.m0_EINT(M1_EINT));
 	
-	wire humidifier;
-	assign IO_A1 = !humidifier;
-	wire position_zero;
-	assign position_zero = IO_B17 & IO_B22;
+	wire step_motor_driver_0_AX;
+	wire step_motor_driver_0_AY;
+	wire step_motor_driver_0_BX;
+	wire step_motor_driver_0_BY;
+	wire step_motor_driver_1_AX;
+	wire step_motor_driver_1_AY;
+	wire step_motor_driver_1_BX;
+	wire step_motor_driver_1_BY;
+	wire step_motor_driver_2_AX;
+	wire step_motor_driver_2_AY;
+	wire step_motor_driver_2_BX;
+	wire step_motor_driver_2_BY;
+	wire step_motor_driver_3_AX;
+	wire step_motor_driver_3_AY;
+	wire step_motor_driver_3_BX;
+	wire step_motor_driver_3_BY;
+
+	assign MSE_SDI[0] = step_motor_driver_0_AX;
+	assign MSE_SDI[1] = step_motor_driver_0_AY;
+	assign MSE_SDI[2] = step_motor_driver_0_BX;
+	assign MSE_SDI[3] = step_motor_driver_0_BY;
+	
+	assign MSE_SLE[0] = step_motor_driver_1_AX;
+	assign MSE_SLE[1] = step_motor_driver_1_AY;
+	assign MSE_SLE[2] = step_motor_driver_1_BX;
+	assign MSE_SLE[3] = step_motor_driver_1_BY;
+	
+	assign MSE_SRDY[0] = step_motor_driver_2_AX;
+	assign MSE_SRDY[1] = step_motor_driver_2_AY;
+	assign MSE_SRDY[2] = step_motor_driver_2_BX;
+	assign MSE_SRDY[3] = step_motor_driver_2_BY;
+	
+	assign MSE_SDO[0]  = step_motor_driver_3_AX;
+	assign MSE_SDO[1]  = step_motor_driver_3_AY;
+	assign MSE_SDO[2]  = step_motor_driver_3_BX;
+	assign MSE_SDO[3]  = step_motor_driver_3_BY;	
+	
 	
 //	test_rom rom (
 //		.address(address),
@@ -400,32 +441,32 @@ frontier	b2v_inst(
 //		.sda(IO_B15),
 //
 //);
-wire [7:0] aa;
-assign aa = 8'b11010110;
-wire [7:0] data;
-wire port_clk;
-wire port_rst;
-port_io_interface io (
-.clk(M1_CLK),
-.rst(!M1_RSTN),
-.port0_d(8'b00000000),
-//.port1_dir(),
-//.port2_dir(),
-.port0(aa),//{B8,B9,B10,B11,B12,B13,B14,B15}),
-//port1,
-//port2,
-.port_clk(port_clk),
-.port_rst(port_rst),
-.data(data)
-);
-
-interface_port_io oi(
-.port_clk(port_clk),
-.port_rst(port_rst),
-.data(data),
-	
-.port0({IO_B0,IO_B1,IO_B2,IO_B3,IO_B4,IO_B5,IO_B6,IO_B7}),
-);
+//wire [7:0] aa;
+//assign aa = 8'b11010110;
+//wire [7:0] data;
+//wire port_clk;
+//wire port_rst;
+//port_io_interface io (
+//.clk(M1_CLK),
+//.rst(!M1_RSTN),
+//.port0_d(8'b00000000),
+////.port1_dir(),
+////.port2_dir(),
+//.port0(aa),//{B8,B9,B10,B11,B12,B13,B14,B15}),
+////port1,
+////port2,
+//.port_clk(port_clk),
+//.port_rst(port_rst),
+//.data(data)
+//);
+//
+//interface_port_io oi(
+//.port_clk(port_clk),
+//.port_rst(port_rst),
+//.data(data),
+//	
+//.port0({IO_B0,IO_B1,IO_B2,IO_B3,IO_B4,IO_B5,IO_B6,IO_B7}),
+//);
 
 
 

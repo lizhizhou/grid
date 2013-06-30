@@ -2,7 +2,7 @@ set_global_assignment -entity "frontier" -library "frontier" -name IP_TOOL_NAME 
 set_global_assignment -entity "frontier" -library "frontier" -name IP_TOOL_VERSION "12.1sp1"
 set_global_assignment -entity "frontier" -library "frontier" -name IP_TOOL_ENV "qsys"
 set_global_assignment -library "frontier" -name SOPCINFO_FILE [file join $::quartus(qip_path) "../../frontier.sopcinfo"]
-set_instance_assignment -entity "frontier" -library "frontier" -name SLD_INFO "QSYS_NAME frontier HAS_SOPCINFO 1 GENERATION_ID 1371993730"
+set_instance_assignment -entity "frontier" -library "frontier" -name SLD_INFO "QSYS_NAME frontier HAS_SOPCINFO 1 GENERATION_ID 1372583054"
 set_global_assignment -library "frontier" -name MISC_FILE [file join $::quartus(qip_path) "../../frontier.cmp"]
 set_global_assignment -name SYNTHESIS_ONLY_QIP ON
 set_global_assignment -library "frontier" -name MISC_FILE [file join $::quartus(qip_path) "../../frontier.qsys"]
@@ -33,8 +33,8 @@ set_global_assignment -library "frontier" -name VERILOG_FILE [file join $::quart
 set_global_assignment -library "frontier" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/position_encoder.v"]
 set_global_assignment -library "frontier" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/brush_motor_driver.v"]
 set_global_assignment -library "frontier" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/step_motor_driver.v"]
-set_global_assignment -library "frontier" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/AM2301.v"]
 set_global_assignment -library "frontier" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/grid_PWM.v"]
+set_global_assignment -library "frontier" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/grid_PIO26.v"]
 set_global_assignment -library "frontier" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/test_LEDState.v"]
 set_global_assignment -library "frontier" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/basic_ShieldCtrl.v"]
 set_global_assignment -library "frontier" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/basic_FuncLED.v"]

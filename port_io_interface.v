@@ -44,7 +44,7 @@ module port_io_interface(
 	
 	assign port_clk = clk;
 	
-32	parameter state_reset= 8'd0;
+	parameter state_reset= 8'd0;
 	parameter port0_dir        = state_reset+1'b1;
 	parameter port0_read       = port0_dir+1'b1;
 	parameter port0_write      = port0_read+1'b1;

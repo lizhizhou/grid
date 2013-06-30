@@ -274,7 +274,6 @@ set_location_assignment PIN_V6 -to IO_A24
 set_location_assignment PIN_R12 -to IO_A25
 set_location_assignment PIN_AB3 -to IO_B_OCN
 set_location_assignment PIN_AB5 -to IO_B_PWREN
-set_location_assignment PIN_N22 -to IO_B_HOE
 set_location_assignment PIN_W19 -to IO_B_LOE
 set_location_assignment PIN_U19 -to IO_B_SCL
 set_location_assignment PIN_R18 -to IO_B_SDA
@@ -292,46 +291,18 @@ set_location_assignment PIN_V22 -to IO_B10
 set_location_assignment PIN_V21 -to IO_B11
 set_location_assignment PIN_U22 -to IO_B12
 set_location_assignment PIN_U21 -to IO_B13
-set_location_assignment PIN_M21 -to IO_B14
-set_location_assignment PIN_M22 -to IO_B15
-set_location_assignment PIN_N21 -to IO_B16
-set_location_assignment PIN_P21 -to IO_B17
-set_location_assignment PIN_P22 -to IO_B18
-set_location_assignment PIN_R21 -to IO_B19
 set_location_assignment PIN_P16 -to IO_B20
 set_location_assignment PIN_U20 -to IO_B21
-set_location_assignment PIN_R22 -to IO_B22
 set_location_assignment PIN_M19 -to IO_B23
 set_location_assignment PIN_M20 -to IO_B24
 set_location_assignment PIN_R19 -to IO_B25
-set_location_assignment PIN_AB17 -to PNL_SDI
 set_location_assignment PIN_AA17 -to PNL_SDO
-set_location_assignment PIN_AB18 -to PNL_SCLK
-set_location_assignment PIN_AA18 -to PNL_SLE
-set_location_assignment PIN_AB19 -to PNL_RDY
-set_location_assignment PIN_AA19 -to PNL_INT
-set_location_assignment PIN_W17 -to PLCD_PCLK
-set_location_assignment PIN_Y17 -to PLCD_VDEN
-set_location_assignment PIN_AB20 -to PLCD_VSYNC
-set_location_assignment PIN_AA20 -to PLCD_HSYNC
 set_location_assignment PIN_T14 -to PLCD_R[2]
 set_location_assignment PIN_T15 -to PLCD_R[3]
 set_location_assignment PIN_AA13 -to PLCD_R[4]
 set_location_assignment PIN_AB13 -to PLCD_R[5]
 set_location_assignment PIN_AA14 -to PLCD_R[6]
-set_location_assignment PIN_R15 -to PLCD_R[7]
 set_location_assignment PIN_AB14 -to PLCD_G[2]
-set_location_assignment PIN_T12 -to PLCD_G[3]
-set_location_assignment PIN_W13 -to PLCD_G[4]
-set_location_assignment PIN_U12 -to PLCD_G[5]
-set_location_assignment PIN_R14 -to PLCD_G[6]
-set_location_assignment PIN_V14 -to PLCD_G[7]
-set_location_assignment PIN_U13 -to PLCD_B[2]
-set_location_assignment PIN_Y13 -to PLCD_B[3]
-set_location_assignment PIN_U14 -to PLCD_B[4]
-set_location_assignment PIN_U15 -to PLCD_B[5]
-set_location_assignment PIN_W15 -to PLCD_B[6]
-set_location_assignment PIN_V15 -to PLCD_B[7]
 
 # Classic Timing Assignments
 # ==========================
@@ -656,7 +627,6 @@ set_global_assignment -name VERILOG_FILE qsys_root/sdif.v
 set_global_assignment -name VERILOG_FILE qsys_root/qsys_device.v
 set_global_assignment -name VERILOG_FILE test_rom.v
 set_global_assignment -name VERILOG_FILE port_io_interface.v
-set_global_assignment -name QIP_FILE frontier/synthesis/frontier.qip
 set_global_assignment -name VERILOG_FILE port_io_interface_sim.v
 set_global_assignment -name EDA_TEST_BENCH_FILE qsys_root/AM2301_sim.v -section_id AM2301
 set_global_assignment -name EDA_TEST_BENCH_NAME port_io_interface_sim -section_id eda_simulation
@@ -708,4 +678,34 @@ set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK_LE
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_LOWORD=59464" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_HIWORD=56027" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_IN_ENABLED=0" -section_id auto_signaltap_0
+set_location_assignment PIN_R21 -to MSE_SRDY[0]
+set_location_assignment PIN_Y17 -to MSE_SRDY[1]
+set_location_assignment PIN_Y13 -to MSE_SRDY[3]
+set_location_assignment PIN_R14 -to MSE_SRDY[4]
+set_location_assignment PIN_AB19 -to MSE_SRDY[5]
+set_location_assignment PIN_M22 -to MSE_SRDY[6]
+set_location_assignment PIN_R22 -to MSE_SLE[0]
+set_location_assignment PIN_W17 -to MSE_SLE[1]
+set_location_assignment PIN_W13 -to MSE_SLE[3]
+set_location_assignment PIN_R15 -to MSE_SLE[4]
+set_location_assignment PIN_AA19 -to MSE_SLE[5]
+set_location_assignment PIN_U14 -to MSE_SLE[2]
+set_location_assignment PIN_M21 -to MSE_SLE[6]
+set_location_assignment PIN_P21 -to MSE_SDO[0]
+set_location_assignment PIN_U15 -to MSE_SRDY[2]
+set_location_assignment PIN_P22 -to MSE_SDI[0]
+set_location_assignment PIN_AA20 -to MSE_SDI[1]
+set_location_assignment PIN_W15 -to MSE_SDI[2]
+set_location_assignment PIN_U13 -to MSE_SDI[3]
+set_location_assignment PIN_U12 -to MSE_SDI[4]
+set_location_assignment PIN_AA18 -to MSE_SDI[5]
+set_location_assignment PIN_N21 -to MSE_SDI[6]
+set_location_assignment PIN_V15 -to MSE_SDO[2]
+set_location_assignment PIN_AB20 -to MSE_SDO[1]
+set_location_assignment PIN_V14 -to MSE_SDO[3]
+set_location_assignment PIN_AB17 -to MSE_RESETN
+set_location_assignment PIN_T12 -to MSE_SDO[4]
+set_location_assignment PIN_AB18 -to MSE_SDO[5]
+set_location_assignment PIN_N22 -to MSE_SDO[6]
+set_global_assignment -name QIP_FILE frontier/synthesis/frontier.qip
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

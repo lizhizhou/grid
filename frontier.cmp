@@ -83,8 +83,6 @@
 			slot_b_P24                         : inout std_logic                     := 'X';             -- P24
 			slot_b_P25                         : inout std_logic                     := 'X';             -- P25
 			pwm_c0_export                      : out   std_logic;                                        -- export
-			am2301_0_sda                       : inout std_logic                     := 'X';             -- sda
-			am2301_0_clk_1us                   : out   std_logic;                                        -- clk_1us
 			step_motor_driver_0_AX             : out   std_logic;                                        -- AX
 			step_motor_driver_0_AY             : out   std_logic;                                        -- AY
 			step_motor_driver_0_BX             : out   std_logic;                                        -- BX
@@ -100,8 +98,6 @@
 			step_motor_driver_1_BY             : out   std_logic;                                        -- BY
 			step_motor_driver_1_AE             : out   std_logic;                                        -- AE
 			step_motor_driver_1_BE             : out   std_logic;                                        -- BE
-			am2301_1_sda                       : inout std_logic                     := 'X';             -- sda
-			am2301_1_clk_1us                   : out   std_logic;                                        -- clk_1us
 			brush_motor_driver_3_HX            : out   std_logic;                                        -- HX
 			brush_motor_driver_3_HY            : out   std_logic;                                        -- HY
 			brush_motor_driver_2_HX            : out   std_logic;                                        -- HX

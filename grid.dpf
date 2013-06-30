@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<pin_planner>
+	<pin_info>
+		<pin name="PLCD_R[7]" source="Pin Planner" >
+		</pin>
+		<pin name="PLCD_G[3]" source="Pin Planner" >
+		</pin>
+		<pin name="PLCD_G[4]" source="Pin Planner" >
+		</pin>
+		<pin name="PLCD_G[5]" source="Pin Planner" >
+		</pin>
+		<pin name="PLCD_G[6]" source="Pin Planner" >
+		</pin>
+		<pin name="PLCD_G[7]" source="Pin Planner" >
+		</pin>
+		<pin name="PLCD_B[2]" source="Pin Planner" >
+		</pin>
+		<pin name="PLCD_B[3]" source="Pin Planner" >
+		</pin>
+		<pin name="PLCD_B[4]" source="Pin Planner" >
+		</pin>
+		<pin name="PLCD_B[5]" source="Pin Planner" >
+		</pin>
+		<pin name="PLCD_B[6]" source="Pin Planner" >
+		</pin>
+		<pin name="PLCD_B[7]" source="Pin Planner" >
+		</pin>
+	</pin_info>
+	<buses>
+	</buses>
+	<group_file_association>
+	</group_file_association>
+	<pin_planner_file_specifies>
+	</pin_planner_file_specifies>
+</pin_planner>

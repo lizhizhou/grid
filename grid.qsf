@@ -315,7 +315,7 @@ set_global_assignment -name FAMILY "Cyclone IV E"
 set_global_assignment -name DEVICE_FILTER_PACKAGE FBGA
 set_global_assignment -name DEVICE_FILTER_PIN_COUNT 484
 set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 8
-set_global_assignment -name TOP_LEVEL_ENTITY qsys_device
+set_global_assignment -name TOP_LEVEL_ENTITY qsys_serial_host
 
 # Fitter Assignments
 # ==================
@@ -647,6 +647,8 @@ set_location_assignment PIN_T12 -to MSE_SDO[4]
 set_location_assignment PIN_AB18 -to MSE_SDO[5]
 set_location_assignment PIN_N22 -to MSE_SDO[6]
 set_global_assignment -name QIP_FILE frontier/synthesis/frontier.qip
+set_global_assignment -name VERILOG_FILE qsys_root/qsys_serial_host.v
+set_global_assignment -name VERILOG_FILE qsys_root/qsys_serial_device.v
 set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
 set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top

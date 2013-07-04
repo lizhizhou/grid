@@ -292,33 +292,33 @@ frontier	b2v_inst(
 //	.am2301_1_sda    (IO_A15),         
 // .am2301_1_clk_1us(IO_A14),  
 	
-	.step_motor_driver_0_AX(step_motor_driver_0_AX),
-	.step_motor_driver_0_AY(step_motor_driver_0_AY),
-	.step_motor_driver_0_BX(step_motor_driver_0_BX),
-	.step_motor_driver_0_BY(step_motor_driver_0_BY),
-	.step_motor_driver_0_AE(),
-	.step_motor_driver_0_BE(),
-	
-	.step_motor_driver_1_AX(step_motor_driver_1_AX),
-	.step_motor_driver_1_AY(step_motor_driver_1_AY),
-	.step_motor_driver_1_BX(step_motor_driver_1_BX),
-	.step_motor_driver_1_BY(step_motor_driver_1_BY),
-	.step_motor_driver_1_AE(),
-	.step_motor_driver_1_BE(),
-	
-	.step_motor_driver_2_AX(step_motor_driver_2_AX),
-	.step_motor_driver_2_AY(step_motor_driver_2_AY),
-	.step_motor_driver_2_BX(step_motor_driver_2_BX),
-	.step_motor_driver_2_BY(step_motor_driver_2_BY),
-	.step_motor_driver_2_AE(),
-	.step_motor_driver_2_BE(),
-	
-	.step_motor_driver_3_AX(step_motor_driver_3_AX),            
-   .step_motor_driver_3_AY(step_motor_driver_3_AY),           
-   .step_motor_driver_3_BX(step_motor_driver_3_BX),            
-   .step_motor_driver_3_BY(step_motor_driver_3_BY),   
-   .step_motor_driver_3_AE(),       
-   .step_motor_driver_3_BE(),             
+//	.step_motor_driver_0_AX(step_motor_driver_0_AX),
+//	.step_motor_driver_0_AY(step_motor_driver_0_AY),
+//	.step_motor_driver_0_BX(step_motor_driver_0_BX),
+//	.step_motor_driver_0_BY(step_motor_driver_0_BY),
+//	.step_motor_driver_0_AE(),
+//	.step_motor_driver_0_BE(),
+//	
+//	.step_motor_driver_1_AX(step_motor_driver_1_AX),
+//	.step_motor_driver_1_AY(step_motor_driver_1_AY),
+//	.step_motor_driver_1_BX(step_motor_driver_1_BX),
+//	.step_motor_driver_1_BY(step_motor_driver_1_BY),
+//	.step_motor_driver_1_AE(),
+//	.step_motor_driver_1_BE(),
+//	
+//	.step_motor_driver_2_AX(step_motor_driver_2_AX),
+//	.step_motor_driver_2_AY(step_motor_driver_2_AY),
+//	.step_motor_driver_2_BX(step_motor_driver_2_BX),
+//	.step_motor_driver_2_BY(step_motor_driver_2_BY),
+//	.step_motor_driver_2_AE(),
+//	.step_motor_driver_2_BE(),
+//	
+//	.step_motor_driver_3_AX(step_motor_driver_3_AX),            
+//   .step_motor_driver_3_AY(step_motor_driver_3_AY),           
+//   .step_motor_driver_3_BX(step_motor_driver_3_BX),            
+//   .step_motor_driver_3_BY(step_motor_driver_3_BY),   
+//   .step_motor_driver_3_AE(),       
+//   .step_motor_driver_3_BE(),             
 	
 	
 //	.subdivision_step_motor_driver_0_AX (IO_B13),
@@ -338,9 +338,9 @@ frontier	b2v_inst(
 //	.brush_motor_driver_0_HX   (IO_B13),
 //	.brush_motor_driver_0_HY   (IO_B9),
 
-	.position_encoder_0_A  (IO_B24),  
-	.position_encoder_0_B  (IO_B23), 
-	.position_encoder_0_Z  (IO_B22),  
+//	.position_encoder_0_A  (IO_B24),  
+//	.position_encoder_0_B  (IO_B23), 
+//	.position_encoder_0_Z  (IO_B22),  
 //	.position_encoder_3_A  (IO_B16),
 //	.position_encoder_3_B  (IO_B16),
 //	.position_encoder_3_Z  (GND),
@@ -351,11 +351,11 @@ frontier	b2v_inst(
 //	.sdif_IN             (SPDIF_IN),
 // .sdif_OUT            (SPDIF_OUT),
 
-   .sht1x_sensor_1_sck(IO_A14),
-   .sht1x_sensor_1_sda(IO_A15), 
-	
-   .sht1x_sensor_0_sck(IO_B14),
-   .sht1x_sensor_0_sda(IO_B15), 
+//   .sht1x_sensor_1_sck(IO_A14),
+//   .sht1x_sensor_1_sda(IO_A15), 
+//	
+//   .sht1x_sensor_0_sck(IO_B14),
+//   .sht1x_sensor_0_sda(IO_B15), 
 	
 	
 //	  .qsys_device_0_reset                (),                //                   qsys_device_0.reset

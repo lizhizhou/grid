@@ -9,7 +9,7 @@ module qsys_serial_device#(
 		input		 [7:0]	avs_ctrl_address,
 		input					avs_ctrl_write,
 		input					avs_ctrl_read,
-		output reg			avs_ctrl_waitrequest,
+		output   			avs_ctrl_waitrequest,
 		// Qsys serial interface
 		output reg 			sdo,
 		input 		      sdi,
@@ -38,13 +38,18 @@ module qsys_serial_device#(
 			else 
 				state <= nextstate;
 		end
-		always@(nextstate or srdy)
+		always@(state or srdy or avs_ctrl_write or avs_ctrl_read)
 		begin
 			case(state)
 			initial_state: nextstate <= bus_data_wait;
-			bus_data_wait: nextstate <= bus_data_ready;
+			bus_data_wait: begin
+			if(avs_ctrl_write == 1'b1 || avs_ctrl_read == 1'b1)
+				nextstate <= bus_data_ready;
+			else
+				nextstate <= bus_data_wait;
+			end
 			bus_data_ready: nextstate <= bus_transmit_start;
-			bus_transmit_start: nextstate <= nextstate + 1;
+			bus_transmit_start: nextstate <= state + 1;
 			bus_transmit_ready: nextstate <= bus_ready_wait;
 			bus_ready_wait: 
 			begin
@@ -61,7 +66,7 @@ module qsys_serial_device#(
 					nextstate <= bus_transmit_back;
 			end
 			bus_data_read:nextstate <= bus_data_wait;
-			default: nextstate <= nextstate + 1;
+			default: nextstate <= state + 1;
 			endcase
 		end
 		
@@ -73,12 +78,12 @@ module qsys_serial_device#(
 				data_buffer[63:32] <= avs_ctrl_address;
 				if (avs_ctrl_write == 1'b1)
 				begin
-					data_buffer <= 1'b1;     //write
+					data_buffer[64] <= 1'b1;     //write
 					data_buffer[31:0]  <= avs_ctrl_writedata;
 				end
 				else if (avs_ctrl_read == 1'b1)
 				begin
-					data_buffer <= 1'b0;     //read
+					data_buffer[64] <= 1'b0;     //read
 					data_buffer[31:0]  <= 32'd0;
 				end
 			end
@@ -106,13 +111,14 @@ module qsys_serial_device#(
 			sle <= 0;
 		end
 		
-		always@(posedge csi_MCLK_clk)
-		begin
-			if (state == bus_data_wait)
-			avs_ctrl_waitrequest <= 0;
-			else
-			avs_ctrl_waitrequest <= 1;
-		end
+		assign avs_ctrl_waitrequest = 1'b0;
+//		always@(posedge csi_MCLK_clk)
+//		begin
+//			if (state == bus_data_wait)
+//			avs_ctrl_waitrequest <= 0;
+//			else
+//			avs_ctrl_waitrequest <= 1;
+//		end
 		
 		
 		always@(posedge csi_MCLK_clk)

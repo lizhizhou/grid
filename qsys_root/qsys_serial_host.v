@@ -66,10 +66,10 @@ module qsys_serial_host(
 				else nextstate <= bus_data_wait;
 			end		
 			bus_data_ready: nextstate <= bus_transmit_back;
-			bus_transmit_back:nextstate <= nextstate + 1;
+			bus_transmit_back:nextstate <= state + 1;
 			bus_transmit_finish:nextstate <= bus_ready;
 			default:
-				nextstate <= nextstate + 1;
+				nextstate <= state + 1;
 			endcase
 		end
 		

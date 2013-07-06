@@ -5,117 +5,853 @@
   <instance entity_name="sld_signaltap" is_auto_node="yes" is_expanded="true" name="auto_signaltap_0" source_file="sld_signaltap.vhd">
     <node_ip_info instance_id="0" mfg_id="110" node_id="0" version="6"/>
     <position_info>
-      <single attribute="active tab" value="0"/>
-      <single attribute="data horizontal scroll position" value="2238"/>
+      <single attribute="active tab" value="1"/>
+      <single attribute="data horizontal scroll position" value="0"/>
       <single attribute="data vertical scroll position" value="0"/>
       <single attribute="zoom level denominator" value="1"/>
-      <single attribute="zoom level numerator" value="512"/>
-      <single attribute="zoom offset denominator" value="512"/>
-      <single attribute="zoom offset numerator" value="122881"/>
+      <single attribute="zoom level numerator" value="4"/>
+      <single attribute="zoom offset denominator" value="1"/>
+      <single attribute="zoom offset numerator" value="30720"/>
     </position_info>
-    <signal_set global_temp="1" name="signal_set: 2013/06/25 22:08:23  #0">
-      <clock name="M1_CLK" polarity="posedge" tap_mode="classic"/>
-      <config ram_type="M4K" reserved_data_nodes="0" reserved_storage_qualifier_nodes="0" reserved_trigger_nodes="0" sample_depth="8192" trigger_in_enable="no" trigger_in_pin="IO_B14" trigger_out_enable="no"/>
+    <signal_set global_temp="1" name="signal_set: 2013/07/06 11:50:34  #0">
+      <clock name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|clk" polarity="posedge" tap_mode="classic"/>
+      <config ram_type="M4K" reserved_data_nodes="0" reserved_storage_qualifier_nodes="0" reserved_trigger_nodes="0" sample_depth="2048" trigger_in_enable="yes" trigger_in_node="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_write" trigger_in_tap_mode="classic" trigger_out_enable="no"/>
       <top_entity/>
       <signal_vec>
         <trigger_input_vec>
-          <wire name="IO_B0" tap_mode="classic" type="bidir pin"/>
-          <wire name="IO_B1" tap_mode="classic" type="bidir pin"/>
-          <wire name="IO_B2" tap_mode="classic" type="bidir pin"/>
-          <wire name="IO_B3" tap_mode="classic" type="bidir pin"/>
-          <wire name="IO_B4" tap_mode="classic" type="bidir pin"/>
-          <wire name="IO_B5" tap_mode="classic" type="bidir pin"/>
-          <wire name="IO_B6" tap_mode="classic" type="bidir pin"/>
-          <wire name="IO_B7" tap_mode="classic" type="bidir pin"/>
-          <wire name="port_io_interface:io|state[0]" tap_mode="classic" type="register"/>
-          <wire name="port_io_interface:io|state[1]" tap_mode="classic" type="register"/>
-          <wire name="port_io_interface:io|state[2]" tap_mode="classic" type="register"/>
-          <wire name="port_io_interface:io|state[3]" tap_mode="classic" type="register"/>
-          <wire name="port_io_interface:io|state[4]" tap_mode="classic" type="register"/>
-          <wire name="port_io_interface:io|state[5]" tap_mode="classic" type="register"/>
-          <wire name="port_io_interface:io|state[6]" tap_mode="classic" type="register"/>
-          <wire name="port_io_interface:io|state[7]" tap_mode="classic" type="register"/>
+          <wire name="M1_WAITN" tap_mode="classic" type="output pin"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[0]" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[1]" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[2]" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[3]" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[4]" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[5]" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[6]" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[7]" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_read" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_write" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[0]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[10]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[11]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[12]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[13]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[14]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[15]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[16]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[17]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[18]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[19]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[1]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[20]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[21]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[22]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[23]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[24]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[25]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[26]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[27]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[28]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[29]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[2]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[30]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[31]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[32]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[33]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[34]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[35]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[36]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[37]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[38]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[39]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[3]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[40]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[41]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[42]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[43]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[44]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[45]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[46]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[47]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[48]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[49]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[4]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[50]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[51]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[52]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[53]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[54]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[55]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[56]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[57]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[58]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[59]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[5]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[60]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[61]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[62]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[63]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[64]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[6]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[7]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[8]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[9]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|sdi" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|sle" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|srdy" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[0]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[1]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[2]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[3]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[4]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[5]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[6]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[7]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[0]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[10]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[11]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[12]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[13]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[14]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[15]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[16]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[17]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[18]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[19]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[1]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[20]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[21]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[22]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[23]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[24]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[25]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[26]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[27]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[28]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[29]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[2]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[30]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[31]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[32]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[33]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[34]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[35]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[36]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[37]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[38]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[39]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[3]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[40]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[41]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[42]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[43]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[44]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[45]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[46]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[47]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[48]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[49]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[4]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[50]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[51]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[52]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[53]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[54]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[55]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[56]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[57]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[58]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[59]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[5]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[60]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[61]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[62]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[63]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[64]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[6]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[7]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[8]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[9]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[0]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[1]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[2]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[3]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[4]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[5]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[6]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[7]" tap_mode="classic" type="register"/>
         </trigger_input_vec>
         <data_input_vec>
-          <wire name="IO_B0" tap_mode="classic" type="bidir pin"/>
-          <wire name="IO_B1" tap_mode="classic" type="bidir pin"/>
-          <wire name="IO_B2" tap_mode="classic" type="bidir pin"/>
-          <wire name="IO_B3" tap_mode="classic" type="bidir pin"/>
-          <wire name="IO_B4" tap_mode="classic" type="bidir pin"/>
-          <wire name="IO_B5" tap_mode="classic" type="bidir pin"/>
-          <wire name="IO_B6" tap_mode="classic" type="bidir pin"/>
-          <wire name="IO_B7" tap_mode="classic" type="bidir pin"/>
-          <wire name="port_io_interface:io|state[0]" tap_mode="classic" type="register"/>
-          <wire name="port_io_interface:io|state[1]" tap_mode="classic" type="register"/>
-          <wire name="port_io_interface:io|state[2]" tap_mode="classic" type="register"/>
-          <wire name="port_io_interface:io|state[3]" tap_mode="classic" type="register"/>
-          <wire name="port_io_interface:io|state[4]" tap_mode="classic" type="register"/>
-          <wire name="port_io_interface:io|state[5]" tap_mode="classic" type="register"/>
-          <wire name="port_io_interface:io|state[6]" tap_mode="classic" type="register"/>
-          <wire name="port_io_interface:io|state[7]" tap_mode="classic" type="register"/>
+          <wire name="M1_WAITN" tap_mode="classic" type="output pin"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[0]" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[1]" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[2]" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[3]" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[4]" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[5]" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[6]" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[7]" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_read" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_write" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[0]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[10]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[11]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[12]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[13]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[14]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[15]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[16]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[17]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[18]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[19]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[1]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[20]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[21]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[22]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[23]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[24]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[25]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[26]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[27]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[28]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[29]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[2]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[30]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[31]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[32]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[33]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[34]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[35]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[36]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[37]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[38]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[39]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[3]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[40]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[41]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[42]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[43]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[44]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[45]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[46]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[47]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[48]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[49]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[4]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[50]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[51]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[52]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[53]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[54]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[55]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[56]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[57]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[58]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[59]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[5]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[60]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[61]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[62]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[63]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[64]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[6]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[7]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[8]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[9]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|sdi" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|sle" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|srdy" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[0]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[1]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[2]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[3]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[4]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[5]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[6]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[7]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[0]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[10]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[11]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[12]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[13]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[14]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[15]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[16]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[17]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[18]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[19]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[1]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[20]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[21]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[22]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[23]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[24]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[25]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[26]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[27]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[28]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[29]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[2]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[30]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[31]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[32]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[33]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[34]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[35]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[36]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[37]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[38]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[39]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[3]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[40]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[41]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[42]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[43]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[44]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[45]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[46]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[47]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[48]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[49]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[4]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[50]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[51]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[52]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[53]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[54]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[55]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[56]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[57]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[58]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[59]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[5]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[60]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[61]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[62]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[63]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[64]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[6]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[7]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[8]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[9]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[0]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[1]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[2]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[3]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[4]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[5]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[6]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[7]" tap_mode="classic" type="register"/>
         </data_input_vec>
         <storage_qualifier_input_vec>
-          <wire name="IO_B0" tap_mode="classic" type="bidir pin"/>
-          <wire name="IO_B1" tap_mode="classic" type="bidir pin"/>
-          <wire name="IO_B2" tap_mode="classic" type="bidir pin"/>
-          <wire name="IO_B3" tap_mode="classic" type="bidir pin"/>
-          <wire name="IO_B4" tap_mode="classic" type="bidir pin"/>
-          <wire name="IO_B5" tap_mode="classic" type="bidir pin"/>
-          <wire name="IO_B6" tap_mode="classic" type="bidir pin"/>
-          <wire name="IO_B7" tap_mode="classic" type="bidir pin"/>
-          <wire name="port_io_interface:io|state[0]" tap_mode="classic" type="register"/>
-          <wire name="port_io_interface:io|state[1]" tap_mode="classic" type="register"/>
-          <wire name="port_io_interface:io|state[2]" tap_mode="classic" type="register"/>
-          <wire name="port_io_interface:io|state[3]" tap_mode="classic" type="register"/>
-          <wire name="port_io_interface:io|state[4]" tap_mode="classic" type="register"/>
-          <wire name="port_io_interface:io|state[5]" tap_mode="classic" type="register"/>
-          <wire name="port_io_interface:io|state[6]" tap_mode="classic" type="register"/>
-          <wire name="port_io_interface:io|state[7]" tap_mode="classic" type="register"/>
+          <wire name="M1_WAITN" tap_mode="classic" type="output pin"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[0]" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[1]" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[2]" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[3]" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[4]" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[5]" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[6]" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[7]" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_read" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_write" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[0]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[10]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[11]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[12]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[13]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[14]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[15]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[16]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[17]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[18]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[19]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[1]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[20]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[21]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[22]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[23]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[24]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[25]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[26]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[27]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[28]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[29]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[2]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[30]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[31]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[32]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[33]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[34]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[35]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[36]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[37]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[38]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[39]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[3]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[40]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[41]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[42]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[43]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[44]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[45]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[46]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[47]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[48]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[49]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[4]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[50]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[51]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[52]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[53]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[54]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[55]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[56]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[57]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[58]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[59]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[5]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[60]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[61]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[62]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[63]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[64]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[6]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[7]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[8]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[9]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|sdi" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|sle" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|srdy" tap_mode="classic" type="combinatorial"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[0]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[1]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[2]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[3]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[4]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[5]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[6]" tap_mode="classic" type="register"/>
+          <wire name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[7]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[0]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[10]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[11]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[12]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[13]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[14]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[15]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[16]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[17]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[18]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[19]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[1]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[20]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[21]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[22]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[23]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[24]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[25]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[26]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[27]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[28]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[29]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[2]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[30]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[31]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[32]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[33]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[34]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[35]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[36]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[37]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[38]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[39]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[3]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[40]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[41]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[42]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[43]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[44]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[45]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[46]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[47]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[48]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[49]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[4]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[50]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[51]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[52]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[53]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[54]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[55]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[56]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[57]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[58]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[59]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[5]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[60]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[61]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[62]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[63]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[64]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[6]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[7]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[8]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[9]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[0]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[1]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[2]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[3]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[4]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[5]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[6]" tap_mode="classic" type="register"/>
+          <wire name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[7]" tap_mode="classic" type="register"/>
         </storage_qualifier_input_vec>
       </signal_vec>
       <presentation>
         <data_view>
-          <net is_signal_inverted="no" name="IO_B0"/>
-          <net is_signal_inverted="no" name="IO_B1"/>
-          <net is_signal_inverted="no" name="IO_B2"/>
-          <net is_signal_inverted="no" name="IO_B3"/>
-          <net is_signal_inverted="no" name="IO_B4"/>
-          <net is_signal_inverted="no" name="IO_B5"/>
-          <net is_signal_inverted="no" name="IO_B6"/>
-          <net is_signal_inverted="no" name="IO_B7"/>
-          <bus is_signal_inverted="no" link="all" name="port_io_interface:io|state" order="msb_to_lsb" radix="hex" state="collapse" type="register">
-            <net is_signal_inverted="no" name="port_io_interface:io|state[7]"/>
-            <net is_signal_inverted="no" name="port_io_interface:io|state[6]"/>
-            <net is_signal_inverted="no" name="port_io_interface:io|state[5]"/>
-            <net is_signal_inverted="no" name="port_io_interface:io|state[4]"/>
-            <net is_signal_inverted="no" name="port_io_interface:io|state[3]"/>
-            <net is_signal_inverted="no" name="port_io_interface:io|state[2]"/>
-            <net is_signal_inverted="no" name="port_io_interface:io|state[1]"/>
-            <net is_signal_inverted="no" name="port_io_interface:io|state[0]"/>
+          <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|sdi"/>
+          <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|srdy"/>
+          <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|sle"/>
+          <bus is_signal_inverted="no" link="all" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state" order="msb_to_lsb" radix="unsigned_dec" state="collapse" type="register">
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[7]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[6]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[5]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[4]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[3]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[2]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[1]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[0]"/>
+          </bus>
+          <net is_signal_inverted="no" name="M1_WAITN"/>
+          <bus is_signal_inverted="no" link="all" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer" order="msb_to_lsb" radix="hex" state="collapse" type="register">
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[64]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[63]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[62]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[61]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[60]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[59]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[58]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[57]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[56]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[55]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[54]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[53]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[52]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[51]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[50]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[49]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[48]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[47]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[46]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[45]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[44]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[43]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[42]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[41]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[40]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[39]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[38]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[37]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[36]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[35]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[34]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[33]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[32]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[31]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[30]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[29]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[28]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[27]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[26]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[25]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[24]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[23]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[22]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[21]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[20]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[19]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[18]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[17]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[16]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[15]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[14]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[13]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[12]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[11]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[10]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[9]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[8]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[7]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[6]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[5]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[4]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[3]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[2]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[1]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[0]"/>
+          </bus>
+          <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_read"/>
+          <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_write"/>
+          <bus is_signal_inverted="no" link="all" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address" order="msb_to_lsb" radix="hex" state="collapse" type="combinatorial">
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[7]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[6]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[5]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[4]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[3]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[2]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[1]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[0]"/>
+          </bus>
+          <bus is_signal_inverted="no" link="all" name="mse:u0|qsys_serial_host:qsys_serial_host_0|state" order="msb_to_lsb" radix="hex" state="collapse" type="register">
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[7]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[6]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[5]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[4]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[3]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[2]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[1]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[0]"/>
+          </bus>
+          <bus is_signal_inverted="no" link="all" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer" order="msb_to_lsb" radix="hex" state="collapse" type="register">
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[64]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[63]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[62]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[61]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[60]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[59]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[58]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[57]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[56]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[55]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[54]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[53]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[52]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[51]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[50]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[49]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[48]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[47]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[46]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[45]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[44]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[43]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[42]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[41]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[40]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[39]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[38]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[37]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[36]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[35]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[34]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[33]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[32]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[31]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[30]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[29]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[28]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[27]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[26]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[25]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[24]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[23]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[22]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[21]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[20]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[19]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[18]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[17]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[16]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[15]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[14]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[13]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[12]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[11]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[10]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[9]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[8]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[7]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[6]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[5]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[4]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[3]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[2]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[1]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[0]"/>
           </bus>
         </data_view>
         <setup_view>
-          <net is_signal_inverted="no" name="IO_B0"/>
-          <net is_signal_inverted="no" name="IO_B1"/>
-          <net is_signal_inverted="no" name="IO_B2"/>
-          <net is_signal_inverted="no" name="IO_B3"/>
-          <net is_signal_inverted="no" name="IO_B4"/>
-          <net is_signal_inverted="no" name="IO_B5"/>
-          <net is_signal_inverted="no" name="IO_B6"/>
-          <net is_signal_inverted="no" name="IO_B7"/>
-          <bus is_signal_inverted="no" link="all" name="port_io_interface:io|state" order="msb_to_lsb" radix="hex" state="collapse" type="register">
-            <net is_signal_inverted="no" name="port_io_interface:io|state[7]"/>
-            <net is_signal_inverted="no" name="port_io_interface:io|state[6]"/>
-            <net is_signal_inverted="no" name="port_io_interface:io|state[5]"/>
-            <net is_signal_inverted="no" name="port_io_interface:io|state[4]"/>
-            <net is_signal_inverted="no" name="port_io_interface:io|state[3]"/>
-            <net is_signal_inverted="no" name="port_io_interface:io|state[2]"/>
-            <net is_signal_inverted="no" name="port_io_interface:io|state[1]"/>
-            <net is_signal_inverted="no" name="port_io_interface:io|state[0]"/>
+          <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|sdi"/>
+          <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|srdy"/>
+          <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|sle"/>
+          <bus is_signal_inverted="no" link="all" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state" order="msb_to_lsb" radix="unsigned_dec" state="collapse" type="register">
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[7]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[6]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[5]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[4]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[3]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[2]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[1]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[0]"/>
+          </bus>
+          <net is_signal_inverted="no" name="M1_WAITN"/>
+          <bus is_signal_inverted="no" link="all" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer" order="msb_to_lsb" radix="hex" state="collapse" type="register">
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[64]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[63]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[62]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[61]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[60]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[59]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[58]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[57]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[56]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[55]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[54]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[53]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[52]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[51]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[50]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[49]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[48]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[47]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[46]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[45]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[44]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[43]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[42]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[41]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[40]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[39]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[38]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[37]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[36]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[35]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[34]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[33]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[32]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[31]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[30]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[29]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[28]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[27]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[26]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[25]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[24]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[23]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[22]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[21]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[20]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[19]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[18]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[17]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[16]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[15]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[14]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[13]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[12]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[11]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[10]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[9]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[8]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[7]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[6]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[5]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[4]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[3]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[2]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[1]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[0]"/>
+          </bus>
+          <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_read"/>
+          <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_write"/>
+          <bus is_signal_inverted="no" link="all" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address" order="msb_to_lsb" radix="hex" state="collapse" type="combinatorial">
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[7]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[6]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[5]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[4]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[3]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[2]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[1]"/>
+            <net is_signal_inverted="no" name="frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[0]"/>
+          </bus>
+          <bus is_signal_inverted="no" link="all" name="mse:u0|qsys_serial_host:qsys_serial_host_0|state" order="msb_to_lsb" radix="hex" state="collapse" type="register">
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[7]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[6]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[5]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[4]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[3]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[2]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[1]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|state[0]"/>
+          </bus>
+          <bus is_signal_inverted="no" link="all" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer" order="msb_to_lsb" radix="hex" state="collapse" type="register">
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[64]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[63]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[62]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[61]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[60]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[59]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[58]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[57]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[56]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[55]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[54]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[53]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[52]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[51]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[50]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[49]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[48]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[47]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[46]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[45]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[44]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[43]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[42]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[41]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[40]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[39]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[38]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[37]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[36]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[35]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[34]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[33]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[32]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[31]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[30]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[29]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[28]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[27]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[26]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[25]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[24]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[23]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[22]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[21]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[20]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[19]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[18]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[17]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[16]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[15]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[14]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[13]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[12]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[11]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[10]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[9]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[8]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[7]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[6]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[5]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[4]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[3]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[2]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[1]"/>
+            <net is_signal_inverted="no" name="mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[0]"/>
           </bus>
         </setup_view>
       </presentation>
-      <trigger attribute_mem_mode="false" gap_record="true" global_temp="1" name="trigger: 2013/06/25 22:08:23  #1" position="pre" power_up_trigger_mode="false" record_data_gap="true" segment_size="8192" storage_mode="off" storage_qualifier_disabled="no" storage_qualifier_port_is_pin="true" storage_qualifier_port_name="auto_stp_external_storage_qualifier" storage_qualifier_port_tap_mode="classic" trigger_in="rising edge" trigger_out="active high" trigger_type="circular">
+      <trigger attribute_mem_mode="false" gap_record="true" global_temp="1" name="trigger: 2013/07/06 11:50:34  #1" position="pre" power_up_trigger_mode="false" record_data_gap="true" segment_size="2048" storage_mode="off" storage_qualifier_disabled="no" storage_qualifier_port_is_pin="false" storage_qualifier_port_name="auto_stp_external_storage_qualifier" storage_qualifier_port_tap_mode="classic" trigger_in="rising edge" trigger_out="active high" trigger_type="circular">
         <power_up_trigger position="pre" storage_qualifier_disabled="no" trigger_in="dont_care" trigger_out="active high"/>
         <events use_custom_flow_control="no">
           <level enabled="yes" name="condition1" type="basic">
@@ -134,8 +870,8 @@ trigger;]]>
           </custom_flow_control>
         </events>
         <storage_qualifier_events>
-          <transitional>0000000000000000
-            <pwr_up_transitional>0000000000000000</pwr_up_transitional>
+          <transitional>0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+            <pwr_up_transitional>0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</pwr_up_transitional>
           </transitional>
           <storage_qualifier_level type="basic">
             <power_up>
@@ -154,7 +890,7 @@ trigger;]]>
           </storage_qualifier_level>
         </storage_qualifier_events>
         <log>
-          <data global_temp="1" name="log: 2013/06/25 22:08:23  #2"/>
+          <data global_temp="1" name="log: 2013/07/06 11:50:34  #2"/>
           <extradata/>
         </log>
       </trigger>
@@ -2169,6 +2905,9 @@ Yl97
     
     
     
+    
+    
+    
     </embedded_sof_file>
   </embedded_sof_files>
   <global_info>
@@ -2178,7 +2917,7 @@ Yl97
     <single attribute="hierarchy widget visible" value="1"/>
     <single attribute="instance widget visible" value="1"/>
     <single attribute="jtag widget visible" value="1"/>
-    <multi attribute="column width" size="23" value="34,34,165,74,68,70,88,88,98,98,88,88,110,101,101,101,101,101,101,101,101,107,78"/>
+    <multi attribute="column width" size="23" value="34,34,256,74,68,70,88,88,98,98,88,88,110,101,101,101,101,101,101,101,101,107,78"/>
     <multi attribute="frame size" size="2" value="1615,1026"/>
     <multi attribute="jtag widget size" size="2" value="376,145"/>
   </global_info>

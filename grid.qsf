@@ -315,7 +315,7 @@ set_global_assignment -name FAMILY "Cyclone IV E"
 set_global_assignment -name DEVICE_FILTER_PACKAGE FBGA
 set_global_assignment -name DEVICE_FILTER_PIN_COUNT 484
 set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 8
-set_global_assignment -name TOP_LEVEL_ENTITY qsys_serial_host
+set_global_assignment -name TOP_LEVEL_ENTITY grid
 
 # Fitter Assignments
 # ==================
@@ -576,7 +576,7 @@ set_global_assignment -name OUTPUT_IO_TIMING_ENDPOINT "NEAR END"
 
 # end ENTITY(grid)
 # ----------------
-set_global_assignment -name ENABLE_SIGNALTAP OFF
+set_global_assignment -name ENABLE_SIGNALTAP ON
 set_global_assignment -name USE_SIGNALTAP_FILE grid.stp
 set_global_assignment -name SEARCH_PATH frontier/synthesis/ -tag from_archive
 set_global_assignment -name SEARCH_PATH frontier/synthesis/submodules/ -tag from_archive
@@ -590,28 +590,6 @@ set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH port_io_interfa
 set_global_assignment -name EDA_TEST_BENCH_NAME AM2301 -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id AM2301
 set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME AM2301 -section_id AM2301
-set_global_assignment -name VERILOG_FILE interface_port_io.v
-set_global_assignment -name VERILOG_FILE qsys_root/sht1x_sensor.v
-set_global_assignment -name VERILOG_FILE clock.v
-set_global_assignment -name VERILOG_FILE qsys_root/motor_speed_measurement.v
-set_global_assignment -name VERILOG_FILE qsys_root/brushless_motor_driver.v
-set_global_assignment -name VERILOG_FILE qsys_root/step_motor_driver.v
-set_global_assignment -name VERILOG_FILE qsys_root/brush_motor_driver.v
-set_global_assignment -name VERILOG_FILE motorcontrl.v
-set_global_assignment -name BDF_FILE grid.bdf
-set_global_assignment -name SDC_FILE grid.sdc
-set_global_assignment -name CDF_FILE grid.cdf
-set_global_assignment -name VERILOG_FILE grid.v
-set_global_assignment -name CDF_FILE output/grid.cdf
-set_global_assignment -name SIGNALTAP_FILE grid.stp
-set_global_assignment -name VERILOG_FILE qsys_root/AM2301.v
-set_global_assignment -name VERILOG_FILE qsys_root/position_encoder.v
-set_global_assignment -name VERILOG_FILE qsys_root/fan_motor_driver.v
-set_global_assignment -name VERILOG_FILE qsys_root/sdif.v
-set_global_assignment -name VERILOG_FILE qsys_root/qsys_device.v
-set_global_assignment -name VERILOG_FILE test_rom.v
-set_global_assignment -name VERILOG_FILE port_io_interface.v
-set_global_assignment -name VERILOG_FILE port_io_interface_sim.v
 set_global_assignment -name EDA_TEST_BENCH_FILE qsys_root/AM2301_sim.v -section_id AM2301
 set_global_assignment -name EDA_TEST_BENCH_NAME port_io_interface_sim -section_id eda_simulation
 set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id port_io_interface_sim
@@ -646,12 +624,380 @@ set_location_assignment PIN_AB17 -to MSE_RESETN
 set_location_assignment PIN_T12 -to MSE_SDO[4]
 set_location_assignment PIN_AB18 -to MSE_SDO[5]
 set_location_assignment PIN_N22 -to MSE_SDO[6]
-set_global_assignment -name QIP_FILE frontier/synthesis/frontier.qip
-set_global_assignment -name VERILOG_FILE qsys_root/qsys_serial_host.v
-set_global_assignment -name VERILOG_FILE qsys_root/qsys_serial_device.v
+set_global_assignment -name SLD_NODE_CREATOR_ID 110 -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_ENTITY_NAME sld_signaltap -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_INFO=805334528" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_POWER_UP_TRIGGER=0" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_STORAGE_QUALIFIER_INVERSION_MASK_LENGTH=0" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_ATTRIBUTE_MEM_MODE=OFF" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_STATE_FLOW_USE_GENERATED=0" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_STATE_BITS=11" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_BUFFER_FULL_STOP=1" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_CURRENT_RESOURCE_WIDTH=1" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_LEVEL=1" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_ADVANCED_TRIGGER_ENTITY=basic,1," -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_LEVEL_PIPELINE=1" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_ENABLE_ADVANCED_TRIGGER=0" -section_id auto_signaltap_0
 set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
 set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_clk -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|clk" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[0] -to M1_WAITN -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[0] -to M1_WAITN -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_SEGMENT_SIZE=2048" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_SAMPLE_DEPTH=2048" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_IN_ENABLED=1" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[1] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[2] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[3] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[4] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[5] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[6] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[7] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[8] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[9] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_read" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[10] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_write" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[11] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[12] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[10]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[13] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[11]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[14] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[12]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[15] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[13]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[16] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[14]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[17] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[15]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[18] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[16]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[19] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[17]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[20] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[18]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[21] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[19]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[22] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[23] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[20]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[24] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[21]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[25] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[22]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[26] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[23]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[27] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[24]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[28] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[25]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[29] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[26]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[30] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[27]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[31] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[28]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[32] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[29]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[33] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[34] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[30]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[35] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[31]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[36] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[32]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[37] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[33]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[38] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[34]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[39] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[35]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[40] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[36]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[41] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[37]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[42] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[38]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[43] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[39]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[44] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[45] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[40]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[46] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[41]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[47] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[42]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[48] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[43]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[49] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[44]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[50] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[45]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[51] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[46]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[52] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[47]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[53] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[48]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[54] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[49]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[55] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[56] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[50]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[57] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[51]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[58] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[52]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[59] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[53]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[60] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[54]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[61] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[55]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[62] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[56]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[63] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[57]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[64] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[58]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[65] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[59]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[66] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[67] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[60]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[68] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[61]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[69] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[62]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[70] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[63]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[71] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[64]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[72] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[73] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[74] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[8]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[75] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[9]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[76] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|sdi" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[77] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|sle" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[78] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|srdy" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[79] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[80] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[81] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[82] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[83] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[84] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[85] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[86] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[1] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[2] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[3] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[4] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[5] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[6] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[7] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[8] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_address[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[9] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_read" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[10] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_write" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[11] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[12] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[10]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[13] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[11]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[14] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[12]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[15] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[13]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[16] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[14]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[17] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[15]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[18] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[16]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[19] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[17]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[20] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[18]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[21] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[19]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[22] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[23] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[20]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[24] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[21]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[25] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[22]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[26] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[23]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[27] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[24]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[28] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[25]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[29] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[26]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[30] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[27]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[31] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[28]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[32] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[29]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[33] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[34] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[30]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[35] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[31]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[36] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[32]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[37] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[33]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[38] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[34]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[39] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[35]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[40] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[36]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[41] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[37]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[42] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[38]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[43] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[39]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[44] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[45] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[40]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[46] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[41]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[47] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[42]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[48] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[43]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[49] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[44]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[50] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[45]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[51] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[46]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[52] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[47]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[53] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[48]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[54] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[49]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[55] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[56] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[50]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[57] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[51]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[58] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[52]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[59] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[53]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[60] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[54]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[61] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[55]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[62] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[56]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[63] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[57]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[64] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[58]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[65] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[59]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[66] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[67] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[60]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[68] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[61]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[69] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[62]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[70] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[63]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[71] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[64]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[72] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[73] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[74] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[8]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[75] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|data_buffer[9]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[76] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|sdi" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[77] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|sle" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[78] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|srdy" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[79] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[80] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[81] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[82] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[83] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[84] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[85] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[86] -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|state[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT trigger_in -to "frontier:b2v_inst|qsys_serial_device:qsys_serial_device_0|avs_ctrl_write" -section_id auto_signaltap_0
+set_global_assignment -name QSYS_FILE mse.qsys
+set_global_assignment -name VERILOG_FILE interface_port_io.v
+set_global_assignment -name VERILOG_FILE qsys_root/sht1x_sensor.v
+set_global_assignment -name VERILOG_FILE clock.v
+set_global_assignment -name VERILOG_FILE qsys_root/motor_speed_measurement.v
+set_global_assignment -name VERILOG_FILE qsys_root/brushless_motor_driver.v
+set_global_assignment -name VERILOG_FILE qsys_root/step_motor_driver.v
+set_global_assignment -name VERILOG_FILE qsys_root/brush_motor_driver.v
+set_global_assignment -name VERILOG_FILE motorcontrl.v
+set_global_assignment -name BDF_FILE grid.bdf
+set_global_assignment -name SDC_FILE grid.sdc
+set_global_assignment -name CDF_FILE grid.cdf
+set_global_assignment -name VERILOG_FILE grid.v
+set_global_assignment -name CDF_FILE output/grid.cdf
+set_global_assignment -name SIGNALTAP_FILE grid.stp
+set_global_assignment -name VERILOG_FILE qsys_root/AM2301.v
+set_global_assignment -name VERILOG_FILE qsys_root/position_encoder.v
+set_global_assignment -name VERILOG_FILE qsys_root/fan_motor_driver.v
+set_global_assignment -name VERILOG_FILE qsys_root/sdif.v
+set_global_assignment -name VERILOG_FILE qsys_root/qsys_device.v
+set_global_assignment -name VERILOG_FILE test_rom.v
+set_global_assignment -name VERILOG_FILE port_io_interface.v
+set_global_assignment -name VERILOG_FILE port_io_interface_sim.v
+set_global_assignment -name VERILOG_FILE qsys_root/qsys_serial_host.v
+set_global_assignment -name VERILOG_FILE qsys_root/qsys_serial_device.v
+set_global_assignment -name QIP_FILE frontier/synthesis/frontier.qip
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[87] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[88] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[10]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[89] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[11]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[90] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[12]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[91] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[13]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[92] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[14]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[93] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[15]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[94] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[16]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[95] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[17]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[96] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[18]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[97] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[19]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[98] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[99] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[20]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[100] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[21]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[101] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[22]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[102] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[23]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[103] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[24]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[104] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[25]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[105] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[26]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[106] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[27]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[107] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[28]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[108] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[29]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[109] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[110] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[30]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[111] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[31]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[112] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[32]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[113] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[33]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[114] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[34]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[115] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[35]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[116] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[36]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[117] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[37]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[118] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[38]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[119] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[39]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[120] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[121] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[40]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[122] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[41]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[123] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[42]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[124] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[43]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[125] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[44]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[126] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[45]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[127] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[46]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[128] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[47]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[129] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[48]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[130] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[49]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[131] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[132] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[50]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[133] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[51]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[134] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[52]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[135] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[53]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[136] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[54]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[137] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[55]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[138] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[56]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[139] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[57]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[140] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[58]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[141] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[59]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[142] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[143] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[60]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[144] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[61]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[145] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[62]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[146] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[63]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[147] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[64]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[148] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[149] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[150] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[8]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[151] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[9]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[152] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|state[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[153] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|state[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[154] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|state[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[155] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|state[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[156] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|state[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[157] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|state[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[158] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|state[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[159] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|state[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[87] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[88] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[10]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[89] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[11]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[90] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[12]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[91] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[13]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[92] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[14]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[93] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[15]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[94] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[16]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[95] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[17]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[96] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[18]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[97] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[19]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[98] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[99] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[20]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[100] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[21]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[101] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[22]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[102] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[23]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[103] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[24]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[104] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[25]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[105] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[26]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[106] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[27]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[107] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[28]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[108] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[29]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[109] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[110] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[30]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[111] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[31]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[112] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[32]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[113] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[33]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[114] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[34]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[115] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[35]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[116] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[36]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[117] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[37]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[118] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[38]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[119] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[39]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[120] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[121] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[40]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[122] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[41]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[123] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[42]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[124] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[43]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[125] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[44]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[126] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[45]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[127] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[46]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[128] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[47]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[129] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[48]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[130] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[49]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[131] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[132] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[50]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[133] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[51]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[134] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[52]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[135] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[53]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[136] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[54]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[137] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[55]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[138] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[56]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[139] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[57]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[140] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[58]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[141] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[59]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[142] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[143] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[60]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[144] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[61]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[145] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[62]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[146] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[63]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[147] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[64]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[148] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[149] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[150] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[8]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[151] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|data_buffer[9]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[152] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|state[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[153] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|state[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[154] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|state[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[155] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|state[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[156] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|state[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[157] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|state[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[158] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|state[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[159] -to "mse:u0|qsys_serial_host:qsys_serial_host_0|state[7]" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_DATA_BITS=160" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_BITS=160" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK=0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK_LENGTH=505" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_LOWORD=9798" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_HIWORD=28525" -section_id auto_signaltap_0
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

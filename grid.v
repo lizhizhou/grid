@@ -357,18 +357,26 @@ frontier	b2v_inst(
 //   .sht1x_sensor_0_sck(IO_B14),
 //   .sht1x_sensor_0_sda(IO_B15), 
 	
-	
-//	  .qsys_device_0_reset                (),                //                   qsys_device_0.reset
-//   .qsys_device_0_clk                  (),                  //                                .clk
-//   .qsys_device_0_writedata            (),            //                                .writedata
-//   .qsys_device_0_write                (),                //                                .write
-//   .qsys_device_0_read                 (rd),                 //                                .read
-//   .qsys_device_0_waitrequest          (0),          //                                .waitrequest
-//   .qsys_device_0_readdata             (read),             //                                .readdata
-//   .qsys_device_0_address              (address),     
-	
+	 .qsys_serial_device_0_sle  (sle),  // qsys_serial_device_0.sle
+    .qsys_serial_device_0_srdy (srdy), //                     .srdy
+    .qsys_serial_device_0_clk  (clk),  //                     .clk
+    .qsys_serial_device_0_sdi  (sdi),  //                     .sdi
+    .qsys_serial_device_0_sdo  (sdo),   //                     .sdo
+
 	
 	.m0_EINT(M1_EINT));
+	
+	wire sle, srdy, clk, sdi, sdo;
+	//assign srdy = 1;
+	 mse u0 (
+        .qsys_serial_host_0_sdo   (sdi),   // qsys_serial_host_0.sdo
+        .qsys_serial_host_0_sdi   (sdo),   //                   .sdi
+        .qsys_serial_host_0_clk   (clk),   //                   .clk
+        .qsys_serial_host_0_sle   (sle),   //                   .sle
+        .qsys_serial_host_0_srdy  (srdy),  //                   .srdy
+        .qsys_serial_host_0_reset (M1_RSTN)  //                   .reset
+    );
+
 	
 	wire step_motor_driver_0_AX;
 	wire step_motor_driver_0_AY;

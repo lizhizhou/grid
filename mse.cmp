@@ -1,0 +1,11 @@
+	component mse is
+		port (
+			qsys_serial_host_0_sdo   : out std_logic;        -- sdo
+			qsys_serial_host_0_sdi   : in  std_logic := 'X'; -- sdi
+			qsys_serial_host_0_clk   : in  std_logic := 'X'; -- clk
+			qsys_serial_host_0_sle   : in  std_logic := 'X'; -- sle
+			qsys_serial_host_0_srdy  : out std_logic;        -- srdy
+			qsys_serial_host_0_reset : in  std_logic := 'X'  -- reset
+		);
+	end component mse;
+

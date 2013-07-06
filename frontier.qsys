@@ -186,7 +186,7 @@
          type = "int";
       }
    }
-   element AM2301_1.ctrl
+   element qsys_serial_device_0.ctrl
    {
       datum _lockedAddress
       {
@@ -195,34 +195,8 @@
       }
       datum baseAddress
       {
-         value = "268436032";
-         type = "long";
-      }
-   }
-   element step_motor_driver_2.ctrl
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "268436128";
-         type = "long";
-      }
-   }
-   element position_encoder_3.ctrl
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "268436320";
-         type = "long";
+         value = "268437504";
+         type = "String";
       }
    }
    element AM2301_0.ctrl
@@ -238,7 +212,7 @@
          type = "long";
       }
    }
-   element brush_motor_driver_0.ctrl
+   element brush_motor_driver_1.ctrl
    {
       datum _lockedAddress
       {
@@ -247,46 +221,7 @@
       }
       datum baseAddress
       {
-         value = "268436352";
-         type = "long";
-      }
-   }
-   element basic_FuncLED_1.ctrl
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "268435716";
-         type = "long";
-      }
-   }
-   element step_motor_driver_0.ctrl
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "268436064";
-         type = "long";
-      }
-   }
-   element basic_FuncLED_3.ctrl
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "268435724";
+         value = "268436384";
          type = "long";
       }
    }
@@ -303,7 +238,7 @@
          type = "long";
       }
    }
-   element brush_motor_driver_2.ctrl
+   element step_motor_driver_0.ctrl
    {
       datum _lockedAddress
       {
@@ -312,11 +247,11 @@
       }
       datum baseAddress
       {
-         value = "268436416";
+         value = "268436064";
          type = "long";
       }
    }
-   element basic_FuncLED_2.ctrl
+   element position_encoder_0.ctrl
    {
       datum _lockedAddress
       {
@@ -325,11 +260,11 @@
       }
       datum baseAddress
       {
-         value = "268435720";
+         value = "268436224";
          type = "long";
       }
    }
-   element fan_motor_driver_1.ctrl
+   element subdivision_step_motor_driver_0.ctrl
    {
       datum _lockedAddress
       {
@@ -338,7 +273,33 @@
       }
       datum baseAddress
       {
-         value = "268436512";
+         value = "268436544";
+         type = "String";
+      }
+   }
+   element AM2301_1.ctrl
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "268436032";
+         type = "long";
+      }
+   }
+   element sht1x_sensor_1.ctrl
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "268436608";
          type = "String";
       }
    }
@@ -360,7 +321,7 @@
          type = "String";
       }
    }
-   element subdivision_step_motor_driver_0.ctrl
+   element position_encoder_3.ctrl
    {
       datum _lockedAddress
       {
@@ -369,33 +330,7 @@
       }
       datum baseAddress
       {
-         value = "268436544";
-         type = "String";
-      }
-   }
-   element step_motor_driver_3.ctrl
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "268436160";
-         type = "long";
-      }
-   }
-   element position_encoder_1.ctrl
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "268436256";
+         value = "268436320";
          type = "long";
       }
    }
@@ -412,6 +347,58 @@
          type = "String";
       }
    }
+   element brush_motor_driver_2.ctrl
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "268436416";
+         type = "long";
+      }
+   }
+   element brush_motor_driver_3.ctrl
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "268436448";
+         type = "long";
+      }
+   }
+   element position_encoder_2.ctrl
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "268436288";
+         type = "long";
+      }
+   }
+   element brush_motor_driver_0.ctrl
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "268436352";
+         type = "long";
+      }
+   }
    element step_motor_driver_4.ctrl
    {
       datum _lockedAddress
@@ -422,6 +409,45 @@
       datum baseAddress
       {
          value = "268436192";
+         type = "long";
+      }
+   }
+   element step_motor_driver_3.ctrl
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "268436160";
+         type = "long";
+      }
+   }
+   element basic_FuncLED_1.ctrl
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "268435716";
+         type = "long";
+      }
+   }
+   element basic_FuncLED_2.ctrl
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "268435720";
          type = "long";
       }
    }
@@ -443,7 +469,7 @@
          type = "long";
       }
    }
-   element position_encoder_2.ctrl
+   element step_motor_driver_2.ctrl
    {
       datum _lockedAddress
       {
@@ -452,11 +478,11 @@
       }
       datum baseAddress
       {
-         value = "268436288";
+         value = "268436128";
          type = "long";
       }
    }
-   element position_encoder_0.ctrl
+   element fan_motor_driver_1.ctrl
    {
       datum _lockedAddress
       {
@@ -465,7 +491,33 @@
       }
       datum baseAddress
       {
-         value = "268436224";
+         value = "268436512";
+         type = "String";
+      }
+   }
+   element position_encoder_1.ctrl
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "268436256";
+         type = "long";
+      }
+   }
+   element basic_FuncLED_3.ctrl
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "268435724";
          type = "long";
       }
    }
@@ -480,58 +532,6 @@
       {
          value = "268435712";
          type = "long";
-      }
-   }
-   element brush_motor_driver_3.ctrl
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "268436448";
-         type = "long";
-      }
-   }
-   element brush_motor_driver_1.ctrl
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "268436384";
-         type = "long";
-      }
-   }
-   element qsys_serial_device_0.ctrl
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "268439552";
-         type = "String";
-      }
-   }
-   element sht1x_sensor_1.ctrl
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "268436608";
-         type = "String";
       }
    }
    element fan_motor_driver_0
@@ -550,19 +550,6 @@
          type = "int";
       }
    }
-   element grid_PIO26_B.gpio
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "536871040";
-         type = "long";
-      }
-   }
    element grid_PIO26_A.gpio
    {
       datum _lockedAddress
@@ -573,6 +560,19 @@
       datum baseAddress
       {
          value = "536870912";
+         type = "long";
+      }
+   }
+   element grid_PIO26_B.gpio
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "536871040";
          type = "long";
       }
    }
@@ -761,7 +761,7 @@
  <parameter name="projectName" value="grid.qpf" />
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1372950818688" />
+ <parameter name="timeStamp" value="1373077570379" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="m0" internal="HPS_tabby.EXPORT" type="conduit" dir="end" />
@@ -833,7 +833,7 @@
  <interface name="sht1x_sensor_1" internal="sht1x_sensor_1.sh1x_sensor_output" />
  <interface
    name="qsys_serial_device_0"
-   internal="qsys_serial_device_0.serial_bus"
+   internal="qsys_serial_device_0.conduit_end"
    type="conduit"
    dir="end" />
  <module kind="hps_tabby" version="1.1" enabled="1" name="HPS_tabby" />
@@ -1889,6 +1889,6 @@
    start="HPS_tabby.M1"
    end="qsys_serial_device_0.ctrl">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x10001000" />
+  <parameter name="baseAddress" value="0x10000800" />
  </connection>
 </system>

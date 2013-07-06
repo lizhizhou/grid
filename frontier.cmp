@@ -83,11 +83,11 @@
 			slot_b_P24                : inout std_logic                     := 'X';             -- P24
 			slot_b_P25                : inout std_logic                     := 'X';             -- P25
 			pwm_c0_export             : out   std_logic;                                        -- export
-			qsys_serial_device_0_sle  : out   std_logic;                                        -- sle
-			qsys_serial_device_0_srdy : in    std_logic                     := 'X';             -- srdy
-			qsys_serial_device_0_clk  : out   std_logic;                                        -- clk
+			qsys_serial_device_0_sdo  : out   std_logic;                                        -- sdo
 			qsys_serial_device_0_sdi  : in    std_logic                     := 'X';             -- sdi
-			qsys_serial_device_0_sdo  : out   std_logic                                         -- sdo
+			qsys_serial_device_0_clk  : out   std_logic;                                        -- clk
+			qsys_serial_device_0_sle  : out   std_logic;                                        -- sle
+			qsys_serial_device_0_srdy : in    std_logic                     := 'X'              -- srdy
 		);
 	end component frontier;
 

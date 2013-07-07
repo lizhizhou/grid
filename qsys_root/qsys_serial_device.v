@@ -9,7 +9,7 @@ module qsys_serial_device#(
 		input		 [7:0]	avs_ctrl_address,
 		input					avs_ctrl_write,
 		input					avs_ctrl_read,
-		output   			avs_ctrl_waitrequest,
+		output reg 			avs_ctrl_waitrequest,
 		// Qsys serial interface
 		output reg 			sdo,
 		input 		      sdi,
@@ -54,7 +54,7 @@ module qsys_serial_device#(
 			bus_ready_wait: 
 			begin
 				if(srdy == 1'b1)
-					nextstate <= bus_data_read;
+					nextstate <= bus_transmit_back;
 				else
 					nextstate <= bus_ready_wait;
 			end
@@ -111,14 +111,14 @@ module qsys_serial_device#(
 			sle <= 0;
 		end
 		
-		assign avs_ctrl_waitrequest = 1'b0;
-//		always@(posedge csi_MCLK_clk)
-//		begin
-//			if (state == bus_data_wait)
-//			avs_ctrl_waitrequest <= 0;
-//			else
-//			avs_ctrl_waitrequest <= 1;
-//		end
+//		assign avs_ctrl_waitrequest = 1'b0;
+		always@(posedge csi_MCLK_clk)
+		begin
+			if (state >= bus_transmit_start && state < bus_data_read )
+			avs_ctrl_waitrequest <= 1'b1;
+			else
+			avs_ctrl_waitrequest <= 1'b0;
+		end
 		
 		
 		always@(posedge csi_MCLK_clk)

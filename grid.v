@@ -374,7 +374,7 @@ frontier	b2v_inst(
         .qsys_serial_host_0_clk   (clk),   //                   .clk
         .qsys_serial_host_0_sle   (sle),   //                   .sle
         .qsys_serial_host_0_srdy  (srdy),  //                   .srdy
-        .qsys_serial_host_0_reset (M1_RSTN)  //                   .reset
+        .qsys_serial_host_0_reset (!M1_RSTN)  //                   .reset
     );
 
 	

@@ -39,12 +39,12 @@ set_module_property ALLOW_GREYBOX_GENERATION false
 add_fileset QUARTUS_SYNTH QUARTUS_SYNTH "" ""
 set_fileset_property QUARTUS_SYNTH TOP_LEVEL qsys_serial_device
 set_fileset_property QUARTUS_SYNTH ENABLE_RELATIVE_INCLUDE_PATHS false
-add_fileset_file qsys_serial_device.v VERILOG PATH qsys_root/qsys_serial_device.v
+add_fileset_file qsys_serial_device.v VERILOG PATH qsys_serial_device.v
 
 add_fileset SIM_VERILOG SIM_VERILOG "" ""
 set_fileset_property SIM_VERILOG TOP_LEVEL qsys_serial_device
 set_fileset_property SIM_VERILOG ENABLE_RELATIVE_INCLUDE_PATHS false
-add_fileset_file qsys_serial_device.v VERILOG PATH qsys_root/qsys_serial_device.v
+add_fileset_file qsys_serial_device.v VERILOG PATH qsys_serial_device.v
 
 
 # 

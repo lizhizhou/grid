@@ -75,12 +75,12 @@ module qsys_serial_host(
 		
 		always@(posedge clk)
 		begin
-			if (state >= bus_transmit_back && state < bus_data_ready)
+			if (state >= bus_transmit_back && state < bus_transmit_finish)
 			begin
 				integer i;
 				for(i=0;i<64;i=i+1)
 					data_buffer[i+1] <= data_buffer[i];
-				sdo <= data_buffer[64];
+				sdo <= data_buffer[32];
 			end 
 			else begin
 				case(state)
@@ -113,7 +113,7 @@ module qsys_serial_host(
 	
 		always@(posedge clk)
 		begin
-			if (state >= bus_transmit_back && state < bus_data_ready)
+			if (state >= bus_transmit_back && state < bus_transmit_finish)
 			srdy <= 1;
 			else
 			srdy <= 0;

@@ -109,7 +109,7 @@ module frontier_addr_router
     localparam PAD3 = log2ceil(64'h1000010c - 64'h10000108);
     localparam PAD4 = log2ceil(64'h10000110 - 64'h1000010c);
     localparam PAD5 = log2ceil(64'h10000204 - 64'h10000200);
-    localparam PAD6 = log2ceil(64'h10001400 - 64'h10001000);
+    localparam PAD6 = log2ceil(64'h10000c00 - 64'h10000800);
     localparam PAD7 = log2ceil(64'h20000080 - 64'h20000000);
     localparam PAD8 = log2ceil(64'h20000100 - 64'h20000080);
     localparam PAD9 = log2ceil(64'h20000120 - 64'h20000100);
@@ -193,8 +193,8 @@ module frontier_addr_router
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 5;
         end
 
-        // ( 0x10001000 .. 0x10001400 )
-        if ( {address[RG:PAD6],{PAD6{1'b0}}} == 30'h10001000 ) begin
+        // ( 0x10000800 .. 0x10000c00 )
+        if ( {address[RG:PAD6],{PAD6{1'b0}}} == 30'h10000800 ) begin
             src_channel = 10'b1000000000;
             src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 9;
         end

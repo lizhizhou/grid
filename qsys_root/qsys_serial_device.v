@@ -29,6 +29,7 @@ module qsys_serial_device#(
 		parameter bus_ready_wait =  bus_transmit_ready + 8'd1;
 		parameter bus_transmit_back     =  bus_ready_wait + 8'd1;
 		parameter bus_data_read     =  bus_transmit_back + 8'd1;
+		parameter bus_data_read_finish =  bus_data_read + 8'd30;
 		reg [7:0] state;
 		reg [7:0] nextstate;
 		always@(posedge csi_MCLK_clk or posedge rsi_MRST_reset)
@@ -65,7 +66,8 @@ module qsys_serial_device#(
 				else
 					nextstate <= bus_transmit_back;
 			end
-			bus_data_read:nextstate <= bus_data_wait;
+			bus_data_read: nextstate <= state +1;
+			bus_data_read_finish: nextstate <= bus_data_wait;
 			default: nextstate <= state + 1;
 			endcase
 		end
@@ -106,18 +108,17 @@ module qsys_serial_device#(
 		always@(posedge csi_MCLK_clk)
 		begin
 			if (state >= bus_transmit_start && state < bus_transmit_ready)
-			sle <= 1;
+				sle <= 1;
 			else
-			sle <= 0;
+				sle <= 0;
 		end
 		
-//		assign avs_ctrl_waitrequest = 1'b0;
 		always@(posedge csi_MCLK_clk)
 		begin
-			if (state >= bus_transmit_start && state < bus_data_read )
-			avs_ctrl_waitrequest <= 1'b1;
+			if (state >= bus_data_read && state <= bus_data_read_finish)
+				avs_ctrl_waitrequest <= 1'b0;
 			else
-			avs_ctrl_waitrequest <= 1'b0;
+				avs_ctrl_waitrequest <= 1'b0;
 		end
 		
 		

@@ -10,6 +10,7 @@ module qsys_serial_device#(
 		input					avs_ctrl_write,
 		input					avs_ctrl_read,
 		output reg 			avs_ctrl_waitrequest,
+		output reg        avs_ctrl_readdatavalid,
 		// Qsys serial interface
 		output reg 			sdo,
 		input 		      sdi,
@@ -29,7 +30,7 @@ module qsys_serial_device#(
 		parameter bus_ready_wait =  bus_transmit_ready + 8'd1;
 		parameter bus_transmit_back     =  bus_ready_wait + 8'd1;
 		parameter bus_data_read     =  bus_transmit_back + 8'd1;
-		parameter bus_data_read_finish =  bus_data_read + 8'd30;
+		parameter bus_data_read_finish =  bus_data_read + 8'd2;
 		reg [7:0] state;
 		reg [7:0] nextstate;
 		always@(posedge csi_MCLK_clk or posedge rsi_MRST_reset)
@@ -107,7 +108,7 @@ module qsys_serial_device#(
 		
 		always@(posedge csi_MCLK_clk)
 		begin
-			if (state >= bus_transmit_start && state < bus_transmit_ready)
+			if (state >= bus_data_ready && state < bus_transmit_ready)
 				sle <= 1;
 			else
 				sle <= 0;
@@ -115,10 +116,18 @@ module qsys_serial_device#(
 		
 		always@(posedge csi_MCLK_clk)
 		begin
-			if (state >= bus_data_read && state <= bus_data_read_finish)
-				avs_ctrl_waitrequest <= 1'b0;
+			if (state >= bus_data_ready && state <= bus_data_read)
+				avs_ctrl_waitrequest <= 1'b1;
 			else
 				avs_ctrl_waitrequest <= 1'b0;
+		end
+		
+		always@(posedge csi_MCLK_clk)
+		begin
+			if (state == bus_data_read )
+				avs_ctrl_readdatavalid <= 1'b1;
+			else
+				avs_ctrl_readdatavalid <= 1'b0;
 		end
 		
 		

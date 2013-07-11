@@ -1,6 +1,6 @@
 <sld_project_info>
   <project>
-    <hash md5_digest_80b="788ef299e28605e7e83f"/>
+    <hash md5_digest_80b="54854e63e05a03a8186c"/>
   </project>
   <file_info/>
   <hub_info ir_width="8" node_count="1"/>
@@ -12,14 +12,14 @@
         <parameter name="SLD_IP_VERSION" type="dec" value="6"/>
         <parameter name="SLD_IP_MINOR_VERSION" type="dec" value="0"/>
         <parameter name="SLD_COMMON_IP_VERSION" type="dec" value="0"/>
-        <parameter name="sld_data_bits" type="unknown" value="195"/>
-        <parameter name="sld_trigger_bits" type="unknown" value="195"/>
+        <parameter name="sld_data_bits" type="unknown" value="172"/>
+        <parameter name="sld_trigger_bits" type="unknown" value="172"/>
         <parameter name="SLD_NODE_CRC_BITS" type="dec" value="32"/>
-        <parameter name="sld_node_crc_hiword" type="unknown" value="15527"/>
-        <parameter name="sld_node_crc_loword" type="unknown" value="25234"/>
+        <parameter name="sld_node_crc_hiword" type="unknown" value="56293"/>
+        <parameter name="sld_node_crc_loword" type="unknown" value="50132"/>
         <parameter name="SLD_INCREMENTAL_ROUTING" type="dec" value="0"/>
-        <parameter name="sld_sample_depth" type="unknown" value="2048"/>
-        <parameter name="sld_segment_size" type="unknown" value="2048"/>
+        <parameter name="sld_sample_depth" type="unknown" value="1024"/>
+        <parameter name="sld_segment_size" type="unknown" value="1024"/>
         <parameter name="SLD_RAM_BLOCK_TYPE" type="string" value="AUTO"/>
         <parameter name="sld_state_bits" type="unknown" value="11"/>
         <parameter name="sld_buffer_full_stop" type="unknown" value="1"/>
@@ -40,8 +40,8 @@
         <parameter name="SLD_ADVANCED_TRIGGER_8" type="string" value="NONE"/>
         <parameter name="SLD_ADVANCED_TRIGGER_9" type="string" value="NONE"/>
         <parameter name="SLD_ADVANCED_TRIGGER_10" type="string" value="NONE"/>
-        <parameter name="sld_inversion_mask_length" type="unknown" value="610"/>
-        <parameter name="sld_inversion_mask" type="unknown" value="0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"/>
+        <parameter name="sld_inversion_mask_length" type="unknown" value="540"/>
+        <parameter name="sld_inversion_mask" type="unknown" value="000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"/>
         <parameter name="sld_power_up_trigger" type="unknown" value="0"/>
         <parameter name="SLD_STATE_FLOW_MGR_ENTITY" type="string" value="state_flow_mgr_entity.vhd"/>
         <parameter name="sld_state_flow_use_generated" type="unknown" value="0"/>
@@ -62,7 +62,7 @@
   <sld_infos>
     <sld_info hpath="frontier:b2v_inst" name="b2v_inst">
       <assignment_values>
-        <assignment_value text="QSYS_NAME frontier HAS_SOPCINFO 1 GENERATION_ID 1373295519"/>
+        <assignment_value text="QSYS_NAME frontier HAS_SOPCINFO 1 GENERATION_ID 1373552192"/>
       </assignment_values>
       <parameters/>
     </sld_info>

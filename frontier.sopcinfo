@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="frontier" kind="frontier" version="1.0" fabric="QSYS">
  <!-- Format version 12.1sp1 243 (Future versions may contain additional information.) -->
- <!-- 2013.07.08.22:58:39 -->
+ <!-- 2013.07.11.22:16:32 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1373295519</value>
+  <value>1373552192</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -8254,9 +8254,9 @@ parameters are a RESULT of the module parameters. -->
    </parameter>
    <parameter name="maximumPendingReadTransactions">
     <type>int</type>
-    <value>0</value>
+    <value>1</value>
     <derived>false</derived>
-    <enabled>false</enabled>
+    <enabled>true</enabled>
     <visible>true</visible>
     <valid>true</valid>
    </parameter>
@@ -8280,7 +8280,7 @@ parameters are a RESULT of the module parameters. -->
     <type>int</type>
     <value>0</value>
     <derived>false</derived>
-    <enabled>true</enabled>
+    <enabled>false</enabled>
     <visible>true</visible>
     <valid>true</valid>
    </parameter>
@@ -8431,6 +8431,12 @@ parameters are a RESULT of the module parameters. -->
     <direction>Output</direction>
     <width>1</width>
     <role>waitrequest</role>
+   </port>
+   <port>
+    <name>avs_ctrl_readdatavalid</name>
+    <direction>Output</direction>
+    <width>1</width>
+    <role>readdatavalid</role>
    </port>
   </interface>
   <interface name="conduit_end" kind="conduit_end" version="12.1">
@@ -9725,33 +9731,6 @@ parameters are a RESULT of the module parameters. -->
   <endConnectionPoint>mrst</endConnectionPoint>
  </connection>
  <connection
-   name="HPS_tabby.MCLK/qsys_serial_device_0.mclk"
-   kind="clock"
-   version="12.1"
-   start="HPS_tabby.MCLK"
-   end="qsys_serial_device_0.mclk">
-  <parameter name="deviceFamily">
-   <type>java.lang.String</type>
-   <value>UNKNOWN</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="generateLegacySim">
-   <type>boolean</type>
-   <value>false</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <startModule>HPS_tabby</startModule>
-  <startConnectionPoint>MCLK</startConnectionPoint>
-  <endModule>qsys_serial_device_0</endModule>
-  <endConnectionPoint>mclk</endConnectionPoint>
- </connection>
- <connection
    name="HPS_tabby.M1/qsys_serial_device_0.ctrl"
    kind="avalon"
    version="12.1"
@@ -9794,13 +9773,48 @@ parameters are a RESULT of the module parameters. -->
   <endModule>qsys_serial_device_0</endModule>
   <endConnectionPoint>ctrl</endConnectionPoint>
  </connection>
+ <connection
+   name="HPS_tabby.MCLK/qsys_serial_device_0.mclk"
+   kind="clock"
+   version="12.1"
+   start="HPS_tabby.MCLK"
+   end="qsys_serial_device_0.mclk">
+  <parameter name="deviceFamily">
+   <type>java.lang.String</type>
+   <value>UNKNOWN</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <parameter name="generateLegacySim">
+   <type>boolean</type>
+   <value>false</value>
+   <derived>false</derived>
+   <enabled>true</enabled>
+   <visible>true</visible>
+   <valid>true</valid>
+  </parameter>
+  <startModule>HPS_tabby</startModule>
+  <startConnectionPoint>MCLK</startConnectionPoint>
+  <endModule>qsys_serial_device_0</endModule>
+  <endConnectionPoint>mclk</endConnectionPoint>
+ </connection>
  <plugin>
-  <instanceCount>3</instanceCount>
-  <name>interrupt</name>
+  <instanceCount>12</instanceCount>
+  <name>clock</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IConnection</subtype>
-  <displayName>Interrupt Connection</displayName>
+  <displayName>Clock Connection</displayName>
   <version>12.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>4</instanceCount>
+  <name>basic_FuncLED</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>RGB Function LED Controller</displayName>
+  <version>1.0</version>
  </plugin>
  <plugin>
   <instanceCount>4</instanceCount>
@@ -9808,6 +9822,38 @@ parameters are a RESULT of the module parameters. -->
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IConnection</subtype>
   <displayName>Avalon Streaming Connection</displayName>
+  <version>12.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>12</instanceCount>
+  <name>reset</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IConnection</subtype>
+  <displayName>Reset Connection</displayName>
+  <version>12.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>test_LEDState</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>LED Test State Generator</displayName>
+  <version>1.0</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>basic_SysID</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>Globe System ID</displayName>
+  <version>1.0</version>
+ </plugin>
+ <plugin>
+  <instanceCount>3</instanceCount>
+  <name>interrupt</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IConnection</subtype>
+  <displayName>Interrupt Connection</displayName>
   <version>12.1</version>
  </plugin>
  <plugin>
@@ -9820,19 +9866,11 @@ parameters are a RESULT of the module parameters. -->
  </plugin>
  <plugin>
   <instanceCount>12</instanceCount>
-  <name>clock</name>
+  <name>reset_sink</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IConnection</subtype>
-  <displayName>Clock Connection</displayName>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Reset Input</displayName>
   <version>12.1</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>basic_SysID</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>Globe System ID</displayName>
-  <version>1.0</version>
  </plugin>
  <plugin>
   <instanceCount>3</instanceCount>
@@ -9840,46 +9878,6 @@ parameters are a RESULT of the module parameters. -->
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
   <displayName>Clock Output</displayName>
-  <version>12.1</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>basic_ShieldCtrl</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>Shield Slot Administrative Controller</displayName>
-  <version>1.0</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>hps_tabby</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>Tabby Host Processor Interface</displayName>
-  <version>1.1</version>
- </plugin>
- <plugin>
-  <instanceCount>4</instanceCount>
-  <name>basic_FuncLED</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>RGB Function LED Controller</displayName>
-  <version>1.0</version>
- </plugin>
- <plugin>
-  <instanceCount>10</instanceCount>
-  <name>conduit_end</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Conduit</displayName>
-  <version>12.1</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>interrupt_receiver</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Interrupt Receiver</displayName>
   <version>12.1</version>
  </plugin>
  <plugin>
@@ -9891,12 +9889,12 @@ parameters are a RESULT of the module parameters. -->
   <version>12.1</version>
  </plugin>
  <plugin>
-  <instanceCount>6</instanceCount>
-  <name>avalon_streaming_sink</name>
+  <instanceCount>2</instanceCount>
+  <name>grid_PIO26</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Avalon Streaming Sink</displayName>
-  <version>12.1</version>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>Interrupt GPIO 26-bits</displayName>
+  <version>1.0</version>
  </plugin>
  <plugin>
   <instanceCount>10</instanceCount>
@@ -9907,35 +9905,19 @@ parameters are a RESULT of the module parameters. -->
   <version>12.1</version>
  </plugin>
  <plugin>
-  <instanceCount>12</instanceCount>
-  <name>reset</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IConnection</subtype>
-  <displayName>Reset Connection</displayName>
-  <version>12.1</version>
- </plugin>
- <plugin>
-  <instanceCount>4</instanceCount>
-  <name>avalon_streaming_source</name>
+  <instanceCount>10</instanceCount>
+  <name>conduit_end</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Avalon Streaming Source</displayName>
-  <version>12.1</version>
- </plugin>
- <plugin>
-  <instanceCount>12</instanceCount>
-  <name>reset_sink</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Reset Input</displayName>
+  <displayName>Conduit</displayName>
   <version>12.1</version>
  </plugin>
  <plugin>
   <instanceCount>1</instanceCount>
-  <name>test_LEDState</name>
+  <name>basic_ShieldCtrl</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>LED Test State Generator</displayName>
+  <displayName>Shield Slot Administrative Controller</displayName>
   <version>1.0</version>
  </plugin>
  <plugin>
@@ -9947,27 +9929,11 @@ parameters are a RESULT of the module parameters. -->
   <version>12.1</version>
  </plugin>
  <plugin>
-  <instanceCount>1</instanceCount>
-  <name>grid_PWM</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>PWM Output Controller</displayName>
-  <version>1.0</version>
- </plugin>
- <plugin>
-  <instanceCount>2</instanceCount>
-  <name>grid_PIO26</name>
-  <type>com.altera.entityinterfaces.IElementClass</type>
-  <subtype>com.altera.entityinterfaces.IModule</subtype>
-  <displayName>Interrupt GPIO 26-bits</displayName>
-  <version>1.0</version>
- </plugin>
- <plugin>
-  <instanceCount>1</instanceCount>
-  <name>avalon_master</name>
+  <instanceCount>6</instanceCount>
+  <name>avalon_streaming_sink</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
-  <displayName>Avalon Memory Mapped Master</displayName>
+  <displayName>Avalon Streaming Sink</displayName>
   <version>12.1</version>
  </plugin>
  <plugin>
@@ -9979,12 +9945,52 @@ parameters are a RESULT of the module parameters. -->
   <version>1.0</version>
  </plugin>
  <plugin>
+  <instanceCount>4</instanceCount>
+  <name>avalon_streaming_source</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Avalon Streaming Source</displayName>
+  <version>12.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>hps_tabby</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>Tabby Host Processor Interface</displayName>
+  <version>1.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>avalon_master</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Avalon Memory Mapped Master</displayName>
+  <version>12.1</version>
+ </plugin>
+ <plugin>
   <instanceCount>1</instanceCount>
   <name>reset_source</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
   <displayName>Reset Output</displayName>
   <version>12.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>interrupt_receiver</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IMutableConnectionPoint</subtype>
+  <displayName>Interrupt Receiver</displayName>
+  <version>12.1</version>
+ </plugin>
+ <plugin>
+  <instanceCount>1</instanceCount>
+  <name>grid_PWM</name>
+  <type>com.altera.entityinterfaces.IElementClass</type>
+  <subtype>com.altera.entityinterfaces.IModule</subtype>
+  <displayName>PWM Output Controller</displayName>
+  <version>1.0</version>
  </plugin>
  <reportVersion>12.1sp1 243</reportVersion>
  <uniqueIdentifier></uniqueIdentifier>

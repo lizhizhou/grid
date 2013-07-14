@@ -162,7 +162,7 @@ module grid(
 	output  MSE_SCLK,	
 	output [6:0] MSE_SDI,	
 	output [6:0] MSE_SDO,		
-	output [6:0] MSE_SLE,		
+	inout  [6:0] MSE_SLE,		
 	output [6:0] MSE_SRDY	
 
 );
@@ -351,12 +351,13 @@ frontier	b2v_inst(
 //	.sdif_IN             (SPDIF_IN),
 // .sdif_OUT            (SPDIF_OUT),
 
-//   .sht1x_sensor_1_sck(IO_A14),
-//   .sht1x_sensor_1_sda(IO_A15), 
-//	
-//   .sht1x_sensor_0_sck(IO_B14),
-//   .sht1x_sensor_0_sda(IO_B15), 
-	
+   .sht1x_sensor_0_sck(MSE_SDI[4]),
+   .sht1x_sensor_0_sda(MSE_SLE[4]), 
+	.sht1x_sensor_0_dir(MSE_SDO[4]),      
+   .sht1x_sensor_1_sck(MSE_SDI[5]),
+   .sht1x_sensor_1_sda(MSE_SLE[5]), 
+   .sht1x_sensor_1_dir(MSE_SDO[5]),  
+
 	 .qsys_serial_device_0_sle  (sle),  // qsys_serial_device_0.sle
     .qsys_serial_device_0_srdy (srdy), //                     .srdy
     .qsys_serial_device_0_clk  (clk),  //                     .clk

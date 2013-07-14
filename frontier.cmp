@@ -1,93 +1,135 @@
 	component frontier is
 		port (
-			m0_RSTN                   : in    std_logic                     := 'X';             -- RSTN
-			m0_CLK                    : in    std_logic                     := 'X';             -- CLK
-			m0_ADDR                   : in    std_logic_vector(21 downto 0) := (others => 'X'); -- ADDR
-			m0_DATA                   : inout std_logic_vector(31 downto 0) := (others => 'X'); -- DATA
-			m0_CSN                    : in    std_logic_vector(3 downto 0)  := (others => 'X'); -- CSN
-			m0_BEN                    : in    std_logic_vector(3 downto 0)  := (others => 'X'); -- BEN
-			m0_RDN                    : in    std_logic                     := 'X';             -- RDN
-			m0_WRN                    : in    std_logic                     := 'X';             -- WRN
-			m0_WAITN                  : out   std_logic;                                        -- WAITN
-			m0_EINT                   : out   std_logic_vector(9 downto 0);                     -- EINT
-			led_f0_R                  : out   std_logic;                                        -- R
-			led_f0_G                  : out   std_logic;                                        -- G
-			led_f0_B                  : out   std_logic;                                        -- B
-			led_f1_R                  : out   std_logic;                                        -- R
-			led_f1_G                  : out   std_logic;                                        -- G
-			led_f1_B                  : out   std_logic;                                        -- B
-			led_f2_R                  : out   std_logic;                                        -- R
-			led_f2_G                  : out   std_logic;                                        -- G
-			led_f2_B                  : out   std_logic;                                        -- B
-			led_f3_R                  : out   std_logic;                                        -- R
-			led_f3_G                  : out   std_logic;                                        -- G
-			led_f3_B                  : out   std_logic;                                        -- B
-			shield_ctrl_A_OCN         : in    std_logic                     := 'X';             -- A_OCN
-			shield_ctrl_A_PWREN       : out   std_logic;                                        -- A_PWREN
-			shield_ctrl_A_HOE         : out   std_logic;                                        -- A_HOE
-			shield_ctrl_A_LOE         : out   std_logic;                                        -- A_LOE
-			shield_ctrl_B_OCN         : in    std_logic                     := 'X';             -- B_OCN
-			shield_ctrl_B_PWREN       : out   std_logic;                                        -- B_PWREN
-			shield_ctrl_B_HOE         : out   std_logic;                                        -- B_HOE
-			shield_ctrl_B_LOE         : out   std_logic;                                        -- B_LOE
-			slot_a_P0                 : inout std_logic                     := 'X';             -- P0
-			slot_a_P1                 : inout std_logic                     := 'X';             -- P1
-			slot_a_P2                 : inout std_logic                     := 'X';             -- P2
-			slot_a_P3                 : inout std_logic                     := 'X';             -- P3
-			slot_a_P4                 : inout std_logic                     := 'X';             -- P4
-			slot_a_P5                 : inout std_logic                     := 'X';             -- P5
-			slot_a_P6                 : inout std_logic                     := 'X';             -- P6
-			slot_a_P7                 : inout std_logic                     := 'X';             -- P7
-			slot_a_P8                 : inout std_logic                     := 'X';             -- P8
-			slot_a_P9                 : inout std_logic                     := 'X';             -- P9
-			slot_a_P10                : inout std_logic                     := 'X';             -- P10
-			slot_a_P11                : inout std_logic                     := 'X';             -- P11
-			slot_a_P12                : inout std_logic                     := 'X';             -- P12
-			slot_a_P13                : inout std_logic                     := 'X';             -- P13
-			slot_a_P14                : inout std_logic                     := 'X';             -- P14
-			slot_a_P15                : inout std_logic                     := 'X';             -- P15
-			slot_a_P16                : inout std_logic                     := 'X';             -- P16
-			slot_a_P17                : inout std_logic                     := 'X';             -- P17
-			slot_a_P18                : inout std_logic                     := 'X';             -- P18
-			slot_a_P19                : inout std_logic                     := 'X';             -- P19
-			slot_a_P20                : inout std_logic                     := 'X';             -- P20
-			slot_a_P21                : inout std_logic                     := 'X';             -- P21
-			slot_a_P22                : inout std_logic                     := 'X';             -- P22
-			slot_a_P23                : inout std_logic                     := 'X';             -- P23
-			slot_a_P24                : inout std_logic                     := 'X';             -- P24
-			slot_a_P25                : inout std_logic                     := 'X';             -- P25
-			slot_b_P0                 : inout std_logic                     := 'X';             -- P0
-			slot_b_P1                 : inout std_logic                     := 'X';             -- P1
-			slot_b_P2                 : inout std_logic                     := 'X';             -- P2
-			slot_b_P3                 : inout std_logic                     := 'X';             -- P3
-			slot_b_P4                 : inout std_logic                     := 'X';             -- P4
-			slot_b_P5                 : inout std_logic                     := 'X';             -- P5
-			slot_b_P6                 : inout std_logic                     := 'X';             -- P6
-			slot_b_P7                 : inout std_logic                     := 'X';             -- P7
-			slot_b_P8                 : inout std_logic                     := 'X';             -- P8
-			slot_b_P9                 : inout std_logic                     := 'X';             -- P9
-			slot_b_P10                : inout std_logic                     := 'X';             -- P10
-			slot_b_P11                : inout std_logic                     := 'X';             -- P11
-			slot_b_P12                : inout std_logic                     := 'X';             -- P12
-			slot_b_P13                : inout std_logic                     := 'X';             -- P13
-			slot_b_P14                : inout std_logic                     := 'X';             -- P14
-			slot_b_P15                : inout std_logic                     := 'X';             -- P15
-			slot_b_P16                : inout std_logic                     := 'X';             -- P16
-			slot_b_P17                : inout std_logic                     := 'X';             -- P17
-			slot_b_P18                : inout std_logic                     := 'X';             -- P18
-			slot_b_P19                : inout std_logic                     := 'X';             -- P19
-			slot_b_P20                : inout std_logic                     := 'X';             -- P20
-			slot_b_P21                : inout std_logic                     := 'X';             -- P21
-			slot_b_P22                : inout std_logic                     := 'X';             -- P22
-			slot_b_P23                : inout std_logic                     := 'X';             -- P23
-			slot_b_P24                : inout std_logic                     := 'X';             -- P24
-			slot_b_P25                : inout std_logic                     := 'X';             -- P25
-			pwm_c0_export             : out   std_logic;                                        -- export
-			qsys_serial_device_0_sdo  : out   std_logic;                                        -- sdo
-			qsys_serial_device_0_sdi  : in    std_logic                     := 'X';             -- sdi
-			qsys_serial_device_0_clk  : out   std_logic;                                        -- clk
-			qsys_serial_device_0_sle  : out   std_logic;                                        -- sle
-			qsys_serial_device_0_srdy : in    std_logic                     := 'X'              -- srdy
+			m0_RSTN                            : in    std_logic                     := 'X';             -- RSTN
+			m0_CLK                             : in    std_logic                     := 'X';             -- CLK
+			m0_ADDR                            : in    std_logic_vector(21 downto 0) := (others => 'X'); -- ADDR
+			m0_DATA                            : inout std_logic_vector(31 downto 0) := (others => 'X'); -- DATA
+			m0_CSN                             : in    std_logic_vector(3 downto 0)  := (others => 'X'); -- CSN
+			m0_BEN                             : in    std_logic_vector(3 downto 0)  := (others => 'X'); -- BEN
+			m0_RDN                             : in    std_logic                     := 'X';             -- RDN
+			m0_WRN                             : in    std_logic                     := 'X';             -- WRN
+			m0_WAITN                           : out   std_logic;                                        -- WAITN
+			m0_EINT                            : out   std_logic_vector(9 downto 0);                     -- EINT
+			led_f0_R                           : out   std_logic;                                        -- R
+			led_f0_G                           : out   std_logic;                                        -- G
+			led_f0_B                           : out   std_logic;                                        -- B
+			led_f1_R                           : out   std_logic;                                        -- R
+			led_f1_G                           : out   std_logic;                                        -- G
+			led_f1_B                           : out   std_logic;                                        -- B
+			led_f2_R                           : out   std_logic;                                        -- R
+			led_f2_G                           : out   std_logic;                                        -- G
+			led_f2_B                           : out   std_logic;                                        -- B
+			led_f3_R                           : out   std_logic;                                        -- R
+			led_f3_G                           : out   std_logic;                                        -- G
+			led_f3_B                           : out   std_logic;                                        -- B
+			shield_ctrl_A_OCN                  : in    std_logic                     := 'X';             -- A_OCN
+			shield_ctrl_A_PWREN                : out   std_logic;                                        -- A_PWREN
+			shield_ctrl_A_HOE                  : out   std_logic;                                        -- A_HOE
+			shield_ctrl_A_LOE                  : out   std_logic;                                        -- A_LOE
+			shield_ctrl_B_OCN                  : in    std_logic                     := 'X';             -- B_OCN
+			shield_ctrl_B_PWREN                : out   std_logic;                                        -- B_PWREN
+			shield_ctrl_B_HOE                  : out   std_logic;                                        -- B_HOE
+			shield_ctrl_B_LOE                  : out   std_logic;                                        -- B_LOE
+			slot_a_P0                          : inout std_logic                     := 'X';             -- P0
+			slot_a_P1                          : inout std_logic                     := 'X';             -- P1
+			slot_a_P2                          : inout std_logic                     := 'X';             -- P2
+			slot_a_P3                          : inout std_logic                     := 'X';             -- P3
+			slot_a_P4                          : inout std_logic                     := 'X';             -- P4
+			slot_a_P5                          : inout std_logic                     := 'X';             -- P5
+			slot_a_P6                          : inout std_logic                     := 'X';             -- P6
+			slot_a_P7                          : inout std_logic                     := 'X';             -- P7
+			slot_a_P8                          : inout std_logic                     := 'X';             -- P8
+			slot_a_P9                          : inout std_logic                     := 'X';             -- P9
+			slot_a_P10                         : inout std_logic                     := 'X';             -- P10
+			slot_a_P11                         : inout std_logic                     := 'X';             -- P11
+			slot_a_P12                         : inout std_logic                     := 'X';             -- P12
+			slot_a_P13                         : inout std_logic                     := 'X';             -- P13
+			slot_a_P14                         : inout std_logic                     := 'X';             -- P14
+			slot_a_P15                         : inout std_logic                     := 'X';             -- P15
+			slot_a_P16                         : inout std_logic                     := 'X';             -- P16
+			slot_a_P17                         : inout std_logic                     := 'X';             -- P17
+			slot_a_P18                         : inout std_logic                     := 'X';             -- P18
+			slot_a_P19                         : inout std_logic                     := 'X';             -- P19
+			slot_a_P20                         : inout std_logic                     := 'X';             -- P20
+			slot_a_P21                         : inout std_logic                     := 'X';             -- P21
+			slot_a_P22                         : inout std_logic                     := 'X';             -- P22
+			slot_a_P23                         : inout std_logic                     := 'X';             -- P23
+			slot_a_P24                         : inout std_logic                     := 'X';             -- P24
+			slot_a_P25                         : inout std_logic                     := 'X';             -- P25
+			slot_b_P0                          : inout std_logic                     := 'X';             -- P0
+			slot_b_P1                          : inout std_logic                     := 'X';             -- P1
+			slot_b_P2                          : inout std_logic                     := 'X';             -- P2
+			slot_b_P3                          : inout std_logic                     := 'X';             -- P3
+			slot_b_P4                          : inout std_logic                     := 'X';             -- P4
+			slot_b_P5                          : inout std_logic                     := 'X';             -- P5
+			slot_b_P6                          : inout std_logic                     := 'X';             -- P6
+			slot_b_P7                          : inout std_logic                     := 'X';             -- P7
+			slot_b_P8                          : inout std_logic                     := 'X';             -- P8
+			slot_b_P9                          : inout std_logic                     := 'X';             -- P9
+			slot_b_P10                         : inout std_logic                     := 'X';             -- P10
+			slot_b_P11                         : inout std_logic                     := 'X';             -- P11
+			slot_b_P12                         : inout std_logic                     := 'X';             -- P12
+			slot_b_P13                         : inout std_logic                     := 'X';             -- P13
+			slot_b_P14                         : inout std_logic                     := 'X';             -- P14
+			slot_b_P15                         : inout std_logic                     := 'X';             -- P15
+			slot_b_P16                         : inout std_logic                     := 'X';             -- P16
+			slot_b_P17                         : inout std_logic                     := 'X';             -- P17
+			slot_b_P18                         : inout std_logic                     := 'X';             -- P18
+			slot_b_P19                         : inout std_logic                     := 'X';             -- P19
+			slot_b_P20                         : inout std_logic                     := 'X';             -- P20
+			slot_b_P21                         : inout std_logic                     := 'X';             -- P21
+			slot_b_P22                         : inout std_logic                     := 'X';             -- P22
+			slot_b_P23                         : inout std_logic                     := 'X';             -- P23
+			slot_b_P24                         : inout std_logic                     := 'X';             -- P24
+			slot_b_P25                         : inout std_logic                     := 'X';             -- P25
+			pwm_c0_export                      : out   std_logic;                                        -- export
+			step_motor_driver_0_AX             : out   std_logic;                                        -- AX
+			step_motor_driver_0_AY             : out   std_logic;                                        -- AY
+			step_motor_driver_0_BX             : out   std_logic;                                        -- BX
+			step_motor_driver_0_BY             : out   std_logic;                                        -- BY
+			step_motor_driver_0_AE             : out   std_logic;                                        -- AE
+			step_motor_driver_0_BE             : out   std_logic;                                        -- BE
+			step_motor_driver_1_AX             : out   std_logic;                                        -- AX
+			step_motor_driver_1_AY             : out   std_logic;                                        -- AY
+			step_motor_driver_1_BX             : out   std_logic;                                        -- BX
+			step_motor_driver_1_BY             : out   std_logic;                                        -- BY
+			step_motor_driver_1_AE             : out   std_logic;                                        -- AE
+			step_motor_driver_1_BE             : out   std_logic;                                        -- BE
+			step_motor_driver_2_AX             : out   std_logic;                                        -- AX
+			step_motor_driver_2_AY             : out   std_logic;                                        -- AY
+			step_motor_driver_2_BX             : out   std_logic;                                        -- BX
+			step_motor_driver_2_BY             : out   std_logic;                                        -- BY
+			step_motor_driver_2_AE             : out   std_logic;                                        -- AE
+			step_motor_driver_2_BE             : out   std_logic;                                        -- BE
+			step_motor_driver_3_AX             : out   std_logic;                                        -- AX
+			step_motor_driver_3_AY             : out   std_logic;                                        -- AY
+			step_motor_driver_3_BX             : out   std_logic;                                        -- BX
+			step_motor_driver_3_BY             : out   std_logic;                                        -- BY
+			step_motor_driver_3_AE             : out   std_logic;                                        -- AE
+			step_motor_driver_3_BE             : out   std_logic;                                        -- BE
+			step_motor_driver_4_AX             : out   std_logic;                                        -- AX
+			step_motor_driver_4_AY             : out   std_logic;                                        -- AY
+			step_motor_driver_4_BX             : out   std_logic;                                        -- BX
+			step_motor_driver_4_BY             : out   std_logic;                                        -- BY
+			step_motor_driver_4_AE             : out   std_logic;                                        -- AE
+			step_motor_driver_4_BE             : out   std_logic;                                        -- BE
+			subdivision_step_motor_driver_0_AX : out   std_logic;                                        -- AX
+			subdivision_step_motor_driver_0_AY : out   std_logic;                                        -- AY
+			subdivision_step_motor_driver_0_BX : out   std_logic;                                        -- BX
+			subdivision_step_motor_driver_0_BY : out   std_logic;                                        -- BY
+			subdivision_step_motor_driver_0_AE : out   std_logic;                                        -- AE
+			subdivision_step_motor_driver_0_BE : out   std_logic;                                        -- BE
+			qsys_serial_device_0_sdo           : out   std_logic;                                        -- sdo
+			qsys_serial_device_0_sdi           : in    std_logic                     := 'X';             -- sdi
+			qsys_serial_device_0_clk           : out   std_logic;                                        -- clk
+			qsys_serial_device_0_sle           : out   std_logic;                                        -- sle
+			qsys_serial_device_0_srdy          : in    std_logic                     := 'X';             -- srdy
+			sht1x_sensor_0_sck                 : out   std_logic;                                        -- sck
+			sht1x_sensor_0_sda                 : inout std_logic                     := 'X';             -- sda
+			sht1x_sensor_0_dir                 : out   std_logic;                                        -- dir
+			sht1x_sensor_1_sck                 : out   std_logic;                                        -- sck
+			sht1x_sensor_1_sda                 : inout std_logic                     := 'X';             -- sda
+			sht1x_sensor_1_dir                 : out   std_logic                                         -- dir
 		);
 	end component frontier;
 

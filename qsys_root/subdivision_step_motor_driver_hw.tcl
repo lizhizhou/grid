@@ -39,12 +39,12 @@ set_module_property ALLOW_GREYBOX_GENERATION false
 add_fileset QUARTUS_SYNTH QUARTUS_SYNTH "" ""
 set_fileset_property QUARTUS_SYNTH TOP_LEVEL subdivision_step_motor_driver
 set_fileset_property QUARTUS_SYNTH ENABLE_RELATIVE_INCLUDE_PATHS false
-add_fileset_file subdivision_step_motor_driver.v VERILOG PATH qsys_root/subdivision_step_motor_driver.v
+add_fileset_file subdivision_step_motor_driver.v VERILOG PATH subdivision_step_motor_driver.v
 
 add_fileset SIM_VERILOG SIM_VERILOG "" ""
 set_fileset_property SIM_VERILOG TOP_LEVEL subdivision_step_motor_driver
 set_fileset_property SIM_VERILOG ENABLE_RELATIVE_INCLUDE_PATHS false
-add_fileset_file subdivision_step_motor_driver.v VERILOG PATH qsys_root/subdivision_step_motor_driver.v
+add_fileset_file subdivision_step_motor_driver.v VERILOG PATH subdivision_step_motor_driver.v
 
 
 # 

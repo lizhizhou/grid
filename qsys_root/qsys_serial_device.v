@@ -27,7 +27,8 @@ module qsys_serial_device#(
 		parameter bus_data_ready = bus_data_wait+8'd1;
 		parameter bus_transmit_start = bus_data_ready + 8'd1;
 		parameter bus_transmit_ready = bus_transmit_start + 8'd64;
-		parameter bus_ready_wait =  bus_transmit_ready + 8'd1;
+		parameter bus_transmit_finish = bus_transmit_ready + 8'd1;		
+		parameter bus_ready_wait =  bus_transmit_finish + 8'd1;
 		parameter bus_transmit_back     =  bus_ready_wait + 8'd1;
 		parameter bus_data_read     =  bus_transmit_back + 8'd1;
 		parameter bus_data_read_finish =  bus_data_read + 8'd2;
@@ -52,7 +53,8 @@ module qsys_serial_device#(
 			end
 			bus_data_ready: nextstate <= bus_transmit_start;
 			bus_transmit_start: nextstate <= state + 1;
-			bus_transmit_ready: nextstate <= bus_ready_wait;
+			bus_transmit_ready: nextstate <= bus_transmit_finish;
+			bus_transmit_finish: nextstate <= bus_ready_wait;
 			bus_ready_wait: 
 			begin
 				if(srdy == 1'b1)
@@ -90,7 +92,7 @@ module qsys_serial_device#(
 					data_buffer[31:0]  <= 32'd0;
 				end
 			end
-			else if (state >= bus_transmit_start && state < bus_transmit_ready)
+			else if (state >= bus_transmit_start && state <= bus_transmit_ready)
 			begin
 				integer i;
 				for(i=0;i<64;i=i+1)

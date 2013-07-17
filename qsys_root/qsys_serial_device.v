@@ -116,12 +116,12 @@ module qsys_serial_device#(
 				sle <= 0;
 		end
 		
-		always@(posedge csi_MCLK_clk)
+		always@(state)
 		begin
 			if (state >= bus_data_ready && state <= bus_data_read)
-				avs_ctrl_waitrequest <= 1'b1;
+				avs_ctrl_waitrequest = 1'b1;
 			else
-				avs_ctrl_waitrequest <= 1'b0;
+				avs_ctrl_waitrequest = 1'b0;
 		end
 		
 		always@(posedge csi_MCLK_clk)

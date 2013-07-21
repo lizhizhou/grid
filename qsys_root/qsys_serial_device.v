@@ -9,6 +9,7 @@ module qsys_serial_device#(
 		input		 [7:0]	avs_ctrl_address,
 		input					avs_ctrl_write,
 		input					avs_ctrl_read,
+		input             avs_ctrl_chipselect,
 		output reg 			avs_ctrl_waitrequest,
 		output reg        avs_ctrl_readdatavalid,
 		// Qsys serial interface
@@ -47,7 +48,12 @@ module qsys_serial_device#(
 			initial_state: nextstate <= bus_data_wait;
 			bus_data_wait: begin
 			if(avs_ctrl_write == 1'b1 || avs_ctrl_read == 1'b1)
-				nextstate <= bus_data_ready;
+			begin
+				if(avs_ctrl_chipselect == 1'b1)
+					nextstate <= bus_data_ready;
+				else
+					nextstate <= bus_data_wait;				
+			end
 			else
 				nextstate <= bus_data_wait;
 			end

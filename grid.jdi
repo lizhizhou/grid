@@ -1,6 +1,10 @@
 <sld_project_info>
   <project>
+<<<<<<< HEAD
     <hash md5_digest_80b="1eb36d0c1bd0727ba7e0"/>
+=======
+    <hash md5_digest_80b="458321b784588ce28fd0"/>
+>>>>>>> a6e8414e2b7af41efd2786d6901d424f9206e924
   </project>
   <file_info/>
   <hub_info ir_width="8" node_count="1"/>
@@ -62,7 +66,11 @@
   <sld_infos>
     <sld_info hpath="frontier:b2v_inst" name="b2v_inst">
       <assignment_values>
+<<<<<<< HEAD
         <assignment_value text="QSYS_NAME frontier HAS_SOPCINFO 1 GENERATION_ID 1374074047"/>
+=======
+        <assignment_value text="QSYS_NAME frontier HAS_SOPCINFO 1 GENERATION_ID 1374400242"/>
+>>>>>>> a6e8414e2b7af41efd2786d6901d424f9206e924
       </assignment_values>
       <parameters/>
     </sld_info>

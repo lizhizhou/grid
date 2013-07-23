@@ -158,12 +158,12 @@ module grid(
 //	output 	[7:2] PLCD_R
 
 	output  MSE_RESETN,	
-	input MSE_RSTOUT,	
+	input   MSE_RSTOUT,	
 	output  MSE_SCLK,	
-	output [6:0] MSE_SDI,	
-	output [6:0] MSE_SDO,		
+	inout  [6:0] MSE_SDI,	
+	inout  [6:0] MSE_SDO,		
 	inout  [6:0] MSE_SLE,		
-	output [6:0] MSE_SRDY	
+	inout  [6:0] MSE_SRDY	
 
 );
 
@@ -292,33 +292,33 @@ frontier	b2v_inst(
 //	.am2301_1_sda    (IO_A15),         
 // .am2301_1_clk_1us(IO_A14),  
 	
-//	.step_motor_driver_0_AX(step_motor_driver_0_AX),
-//	.step_motor_driver_0_AY(step_motor_driver_0_AY),
-//	.step_motor_driver_0_BX(step_motor_driver_0_BX),
-//	.step_motor_driver_0_BY(step_motor_driver_0_BY),
-//	.step_motor_driver_0_AE(),
-//	.step_motor_driver_0_BE(),
-//	
-//	.step_motor_driver_1_AX(step_motor_driver_1_AX),
-//	.step_motor_driver_1_AY(step_motor_driver_1_AY),
-//	.step_motor_driver_1_BX(step_motor_driver_1_BX),
-//	.step_motor_driver_1_BY(step_motor_driver_1_BY),
-//	.step_motor_driver_1_AE(),
-//	.step_motor_driver_1_BE(),
-//	
-//	.step_motor_driver_2_AX(step_motor_driver_2_AX),
-//	.step_motor_driver_2_AY(step_motor_driver_2_AY),
-//	.step_motor_driver_2_BX(step_motor_driver_2_BX),
-//	.step_motor_driver_2_BY(step_motor_driver_2_BY),
-//	.step_motor_driver_2_AE(),
-//	.step_motor_driver_2_BE(),
-//	
-//	.step_motor_driver_3_AX(step_motor_driver_3_AX),            
-//   .step_motor_driver_3_AY(step_motor_driver_3_AY),           
-//   .step_motor_driver_3_BX(step_motor_driver_3_BX),            
-//   .step_motor_driver_3_BY(step_motor_driver_3_BY),   
-//   .step_motor_driver_3_AE(),       
-//   .step_motor_driver_3_BE(),             
+	.step_motor_driver_0_AX(step_motor_driver_0_AX),
+	.step_motor_driver_0_AY(step_motor_driver_0_AY),
+	.step_motor_driver_0_BX(step_motor_driver_0_BX),
+	.step_motor_driver_0_BY(step_motor_driver_0_BY),
+	.step_motor_driver_0_AE(),
+	.step_motor_driver_0_BE(),
+	
+	.step_motor_driver_1_AX(step_motor_driver_1_AX),
+	.step_motor_driver_1_AY(step_motor_driver_1_AY),
+	.step_motor_driver_1_BX(step_motor_driver_1_BX),
+	.step_motor_driver_1_BY(step_motor_driver_1_BY),
+	.step_motor_driver_1_AE(),
+	.step_motor_driver_1_BE(),
+	
+	.step_motor_driver_2_AX(step_motor_driver_2_AX),
+	.step_motor_driver_2_AY(step_motor_driver_2_AY),
+	.step_motor_driver_2_BX(step_motor_driver_2_BX),
+	.step_motor_driver_2_BY(step_motor_driver_2_BY),
+	.step_motor_driver_2_AE(),
+	.step_motor_driver_2_BE(),
+	
+	.step_motor_driver_3_AX(step_motor_driver_3_AX),            
+   .step_motor_driver_3_AY(step_motor_driver_3_AY),           
+   .step_motor_driver_3_BX(step_motor_driver_3_BX),            
+   .step_motor_driver_3_BY(step_motor_driver_3_BY),   
+   .step_motor_driver_3_AE(),       
+   .step_motor_driver_3_BE(),             
 	
 	
 //	.subdivision_step_motor_driver_0_AX (IO_B13),
@@ -368,7 +368,7 @@ frontier	b2v_inst(
 	.m0_EINT(M1_EINT));
 	
 	wire sle, srdy, clk, sdi, sdo;
-	//assign srdy = 1;
+	//for unit test
 	 mse u0 (
         .qsys_serial_host_0_sdo   (sdi),   // qsys_serial_host_0.sdo
         .qsys_serial_host_0_sdi   (sdo),   //                   .sdi
@@ -377,6 +377,24 @@ frontier	b2v_inst(
         .qsys_serial_host_0_srdy  (srdy),  //                   .srdy
         .qsys_serial_host_0_reset (!M1_RSTN)  //                   .reset
     );
+
+//	assign MSE_SDI[6] = sdo;
+//	assign sdi=MSE_SDO[6];
+//	assign MSE_SDO[6] = 1'bz;
+//	assign MSE_SCLK = clk;
+//	assign MSE_SLE[6] = sle;
+//	assign srdy = MSE_SRDY[6];
+//	assign MSE_SRDY[6] = 1'bz;
+//	assign MSE_RESETN = M1_RSTN;
+	
+//	qsys u0 (
+//        .qsys_serial_host_sdo   (MSE_SDO[6]),   // qsys_serial_host.sdo
+//        .qsys_serial_host_sdi   (MSE_SDI[6]),   //                 .sdi
+//        .qsys_serial_host_clk   (MSE_SCLK),   //                 .clk
+//        .qsys_serial_host_sle   (MSE_SLE[6]),   //                 .sle
+//        .qsys_serial_host_srdy  (MSE_SRDY[6]),  //                 .srdy
+//        .qsys_serial_host_reset (!MSE_RESETN)  //                 .reset
+//   );
 
 	
 	wire step_motor_driver_0_AX;

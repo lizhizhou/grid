@@ -296,7 +296,6 @@ set_location_assignment PIN_U20 -to IO_B21
 set_location_assignment PIN_M19 -to IO_B23
 set_location_assignment PIN_M20 -to IO_B24
 set_location_assignment PIN_R19 -to IO_B25
-set_location_assignment PIN_AA17 -to PNL_SDO
 set_location_assignment PIN_T14 -to PLCD_R[2]
 set_location_assignment PIN_T15 -to PLCD_R[3]
 set_location_assignment PIN_AA13 -to PLCD_R[4]
@@ -678,7 +677,6 @@ set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name QIP_FILE frontier/synthesis/frontier.qip
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[2] -to "frontier:b2v_inst|hps_tabby:hps_tabby|avm_M1_writedata[0]" -section_id auto_signaltap_0
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[3] -to "frontier:b2v_inst|hps_tabby:hps_tabby|avm_M1_writedata[10]" -section_id auto_signaltap_0
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[4] -to "frontier:b2v_inst|hps_tabby:hps_tabby|avm_M1_writedata[11]" -section_id auto_signaltap_0
@@ -1221,3 +1219,7 @@ set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK=00
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK_LENGTH=834" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_LOWORD=10335" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_HIWORD=63607" -section_id auto_signaltap_0
+
+set_location_assignment PIN_AA17 -to MSE_SCLK
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name QIP_FILE frontier/synthesis/frontier.qip

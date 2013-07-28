@@ -358,25 +358,25 @@ frontier	b2v_inst(
    .sht1x_sensor_1_sda(MSE_SLE[5]), 
    .sht1x_sensor_1_dir(MSE_SDO[5]),  
 
-	 .qsys_serial_device_0_sle  (sle),  // qsys_serial_device_0.sle
-    .qsys_serial_device_0_srdy (srdy), //                     .srdy
-    .qsys_serial_device_0_clk  (clk),  //                     .clk
-    .qsys_serial_device_0_sdi  (sdi),  //                     .sdi
-    .qsys_serial_device_0_sdo  (sdo),   //                     .sdo
+//	 .qsys_serial_device_0_sle  (sle),  // qsys_serial_device_0.sle
+//    .qsys_serial_device_0_srdy (srdy), //                     .srdy
+//    .qsys_serial_device_0_clk  (clk),  //                     .clk
+//    .qsys_serial_device_0_sdi  (sdi),  //                     .sdi
+//    .qsys_serial_device_0_sdo  (sdo),   //                     .sdo
 
 	
 	.m0_EINT(M1_EINT));
 	
 	wire sle, srdy, clk, sdi, sdo;
 	//for unit test
-	 mse u0 (
-        .qsys_serial_host_0_sdo   (sdi),   // qsys_serial_host_0.sdo
-        .qsys_serial_host_0_sdi   (sdo),   //                   .sdi
-        .qsys_serial_host_0_clk   (clk),   //                   .clk
-        .qsys_serial_host_0_sle   (sle),   //                   .sle
-        .qsys_serial_host_0_srdy  (srdy),  //                   .srdy
-        .qsys_serial_host_0_reset (!M1_RSTN)  //                   .reset
-    );
+//	 mse u0 (
+//        .qsys_serial_host_0_sdo   (sdi),   // qsys_serial_host_0.sdo
+//        .qsys_serial_host_0_sdi   (sdo),   //                   .sdi
+//        .qsys_serial_host_0_clk   (clk),   //                   .clk
+//        .qsys_serial_host_0_sle   (sle),   //                   .sle
+//        .qsys_serial_host_0_srdy  (srdy),  //                   .srdy
+//        .qsys_serial_host_0_reset (!M1_RSTN)  //                   .reset
+//    );
 
 //	assign MSE_SDI[6] = sdo;
 //	assign sdi=MSE_SDO[6];

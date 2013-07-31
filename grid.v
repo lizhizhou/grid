@@ -369,23 +369,23 @@ frontier	b2v_inst(
 	
 	wire sle, srdy, clk, sdi, sdo;
 	//for unit test
-	 mse u0 (
-        .qsys_serial_host_0_sdo   (sdi),   // qsys_serial_host_0.sdo
-        .qsys_serial_host_0_sdi   (sdo),   //                   .sdi
-        .qsys_serial_host_0_clk   (clk),   //                   .clk
-        .qsys_serial_host_0_sle   (sle),   //                   .sle
-        .qsys_serial_host_0_srdy  (srdy),  //                   .srdy
-        .qsys_serial_host_0_reset (!M1_RSTN)  //                   .reset
-    );
+//	 mse u0 (
+//        .qsys_serial_host_0_sdo   (sdi),   // qsys_serial_host_0.sdo
+//        .qsys_serial_host_0_sdi   (sdo),   //                   .sdi
+//        .qsys_serial_host_0_clk   (clk),   //                   .clk
+//        .qsys_serial_host_0_sle   (sle),   //                   .sle
+//        .qsys_serial_host_0_srdy  (srdy),  //                   .srdy
+//        .qsys_serial_host_0_reset (!M1_RSTN)  //                   .reset
+//    );
 
-//	assign MSE_SDI[6] = sdo;
-//	assign sdi=MSE_SDO[6];
-//	assign MSE_SDO[6] = 1'bz;
-//	assign MSE_SCLK = clk;
-//	assign MSE_SLE[6] = sle;
-//	assign srdy = MSE_SRDY[6];
-//	assign MSE_SRDY[6] = 1'bz;
-//	assign MSE_RESETN = M1_RSTN;
+	assign MSE_SDI[6] = sdo;
+	assign sdi=MSE_SDO[6];
+	assign MSE_SDO[6] = 1'bz;
+	assign MSE_SCLK = clk;
+	assign MSE_SLE[6] = sle;
+	assign srdy = MSE_SRDY[6];
+	assign MSE_SRDY[6] = 1'bz;
+	assign MSE_RESETN = M1_RSTN;
 	
 //	qsys u0 (
 //        .qsys_serial_host_sdo   (MSE_SDO[6]),   // qsys_serial_host.sdo

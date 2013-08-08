@@ -23,7 +23,6 @@ frontier/
 .DS_Store
 *.qws
 *.jdi
-*.qsf
 *.sopcinfo
 *.cmp
 

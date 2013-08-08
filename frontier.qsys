@@ -36,7 +36,7 @@
          type = "int";
       }
    }
-   element brush_motor_driver_1.MCLK
+   element brush_motor_driver_3.MCLK
    {
       datum _tags
       {
@@ -44,7 +44,7 @@
          type = "String";
       }
    }
-   element brush_motor_driver_3.MCLK
+   element brush_motor_driver_1.MCLK
    {
       datum _tags
       {
@@ -186,7 +186,7 @@
          type = "int";
       }
    }
-   element step_motor_driver_3.ctrl
+   element position_encoder_1.ctrl
    {
       datum _lockedAddress
       {
@@ -195,85 +195,25 @@
       }
       datum baseAddress
       {
-         value = "268436160";
+         value = "268436256";
          type = "long";
       }
    }
-   element position_encoder_0.ctrl
+   element basic_ShieldCtrl.ctrl
    {
       datum _lockedAddress
       {
          value = "1";
          type = "boolean";
       }
-      datum baseAddress
+      datum _tags
       {
-         value = "268436224";
-         type = "long";
-      }
-   }
-   element step_motor_driver_2.ctrl
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "268436128";
-         type = "long";
-      }
-   }
-   element position_encoder_2.ctrl
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "268436288";
-         type = "long";
-      }
-   }
-   element basic_FuncLED_1.ctrl
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "268435716";
-         type = "long";
-      }
-   }
-   element sht1x_sensor_0.ctrl
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "268436576";
+         value = "";
          type = "String";
       }
-   }
-   element brush_motor_driver_1.ctrl
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
       datum baseAddress
       {
-         value = "268436384";
+         value = "268435968";
          type = "long";
       }
    }
@@ -290,7 +230,7 @@
          type = "long";
       }
    }
-   element step_motor_driver_1.ctrl
+   element brush_motor_driver_2.ctrl
    {
       datum _lockedAddress
       {
@@ -299,11 +239,11 @@
       }
       datum baseAddress
       {
-         value = "268436096";
+         value = "268436416";
          type = "long";
       }
    }
-   element qsys_device_0.ctrl
+   element brush_motor_driver_1.ctrl
    {
       datum _lockedAddress
       {
@@ -312,20 +252,7 @@
       }
       datum baseAddress
       {
-         value = "268439552";
-         type = "String";
-      }
-   }
-   element position_encoder_1.ctrl
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "268436256";
+         value = "268436384";
          type = "long";
       }
    }
@@ -355,7 +282,7 @@
          type = "long";
       }
    }
-   element AM2301_1.ctrl
+   element step_motor_driver_3.ctrl
    {
       datum _lockedAddress
       {
@@ -364,11 +291,11 @@
       }
       datum baseAddress
       {
-         value = "268436032";
+         value = "268436160";
          type = "long";
       }
    }
-   element sht1x_sensor_1.ctrl
+   element brush_motor_driver_3.ctrl
    {
       datum _lockedAddress
       {
@@ -377,24 +304,11 @@
       }
       datum baseAddress
       {
-         value = "268436608";
-         type = "String";
-      }
-   }
-   element brush_motor_driver_2.ctrl
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "268436416";
+         value = "268436448";
          type = "long";
       }
    }
-   element position_encoder_3.ctrl
+   element position_encoder_2.ctrl
    {
       datum _lockedAddress
       {
@@ -403,33 +317,7 @@
       }
       datum baseAddress
       {
-         value = "268436320";
-         type = "long";
-      }
-   }
-   element subdivision_step_motor_driver_0.ctrl
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "268436544";
-         type = "String";
-      }
-   }
-   element step_motor_driver_0.ctrl
-   {
-      datum _lockedAddress
-      {
-         value = "1";
-         type = "boolean";
-      }
-      datum baseAddress
-      {
-         value = "268436064";
+         value = "268436288";
          type = "long";
       }
    }
@@ -459,7 +347,7 @@
          type = "long";
       }
    }
-   element brush_motor_driver_3.ctrl
+   element qsys_serial_device_0.ctrl
    {
       datum _lockedAddress
       {
@@ -468,7 +356,111 @@
       }
       datum baseAddress
       {
-         value = "268436448";
+         value = "2048";
+         type = "String";
+      }
+   }
+   element sht1x_sensor_0.ctrl
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "268436576";
+         type = "String";
+      }
+   }
+   element step_motor_driver_2.ctrl
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "268436128";
+         type = "long";
+      }
+   }
+   element subdivision_step_motor_driver_0.ctrl
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "268436544";
+         type = "String";
+      }
+   }
+   element step_motor_driver_4.ctrl
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "268436192";
+         type = "long";
+      }
+   }
+   element basic_FuncLED_1.ctrl
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "268435716";
+         type = "long";
+      }
+   }
+   element position_encoder_3.ctrl
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "268436320";
+         type = "long";
+      }
+   }
+   element step_motor_driver_1.ctrl
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "268436096";
+         type = "long";
+      }
+   }
+   element step_motor_driver_0.ctrl
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "268436064";
          type = "long";
       }
    }
@@ -485,7 +477,7 @@
          type = "long";
       }
    }
-   element step_motor_driver_4.ctrl
+   element AM2301_1.ctrl
    {
       datum _lockedAddress
       {
@@ -494,7 +486,7 @@
       }
       datum baseAddress
       {
-         value = "268436192";
+         value = "268436032";
          type = "long";
       }
    }
@@ -516,21 +508,29 @@
          type = "String";
       }
    }
-   element basic_ShieldCtrl.ctrl
+   element sht1x_sensor_1.ctrl
    {
       datum _lockedAddress
       {
          value = "1";
          type = "boolean";
       }
-      datum _tags
+      datum baseAddress
       {
-         value = "";
+         value = "268436608";
          type = "String";
+      }
+   }
+   element position_encoder_0.ctrl
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
       }
       datum baseAddress
       {
-         value = "268435968";
+         value = "268436224";
          type = "long";
       }
    }
@@ -653,7 +653,7 @@
          type = "long";
       }
    }
-   element qsys_device_0
+   element qsys_serial_device_0
    {
       datum _sortIndex
       {
@@ -761,7 +761,7 @@
  <parameter name="projectName" value="grid.qpf" />
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1372333036390" />
+ <parameter name="timeStamp" value="1375970166101" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface name="m0" internal="HPS_tabby.EXPORT" type="conduit" dir="end" />
@@ -790,56 +790,30 @@
    internal="basic_ShieldCtrl.EXPORT"
    type="conduit"
    dir="end" />
- <interface name="slot_a" internal="grid_PIO26_A.EXPORT" type="conduit" dir="end" />
- <interface name="slot_b" internal="grid_PIO26_B.EXPORT" type="conduit" dir="end" />
- <interface name="pwm_c0" internal="grid_PWM_0.EXPORT" type="conduit" dir="end" />
- <interface name="am2301_0" internal="AM2301_0.AM2301" type="conduit" dir="end" />
- <interface
-   name="step_motor_driver_0"
-   internal="step_motor_driver_0.step_motor"
-   type="conduit"
-   dir="end" />
+ <interface name="slot_a" internal="grid_PIO26_A.EXPORT" />
+ <interface name="slot_b" internal="grid_PIO26_B.EXPORT" />
+ <interface name="pwm_c0" internal="grid_PWM_0.EXPORT" />
+ <interface name="am2301_0" internal="AM2301_0.AM2301" />
+ <interface name="step_motor_driver_0" internal="step_motor_driver_0.step_motor" />
  <interface
    name="position_encoder_0"
-   internal="position_encoder_0.position_encoder"
-   type="conduit"
-   dir="end" />
- <interface
-   name="step_motor_driver_1"
-   internal="step_motor_driver_1.step_motor"
-   type="conduit"
-   dir="end" />
- <interface name="am2301_1" internal="AM2301_1.AM2301" type="conduit" dir="end" />
+   internal="position_encoder_0.position_encoder" />
+ <interface name="step_motor_driver_1" internal="step_motor_driver_1.step_motor" />
+ <interface name="am2301_1" internal="AM2301_1.AM2301" />
  <interface
    name="brush_motor_driver_3"
-   internal="brush_motor_driver_3.brush_motor"
-   type="conduit"
-   dir="end" />
+   internal="brush_motor_driver_3.brush_motor" />
  <interface
    name="brush_motor_driver_2"
-   internal="brush_motor_driver_2.brush_motor"
-   type="conduit"
-   dir="end" />
+   internal="brush_motor_driver_2.brush_motor" />
  <interface
    name="brush_motor_driver_1"
    internal="brush_motor_driver_1.brush_motor"
    type="conduit"
    dir="end" />
- <interface
-   name="step_motor_driver_2"
-   internal="step_motor_driver_2.step_motor"
-   type="conduit"
-   dir="end" />
- <interface
-   name="step_motor_driver_3"
-   internal="step_motor_driver_3.step_motor"
-   type="conduit"
-   dir="end" />
- <interface
-   name="step_motor_driver_4"
-   internal="step_motor_driver_4.step_motor"
-   type="conduit"
-   dir="end" />
+ <interface name="step_motor_driver_2" internal="step_motor_driver_2.step_motor" />
+ <interface name="step_motor_driver_3" internal="step_motor_driver_3.step_motor" />
+ <interface name="step_motor_driver_4" internal="step_motor_driver_4.step_motor" />
  <interface
    name="position_encoder_1"
    internal="position_encoder_1.position_encoder"
@@ -860,34 +834,16 @@
    internal="brush_motor_driver_0.brush_motor"
    type="conduit"
    dir="end" />
- <interface
-   name="fan_motor_driver_0"
-   internal="fan_motor_driver_0.fan_motor"
-   type="conduit"
-   dir="end" />
- <interface
-   name="fan_motor_driver_1"
-   internal="fan_motor_driver_1.fan_motor"
-   type="conduit"
-   dir="end" />
+ <interface name="fan_motor_driver_0" internal="fan_motor_driver_0.fan_motor" />
+ <interface name="fan_motor_driver_1" internal="fan_motor_driver_1.fan_motor" />
  <interface
    name="subdivision_step_motor_driver_0"
-   internal="subdivision_step_motor_driver_0.step_motor"
-   type="conduit"
-   dir="end" />
+   internal="subdivision_step_motor_driver_0.step_motor" />
+ <interface name="sht1x_sensor_0" internal="sht1x_sensor_0.sh1x_sensor_output" />
+ <interface name="sht1x_sensor_1" internal="sht1x_sensor_1.sh1x_sensor_output" />
  <interface
-   name="sht1x_sensor_0"
-   internal="sht1x_sensor_0.sh1x_sensor_output"
-   type="conduit"
-   dir="end" />
- <interface
-   name="sht1x_sensor_1"
-   internal="sht1x_sensor_1.sh1x_sensor_output"
-   type="conduit"
-   dir="end" />
- <interface
-   name="qsys_device_0"
-   internal="qsys_device_0.qsys_device"
+   name="qsys_serial_device_0"
+   internal="qsys_serial_device_0.conduit_end"
    type="conduit"
    dir="end" />
  <module kind="hps_tabby" version="1.1" enabled="1" name="HPS_tabby" />
@@ -916,17 +872,17 @@
  <module kind="test_LEDState" version="1.0" enabled="1" name="test_LEDState">
   <parameter name="AUTO_MCLK_CLOCK_RATE" value="133333333" />
  </module>
- <module kind="grid_PIO26" version="1.0" enabled="1" name="grid_PIO26_A">
+ <module kind="grid_PIO26" version="1.0" enabled="0" name="grid_PIO26_A">
   <parameter name="AUTO_MCLK_CLOCK_RATE" value="133333333" />
  </module>
- <module kind="grid_PIO26" version="1.0" enabled="1" name="grid_PIO26_B">
+ <module kind="grid_PIO26" version="1.0" enabled="0" name="grid_PIO26_B">
   <parameter name="AUTO_MCLK_CLOCK_RATE" value="133333333" />
  </module>
- <module kind="grid_PWM" version="1.0" enabled="1" name="grid_PWM_0">
+ <module kind="grid_PWM" version="1.0" enabled="0" name="grid_PWM_0">
   <parameter name="AUTO_MCLK_CLOCK_RATE" value="133333333" />
   <parameter name="AUTO_PWMCLK_CLOCK_RATE" value="200000000" />
  </module>
- <module kind="AM2301" version="1.0" enabled="1" name="AM2301_0">
+ <module kind="AM2301" version="1.0" enabled="0" name="AM2301_0">
   <parameter name="high_width" value="20" />
   <parameter name="start_width" value="1000" />
   <parameter name="start" value="0" />
@@ -1005,7 +961,7 @@
  <module
    kind="step_motor_driver"
    version="1.0"
-   enabled="1"
+   enabled="0"
    name="step_motor_driver_0">
   <parameter name="AUTO_MCLK_CLOCK_RATE" value="133333333" />
   <parameter name="AUTO_PWMCLK_CLOCK_RATE" value="200000000" />
@@ -1021,14 +977,14 @@
  <module
    kind="position_encoder"
    version="1.0"
-   enabled="1"
+   enabled="0"
    name="position_encoder_0">
   <parameter name="AUTO_MCLK_CLOCK_RATE" value="133333333" />
  </module>
  <module
    kind="fan_motor_driver"
    version="1.0"
-   enabled="1"
+   enabled="0"
    name="fan_motor_driver_0">
   <parameter name="AUTO_MCLK_CLOCK_RATE" value="133333333" />
   <parameter name="AUTO_PWMCLK_CLOCK_RATE" value="200000000" />
@@ -1036,12 +992,12 @@
  <module
    kind="step_motor_driver"
    version="1.0"
-   enabled="1"
+   enabled="0"
    name="step_motor_driver_1">
   <parameter name="AUTO_MCLK_CLOCK_RATE" value="133333333" />
   <parameter name="AUTO_PWMCLK_CLOCK_RATE" value="200000000" />
  </module>
- <module kind="AM2301" version="1.0" enabled="1" name="AM2301_1">
+ <module kind="AM2301" version="1.0" enabled="0" name="AM2301_1">
   <parameter name="high_width" value="20" />
   <parameter name="start_width" value="1000" />
   <parameter name="start" value="0" />
@@ -1128,7 +1084,7 @@
  <module
    kind="brush_motor_driver"
    version="1.0"
-   enabled="1"
+   enabled="0"
    name="brush_motor_driver_2">
   <parameter name="AUTO_MCLK_CLOCK_RATE" value="133333333" />
   <parameter name="AUTO_PWMCLK_CLOCK_RATE" value="200000000" />
@@ -1136,7 +1092,7 @@
  <module
    kind="brush_motor_driver"
    version="1.0"
-   enabled="1"
+   enabled="0"
    name="brush_motor_driver_3">
   <parameter name="AUTO_MCLK_CLOCK_RATE" value="133333333" />
   <parameter name="AUTO_PWMCLK_CLOCK_RATE" value="200000000" />
@@ -1144,7 +1100,7 @@
  <module
    kind="step_motor_driver"
    version="1.0"
-   enabled="1"
+   enabled="0"
    name="step_motor_driver_2">
   <parameter name="AUTO_MCLK_CLOCK_RATE" value="133333333" />
   <parameter name="AUTO_PWMCLK_CLOCK_RATE" value="200000000" />
@@ -1152,7 +1108,7 @@
  <module
    kind="step_motor_driver"
    version="1.0"
-   enabled="1"
+   enabled="0"
    name="step_motor_driver_3">
   <parameter name="AUTO_MCLK_CLOCK_RATE" value="133333333" />
   <parameter name="AUTO_PWMCLK_CLOCK_RATE" value="200000000" />
@@ -1160,7 +1116,7 @@
  <module
    kind="step_motor_driver"
    version="1.0"
-   enabled="1"
+   enabled="0"
    name="step_motor_driver_4">
   <parameter name="AUTO_MCLK_CLOCK_RATE" value="133333333" />
   <parameter name="AUTO_PWMCLK_CLOCK_RATE" value="200000000" />
@@ -1189,7 +1145,7 @@
  <module
    kind="fan_motor_driver"
    version="1.0"
-   enabled="1"
+   enabled="0"
    name="fan_motor_driver_1">
   <parameter name="AUTO_MCLK_CLOCK_RATE" value="133333333" />
   <parameter name="AUTO_PWMCLK_CLOCK_RATE" value="200000000" />
@@ -1197,12 +1153,12 @@
  <module
    kind="subdivision_step_motor_driver"
    version="1.0"
-   enabled="1"
+   enabled="0"
    name="subdivision_step_motor_driver_0">
   <parameter name="AUTO_MCLK_CLOCK_RATE" value="133333333" />
   <parameter name="AUTO_PWMCLK_CLOCK_RATE" value="133333333" />
  </module>
- <module kind="sht1x_sensor" version="1.0" enabled="1" name="sht1x_sensor_0">
+ <module kind="sht1x_sensor" version="1.0" enabled="0" name="sht1x_sensor_0">
   <parameter name="Address" value="0" />
   <parameter name="Measure_Temperature" value="3" />
   <parameter name="Measure_Relative_Humidity" value="5" />
@@ -1213,7 +1169,7 @@
   <parameter name="Reset_0" value="0" />
   <parameter name="AUTO_MCLK_CLOCK_RATE" value="133333333" />
  </module>
- <module kind="sht1x_sensor" version="1.0" enabled="1" name="sht1x_sensor_1">
+ <module kind="sht1x_sensor" version="1.0" enabled="0" name="sht1x_sensor_1">
   <parameter name="Address" value="0" />
   <parameter name="Measure_Temperature" value="3" />
   <parameter name="Measure_Relative_Humidity" value="5" />
@@ -1224,7 +1180,11 @@
   <parameter name="Reset_0" value="0" />
   <parameter name="AUTO_MCLK_CLOCK_RATE" value="133333333" />
  </module>
- <module kind="qsys_device" version="1.0" enabled="1" name="qsys_device_0">
+ <module
+   kind="qsys_serial_device"
+   version="1.0"
+   enabled="1"
+   name="qsys_serial_device_0">
   <parameter name="address_size" value="8" />
   <parameter name="AUTO_MCLK_CLOCK_RATE" value="133333333" />
  </module>
@@ -1924,21 +1884,21 @@
   <parameter name="baseAddress" value="0x10000480" />
  </connection>
  <connection
-   kind="avalon"
-   version="12.1"
-   start="HPS_tabby.M1"
-   end="qsys_device_0.ctrl">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x10001000" />
- </connection>
- <connection
    kind="reset"
    version="12.1"
    start="HPS_tabby.MRST"
-   end="qsys_device_0.mrst" />
+   end="qsys_serial_device_0.mrst" />
  <connection
    kind="clock"
    version="12.1"
    start="HPS_tabby.MCLK"
-   end="qsys_device_0.mclk" />
+   end="qsys_serial_device_0.mclk" />
+ <connection
+   kind="avalon"
+   version="12.1"
+   start="HPS_tabby.M1"
+   end="qsys_serial_device_0.ctrl">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0800" />
+ </connection>
 </system>

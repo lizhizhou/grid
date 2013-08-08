@@ -6,9 +6,12 @@
    version="1.0"
    description=""
    tags=""
-   categories="" />
+   categories="System" />
  <parameter name="bonusData"><![CDATA[bonusData 
 {
+   element $${FILENAME}
+   {
+   }
    element basic_SysID_0.SysID
    {
       datum _lockedAddress
@@ -25,11 +28,53 @@
          type = "int";
       }
    }
-   element mse_host_0
+   element qsys_serial_host_0
    {
       datum _sortIndex
       {
          value = "0";
+         type = "int";
+      }
+   }
+   element test_RegRW32_0.test
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "16";
+         type = "String";
+      }
+   }
+   element test_RegRW32_1.test
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "32";
+         type = "String";
+      }
+   }
+   element test_RegRW32_0
+   {
+      datum _sortIndex
+      {
+         value = "2";
+         type = "int";
+      }
+   }
+   element test_RegRW32_1
+   {
+      datum _sortIndex
+      {
+         value = "3";
          type = "int";
       }
    }
@@ -48,34 +93,82 @@
  <parameter name="projectName" value="grid.qpf" />
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1372334490671" />
+ <parameter name="timeStamp" value="1375970261242" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface
-   name="mse_host_0"
-   internal="mse_host_0.mse_host"
+   name="qsys_serial_host_0"
+   internal="qsys_serial_host_0.conduit_end"
    type="conduit"
    dir="end" />
  <module kind="basic_SysID" version="1.0" enabled="1" name="basic_SysID_0">
   <parameter name="AUTO_MCLK_CLOCK_RATE" value="0" />
  </module>
- <module kind="mse_host" version="1.0" enabled="1" name="mse_host_0" />
+ <module
+   kind="qsys_serial_host"
+   version="1.0"
+   enabled="1"
+   name="qsys_serial_host_0">
+  <parameter name="initial_state" value="0" />
+ </module>
+ <module kind="test_RegRW32" version="1.0" enabled="1" name="test_RegRW32_0">
+  <parameter name="AUTO_MCLK_CLOCK_RATE" value="0" />
+ </module>
+ <module kind="test_RegRW32" version="1.0" enabled="1" name="test_RegRW32_1">
+  <parameter name="AUTO_MCLK_CLOCK_RATE" value="0" />
+ </module>
  <connection
    kind="reset"
    version="12.1"
-   start="mse_host_0.mrst"
+   start="qsys_serial_host_0.mrst"
    end="basic_SysID_0.MRST" />
  <connection
    kind="clock"
    version="12.1"
-   start="mse_host_0.mclk"
+   start="qsys_serial_host_0.mclk"
    end="basic_SysID_0.MCLK" />
  <connection
    kind="avalon"
    version="12.1"
-   start="mse_host_0.m1"
+   start="qsys_serial_host_0.m1"
    end="basic_SysID_0.SysID">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x0000" />
+ </connection>
+ <connection
+   kind="reset"
+   version="12.1"
+   start="qsys_serial_host_0.mrst"
+   end="test_RegRW32_0.MRST" />
+ <connection
+   kind="clock"
+   version="12.1"
+   start="qsys_serial_host_0.mclk"
+   end="test_RegRW32_0.MCLK" />
+ <connection
+   kind="avalon"
+   version="12.1"
+   start="qsys_serial_host_0.m1"
+   end="test_RegRW32_0.test">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0010" />
+ </connection>
+ <connection
+   kind="reset"
+   version="12.1"
+   start="qsys_serial_host_0.mrst"
+   end="test_RegRW32_1.MRST" />
+ <connection
+   kind="clock"
+   version="12.1"
+   start="qsys_serial_host_0.mclk"
+   end="test_RegRW32_1.MCLK" />
+ <connection
+   kind="avalon"
+   version="12.1"
+   start="qsys_serial_host_0.m1"
+   end="test_RegRW32_1.test">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0020" />
  </connection>
 </system>

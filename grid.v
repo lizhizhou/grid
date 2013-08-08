@@ -403,8 +403,8 @@ frontier	b2v_inst(
 //	.slot_b_P13(IO_B13),	
 //	.slot_b_P14(IO_B14),
 //	.slot_b_P15(IO_B15),
-	.slot_b_P16(IO_B16),
-	.slot_b_P17(IO_B17),
+//	.slot_b_P16(IO_B16),
+//	.slot_b_P17(IO_B17),
 //	.slot_b_P18(IO_B18),
 //	.slot_b_P19(IO_B19),
 //	.slot_b_P20(IO_B20),
@@ -421,26 +421,26 @@ frontier	b2v_inst(
 //	.am2301_1_sda    (IO_A15),         
 // .am2301_1_clk_1us(IO_A14),  
 	
-	.step_motor_driver_0_AX(IO_B13),
-	.step_motor_driver_0_AY(IO_B9),
-	.step_motor_driver_0_BX(IO_B12),
-	.step_motor_driver_0_BY(IO_B8),
-	.step_motor_driver_0_AE(IO_B10),
-	.step_motor_driver_0_BE(IO_B11),
-	
-	.step_motor_driver_1_AX(IO_A13),
-	.step_motor_driver_1_AY(IO_A9),
-	.step_motor_driver_1_BX(IO_A12),
-	.step_motor_driver_1_BY(IO_A8),
-	.step_motor_driver_1_AE(IO_A10),
-	.step_motor_driver_1_BE(IO_A11),
-	
-	.step_motor_driver_2_AX(IO_A16),
-	.step_motor_driver_2_AY(IO_A20),
-	.step_motor_driver_2_BX(IO_A17),
-	.step_motor_driver_2_BY(IO_A21),
-	.step_motor_driver_2_AE(IO_A19),
-	.step_motor_driver_2_BE(IO_A18),
+//	.step_motor_driver_0_AX(IO_B13),
+//	.step_motor_driver_0_AY(IO_B9),
+//	.step_motor_driver_0_BX(IO_B12),
+//	.step_motor_driver_0_BY(IO_B8),
+//	.step_motor_driver_0_AE(IO_B10),
+//	.step_motor_driver_0_BE(IO_B11),
+//	
+//	.step_motor_driver_1_AX(IO_A13),
+//	.step_motor_driver_1_AY(IO_A9),
+//	.step_motor_driver_1_BX(IO_A12),
+//	.step_motor_driver_1_BY(IO_A8),
+//	.step_motor_driver_1_AE(IO_A10),
+//	.step_motor_driver_1_BE(IO_A11),
+//	
+//	.step_motor_driver_2_AX(IO_A16),
+//	.step_motor_driver_2_AY(IO_A20),
+//	.step_motor_driver_2_BX(IO_A17),
+//	.step_motor_driver_2_BY(IO_A21),
+//	.step_motor_driver_2_AE(IO_A19),
+//	.step_motor_driver_2_BE(IO_A18),
 	
 //	.subdivision_step_motor_driver_0_AX (IO_B13),
 //   .subdivision_step_motor_driver_0_AY (IO_B9), 
@@ -459,48 +459,45 @@ frontier	b2v_inst(
 //	.brush_motor_driver_0_HX   (IO_B13),
 //	.brush_motor_driver_0_HY   (IO_B9),
 
-	.position_encoder_0_A  (IO_B24),  
-	.position_encoder_0_B  (IO_B23), 
-	.position_encoder_0_Z  (IO_B22),  
+//	.position_encoder_0_A  (IO_B24),  
+//	.position_encoder_0_B  (IO_B23), 
+//	.position_encoder_0_Z  (IO_B22),  
 //	.position_encoder_3_A  (IO_B16),
 //	.position_encoder_3_B  (IO_B16),
 //	.position_encoder_3_Z  (GND),
 	
-	.fan_motor_driver_0_export(IO_B1), 
-	.fan_motor_driver_1_export(humidifier), 
+//	.fan_motor_driver_0_export(IO_B1), 
+//	.fan_motor_driver_1_export(humidifier), 
 	
 //	.sdif_IN             (SPDIF_IN),
 // .sdif_OUT            (SPDIF_OUT),
 
-   .sht1x_sensor_1_sck(IO_A14),
-   .sht1x_sensor_1_sda(IO_A15), 
+//   .sht1x_sensor_1_sck(IO_A14),
+//   .sht1x_sensor_1_sda(IO_A15), 
+//	
+//   .sht1x_sensor_0_sck(IO_B14),
+//   .sht1x_sensor_0_sda(IO_B15), 
 	
-   .sht1x_sensor_0_sck(IO_B14),
-   .sht1x_sensor_0_sda(IO_B15), 
 	
-	
-	.qsys_device_0_reset                (reset),                //                   qsys_device_0.reset
-   .qsys_device_0_clk                  (out_clk),                  //                                .clk
-   .qsys_device_0_writedata            (),            //                                .writedata
-   .qsys_device_0_write                (wr),                //                                .write
-   .qsys_device_0_read                 (rd),                 //                                .read
-   .qsys_device_0_waitrequest          (wait_r),          //                                .waitrequest
-   .qsys_device_0_readdata             (read_data),             //                                .readdata
-   .qsys_device_0_address              (address),     
-	
+	 .qsys_serial_device_0_sle  (sle),  // qsys_serial_device_0.sle
+    .qsys_serial_device_0_srdy (srdy), //                     .srdy
+    .qsys_serial_device_0_clk  (clk),  //                     .clk
+    .qsys_serial_device_0_sdi  (sdi),  //                     .sdi
+    .qsys_serial_device_0_sdo  (sdo),   //                     .sdo
+
 	
 	.m0_EINT(M1_EINT));
 	
-	
-	mse u0 (
-        .mse_host_0_CLK  (out_clk), // mse_host_0.CLK
-        .mse_host_0_ADDR (address), //           .ADDR
-        .mse_host_0_DATA (read_data), //           .DATA
-        .mse_host_0_RD   (rd), //           .RD
-        .mse_host_0_WR   (wr), //           .WR
-        .mse_host_0_WAIT (wait_r), //           .WAIT
-        .mse_host_0_RSTN (reset)  //           .RSTN
-   );
+	wire sle, srdy, clk, sdi, sdo;
+	//for unit test
+	 mse u0 (
+        .qsys_serial_host_0_sdo   (sdi),   // qsys_serial_host_0.sdo
+        .qsys_serial_host_0_sdi   (sdo),   //                   .sdi
+        .qsys_serial_host_0_clk   (clk),   //                   .clk
+        .qsys_serial_host_0_sle   (sle),   //                   .sle
+        .qsys_serial_host_0_srdy  (srdy),  //                   .srdy
+        .qsys_serial_host_0_reset (!M1_RSTN)  //                   .reset
+    );
 
 
 	

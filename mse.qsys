@@ -58,7 +58,7 @@
       }
       datum baseAddress
       {
-         value = "32";
+         value = "20";
          type = "String";
       }
    }
@@ -93,7 +93,7 @@
  <parameter name="projectName" value="grid.qpf" />
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1375970261242" />
+ <parameter name="timeStamp" value="1376120484128" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface
@@ -169,6 +169,6 @@
    start="qsys_serial_host_0.m1"
    end="test_RegRW32_1.test">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x0020" />
+  <parameter name="baseAddress" value="0x0014" />
  </connection>
 </system>

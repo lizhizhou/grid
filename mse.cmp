@@ -1,12 +1,11 @@
 	component mse is
 		port (
-			mse_host_0_CLK  : in    std_logic                    := 'X';             -- CLK
-			mse_host_0_ADDR : in    std_logic_vector(7 downto 0) := (others => 'X'); -- ADDR
-			mse_host_0_DATA : inout std_logic_vector(7 downto 0) := (others => 'X'); -- DATA
-			mse_host_0_RD   : in    std_logic                    := 'X';             -- RD
-			mse_host_0_WR   : in    std_logic                    := 'X';             -- WR
-			mse_host_0_WAIT : out   std_logic;                                       -- WAIT
-			mse_host_0_RSTN : in    std_logic                    := 'X'              -- RSTN
+			qsys_serial_host_0_sdo   : out std_logic;        -- sdo
+			qsys_serial_host_0_sdi   : in  std_logic := 'X'; -- sdi
+			qsys_serial_host_0_clk   : in  std_logic := 'X'; -- clk
+			qsys_serial_host_0_sle   : in  std_logic := 'X'; -- sle
+			qsys_serial_host_0_srdy  : out std_logic;        -- srdy
+			qsys_serial_host_0_reset : in  std_logic := 'X'  -- reset
 		);
 	end component mse;
 

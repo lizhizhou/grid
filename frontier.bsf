@@ -47,14 +47,14 @@ applicable agreement for further details.
 	(port
 		(pt 0 136)
 		(input)
-		(text "m0_CSN[3..0]" (rect 0 0 58 12)(font "Arial" (font_size 8)))
+		(text "m0_CSN[3..0]" (rect 0 0 59 12)(font "Arial" (font_size 8)))
 		(text "m0_CSN[3..0]" (rect 4 125 76 136)(font "Arial" (font_size 8)))
 		(line (pt 0 136)(pt 160 136)(line_width 3))
 	)
 	(port
 		(pt 0 152)
 		(input)
-		(text "m0_BEN[3..0]" (rect 0 0 58 12)(font "Arial" (font_size 8)))
+		(text "m0_BEN[3..0]" (rect 0 0 59 12)(font "Arial" (font_size 8)))
 		(text "m0_BEN[3..0]" (rect 4 141 76 152)(font "Arial" (font_size 8)))
 		(line (pt 0 152)(pt 160 152)(line_width 3))
 	)

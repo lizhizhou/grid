@@ -85,66 +85,66 @@ module grid(
 	output 	PLCD_VSYNC,
 	output 	PLCD_VDEN,
 	output 	PLCD_PCLK,
-	output 	IO_A_PWREN,
-	output 	IO_B_PWREN,
-	output 	IO_A_HOE,
-	output 	IO_A_LOE,
-	output 	IO_B_HOE,
-	output 	IO_B_LOE,
-	inout 	IO_A_SDA,
-	inout 	IO_B_SDA,
-	inout 	IO_B0,
-	inout 	IO_B1,
-	inout 	IO_B2,
-	inout 	IO_B3,
-	inout 	IO_B4,
-	inout 	IO_B5,
-	inout 	IO_B6,
-	inout 	IO_B7,
-	inout 	IO_B14,
-	inout 	IO_B15,
-	inout 	IO_B16,
-	inout 	IO_B17,
-	inout 	IO_B18,
-	inout 	IO_B19,
-	inout 	IO_B20,
-	inout 	IO_B21,
-	inout 	IO_B22,
-	inout 	IO_B23,
-	inout 	IO_B24,
-	inout 	IO_A0,
-	inout 	IO_A1,
-	inout 	IO_A2,
-	inout 	IO_A3,
-	inout 	IO_A4,
-	inout 	IO_A5,
-	inout 	IO_A6,
-	inout 	IO_A7,
-	inout 	IO_A8,
-	inout 	IO_A9,
-	inout 	IO_A10,
-	inout 	IO_A11,
-	inout 	IO_A12,
-	inout 	IO_A13,
-	inout 	IO_A14,
-	inout 	IO_A15,
-	inout 	IO_A16,
-	inout 	IO_A17,
-	inout 	IO_A18,
-	inout 	IO_A19,
-	inout 	IO_A20,
-	inout 	IO_A21,
-	inout 	IO_A22,
-	inout 	IO_A23,
-	inout 	IO_A24,
-	inout 	IO_A25,
-	inout 	IO_B25,
-	inout 	IO_B13,
-	inout 	IO_B9,
-	inout 	IO_B12,
-	inout 	IO_B8,
-	inout 	IO_B10,
-	inout 	IO_B11,
+//	output 	IO_A_PWREN,
+//	output 	IO_B_PWREN,
+//	output 	IO_A_HOE,
+//	output 	IO_A_LOE,
+//	output 	IO_B_HOE,
+//	output 	IO_B_LOE,
+//	inout 	IO_A_SDA,
+//	inout 	IO_B_SDA,
+//	inout 	IO_B0,
+//	inout 	IO_B1,
+//	inout 	IO_B2,
+//	inout 	IO_B3,
+//	inout 	IO_B4,
+//	inout 	IO_B5,
+//	inout 	IO_B6,
+//	inout 	IO_B7,
+//	inout 	IO_B14,
+//	inout 	IO_B15,
+//	inout 	IO_B16,
+//	inout 	IO_B17,
+//	inout 	IO_B18,
+//	inout 	IO_B19,
+//	inout 	IO_B20,
+//	inout 	IO_B21,
+//	inout 	IO_B22,
+//	inout 	IO_B23,
+//	inout 	IO_B24,
+//	inout 	IO_A0,
+//	inout 	IO_A1,
+//	inout 	IO_A2,
+//	inout 	IO_A3,
+//	inout 	IO_A4,
+//	inout 	IO_A5,
+//	inout 	IO_A6,
+//	inout 	IO_A7,
+//	inout 	IO_A8,
+//	inout 	IO_A9,
+//	inout 	IO_A10,
+//	inout 	IO_A11,
+//	inout 	IO_A12,
+//	inout 	IO_A13,
+//	inout 	IO_A14,
+//	inout 	IO_A15,
+//	inout 	IO_A16,
+//	inout 	IO_A17,
+//	inout 	IO_A18,
+//	inout 	IO_A19,
+//	inout 	IO_A20,
+//	inout 	IO_A21,
+//	inout 	IO_A22,
+//	inout 	IO_A23,
+//	inout 	IO_A24,
+//	inout 	IO_A25,
+//	inout 	IO_B25,
+//	inout 	IO_B13,
+//	inout 	IO_B9,
+//	inout 	IO_B12,
+//	inout 	IO_B8,
+//	inout 	IO_B10,
+//	inout 	IO_B11,
 	output 	[11:0] ISI_DATA,
 	inout 	[31:0] M1_DATA,
 	output 	[9:0] M1_EINT,
@@ -153,9 +153,12 @@ module grid(
 	inout 	[15:0] M2_DATA,
 	output 	[1:0] M2_DM,
 	inout 	[1:0] M2_DQS,
+	
 //	output 	[7:2] PLCD_B,
 //	output 	[7:2] PLCD_G,
-//	output 	[7:2] PLCD_R
+//	output 	[7:2] PLCD_R,
+	output   [23:0] PLCD_DATA,
+	output   [2:0]  PLCD_DIR,
 
 	output  MSE_RESETN,	
 	input   MSE_RSTOUT,	
@@ -184,19 +187,12 @@ assign	AUDIO_SFS = AC97_FS;
 assign	PNL_SDI = 0;
 assign	PNL_SCLK = 0;
 assign	PNL_SLE = 0;
-assign	PLCD_HSYNC = 0;
-assign	PLCD_VSYNC = 0;
-assign	PLCD_VDEN = 0;
-assign	PLCD_PCLK = 0;
 assign	IO_A_PWREN = 0;
 assign	IO_B_PWREN = 0;
 assign	IO_A_HOE = 1;
 assign	IO_A_LOE = 1;
 assign	IO_B_HOE = 1;
 assign	IO_B_LOE = 1;
-assign	PLCD_B = 6'b000000;
-assign	PLCD_G = 6'b000000;
-assign	PLCD_R = 6'b000000;
 assign	SYNTHESIZED_WIRE_0 = 1;
 assign	SYNTHESIZED_WIRE_8 = 0;
 assign	SYNTHESIZED_WIRE_2 = 1;
@@ -434,6 +430,13 @@ frontier	b2v_inst(
 	assign MSE_SDO[2]  = step_motor_driver_3_BX;
 	assign MSE_SDO[3]  = step_motor_driver_3_BY;	
 	
+	//lcd	
+	assign PLCD_DATA  = LCD_DATA;
+	assign PLCD_HSYNC = LCD_HSYNC;
+	assign PLCD_VSYNC = LCD_VSYNC;
+	assign PLCD_VDEN  = LCD_DEN;
+	assign PLCD_PCLK  = LCD_PCLK;
+	assign PLCD_DIR   = 3'b000;
 	
 //	test_rom rom (
 //		.address(address),

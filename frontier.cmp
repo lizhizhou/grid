@@ -70,7 +70,12 @@
 			qsys_serial_device_0_sdi  : in    std_logic                     := 'X';             -- sdi
 			qsys_serial_device_0_clk  : out   std_logic;                                        -- clk
 			qsys_serial_device_0_sle  : out   std_logic;                                        -- sle
-			qsys_serial_device_0_srdy : in    std_logic                     := 'X'              -- srdy
+			qsys_serial_device_0_srdy : in    std_logic                     := 'X';             -- srdy
+			qsys_serial_device_1_sdo  : out   std_logic;                                        -- sdo
+			qsys_serial_device_1_sdi  : in    std_logic                     := 'X';             -- sdi
+			qsys_serial_device_1_clk  : out   std_logic;                                        -- clk
+			qsys_serial_device_1_sle  : out   std_logic;                                        -- sle
+			qsys_serial_device_1_srdy : in    std_logic                     := 'X'              -- srdy
 		);
 	end component frontier;
 

@@ -231,11 +231,6 @@ set_location_assignment PIN_J15 -to AC97_FS
 set_location_assignment PIN_H19 -to AC97_CLK
 set_location_assignment PIN_R16 -to SPDIF_OUT
 set_location_assignment PIN_T16 -to SPDIF_IN
-set_location_assignment PIN_AA12 -to AUDIO_MCK
-set_location_assignment PIN_AB16 -to AUDIO_SDI
-set_location_assignment PIN_AB15 -to AUDIO_SCLK
-set_location_assignment PIN_AA15 -to AUDIO_SDO
-set_location_assignment PIN_AA16 -to AUDIO_SFS
 set_location_assignment PIN_N14 -to DET_AIN
 set_location_assignment PIN_P15 -to DET_AOUT
 set_location_assignment PIN_P14 -to DET_DIN
@@ -1295,5 +1290,10 @@ set_location_assignment PIN_U10 -to PLCD_DATA[23]
 set_location_assignment PIN_AB8 -to PLCD_DIR[0]
 set_location_assignment PIN_W6 -to PLCD_DIR[1]
 set_location_assignment PIN_V5 -to PLCD_DIR[2]
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name QIP_FILE frontier/synthesis/frontier.qip
+set_location_assignment PIN_T14 -to PNL_INT
+set_location_assignment PIN_T15 -to PNL_SDO
+set_location_assignment PIN_AB16 -to PNL_SCLK
+set_location_assignment PIN_AB15 -to PNL_SDI
+set_location_assignment PIN_AA16 -to PNL_SLE
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

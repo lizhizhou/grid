@@ -36,7 +36,6 @@ module grid(
 	input 	AUDIO_SDI,
 	input 	AUDIO_MCK,
 	input 	PNL_SDO,
-	input 	PNL_RDY,
 	input 	PNL_INT,
 	input 	DET_AIN,
 	input 	DET_AOUT,
@@ -58,8 +57,6 @@ module grid(
 	output 	ISI_HSYNC,
 	output 	ISI_VSYNC,
 	output 	ISI_PCLK,
-	output 	AC97_RX,
-	output 	AC97_CLK,
 	output 	LED_F0R,
 	output 	LED_F0G,
 	output 	LED_F0B,
@@ -73,11 +70,7 @@ module grid(
 	output 	LED_F3G,
 	output 	LED_F3B,
 	output 	M1_WAITN,
-	output 	IO_A_SCL,
-	output 	IO_B_SCL,
 	output 	SPDIF_OUT,
-	output 	AUDIO_SDO,
-	output 	AUDIO_SFS,
 	output 	PNL_SDI,
 	output 	PNL_SCLK,
 	output 	PNL_SLE,
@@ -85,66 +78,7 @@ module grid(
 	output 	PLCD_VSYNC,
 	output 	PLCD_VDEN,
 	output 	PLCD_PCLK,
-//	output 	IO_A_PWREN,
-//	output 	IO_B_PWREN,
-//	output 	IO_A_HOE,
-//	output 	IO_A_LOE,
-//	output 	IO_B_HOE,
-//	output 	IO_B_LOE,
-//	inout 	IO_A_SDA,
-//	inout 	IO_B_SDA,
-//	inout 	IO_B0,
-//	inout 	IO_B1,
-//	inout 	IO_B2,
-//	inout 	IO_B3,
-//	inout 	IO_B4,
-//	inout 	IO_B5,
-//	inout 	IO_B6,
-//	inout 	IO_B7,
-//	inout 	IO_B14,
-//	inout 	IO_B15,
-//	inout 	IO_B16,
-//	inout 	IO_B17,
-//	inout 	IO_B18,
-//	inout 	IO_B19,
-//	inout 	IO_B20,
-//	inout 	IO_B21,
-//	inout 	IO_B22,
-//	inout 	IO_B23,
-//	inout 	IO_B24,
-//	inout 	IO_A0,
-//	inout 	IO_A1,
-//	inout 	IO_A2,
-//	inout 	IO_A3,
-//	inout 	IO_A4,
-//	inout 	IO_A5,
-//	inout 	IO_A6,
-//	inout 	IO_A7,
-//	inout 	IO_A8,
-//	inout 	IO_A9,
-//	inout 	IO_A10,
-//	inout 	IO_A11,
-//	inout 	IO_A12,
-//	inout 	IO_A13,
-//	inout 	IO_A14,
-//	inout 	IO_A15,
-//	inout 	IO_A16,
-//	inout 	IO_A17,
-//	inout 	IO_A18,
-//	inout 	IO_A19,
-//	inout 	IO_A20,
-//	inout 	IO_A21,
-//	inout 	IO_A22,
-//	inout 	IO_A23,
-//	inout 	IO_A24,
-//	inout 	IO_A25,
-//	inout 	IO_B25,
-//	inout 	IO_B13,
-//	inout 	IO_B9,
-//	inout 	IO_B12,
-//	inout 	IO_B8,
-//	inout 	IO_B10,
-//	inout 	IO_B11,
+
 	output 	[11:0] ISI_DATA,
 	inout 	[31:0] M1_DATA,
 	output 	[9:0] M1_EINT,
@@ -154,9 +88,6 @@ module grid(
 	output 	[1:0] M2_DM,
 	inout 	[1:0] M2_DQS,
 	
-//	output 	[7:2] PLCD_B,
-//	output 	[7:2] PLCD_G,
-//	output 	[7:2] PLCD_R,
 	output   [23:0] PLCD_DATA,
 	output   [2:0]  PLCD_DIR,
 
@@ -179,20 +110,6 @@ wire	SYNTHESIZED_WIRE_2;
 wire	SYNTHESIZED_WIRE_4;
 wire	[0:11] SYNTHESIZED_WIRE_6;
 
-assign	AC97_RX = AUDIO_SDI;
-assign	AC97_CLK = AUDIO_SCLK;
-//assign	SPDIF_OUT = 0;
-assign	AUDIO_SDO = AC97_TX;
-assign	AUDIO_SFS = AC97_FS;
-assign	PNL_SDI = 0;
-assign	PNL_SCLK = 0;
-assign	PNL_SLE = 0;
-assign	IO_A_PWREN = 0;
-assign	IO_B_PWREN = 0;
-assign	IO_A_HOE = 1;
-assign	IO_A_LOE = 1;
-assign	IO_B_HOE = 1;
-assign	IO_B_LOE = 1;
 assign	SYNTHESIZED_WIRE_0 = 1;
 assign	SYNTHESIZED_WIRE_8 = 0;
 assign	SYNTHESIZED_WIRE_2 = 1;
@@ -228,66 +145,6 @@ frontier	b2v_inst(
 	.led_f3_G(LED_F3G),
 	.led_f3_B(LED_F3B),
 
-//	.slot_a_P0(IO_A0),
-//	.slot_a_P1(IO_A1),
-//	.slot_a_P2(IO_A2),
-//	.slot_a_P3(IO_A3),
-//	.slot_a_P4(IO_A4),
-//	.slot_a_P5(IO_A5),
-//	.slot_a_P6(IO_A6),
-//	.slot_a_P7(IO_A7),
-//	.slot_a_P8(IO_A8),
-//	.slot_a_P9(IO_A9),
-//	.slot_a_P10(IO_A10),
-//	.slot_a_P11(IO_A11),
-//	.slot_a_P12(IO_A12),
-//	.slot_a_P13(IO_A13),
-//	.slot_a_P14(IO_A14),
-//	.slot_a_P15(IO_A15),
-//	.slot_a_P16(IO_A16),
-//	.slot_a_P17(IO_A17),
-//	.slot_a_P18(IO_A18),
-//	.slot_a_P19(IO_A19),
-//	.slot_a_P20(IO_A20),
-//	.slot_a_P21(IO_A21),
-//	.slot_a_P22(IO_A22),
-//	.slot_a_P23(IO_A23),
-//	.slot_a_P24(IO_A24),
-//	.slot_a_P25(IO_A25),
-//	.slot_b_P0(IO_B0),
-//	.slot_b_P1(IO_B1),
-//	.slot_b_P2(IO_B2),
-//	.slot_b_P3(IO_B3),
-//	.slot_b_P4(IO_B4),
-//	.slot_b_P5(IO_B5),
-//	.slot_b_P6(IO_B6),
-//	.slot_b_P7(IO_B7),
-//	.slot_b_P8(IO_B8),
-//	.slot_b_P9(IO_B9),
-//	.slot_b_P10(IO_B10),
-//	.slot_b_P11(IO_B11),
-//	.slot_b_P12(IO_B12),
-//	.slot_b_P13(IO_B13),	
-//	.slot_b_P14(IO_B14),
-//	.slot_b_P15(IO_B15),
-//	.slot_b_P16(IO_B16),
-//	.slot_b_P17(IO_B17),
-//	.slot_b_P18(IO_B18),
-//	.slot_b_P19(IO_B19),
-//	.slot_b_P20(IO_B20),
-//	.slot_b_P21(IO_B21),
-//	.slot_b_P22(IO_B22),
-//	.slot_b_P23(IO_B23),
-//	.slot_b_P24(IO_B24),
-//	.slot_b_P25(IO_B25),
-	
-	
-//	.am2301_0_sda    (IO_B15),         
-//   .am2301_0_clk_1us(IO_B14),       
-	
-//	.am2301_1_sda    (IO_A15),         
-// .am2301_1_clk_1us(IO_A14),  
-	
 	.step_motor_driver_0_AX(step_motor_driver_0_AX),
 	.step_motor_driver_0_AY(step_motor_driver_0_AY),
 	.step_motor_driver_0_BX(step_motor_driver_0_BX),
@@ -354,16 +211,22 @@ frontier	b2v_inst(
    .sht1x_sensor_1_sda(MSE_SLE[5]), 
    .sht1x_sensor_1_dir(MSE_SDO[5]),  
 
-	 .qsys_serial_device_0_sle  (sle),  // qsys_serial_device_0.sle
-    .qsys_serial_device_0_srdy (srdy), //                     .srdy
-    .qsys_serial_device_0_clk  (clk),  //                     .clk
-    .qsys_serial_device_0_sdi  (sdi),  //                     .sdi
-    .qsys_serial_device_0_sdo  (sdo),   //                     .sdo
+	 .qsys_serial_device_0_sle  (mse_sle),  // qsys_serial_device_0.sle
+    .qsys_serial_device_0_srdy (mse_srdy), //                     .srdy
+    .qsys_serial_device_0_clk  (mse_clk),  //                     .clk
+    .qsys_serial_device_0_sdi  (mse_sdi),  //                     .sdi
+    .qsys_serial_device_0_sdo  (mse_sdo),   //                     .sdo
 
+	 .qsys_serial_device_1_sdo  (pnl_sdo),  // qsys_serial_device_1.sdo
+    .qsys_serial_device_1_sdi  (pnl_sdi),  //                     .sdi
+    .qsys_serial_device_1_clk  (pnl_clk),  //                     .clk
+    .qsys_serial_device_1_sle  (pnl_sle),  //                     .sle
+    .qsys_serial_device_1_srdy (pnl_srdy), //                     .srdy
 	
 	.m0_EINT(M1_EINT));
 	
-	wire sle, srdy, clk, sdi, sdo;
+	wire mse_sle, mse_srdy, mse_clk, mse_sdi, mse_sdo;
+	wire pnl_sle, pnl_srdy, pnl_clk, pnl_sdi, pnl_sdo;
 	//for unit test
 //	 mse u0 (
 //        .qsys_serial_host_0_sdo   (sdi),   // qsys_serial_host_0.sdo
@@ -374,24 +237,22 @@ frontier	b2v_inst(
 //        .qsys_serial_host_0_reset (!M1_RSTN)  //                   .reset
 //    );
 
-	assign MSE_SDI[6] = sdo;
-	assign sdi=MSE_SDO[6];
+	assign MSE_SDI[6] = mse_sdo;
+	assign mse_sdi=MSE_SDO[6];
 	assign MSE_SDO[6] = 1'bz;
-	assign MSE_SCLK = clk;
-	assign MSE_SLE[6] = sle;
-	assign srdy = MSE_SRDY[6];
+	assign MSE_SCLK = mse_clk;
+	assign MSE_SLE[6] = mse_sle;
+	assign mse_srdy = MSE_SRDY[6];
 	assign MSE_SRDY[6] = 1'bz;
 	assign MSE_RESETN = M1_RSTN;
 	
-//	qsys u0 (
-//        .qsys_serial_host_sdo   (MSE_SDO[6]),   // qsys_serial_host.sdo
-//        .qsys_serial_host_sdi   (MSE_SDI[6]),   //                 .sdi
-//        .qsys_serial_host_clk   (MSE_SCLK),   //                 .clk
-//        .qsys_serial_host_sle   (MSE_SLE[6]),   //                 .sle
-//        .qsys_serial_host_srdy  (MSE_SRDY[6]),  //                 .srdy
-//        .qsys_serial_host_reset (!MSE_RESETN)  //                 .reset
-//   );
-
+	assign PNL_SDI = pnl_sdo;
+	assign pnl_sdi= PNL_SDO;
+	assign PNL_SCLK = pnl_clk;
+	assign PNL_SLE = pnl_sle;
+	assign pnl_srdy = PNL_INT;
+//	assign PNL_RESETN = M1_RSTN;	
+	
 	
 	wire step_motor_driver_0_AX;
 	wire step_motor_driver_0_AY;

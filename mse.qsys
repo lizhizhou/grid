@@ -36,6 +36,19 @@
          type = "int";
       }
    }
+   element test_RegRW32_1.test
+   {
+      datum _lockedAddress
+      {
+         value = "1";
+         type = "boolean";
+      }
+      datum baseAddress
+      {
+         value = "20";
+         type = "String";
+      }
+   }
    element test_RegRW32_0.test
    {
       datum _lockedAddress
@@ -57,6 +70,14 @@
          type = "int";
       }
    }
+   element test_RegRW32_1
+   {
+      datum _sortIndex
+      {
+         value = "3";
+         type = "int";
+      }
+   }
 }
 ]]></parameter>
  <parameter name="clockCrossingAdapter" value="HANDSHAKE" />
@@ -72,7 +93,7 @@
  <parameter name="projectName" value="grid.qpf" />
  <parameter name="sopcBorderPoints" value="false" />
  <parameter name="systemHash" value="1" />
- <parameter name="timeStamp" value="1373546309657" />
+ <parameter name="timeStamp" value="1377090865592" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
  <interface
@@ -91,6 +112,9 @@
   <parameter name="AUTO_MCLK_CLOCK_RATE" value="0" />
  </module>
  <module kind="test_RegRW32" version="1.0" enabled="1" name="test_RegRW32_0">
+  <parameter name="AUTO_MCLK_CLOCK_RATE" value="0" />
+ </module>
+ <module kind="test_RegRW32" version="1.0" enabled="1" name="test_RegRW32_1">
   <parameter name="AUTO_MCLK_CLOCK_RATE" value="0" />
  </module>
  <connection
@@ -128,5 +152,23 @@
    end="test_RegRW32_0.test">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x0010" />
+ </connection>
+ <connection
+   kind="reset"
+   version="12.1"
+   start="qsys_serial_host_0.mrst"
+   end="test_RegRW32_1.MRST" />
+ <connection
+   kind="clock"
+   version="12.1"
+   start="qsys_serial_host_0.mclk"
+   end="test_RegRW32_1.MCLK" />
+ <connection
+   kind="avalon"
+   version="12.1"
+   start="qsys_serial_host_0.m1"
+   end="test_RegRW32_1.test">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0014" />
  </connection>
 </system>

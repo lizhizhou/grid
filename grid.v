@@ -229,11 +229,11 @@ frontier	b2v_inst(
 	wire pnl_sle, pnl_srdy, pnl_clk, pnl_sdi, pnl_sdo;
 	//for unit test
 //	 mse u0 (
-//        .qsys_serial_host_0_sdo   (sdi),   // qsys_serial_host_0.sdo
-//        .qsys_serial_host_0_sdi   (sdo),   //                   .sdi
-//        .qsys_serial_host_0_clk   (clk),   //                   .clk
-//        .qsys_serial_host_0_sle   (sle),   //                   .sle
-//        .qsys_serial_host_0_srdy  (srdy),  //                   .srdy
+//        .qsys_serial_host_0_sdo   (mse_sdi),   // qsys_serial_host_0.sdo
+//        .qsys_serial_host_0_sdi   (mse_sdo),   //                   .sdi
+//        .qsys_serial_host_0_clk   (mse_clk),   //                   .clk
+//        .qsys_serial_host_0_sle   (mse_sle),   //                   .sle
+//        .qsys_serial_host_0_srdy  (mse_srdy),  //                   .srdy
 //        .qsys_serial_host_0_reset (!M1_RSTN)  //                   .reset
 //    );
 

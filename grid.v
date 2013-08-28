@@ -29,12 +29,12 @@ module grid(
 	input 	ISI_MCLK,
 	input 	AC97_TX,
 	input 	AC97_FS,
-	input 	IO_A_OCN,
-	input 	IO_B_OCN,
+//	input 	IO_A_OCN,
+//	input 	IO_B_OCN,
 	input 	SPDIF_IN,
-	input 	AUDIO_SCLK,
-	input 	AUDIO_SDI,
-	input 	AUDIO_MCK,
+//	input 	AUDIO_SCLK,
+//	input 	AUDIO_SDI,
+//	input 	AUDIO_MCK,
 	input 	PNL_SDO,
 	input 	PNL_INT,
 	input 	DET_AIN,
@@ -92,7 +92,7 @@ module grid(
 	output   [2:0]  PLCD_DIR,
 
 	output  MSE_RESETN,	
-	input   MSE_RSTOUT,	
+//	input   MSE_RSTOUT,	
 	output  MSE_SCLK,	
 	inout  [6:0] MSE_SDI,	
 	inout  [6:0] MSE_SDO,		
@@ -121,7 +121,7 @@ wire     GND;
 assign   VCC = 1;
 assign   GND = 0; 
 
-frontier	b2v_inst(
+frontier inst(
 	.m0_RSTN(M1_RSTN),
 	.m0_CLK(M1_CLK),
 	.m0_RDN(M1_RDN),
@@ -217,11 +217,11 @@ frontier	b2v_inst(
     .qsys_serial_device_0_sdi  (mse_sdi),  //                     .sdi
     .qsys_serial_device_0_sdo  (mse_sdo),   //                     .sdo
 
-	 .qsys_serial_device_1_sdo  (pnl_sdo),  // qsys_serial_device_1.sdo
-    .qsys_serial_device_1_sdi  (pnl_sdi),  //                     .sdi
-    .qsys_serial_device_1_clk  (pnl_clk),  //                     .clk
-    .qsys_serial_device_1_sle  (pnl_sle),  //                     .sle
-    .qsys_serial_device_1_srdy (pnl_srdy), //                     .srdy
+//	 .qsys_serial_device_1_sdo  (pnl_sdo),  // qsys_serial_device_1.sdo
+//    .qsys_serial_device_1_sdi  (pnl_sdi),  //                     .sdi
+//    .qsys_serial_device_1_clk  (pnl_clk),  //                     .clk
+//    .qsys_serial_device_1_sle  (pnl_sle),  //                     .sle
+//    .qsys_serial_device_1_srdy (pnl_srdy), //                     .srdy
 	
 	.m0_EINT(M1_EINT));
 	

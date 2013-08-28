@@ -37,12 +37,21 @@ set_time_format -unit ns -decimal_places 3
 
 create_clock -name {HPS_Clocks} -period 15.000 -waveform { 0.000 7.500 } [get_ports {M1_CLK M2_CLK0 M2_CLK1 ISI_MCLK}]
 create_clock -name {LCD_Clock} -period 15.000 -waveform { 0.000 10.000 } [get_ports {LCD_PCLK}]
-create_clock -name {AC97_Clock} -period 40.000 -waveform { 0.000 20.000 } [get_ports {AUDIO_MCK}]
+# create_clock -name {AC97_Clock} -period 40.000 -waveform { 0.000 20.000 } [get_ports {AUDIO_MCK}]
+# create_clock -name {Internal_Test_1} -period 6.000 [get_clocks {frontier:inst|sht1x_sensor:sht1x_sensor_0|csi_MCLK_clk}]
+# create_clock -name {Internal_Test_2} -period 6.000 [get_nets {frontier:inst|sht1x_sensor:sht1x_sensor_1|csi_MCLK_clk}]
+create_generated_clock -divide_by 65536 -source [get_nets {inst|hps_tabby|m1_bus_pll_inst1|auto_generated|pll1|clk[0]}] \
+-name {sht1x1_div_1} [get_nets {frontier:inst|sht1x_sensor:sht1x_sensor_0|temp[31]}]
+create_generated_clock -divide_by 65536 -source [get_clocks {inst|hps_tabby|m1_bus_pll_inst1|auto_generated|pll1|clk[0]}] \
+-name {sht1x1_div_2} [get_nets {frontier:inst|sht1x_sensor:sht1x_sensor_1|temp[31]}]
+
+
 
 #**************************************************************
 # Create Generated Clock
 #**************************************************************
 derive_pll_clocks
+#derive_clocks
 
 #**************************************************************
 # Set Clock Latency

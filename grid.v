@@ -223,6 +223,18 @@ frontier inst(
 //    .qsys_serial_device_1_sle  (pnl_sle),  //                     .sle
 //    .qsys_serial_device_1_srdy (pnl_srdy), //                     .srdy
 	
+//   .epl_bus_SCLK              (sclk),              //              epl_bus.SCLK
+//   .epl_bus_SDI               (sdi),               //                     .SDI
+//   .epl_bus_SDO               (sdo),               //                     .SDO
+//   .epl_bus_SLE               (sle),               //                     .SLE
+//   .epl_bus_INT               (),                  //    
+	
+	.epl_bus_SCLK              (pnl_clk),               //              epl_bus.SCLK
+   .epl_bus_SDI               (pnl_sdi),               //                     .SDI
+   .epl_bus_SDO               (pnl_sdo),               //                     .SDO
+   .epl_bus_SLE               (pnl_sle),               //                     .SLE
+   .epl_bus_INT               (),              //    
+	
 	.m0_EINT(M1_EINT));
 	
 	wire mse_sle, mse_srdy, mse_clk, mse_sdi, mse_sdo;
@@ -246,15 +258,14 @@ frontier inst(
 	assign MSE_SRDY[6] = 1'bz;
 	assign MSE_RESETN = M1_RSTN;
 	
-	assign PNL_SDI = pnl_sdo;
-	assign pnl_sdi= PNL_SDO;
+	assign PNL_SDI = pnl_sdi;
+	assign pnl_sdo = PNL_SDO;
 	assign PNL_SCLK = pnl_clk;
 	assign PNL_SLE = pnl_sle;
 	assign pnl_srdy = PNL_INT;
 //	assign PNL_RESETN = M1_RSTN;	
-	
-	
-	wire step_motor_driver_0_AX;
+		
+	wire step_motor_driver_0_AX;	
 	wire step_motor_driver_0_AY;
 	wire step_motor_driver_0_BX;
 	wire step_motor_driver_0_BY;
@@ -298,6 +309,51 @@ frontier inst(
 	assign PLCD_VDEN  = LCD_DEN;
 	assign PLCD_PCLK  = LCD_PCLK;
 	assign PLCD_DIR   = 3'b000;
+	
+	wire sclk;
+	wire sdi;
+	wire sdo;
+	wire sle;
+	wire [31:0] in;
+	wire [31:0] out;
+	
+	wire   BUT_UP;
+	wire   BUT_DN;
+	wire   BUT_LFT;
+	wire   BUT_RHT;
+	wire   BUT_ENT;
+	wire   BUT_ESC;
+	wire   [5:0] BUT_ST;
+	wire  BUT_REX1;
+	wire  BUT_REX2;
+	wire  BUT_DN_RIN1;
+	wire  BUT_DN_RIN2;
+	wire  BUT_DN_RINk;
+	
+//	assign out = {BUT_UP, BUT_DN, BUT_LFT, BUT_RHT, BUT_ENT, BUT_ESC, BUT_ST[5:0], BUT_REX1, BUT_REX2, BUT_DN_RIN1, BUT_DN_RIN2, BUT_DN_RINk};
+//	
+//	io_to_epl_bus oi(
+//	.EPL_SCLK(sclk),	
+//	.EPL_SDI(sdi),	
+//	.EPL_SDO(sdo),		
+//	.EPL_SLE(slk),		
+//	.EPL_INT(),
+//	.clk(M1_CLK),
+//	.reset(!M1_RSTN),
+//	.port_i(in),
+//	.port_o()
+//	);
+	
+	epl_bus_to_io io(	
+	.EPL_SCLK(sclk),	
+	.EPL_SDI(sdi),	
+	.EPL_SDO(sdo),		
+	.EPL_SLE(sle),		
+	.EPL_INT(),
+	.port_i(32'h4321),
+	.port_o(out));
+
+	
 	
 //	test_rom rom (
 //		.address(address),

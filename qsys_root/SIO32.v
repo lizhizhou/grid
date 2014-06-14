@@ -18,12 +18,12 @@ module SIO32(
 	output reg EPL_SLE,		
 	input  EPL_INT
 );	
-	reg [4:0] temp_clk;
+	reg [2:0] temp_clk;
 	always@(posedge csi_MCLK_clk)
 	begin
 		temp_clk <= temp_clk + 1;
 	end
-	assign EPL_SCLK = temp_clk[4];
+	assign EPL_SCLK = temp_clk[2];
 	//assign EPL_SCLK = csi_MCLK_clk;
 	
 	reg [31:0] port_i;

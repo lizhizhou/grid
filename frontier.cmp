@@ -70,7 +70,12 @@
 			qsys_serial_device_0_sdi  : in    std_logic                     := 'X';             -- sdi
 			qsys_serial_device_0_clk  : out   std_logic;                                        -- clk
 			qsys_serial_device_0_sle  : out   std_logic;                                        -- sle
-			qsys_serial_device_0_srdy : in    std_logic                     := 'X'              -- srdy
+			qsys_serial_device_0_srdy : in    std_logic                     := 'X';             -- srdy
+			epl_bus_SCLK              : out   std_logic;                                        -- SCLK
+			epl_bus_SDI               : out   std_logic;                                        -- SDI
+			epl_bus_SDO               : in    std_logic                     := 'X';             -- SDO
+			epl_bus_SLE               : out   std_logic;                                        -- SLE
+			epl_bus_INT               : in    std_logic                     := 'X'              -- INT
 		);
 	end component frontier;
 

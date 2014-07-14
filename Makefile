@@ -10,7 +10,7 @@ TOP_LEVEL_ENTITY = top_level
 ASSIGNMENT_FILES = $(PROJECT).qpf $(PROJECT).qsf
 
 ###################################################################
-# Part, Family, Boardfile DE1 or DE2
+# Part, Family, Boardfile grid
 FAMILY = "Cyclone IV"
 PART = EP4CE15F23C8
 BOARDFILE = grid.qsf
@@ -32,7 +32,7 @@ SRCS = grid.v \
 all: smart.log $(PROJECT).asm.rpt $(PROJECT).sta.rpt 
 
 clean:
-	rm -rf *.rpt *.chg smart.log *.htm *.eqn *.pin *.sof *.pof db incremental_db
+	rm -rf *.rpt *.chg smart.log *.htm *.eqn *.pin *.sof *.pof db incremental_db output
 
 map: smart.log $(PROJECT).map.rpt
 fit: smart.log $(PROJECT).fit.rpt

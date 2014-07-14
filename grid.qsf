@@ -698,3 +698,8 @@ set_global_assignment -name IP_TOOL_ENV qsys -entity frontier_rsp_xbar_demux -qi
 set_global_assignment -name IP_TOOL_NAME altera_merlin_multiplexer -entity frontier_rsp_xbar_mux -qip frontier/synthesis/frontier.qip -library frontier
 set_global_assignment -name IP_TOOL_VERSION 12.1 -entity frontier_rsp_xbar_mux -qip frontier/synthesis/frontier.qip -library frontier
 set_global_assignment -name IP_TOOL_ENV qsys -entity frontier_rsp_xbar_mux -qip frontier/synthesis/frontier.qip -library frontier
+set_global_assignment -name VERILOG_FILE frontier/synthesis/submodules/SIO32.v -qip frontier/synthesis/frontier.qip -library frontier
+set_global_assignment -name VERILOG_FILE frontier/synthesis/submodules/test_RegRW32.v -qip frontier/synthesis/frontier.qip -library frontier
+set_global_assignment -name VERILOG_FILE frontier/synthesis/submodules/qsys_serial_device.v -qip frontier/synthesis/frontier.qip -library frontier
+set_global_assignment -name VERILOG_FILE frontier/synthesis/submodules/sht1x_sensor.v -qip frontier/synthesis/frontier.qip -library frontier
+set_global_assignment -name SLD_INFO "QSYS_NAME frontier HAS_SOPCINFO 1 GENERATION_ID 1387371009" -entity frontier -qip frontier/synthesis/frontier.qip -library frontier

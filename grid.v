@@ -342,58 +342,58 @@ frontier	b2v_inst(
 	.m0_WRN(M1_WRN),
 
 
-	.slot_a_P0(IO_A0),
-	.slot_a_P1(IO_A1),
-	.slot_a_P2(IO_A2),
-	.slot_a_P3(IO_A3),
-	.slot_a_P4(IO_A4),
-	.slot_a_P5(IO_A5),
-	.slot_a_P6(IO_A6),
-	.slot_a_P7(IO_A7),
-	.slot_a_P8(IO_A8),
-	.slot_a_P9(IO_A9),
-	.slot_a_P10(IO_A10),
-	.slot_a_P11(IO_A11),
-	.slot_a_P12(IO_A12),
-	.slot_a_P13(IO_A13),
-	.slot_a_P14(IO_A14),
-	.slot_a_P15(IO_A15),
-	.slot_a_P16(IO_A16),
-	.slot_a_P17(IO_A17),
-	.slot_a_P18(IO_A18),
-	.slot_a_P19(IO_A19),
-	.slot_a_P20(IO_A20),
-	.slot_a_P21(IO_A21),
-	.slot_a_P22(IO_A22),
-	.slot_a_P23(IO_A23),
-	.slot_a_P24(IO_A24),
-	.slot_a_P25(IO_A25),
-	.slot_b_P0(IO_B0),
-	.slot_b_P1(IO_B1),
-	.slot_b_P2(IO_B2),
-	.slot_b_P3(IO_B3),
-	.slot_b_P4(IO_B4),
-	.slot_b_P5(IO_B5),
-	.slot_b_P6(IO_B6),
-	.slot_b_P7(IO_B7),
-   .slot_b_P8(IO_B8),
-	.slot_b_P9(IO_B9),
-	.slot_b_P10(IO_B10),
-	.slot_b_P11(IO_B11),
-	.slot_b_P12(IO_B12),
-	.slot_b_P13(IO_B13),
-	.slot_b_P14(IO_B14),
-	.slot_b_P15(IO_B15),
-	.slot_b_P16(IO_B16),
-	.slot_b_P17(IO_B17),
-	.slot_b_P18(IO_B18),
-	.slot_b_P19(IO_B19),
-	.slot_b_P20(IO_B20),
-	.slot_b_P21(IO_B21),
-	.slot_b_P22(IO_B22),
-	.slot_b_P23(IO_B23),
-	.slot_b_P24(IO_B24),
-	.slot_b_P25(IO_B25),
+//	.slot_a_P0(IO_A0),
+//	.slot_a_P1(IO_A1),
+//	.slot_a_P2(IO_A2),
+//	.slot_a_P3(IO_A3),
+//	.slot_a_P4(IO_A4),
+//	.slot_a_P5(IO_A5),
+//	.slot_a_P6(IO_A6),
+//	.slot_a_P7(IO_A7),
+//	.slot_a_P8(IO_A8),
+//	.slot_a_P9(IO_A9),
+//	.slot_a_P10(IO_A10),
+//	.slot_a_P11(IO_A11),
+//	.slot_a_P12(IO_A12),
+//	.slot_a_P13(IO_A13),
+//	.slot_a_P14(IO_A14),
+//	.slot_a_P15(IO_A15),
+//	.slot_a_P16(IO_A16),
+//	.slot_a_P17(IO_A17),
+//	.slot_a_P18(IO_A18),
+//	.slot_a_P19(IO_A19),
+//	.slot_a_P20(IO_A20),
+//	.slot_a_P21(IO_A21),
+//	.slot_a_P22(IO_A22),
+//	.slot_a_P23(IO_A23),
+//	.slot_a_P24(IO_A24),
+//	.slot_a_P25(IO_A25),
+//	.slot_b_P0(IO_B0),
+//	.slot_b_P1(IO_B1),
+//	.slot_b_P2(IO_B2),
+//	.slot_b_P3(IO_B3),
+//	.slot_b_P4(IO_B4),
+//	.slot_b_P5(IO_B5),
+//	.slot_b_P6(IO_B6),
+//	.slot_b_P7(IO_B7),
+//   .slot_b_P8(IO_B8),
+//	.slot_b_P9(IO_B9),
+//	.slot_b_P10(IO_B10),
+//	.slot_b_P11(IO_B11),
+//	.slot_b_P12(IO_B12),
+//	.slot_b_P13(IO_B13),
+//	.slot_b_P14(IO_B14),
+//	.slot_b_P15(IO_B15),
+//	.slot_b_P16(IO_B16),
+//	.slot_b_P17(IO_B17),
+//	.slot_b_P18(IO_B18),
+//	.slot_b_P19(IO_B19),
+//	.slot_b_P20(IO_B20),
+//	.slot_b_P21(IO_B21),
+//	.slot_b_P22(IO_B22),
+//	.slot_b_P23(IO_B23),
+//	.slot_b_P24(IO_B24),
+//	.slot_b_P25(IO_B25),
 	.m0_ADDR(M1_ADDR),
 	.m0_BEN(M1_BEN),
 	.m0_CSN(M1_CSN),
@@ -412,19 +412,120 @@ frontier	b2v_inst(
 	.led_f3_G(LED_F3G),
 	.led_f3_B(LED_F3B),
 
- 
-
+   .step_motor_driver_0_AX (AX_step_motor_0), // step_motor_driver_0.AX
+   .step_motor_driver_0_AY (AY_step_motor_0), //                    .AY
+   .step_motor_driver_0_BX (BX_step_motor_0), //                    .BX
+   .step_motor_driver_0_BY (BY_step_motor_0), //                    .BY
+   .step_motor_driver_0_AE (AE_step_motor_0), //                    .AE
+   .step_motor_driver_0_BE (BE_step_motor_0), //                    .BE
+   .step_motor_driver_1_AX (AX_step_motor_0), // step_motor_driver_1.AX
+   .step_motor_driver_1_AY (AY_step_motor_0), //                    .AY
+   .step_motor_driver_1_BX (BX_step_motor_0), //                    .BX
+   .step_motor_driver_1_BY (BY_step_motor_0), //                    .BY
+   .step_motor_driver_1_AE (AE_step_motor_0), //                    .AE
+   .step_motor_driver_1_BE (BE_step_motor_0), //                    .BE
+   .step_motor_driver_2_AX (), // step_motor_driver_2.AX
+   .step_motor_driver_2_AY (), //                    .AY
+   .step_motor_driver_2_BX (), //                    .BX
+   .step_motor_driver_2_BY (), //                    .BY
+   .step_motor_driver_2_AE (), //                    .AE
+   .step_motor_driver_2_BE (), //                    .BE
+   .step_motor_driver_3_AX (), // step_motor_driver_3.AX
+   .step_motor_driver_3_AY (), //                    .AY
+   .step_motor_driver_3_BX (), //                    .BX
+   .step_motor_driver_3_BY (), //                    .BY
+   .step_motor_driver_3_AE (), //                    .AE
+   .step_motor_driver_3_BE (), //                    .BE
+   .step_motor_driver_4_AX (), // step_motor_driver_4.AX
+   .step_motor_driver_4_AY (), //                    .AY
+   .step_motor_driver_4_BX (), //                    .BX
+   .step_motor_driver_4_BY (), //                    .BY
+   .step_motor_driver_4_AE (), //                    .AE
+   .step_motor_driver_4_BE (),  //                    .BE
+	
 	.m0_EINT(M1_EINT));
 
+matrix m(
+ .AX_step_motor_0(AX_step_motor_0),
+ .AY_step_motor_0(AY_step_motor_0),
+ .BX_step_motor_0(BX_step_motor_0),
+ .BY_step_motor_0(BY_step_motor_0),
+ .AE_step_motor_0(AE_step_motor_0),
+ .BE_step_motor_0(BE_step_motor_0),
 
+ .AX_step_motor_1(AX_step_motor_1),
+ .AY_step_motor_1(AY_step_motor_1),
+ .BX_step_motor_1(BX_step_motor_1),
+ .BY_step_motor_1(BY_step_motor_1),
+ .AE_step_motor_1(AE_step_motor_1),
+ .BE_step_motor_1(BE_step_motor_1),
+
+ .HX_brush_motor_0(),
+ .HY_brush_motor_0(),
+
+ .HX_brush_motor_1(),
+ .HY_brush_motor_1(),
+
+ .PIN_0_PIO26_A(IO_A0),
+ .PIN_1_PIO26_A(IO_A1),
+ .PIN_2_PIO26_A(IO_A2),
+ .PIN_3_PIO26_A(IO_A3),
+ .PIN_4_PIO26_A(IO_A4),
+ .PIN_5_PIO26_A(IO_A5),
+ .PIN_6_PIO26_A(IO_A6),
+ .PIN_7_PIO26_A(IO_A7),
+ .PIN_8_PIO26_A(IO_A8),
+ .PIN_9_PIO26_A(IO_A9),
+ .PIN_10_PIO26_A(IO_A10),
+ .PIN_11_PIO26_A(IO_A11),
+ .PIN_12_PIO26_A(IO_A12),
+ .PIN_13_PIO26_A(IO_A13),
+ .PIN_14_PIO26_A(IO_A14),
+ .PIN_15_PIO26_A(IO_A15),
+ .PIN_16_PIO26_A(IO_A16),
+ .PIN_17_PIO26_A(IO_A17),
+ .PIN_18_PIO26_A(IO_A18),
+ .PIN_19_PIO26_A(IO_A19),
+ .PIN_20_PIO26_A(IO_A20),
+ .PIN_21_PIO26_A(IO_A21),
+ .PIN_22_PIO26_A(IO_A22),
+ .PIN_23_PIO26_A(IO_A23),
+ .PIN_24_PIO26_A(IO_A24),
+ .PIN_25_PIO26_A(IO_A25),
+
+ .PIN_0_PIO26_B(IO_B0),
+ .PIN_1_PIO26_B(IO_B1),
+ .PIN_2_PIO26_B(IO_B2),
+ .PIN_3_PIO26_B(IO_B3),
+ .PIN_4_PIO26_B(IO_B4),
+ .PIN_5_PIO26_B(IO_B5),
+ .PIN_6_PIO26_B(IO_B6),
+ .PIN_7_PIO26_B(IO_B7),
+ .PIN_8_PIO26_B(IO_B8),
+ .PIN_9_PIO26_B(IO_B9),
+ .PIN_10_PIO26_B(IO_B10),
+ .PIN_11_PIO26_B(IO_B11),
+ .PIN_12_PIO26_B(IO_B12),
+ .PIN_13_PIO26_B(IO_B13),
+ .PIN_14_PIO26_B(IO_B14),
+ .PIN_15_PIO26_B(IO_B15),
+ .PIN_16_PIO26_B(IO_B16),
+ .PIN_17_PIO26_B(IO_B17),
+ .PIN_18_PIO26_B(IO_B18),
+ .PIN_19_PIO26_B(IO_B19),
+ .PIN_20_PIO26_B(IO_B20),
+ .PIN_21_PIO26_B(IO_B21),
+ .PIN_22_PIO26_B(IO_B22),
+ .PIN_23_PIO26_B(IO_B23),
+ .PIN_24_PIO26_B(IO_B24),
+ .PIN_25_PIO26_B(IO_B25),
+
+.clock(M1_CLK));
+	
+	
 assign	ISI_HSYNC = SYNTHESIZED_WIRE_8[0] ? SYNTHESIZED_WIRE_0 : 1'bz;
-
 assign	ISI_VSYNC = SYNTHESIZED_WIRE_8[0] ? SYNTHESIZED_WIRE_2 : 1'bz;
-
 assign	ISI_PCLK = SYNTHESIZED_WIRE_8[0] ? SYNTHESIZED_WIRE_4 : 1'bz;
-
-
-
 
 assign	ISI_DATA[11] = SYNTHESIZED_WIRE_8[0] ? SYNTHESIZED_WIRE_6[0] : 1'bz;
 assign	ISI_DATA[10] = SYNTHESIZED_WIRE_8[1] ? SYNTHESIZED_WIRE_6[1] : 1'bz;

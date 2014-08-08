@@ -43,7 +43,6 @@ set_global_assignment -name ORIGINAL_QUARTUS_VERSION "10.0 SP1"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "00:00:01  FEB 01, 2012"
 set_global_assignment -name LAST_QUARTUS_VERSION "12.1 SP1"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY .\\output
-set_global_assignment -name QIP_FILE frontier/synthesis/frontier.qip
 set_global_assignment -name BDF_FILE grid.bdf
 set_global_assignment -name SDC_FILE grid.sdc
 set_global_assignment -name CDF_FILE grid.cdf
@@ -618,7 +617,10 @@ set_global_assignment -name ENABLE_SIGNALTAP OFF
 set_global_assignment -name USE_SIGNALTAP_FILE stp_root/test_bus.stp
 set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
 set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name SOURCE_FILE grid.v
+set_global_assignment -name SLD_INFO "QSYS_NAME frontier HAS_SOPCINFO 1 GENERATION_ID 1405085428" -entity frontier -qip frontier/synthesis/frontier.qip -library frontier
+set_global_assignment -name SLD_INFO "QSYS_NAME frontier HAS_SOPCINFO 1 GENERATION_ID 1387371009" -entity frontier -qip frontier/synthesis/frontier.qip -library frontier
+set_global_assignment -name QIP_FILE frontier/synthesis/frontier.qip
 set_global_assignment -name SYNTHESIS_ONLY_QIP ON -qip frontier/synthesis/frontier.qip
 set_global_assignment -name SOPCINFO_FILE frontier/synthesis/../../frontier.sopcinfo -qip frontier/synthesis/frontier.qip -library frontier
 set_global_assignment -name MISC_FILE frontier/synthesis/../../frontier.cmp -qip frontier/synthesis/frontier.qip -library frontier
@@ -651,7 +653,6 @@ set_global_assignment -name VERILOG_FILE frontier/synthesis/submodules/basic_Shi
 set_global_assignment -name VERILOG_FILE frontier/synthesis/submodules/basic_FuncLED.v -qip frontier/synthesis/frontier.qip -library frontier
 set_global_assignment -name VERILOG_FILE frontier/synthesis/submodules/basic_SysID.v -qip frontier/synthesis/frontier.qip -library frontier
 set_global_assignment -name VERILOG_FILE frontier/synthesis/submodules/hps_tabby.v -qip frontier/synthesis/frontier.qip -library frontier
-set_global_assignment -name SOURCE_FILE grid.v
 set_global_assignment -name IP_TOOL_NAME altera_avalon_sc_fifo -entity altera_avalon_sc_fifo -qip frontier/synthesis/frontier.qip -library frontier
 set_global_assignment -name IP_TOOL_VERSION 12.1 -entity altera_avalon_sc_fifo -qip frontier/synthesis/frontier.qip -library frontier
 set_global_assignment -name IP_TOOL_ENV qsys -entity altera_avalon_sc_fifo -qip frontier/synthesis/frontier.qip -library frontier
@@ -679,7 +680,6 @@ set_global_assignment -name IP_TOOL_ENV qsys -entity altera_reset_controller -qi
 set_global_assignment -name IP_TOOL_NAME qsys -entity frontier -qip frontier/synthesis/frontier.qip -library frontier
 set_global_assignment -name IP_TOOL_VERSION 12.1sp1 -entity frontier -qip frontier/synthesis/frontier.qip -library frontier
 set_global_assignment -name IP_TOOL_ENV qsys -entity frontier -qip frontier/synthesis/frontier.qip -library frontier
-set_global_assignment -name SLD_INFO "QSYS_NAME frontier HAS_SOPCINFO 1 GENERATION_ID 1405085428" -entity frontier -qip frontier/synthesis/frontier.qip -library frontier
 set_global_assignment -name IP_TOOL_NAME altera_merlin_router -entity frontier_addr_router -qip frontier/synthesis/frontier.qip -library frontier
 set_global_assignment -name IP_TOOL_VERSION 12.1 -entity frontier_addr_router -qip frontier/synthesis/frontier.qip -library frontier
 set_global_assignment -name IP_TOOL_ENV qsys -entity frontier_addr_router -qip frontier/synthesis/frontier.qip -library frontier
@@ -698,8 +698,4 @@ set_global_assignment -name IP_TOOL_ENV qsys -entity frontier_rsp_xbar_demux -qi
 set_global_assignment -name IP_TOOL_NAME altera_merlin_multiplexer -entity frontier_rsp_xbar_mux -qip frontier/synthesis/frontier.qip -library frontier
 set_global_assignment -name IP_TOOL_VERSION 12.1 -entity frontier_rsp_xbar_mux -qip frontier/synthesis/frontier.qip -library frontier
 set_global_assignment -name IP_TOOL_ENV qsys -entity frontier_rsp_xbar_mux -qip frontier/synthesis/frontier.qip -library frontier
-set_global_assignment -name VERILOG_FILE frontier/synthesis/submodules/SIO32.v -qip frontier/synthesis/frontier.qip -library frontier
-set_global_assignment -name VERILOG_FILE frontier/synthesis/submodules/test_RegRW32.v -qip frontier/synthesis/frontier.qip -library frontier
-set_global_assignment -name VERILOG_FILE frontier/synthesis/submodules/qsys_serial_device.v -qip frontier/synthesis/frontier.qip -library frontier
-set_global_assignment -name VERILOG_FILE frontier/synthesis/submodules/sht1x_sensor.v -qip frontier/synthesis/frontier.qip -library frontier
-set_global_assignment -name SLD_INFO "QSYS_NAME frontier HAS_SOPCINFO 1 GENERATION_ID 1387371009" -entity frontier -qip frontier/synthesis/frontier.qip -library frontier
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

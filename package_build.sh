@@ -9,6 +9,6 @@ do
 	make
 	cp output/grid.rbf $tmppath/$name.rbf
 done
-cd $tmppath; tar -czf ../package/grid.tar.gz *.rbf
+cd $tmppath; tar -czf ../package/grid.tar.gz *.rbf; cd ..
 rm -rf $tmppath
 echo "tar.gz file is ready in the package path"

@@ -112,7 +112,9 @@
 			step_motor_driver_4_BX : out   std_logic;                                        -- BX
 			step_motor_driver_4_BY : out   std_logic;                                        -- BY
 			step_motor_driver_4_AE : out   std_logic;                                        -- AE
-			step_motor_driver_4_BE : out   std_logic                                         -- BE
+			step_motor_driver_4_BE : out   std_logic;                                        -- BE
+			m1_CLK                 : in    std_logic                     := 'X';             -- CLK
+			m1_RSTN                : in    std_logic                     := 'X'              -- RSTN
 		);
 	end component frontier;
 

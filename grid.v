@@ -340,7 +340,17 @@ frontier	b2v_inst(
 	.m0_CLK(M1_CLK),
 	.m0_RDN(M1_RDN),
 	.m0_WRN(M1_WRN),
-
+         
+	.slot_a_P0(M1_EINT[0]),
+	.slot_a_P1(M1_EINT[1]),
+	.slot_a_P2(M1_EINT[2]),
+	.slot_a_P3(M1_EINT[3]),
+	.slot_a_P4(M1_EINT[4]),
+	.slot_a_P5(M1_EINT[5]),
+	.slot_a_P6(M1_EINT[6]),
+	.slot_a_P7(M1_EINT[7]),
+	.slot_a_P8(M1_EINT[8]),
+	.slot_a_P9(M1_EINT[9]),
 
 //	.slot_a_P0(IO_A0),
 //	.slot_a_P1(IO_A1),
@@ -418,12 +428,12 @@ frontier	b2v_inst(
    .step_motor_driver_0_BY (BY_step_motor_0), //                    .BY
    .step_motor_driver_0_AE (AE_step_motor_0), //                    .AE
    .step_motor_driver_0_BE (BE_step_motor_0), //                    .BE
-   .step_motor_driver_1_AX (AX_step_motor_0), // step_motor_driver_1.AX
-   .step_motor_driver_1_AY (AY_step_motor_0), //                    .AY
-   .step_motor_driver_1_BX (BX_step_motor_0), //                    .BX
-   .step_motor_driver_1_BY (BY_step_motor_0), //                    .BY
-   .step_motor_driver_1_AE (AE_step_motor_0), //                    .AE
-   .step_motor_driver_1_BE (BE_step_motor_0), //                    .BE
+   .step_motor_driver_1_AX (AX_step_motor_1), // step_motor_driver_1.AX
+   .step_motor_driver_1_AY (AY_step_motor_1), //                    .AY
+   .step_motor_driver_1_BX (BX_step_motor_1), //                    .BX
+   .step_motor_driver_1_BY (BY_step_motor_1), //                    .BY
+   .step_motor_driver_1_AE (AE_step_motor_1), //                    .AE
+   .step_motor_driver_1_BE (BE_step_motor_1), //                    .BE
    .step_motor_driver_2_AX (), // step_motor_driver_2.AX
    .step_motor_driver_2_AY (), //                    .AY
    .step_motor_driver_2_BX (), //                    .BX
@@ -443,7 +453,11 @@ frontier	b2v_inst(
    .step_motor_driver_4_AE (), //                    .AE
    .step_motor_driver_4_BE (),  //                    .BE
 	
-	.m0_EINT(M1_EINT));
+	//.m0_EINT(M1_EINT)
+	
+	.m1_CLK(M1_CLK),
+   .m1_RSTN(M1_RSTN),   
+	);
 
 matrix m(
  .AX_step_motor_0(AX_step_motor_0),

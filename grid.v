@@ -453,6 +453,11 @@ frontier	b2v_inst(
    .step_motor_driver_4_AE (), //                    .AE
    .step_motor_driver_4_BE (),  //                    .BE
 	
+	.ad7490_adc_0_DOUT      (),      //        ad7490_adc_0.DOUT
+   .ad7490_adc_0_SCLK      (),      //                    .SCLK
+   .ad7490_adc_0_CSN       (),       //                    .CSN
+   .ad7490_adc_0_DIN       (),       //                    .DIN
+	
 	//.m0_EINT(M1_EINT)
 	
 	.m1_CLK(M1_CLK),

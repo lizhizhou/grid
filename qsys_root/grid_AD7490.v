@@ -1,4 +1,5 @@
 module grid_AD7490(
+// Qsys interface
 input					rsi_MRST_reset,
 input					csi_MCLK_clk,
 
@@ -12,11 +13,13 @@ output				avs_ctrl_waitrequest,
 
 input					csi_ADCCLK_clk,
 
-output	[3:0]		aso_adc_channel,
-output	[15:0]	aso_adc_data,
-output				aso_adc_valid,
-input					aso_adc_ready,
+// debug interface
+//output	[3:0]		aso_adc_channel,
+//output	[15:0]	aso_adc_data,
+//output				aso_adc_valid,
+//input				aso_adc_ready,
 
+//ADC interface
 output				coe_DIN,
 input					coe_DOUT,
 output				coe_SCLK,
@@ -26,9 +29,9 @@ output				coe_CSN
 assign	avs_ctrl_readdata = read_data;
 assign	avs_ctrl_waitrequest = 1'b0;
 
-assign	aso_adc_channel = adc_aso_ch;
-assign	aso_adc_data = {adc_aso_data, 4'b0};
-assign	aso_adc_valid = adc_aso_valid;
+//assign	aso_adc_channel = adc_aso_ch;
+//assign	aso_adc_data = {adc_aso_data, 4'b0};
+//assign	aso_adc_valid = adc_aso_valid;
 
 assign	coe_DIN = spi_din;
 assign	spi_dout = coe_DOUT;
@@ -48,7 +51,7 @@ reg					adc_coding = 1;
 reg					adc_reset = 1;
 reg		[7:0]		cnv_delay = 255;
 
-reg		[11:0]	adc_ch[0:15] = 0;
+reg		[11:0]	adc_ch[0:15];
 
 reg		[3:0]		adc_addr = 0;
 reg		[3:0]		adc_aso_ch = 0;

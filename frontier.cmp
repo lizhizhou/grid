@@ -114,7 +114,11 @@
 			step_motor_driver_4_AE : out   std_logic;                                        -- AE
 			step_motor_driver_4_BE : out   std_logic;                                        -- BE
 			m1_CLK                 : in    std_logic                     := 'X';             -- CLK
-			m1_RSTN                : in    std_logic                     := 'X'              -- RSTN
+			m1_RSTN                : in    std_logic                     := 'X';             -- RSTN
+			ad7490_0_DOUT          : in    std_logic                     := 'X';             -- DOUT
+			ad7490_0_SCLK          : out   std_logic;                                        -- SCLK
+			ad7490_0_CSN           : out   std_logic;                                        -- CSN
+			ad7490_0_DIN           : out   std_logic                                         -- DIN
 		);
 	end component frontier;
 

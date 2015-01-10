@@ -6,7 +6,7 @@ do
 	name=`echo "$shname" | awk -F. '{print $1}'`      
 	cp package/$shname matrix.v     
 	echo "synthsis for file $shname"
-	make
+	make synthsis
 	cp output/grid.rbf $tmppath/$name.rbf
 done
 cd $tmppath; tar -czf ../package/grid.tar.gz *.rbf; cd ..

@@ -453,10 +453,10 @@ frontier	b2v_inst(
    .step_motor_driver_4_AE (), //                    .AE
    .step_motor_driver_4_BE (),  //                    .BE
 	
-	.ad7490_adc_0_DOUT      (),      //        ad7490_adc_0.DOUT
-   .ad7490_adc_0_SCLK      (),      //                    .SCLK
-   .ad7490_adc_0_CSN       (),       //                    .CSN
-   .ad7490_adc_0_DIN       (),       //                    .DIN
+	.ad7490_0_DOUT      (IO_B22),      //        ad7490_adc_0.DOUT
+   .ad7490_0_SCLK      (IO_B23),      //                    .SCLK
+   .ad7490_0_DIN       (IO_B24),       //                    .DIN
+   .ad7490_0_CSN       (IO_B25),       //                    .CSN
 	
 	//.m0_EINT(M1_EINT)
 	
@@ -534,10 +534,10 @@ matrix m(
  .PIN_19_PIO26_B(IO_B19),
  .PIN_20_PIO26_B(IO_B20),
  .PIN_21_PIO26_B(IO_B21),
- .PIN_22_PIO26_B(IO_B22),
- .PIN_23_PIO26_B(IO_B23),
- .PIN_24_PIO26_B(IO_B24),
- .PIN_25_PIO26_B(IO_B25),
+// .PIN_22_PIO26_B(IO_B22),
+// .PIN_23_PIO26_B(IO_B23),
+// .PIN_24_PIO26_B(IO_B24),
+// .PIN_25_PIO26_B(IO_B25),
 
 .clock(M1_CLK));
 	

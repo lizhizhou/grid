@@ -458,6 +458,11 @@ frontier	b2v_inst(
    .ad7490_0_DIN       (IO_B24),       //                    .DIN
    .ad7490_0_CSN       (IO_B25),       //                    .CSN
 	
+	.ad7490_1_DOUT      (IO_A22),      //        ad7490_adc_1.DOUT
+   .ad7490_1_SCLK      (IO_A23),      //                    .SCLK
+   .ad7490_1_DIN       (IO_A24),       //                    .DIN
+   .ad7490_1_CSN       (IO_A25),       //                    .CSN
+	
 	//.m0_EINT(M1_EINT)
 	
 	.m1_CLK(M1_CLK),
@@ -485,6 +490,16 @@ matrix m(
  .HX_brush_motor_1(),
  .HY_brush_motor_1(),
 
+ .ad7490_DIN_0(),
+ .ad7490_DOUT_0(),
+ .ad7490_SCLK_0(),
+ .ad7490_CSN_0(),
+
+ .ad7490_DIN_1(),
+ .ad7490_DOUT_1(),
+ .ad7490_SCLK_1(),
+ .ad7490_CSN_1(),
+ 
  .PIN_0_PIO26_A(IO_A0),
  .PIN_1_PIO26_A(IO_A1),
  .PIN_2_PIO26_A(IO_A2),
@@ -507,10 +522,10 @@ matrix m(
  .PIN_19_PIO26_A(IO_A19),
  .PIN_20_PIO26_A(IO_A20),
  .PIN_21_PIO26_A(IO_A21),
- .PIN_22_PIO26_A(IO_A22),
- .PIN_23_PIO26_A(IO_A23),
- .PIN_24_PIO26_A(IO_A24),
- .PIN_25_PIO26_A(IO_A25),
+// .PIN_22_PIO26_A(IO_A22),
+// .PIN_23_PIO26_A(IO_A23),
+// .PIN_24_PIO26_A(IO_A24),
+// .PIN_25_PIO26_A(IO_A25),
 
  .PIN_0_PIO26_B(IO_B0),
  .PIN_1_PIO26_B(IO_B1),

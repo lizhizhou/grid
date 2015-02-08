@@ -43,6 +43,20 @@ output sck_sht1x_sensor_0,
 input dir_sht1x_sensor_0,
 inout sda_sht1x_sensor_0,
 
+output sck_sht1x_sensor_1,
+input dir_sht1x_sensor_1,
+inout sda_sht1x_sensor_1,
+
+output				ad7490_DIN_0,
+input					ad7490_DOUT_0,
+output				ad7490_SCLK_0,
+output				ad7490_CSN_0,
+
+output				ad7490_DIN_1,
+input					ad7490_DOUT_1,
+output				ad7490_SCLK_1,
+output				ad7490_CSN_1,
+
 inout PIN_0_PIOIN26_A,
 inout PIN_1_PIOIN26_A,
 inout PIN_2_PIOIN26_A,
